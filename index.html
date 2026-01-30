@@ -1,41 +1,1905 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ultimate Human Optimization Protocol v3</title>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<title>Rauli's Ultimate Human Optimization Protocol v3.0</title>
+<meta name="description" content="God-tier protocol for longevity, performance, and recovery. 40+ compounds across 14 categories.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #0d1117; color: #c9d1d9; line-height: 1.7; }
-  h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 10px; }
-  h2 { color: #79c0ff; margin-top: 2em; border-bottom: 1px solid #21262d; padding-bottom: 8px; }
-  h3 { color: #d2a8ff; }
-  h4 { color: #7ee787; }
-  a { color: #58a6ff; }
-  code { background: #161b22; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
-  pre { background: #161b22; padding: 16px; border-radius: 8px; overflow-x: auto; }
-  table { border-collapse: collapse; width: 100%; margin: 1em 0; }
-  th, td { border: 1px solid #30363d; padding: 8px 12px; text-align: left; }
-  th { background: #161b22; color: #58a6ff; }
-  tr:nth-child(even) { background: #0d1117; }
-  tr:nth-child(odd) { background: #161b22; }
-  blockquote { border-left: 4px solid #58a6ff; margin: 1em 0; padding: 0.5em 1em; background: #161b22; border-radius: 0 8px 8px 0; }
-  strong { color: #e6edf3; }
-  hr { border: none; border-top: 1px solid #30363d; margin: 2em 0; }
-  ul, ol { padding-left: 1.5em; }
-  li { margin: 0.3em 0; }
-  ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: #0d1117; }
-  ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
+/* ═══════════════════════════════════════════════════════════
+   CSS RESET & VARIABLES
+   ═══════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Dark theme (default) */
+  --bg: #0a0e17;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2332;
+  --bg-nav: rgba(10, 14, 23, 0.92);
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --text-bright: #f8fafc;
+  --accent: #00d4ff;
+  --accent2: #06b6d4;
+  --accent-glow: rgba(0, 212, 255, 0.15);
+  --accent-glow2: rgba(0, 212, 255, 0.08);
+  --border: #1e293b;
+  --border-accent: rgba(0, 212, 255, 0.2);
+  --s-tier: #fbbf24;
+  --a-tier: #34d399;
+  --b-tier: #60a5fa;
+  --excluded: #f87171;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --success: #10b981;
+  --gradient1: linear-gradient(135deg, #0a0e17 0%, #111827 50%, #0f172a 100%);
+  --card-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 0 0 1px var(--border);
+  --card-glow: 0 4px 24px rgba(0,212,255,0.06), 0 0 0 1px var(--border-accent);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 0.2s ease;
+}
+
+[data-theme="light"] {
+  --bg: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-nav: rgba(248, 250, 252, 0.92);
+  --text: #1e293b;
+  --text-dim: #64748b;
+  --text-bright: #0f172a;
+  --accent: #0891b2;
+  --accent2: #0e7490;
+  --accent-glow: rgba(8, 145, 178, 0.1);
+  --accent-glow2: rgba(8, 145, 178, 0.05);
+  --border: #e2e8f0;
+  --border-accent: rgba(8, 145, 178, 0.25);
+  --gradient1: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+  --card-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 0 0 1px var(--border);
+  --card-glow: 0 4px 24px rgba(8,145,178,0.08), 0 0 0 1px var(--border-accent);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════ */
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 15px;
+  transition: background var(--transition), color var(--transition);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; transition: opacity var(--transition); }
+a:hover { opacity: 0.8; }
+img { max-width: 100%; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ═══════════════════════════════════════════════════════════
+   NAVBAR
+   ═══════════════════════════════════════════════════════════ */
+.navbar {
+  position: sticky; top: 0; z-index: 1000;
+  background: var(--bg-nav);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  transition: background var(--transition);
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-brand {
+  font-weight: 800; font-size: 18px;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+.nav-links { display: flex; gap: 4px; align-items: center; flex-wrap: nowrap; overflow-x: auto; }
+.nav-links a {
+  color: var(--text-dim); font-size: 13px; font-weight: 500;
+  padding: 6px 10px; border-radius: 6px;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--accent); background: var(--accent-glow); opacity:1; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.theme-toggle {
+  background: var(--bg-card); border: 1px solid var(--border);
+  color: var(--text); border-radius: 8px; cursor: pointer;
+  width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+  font-size: 18px; transition: all var(--transition);
+}
+.theme-toggle:hover { border-color: var(--accent); background: var(--accent-glow); }
+.hamburger {
+  display: none; background: none; border: none; color: var(--text);
+  font-size: 24px; cursor: pointer; padding: 8px;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none; position: fixed; top: 64px; left: 0; right: 0;
+    background: var(--bg-nav); backdrop-filter: blur(20px);
+    flex-direction: column; padding: 16px; gap: 2px;
+    border-bottom: 1px solid var(--border);
+    max-height: calc(100vh - 64px); overflow-y: auto;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 12px 16px; font-size: 15px; }
+  .hamburger { display: block; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════════ */
+.hero {
+  padding: 100px 0 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(ellipse at 50% 0%, var(--accent-glow) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-block; padding: 6px 16px;
+  background: var(--accent-glow); border: 1px solid var(--border-accent);
+  border-radius: 100px; font-size: 12px; font-weight: 600;
+  color: var(--accent); text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 900; letter-spacing: -1.5px;
+  color: var(--text-bright);
+  line-height: 1.1; margin-bottom: 16px;
+  position: relative;
+}
+.hero h1 span { color: var(--accent); }
+.hero .tagline {
+  font-size: clamp(16px, 2.5vw, 22px);
+  color: var(--text-dim); font-weight: 400;
+  margin-bottom: 8px;
+}
+.hero .meta {
+  font-size: 13px; color: var(--text-dim);
+  margin-bottom: 32px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DISCLAIMER BANNER
+   ═══════════════════════════════════════════════════════════ */
+.disclaimer-banner {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 0 auto 48px;
+  max-width: 800px;
+  text-align: left;
+}
+.disclaimer-banner .db-title {
+  color: var(--danger); font-weight: 700; font-size: 14px;
+  margin-bottom: 6px;
+}
+.disclaimer-banner p {
+  font-size: 13px; color: var(--text-dim); line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SEARCH BAR
+   ═══════════════════════════════════════════════════════════ */
+.search-bar {
+  max-width: 500px; margin: 0 auto 48px; position: relative;
+}
+.search-bar input {
+  width: 100%; padding: 14px 20px 14px 48px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); color: var(--text);
+  font-family: var(--font); font-size: 15px;
+  transition: all var(--transition); outline: none;
+}
+.search-bar input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+.search-bar input::placeholder { color: var(--text-dim); }
+.search-bar .search-icon {
+  position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+  color: var(--text-dim); font-size: 18px; pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTIONS
+   ═══════════════════════════════════════════════════════════ */
+.section {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.section-header {
+  margin-bottom: 32px;
+}
+.section-header h2 {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 800; letter-spacing: -0.5px;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+.section-header .section-desc {
+  color: var(--text-dim); font-size: 15px; max-width: 600px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPOUND CARDS
+   ═══════════════════════════════════════════════════════════ */
+.compound-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  transition: all var(--transition);
+  overflow: hidden;
+}
+.compound-card:hover { box-shadow: var(--card-glow); }
+.compound-card summary {
+  display: flex; align-items: center; gap: 12px;
+  padding: 18px 20px;
+  cursor: pointer; list-style: none;
+  font-weight: 600; font-size: 16px;
+  color: var(--text-bright);
+  transition: background var(--transition);
+}
+.compound-card summary::-webkit-details-marker { display: none; }
+.compound-card summary::before {
+  content: '▸'; font-size: 14px; color: var(--accent);
+  transition: transform 0.2s; flex-shrink: 0;
+}
+.compound-card[open] summary::before { transform: rotate(90deg); }
+.compound-card summary:hover { background: var(--bg-card-hover); }
+.compound-card summary .tier {
+  margin-left: auto; font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 100px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+.tier-s { background: rgba(251,191,36,0.15); color: var(--s-tier); }
+.tier-a { background: rgba(52,211,153,0.15); color: var(--a-tier); }
+.tier-b { background: rgba(96,165,250,0.15); color: var(--b-tier); }
+.tier-ex { background: rgba(248,113,113,0.12); color: var(--excluded); }
+.compound-body { padding: 0 20px 20px; }
+.compound-body .cb-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px; margin-bottom: 16px;
+}
+.cb-item {
+  background: var(--bg); border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+.cb-item .cb-label {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.5px; color: var(--accent); margin-bottom: 4px;
+}
+.cb-item .cb-value { font-size: 14px; color: var(--text); line-height: 1.5; }
+.compound-body p { font-size: 14px; color: var(--text-dim); margin-bottom: 10px; line-height: 1.7; }
+.compound-body p strong { color: var(--text); }
+.compound-body ul { margin: 8px 0 12px 20px; }
+.compound-body li { font-size: 14px; color: var(--text-dim); margin-bottom: 4px; }
+
+/* ═══════════════════════════════════════════════════════════
+   DATA TABLES
+   ═══════════════════════════════════════════════════════════ */
+.table-wrap { overflow-x: auto; margin: 16px 0; border-radius: var(--radius); }
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px;
+}
+th {
+  background: var(--accent-glow);
+  color: var(--accent); font-weight: 600;
+  text-align: left; padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--accent-glow2); }
+
+/* ═══════════════════════════════════════════════════════════
+   TIMELINE
+   ═══════════════════════════════════════════════════════════ */
+.timeline {
+  position: relative; padding-left: 36px;
+}
+.timeline::before {
+  content: ''; position: absolute; left: 12px; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(to bottom, var(--accent), var(--border));
+}
+.timeline-block { position: relative; margin-bottom: 28px; }
+.timeline-block::before {
+  content: ''; position: absolute; left: -30px; top: 6px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+.timeline-time {
+  font-size: 13px; font-weight: 700; color: var(--accent);
+  margin-bottom: 6px; text-transform: uppercase;
+}
+.timeline-title {
+  font-size: 16px; font-weight: 700; color: var(--text-bright);
+  margin-bottom: 6px;
+}
+.timeline-items {
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.timeline-pill {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 100px; padding: 4px 12px;
+  font-size: 12px; color: var(--text-dim);
+  transition: all var(--transition);
+}
+.timeline-pill:hover { border-color: var(--accent); color: var(--accent); }
+.timeline-pill .dose { color: var(--accent); font-weight: 600; }
+
+/* ═══════════════════════════════════════════════════════════
+   SYNERGY MAP
+   ═══════════════════════════════════════════════════════════ */
+.synergy-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 12px;
+}
+.synergy-item {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 14px 16px;
+  transition: all var(--transition);
+}
+.synergy-item:hover { box-shadow: var(--card-glow); }
+.synergy-item.positive { border-left: 3px solid var(--success); }
+.synergy-item.negative { border-left: 3px solid var(--danger); }
+.synergy-item.timing { border-left: 3px solid var(--warning); }
+.synergy-pair {
+  font-weight: 700; font-size: 14px; color: var(--text-bright);
+  margin-bottom: 4px;
+}
+.synergy-effect { font-size: 13px; color: var(--text-dim); }
+
+/* ═══════════════════════════════════════════════════════════
+   VENDOR CARDS
+   ═══════════════════════════════════════════════════════════ */
+.vendor-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.vendor-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px;
+  transition: all var(--transition);
+}
+.vendor-card:hover { box-shadow: var(--card-glow); }
+.vendor-card .vc-name {
+  font-weight: 700; font-size: 16px; color: var(--text-bright);
+  margin-bottom: 4px;
+}
+.vendor-card .vc-tier { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+.vendor-card .vc-desc { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+.vendor-card .vc-best { font-size: 12px; color: var(--accent); margin-top: 8px; font-weight: 500; }
+
+/* ═══════════════════════════════════════════════════════════
+   VARIANT CARDS
+   ═══════════════════════════════════════════════════════════ */
+.variant-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+.variant-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px;
+  transition: all var(--transition);
+}
+.variant-card:hover { box-shadow: var(--card-glow); }
+.variant-card h3 {
+  font-size: 18px; font-weight: 700; color: var(--text-bright);
+  margin-bottom: 12px;
+}
+.variant-card ul { margin: 0 0 0 16px; }
+.variant-card li { font-size: 13px; color: var(--text-dim); margin-bottom: 6px; line-height: 1.5; }
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════ */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 0;
+  text-align: center;
+}
+.footer p { font-size: 13px; color: var(--text-dim); margin-bottom: 6px; }
+.footer a { color: var(--accent); }
+
+/* ═══════════════════════════════════════════════════════════
+   HIERARCHY OF IMPORTANCE
+   ═══════════════════════════════════════════════════════════ */
+.priority-list { counter-reset: priority; list-style: none; margin: 0; padding: 0; }
+.priority-list li {
+  counter-increment: priority;
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.priority-list li::before {
+  content: counter(priority);
+  display: flex; align-items: center; justify-content: center;
+  min-width: 36px; height: 36px;
+  background: var(--accent-glow); border: 1px solid var(--border-accent);
+  border-radius: 50%; font-weight: 800; font-size: 14px;
+  color: var(--accent);
+}
+.priority-list li strong { color: var(--text-bright); }
+.priority-list li span { font-size: 14px; color: var(--text-dim); }
+
+/* ═══════════════════════════════════════════════════════════
+   RECONSTITUTION SECTION
+   ═══════════════════════════════════════════════════════════ */
+.recon-steps {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px; margin-top: 16px;
+}
+.recon-step {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 14px;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.recon-step .step-num {
+  background: var(--accent); color: #0a0e17; font-weight: 800;
+  font-size: 12px; min-width: 24px; height: 24px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.recon-step .step-text { font-size: 13px; color: var(--text-dim); }
+
+/* ═══════════════════════════════════════════════════════════
+   UTILITY
+   ═══════════════════════════════════════════════════════════ */
+.ext-link::after { content: ' 🔗'; font-size: 11px; }
+.hidden { display: none !important; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.tag {
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 11px; font-weight: 600;
+}
+.tag-warn { background: rgba(245,158,11,0.12); color: var(--warning); }
+.tag-info { background: var(--accent-glow); color: var(--accent); }
+.tag-danger { background: rgba(239,68,68,0.12); color: var(--danger); }
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+
+/* Print styles */
+@media print { .navbar, .theme-toggle, .hamburger, .search-bar { display: none !important; } }
 </style>
 </head>
 <body>
-<div id="content">Loading...</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">🧬 Protocol v3</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#hero">Home</a>
+      <a href="#daily-stack">Daily Stack</a>
+      <a href="#hormones">Hormones</a>
+      <a href="#peptides-gh">GH Peptides</a>
+      <a href="#peptides-recovery">Recovery</a>
+      <a href="#peptides-cognitive">Cognitive</a>
+      <a href="#peptides-metabolic">Metabolic</a>
+      <a href="#peptides-longevity">Longevity</a>
+      <a href="#peptides-sexual">Sexual</a>
+      <a href="#nootropics">Nootropics</a>
+      <a href="#sarms">SARMs</a>
+      <a href="#sleep">Sleep</a>
+      <a href="#supplements">Supplements</a>
+      <a href="#organ-support">Organs</a>
+      <a href="#immune-longevity">Longevity Rx</a>
+      <a href="#performance">Performance</a>
+      <a href="#synergy-map">Synergies</a>
+      <a href="#bloodwork">Bloodwork</a>
+      <a href="#sourcing">Sourcing</a>
+      <a href="#variants">Variants</a>
+      <a href="#disclaimer">Disclaimer</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════════ -->
+<header class="hero" id="hero">
+  <div class="container">
+    <div class="hero-badge">v3.0 — The GOAT Stack</div>
+    <h1>Rauli's Ultimate<br><span>Human Optimization</span><br>Protocol</h1>
+    <p class="tagline">God-tier protocol for longevity, performance &amp; recovery</p>
+    <p class="meta">Last updated: January 30, 2026 · ~80kg male · On TRT · 40+ compounds · 14 categories</p>
+
+    <div class="disclaimer-banner">
+      <div class="db-title">⚠️ CRITICAL DISCLAIMER</div>
+      <p>This document is for <strong>informational and educational purposes only</strong>. Many compounds listed are experimental, prescription-only, or not FDA-approved. <strong>Medical supervision is mandatory. Bloodwork is non-negotiable.</strong> The author is an AI research agent — nothing here constitutes medical advice. <a href="#disclaimer">Read full disclaimer →</a></p>
+    </div>
+
+    <div class="search-bar">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="searchInput" placeholder="Search compounds, peptides, supplements...">
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ═══════════════════════════════════════════════════════════
+     DAILY STACK TIMELINE
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="daily-stack">
+  <div class="section-header">
+    <h2>📅 Daily Protocol Timeline</h2>
+    <p class="section-desc">Full daily schedule for a training day. Adjust timing to your schedule.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-block">
+      <div class="timeline-time">6:00 AM — Wake</div>
+      <div class="timeline-title">Morning Fasted Stack</div>
+      <div class="timeline-items">
+        <span class="timeline-pill">Bromantane <span class="dose">100mg</span> oral+fat</span>
+        <span class="timeline-pill">NMN <span class="dose">500mg</span> oral</span>
+        <span class="timeline-pill">Resveratrol <span class="dose">500mg</span> oral+fat</span>
+        <span class="timeline-pill">MOTS-c <span class="dose">10mg</span> SubQ</span>
+        <span class="timeline-pill">NA-Semax Amidate <span class="dose">300mcg</span> intranasal</span>
+        <span class="timeline-pill">Selank <span class="dose">250mcg</span> intranasal</span>
+      </div>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-time">7:00 AM — Breakfast</div>
+      <div class="timeline-title">Foundational Supplements</div>
+      <div class="timeline-items">
+        <span class="timeline-pill">IM8 Multi <span class="dose">per label</span></span>
+        <span class="timeline-pill">Vitamin D3 <span class="dose">20,000 IU</span></span>
+        <span class="timeline-pill">K2 MK-7 <span class="dose">200mcg</span></span>
+        <span class="timeline-pill">Omega-3 <span class="dose">2g</span></span>
+        <span class="timeline-pill">CoQ10 <span class="dose">200mg</span></span>
+        <span class="timeline-pill">PQQ <span class="dose">20mg</span></span>
+        <span class="timeline-pill">TUDCA <span class="dose">250mg</span></span>
+        <span class="timeline-pill">Quercetin <span class="dose">500mg</span></span>
+        <span class="timeline-pill">DHEA <span class="dose">25-50mg</span></span>
+        <span class="timeline-pill">Pregnenolone <span class="dose">50mg</span></span>
+      </div>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-time">12:00 PM — Midday</div>
+      <div class="timeline-title">Cognitive Boost</div>
+      <div class="timeline-items">
+        <span class="timeline-pill">Noopept <span class="dose">10-20mg</span> sublingual</span>
+        <span class="timeline-pill">Alpha-GPC <span class="dose">300mg</span></span>
+      </div>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-time">3:00 PM — Pre-Workout</div>
+      <div class="timeline-title">Performance Stack (60 min before)</div>
+      <div class="timeline-items">
+        <span class="timeline-pill">L-Citrulline Malate <span class="dose">8g</span></span>
+        <span class="timeline-pill">Beta-Alanine <span class="dose">3.2g</span></span>
+        <span class="timeline-pill">Caffeine <span class="dose">100-200mg</span></span>
+        <span class="timeline-pill">Alpha-GPC <span class="dose">300mg</span></span>
+        <span class="timeline-pill">Creatine <span class="dose">5g</span></span>
+      </div>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-time">4:00–5:30 PM</div>
+      <div class="timeline-title">🏋️ Training</div>
+      <div class="timeline-items">
+        <span class="timeline-pill" style="border-color:var(--accent);color:var(--accent)">Lift heavy. Recover harder.</span>
+      </div>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-time">6:00 PM — Post-Workout</div>
+      <div class="timeline-title">Recovery Window</div>
+      <div class="timeline-items">
+        <span class="timeline-pill">Protein + Carbs <span class="dose">per macros</span></span>
+      </div>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-time">8:00 PM — Evening</div>
+      <div class="timeline-title">Evening Supplements</div>
+      <div class="timeline-items">
+        <span class="timeline-pill">NAC <span class="dose">600mg</span></span>
+        <span class="timeline-pill">Zinc <span class="dose">15-30mg</span></span>
+        <span class="timeline-pill">Boron <span class="dose">9mg</span></span>
+      </div>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-time">9:00 PM — Bedtime</div>
+      <div class="timeline-title">Sleep &amp; Recovery Stack</div>
+      <div class="timeline-items">
+        <span class="timeline-pill">Glycine <span class="dose">10g</span></span>
+        <span class="timeline-pill">Mag Glycinate <span class="dose">600mg</span></span>
+        <span class="timeline-pill">Taurine <span class="dose">3g</span></span>
+        <span class="timeline-pill">L-Theanine <span class="dose">400mg</span></span>
+        <span class="timeline-pill">Apigenin <span class="dose">50mg</span></span>
+        <span class="timeline-pill">MK-677 <span class="dose">10-25mg</span></span>
+        <span class="timeline-pill">DSIP <span class="dose">100-300mcg</span> SubQ</span>
+        <span class="timeline-pill">Epitalon* <span class="dose">10mg</span> SubQ (cycle only)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Weekly Schedule -->
+  <h3 class="mt-24 mb-16" style="color:var(--text-bright);font-size:20px;font-weight:700">Weekly Injection Schedule</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>Injections</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Monday</strong></td><td>TRT (Test Cyp/Enth), HCG 250 IU</td><td>Training day</td></tr>
+        <tr><td><strong>Tuesday</strong></td><td>GLOW blend (BPC+TB500+GHK-Cu)</td><td>Training day</td></tr>
+        <tr><td><strong>Wednesday</strong></td><td>TRT, HCG 250 IU, Thymosin α-1 1.5mg</td><td>Training day</td></tr>
+        <tr><td><strong>Thursday</strong></td><td>GLOW blend</td><td>Training day</td></tr>
+        <tr><td><strong>Friday</strong></td><td>TRT, HCG 250 IU</td><td>Training day</td></tr>
+        <tr><td><strong>Saturday</strong></td><td>Thymosin α-1 1.5mg, Rapamycin 5mg</td><td>REST DAY — mTOR inhibition</td></tr>
+        <tr><td><strong>Sunday</strong></td><td>Retatrutide (weekly), GLOW blend</td><td>Light activity</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px;color:var(--text-dim);margin-top:8px"><strong>Daily peptides:</strong> CJC-1295/Ipamorelin AM+PM SubQ (or 5 on/2 off) · MOTS-c daily during cycles · SS-31 daily 5 days/week during cycles</p>
+
+  <!-- Monthly Cycling -->
+  <h3 class="mt-24 mb-16" style="color:var(--text-bright);font-size:20px;font-weight:700">Monthly Cycling Calendar</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Week</th><th>GH Peptides</th><th>Cognitive</th><th>Metabolic</th><th>Longevity</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1–4</strong></td><td>CJC/Ipa + MK-677</td><td>Bromantane + Noopept + NA-Semax</td><td>MOTS-c + Retatrutide</td><td>GLOW + Tα1</td></tr>
+        <tr><td><strong>5–8</strong></td><td>CJC/Ipa + MK-677</td><td>Bromantane + 9-Me-BC (2wk) + Selank</td><td>MOTS-c + Retatrutide</td><td>GLOW + Tα1</td></tr>
+        <tr><td><strong>9–12</strong></td><td>Tesamorelin + MK-677</td><td>Bromantane + Dihexa (2wk) + Noopept</td><td>SS-31 cycle + Retatrutide</td><td>Epitalon 10-day cycle</td></tr>
+        <tr><td><strong>13</strong></td><td colspan="4">🔄 DELOAD — reduce all peptides. Light nootropics only. Retatrutide continues. Fisetin senolytic pulse.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Quarterly -->
+  <h3 class="mt-24 mb-16" style="color:var(--text-bright);font-size:20px;font-weight:700">Quarterly Focus</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Quarter</th><th>Focus</th><th>Special Protocols</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Q1</strong></td><td>Muscle + Cognitive</td><td>Full GH stack, high-intensity nootropics, Dihexa cycle</td></tr>
+        <tr><td><strong>Q2</strong></td><td>Fat Loss + Longevity</td><td>Retatrutide peak dose, Epitalon cycle, FOXO4-DRI</td></tr>
+        <tr><td><strong>Q3</strong></td><td>Recovery + Immune</td><td>Full GLOW, Thymosin α-1 extended, deload training</td></tr>
+        <tr><td><strong>Q4</strong></td><td>Maintenance</td><td>Baseline protocol, bloodwork review, plan next year</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     1. HORMONAL FOUNDATION
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="hormones">
+  <div class="section-header">
+    <h2>🏗️ 1. Hormonal Foundation</h2>
+    <p class="section-desc">The bedrock. Without optimized hormones, everything else underperforms.</p>
+  </div>
+
+  <details class="compound-card" id="trt">
+    <summary>
+      Testosterone Replacement Therapy (TRT)
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">100–200mg/week (trough 700–1000 ng/dL)</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Split 2–3x/week (Mon/Wed/Fri)</div></div>
+        <div class="cb-item"><div class="cb-label">Route</div><div class="cb-value">IM or SubQ (25–29g needle)</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">Continuous (lifelong on TRT)</div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Binds androgen receptors — drives protein synthesis, nitrogen retention, RBC production, libido, mood, cognitive function. Enhanced fat loss via increased lipolysis.</p>
+      <p><strong>Synergies:</strong> HCG (testicular function), Boron (reduces SHBG → more free T), Zinc (5α-reductase support), Creatine (DHT + performance).</p>
+      <p><strong>Side Effects:</strong> Polycythemia (donate blood if hematocrit >52%), acne, hair thinning, testicular atrophy (mitigate with HCG), estrogen elevation.</p>
+      <p><strong>Bloodwork:</strong> Total T, Free T, SHBG, Estradiol (sensitive), Hematocrit, PSA, Lipids.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="hcg">
+    <summary>
+      Human Chorionic Gonadotropin (HCG)
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">250–500 IU, 2–3x/week</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">On TRT injection days or alternating</div></div>
+        <div class="cb-item"><div class="cb-label">Route</div><div class="cb-value">SubQ (abdominal)</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">Continuous alongside TRT</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a> / Rx clinic</div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Mimics LH → stimulates Leydig cells → preserves intratesticular T + pregnenolone + DHEA production + testicular volume + fertility.</p>
+      <p><strong>Why essential:</strong> TRT-only → testes atrophy, neurosteroid production drops. Many men feel "flat" despite good T numbers. HCG fills this gap. Gold standard adjunct per AUA guidelines.</p>
+      <p><strong>Side Effects:</strong> Estrogen elevation (HCG-derived T aromatizes heavily), water retention, nipple sensitivity. May need AI adjustment.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="ai">
+    <summary>
+      Aromatase Inhibitor (AI) Management
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Anastrozole</div><div class="cb-value">0.25–0.5mg, 2x/week</div></div>
+        <div class="cb-item"><div class="cb-label">Exemestane</div><div class="cb-value">12.5mg, 2x/week (preferred)</div></div>
+        <div class="cb-item"><div class="cb-label">Target E2</div><div class="cb-value">20–35 pg/mL (sensitive LC/MS)</div></div>
+        <div class="cb-item"><div class="cb-label">Route</div><div class="cb-value">Oral</div></div>
+      </div>
+      <p><strong>⚠️ Estrogen is NOT the enemy</strong> — it's cardioprotective, neuroprotective, and essential for bone health. Goal is optimization, not elimination.</p>
+      <p><strong>Crashed E2 is WORSE than elevated E2:</strong> Joint pain, depression, zero libido, dry skin, fatigue. If in doubt, skip a dose.</p>
+      <p><strong>Supports:</strong> DIM (favorable estrogen metabolism), Calcium D-Glucarate (estrogen detox), Boron (SHBG modulation).</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="dhea">
+    <summary>
+      DHEA (Dehydroepiandrosterone)
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">25–50mg/day oral (micronized)</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning (mimics circadian rhythm)</div></div>
+        <div class="cb-item"><div class="cb-label">Target</div><div class="cb-value">DHEA-S 350–500 mcg/dL</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">Continuous with monitoring</div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Steroid precursor + neurosteroid (GABA-A excitatory, sigma-1 neuroprotective). Low DHEA-S correlates with accelerated aging, reduced immunity, cognitive decline.</p>
+      <p><strong>Side Effects:</strong> Acne, oily skin, irritability at high doses. Can elevate estrogen.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="pregnenolone">
+    <summary>
+      Pregnenolone — "The Mother Hormone"
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">50–100mg/day oral (micronized)</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning</div></div>
+        <div class="cb-item"><div class="cb-label">Route</div><div class="cb-value">Oral capsule or sublingual</div></div>
+      </div>
+      <p><strong>Mechanism:</strong> First steroid hormone from cholesterol. Precursor to ALL steroid hormones. Potent neurosteroid — enhances memory, modulates GABA-A and NMDA receptors.</p>
+      <p><strong>Why essential on TRT:</strong> TRT suppresses endogenous production. Users report "the fog lifts," improved stress resilience, joint comfort.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     2. GROWTH PEPTIDES
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="peptides-gh">
+  <div class="section-header">
+    <h2>💉 2. Growth Hormone Peptides</h2>
+    <p class="section-desc">Optimizing the GH/IGF-1 axis through targeted secretagogues.</p>
+  </div>
+
+  <details class="compound-card" id="cjc-ipa">
+    <summary>
+      CJC-1295 (no DAC) + Ipamorelin
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">CJC-1295 Dose</div><div class="cb-value">100–200mcg/injection</div></div>
+        <div class="cb-item"><div class="cb-label">Ipamorelin Dose</div><div class="cb-value">100–300mcg/injection</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">2x daily: AM fasted + before bed (2h after eating)</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">8–12 weeks on, 4 weeks off (or 5 on/2 off)</div></div>
+        <div class="cb-item"><div class="cb-label">Route</div><div class="cb-value">SubQ (abdomen, love handles)</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a> (pre-mixed blend)</div></div>
+      </div>
+      <p><strong>Mechanism:</strong> CJC-1295 (GHRH analog) amplifies the GH pulse. Ipamorelin (GHRP, ghrelin receptor) initiates it. Together = synergistic pulsatile GH mimicking natural physiology.</p>
+      <p><strong>Study:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Teichman et al. (2006) JCEM</a> — CJC-1295 produced 2–10x GH increases and 1.5–3x IGF-1 elevation sustained 6–14 days.</p>
+      <p><strong>Synergies:</strong> MK-677 (24h baseline + acute pulses = full axis coverage), Tesamorelin (visceral fat), fasting (amplifies response).</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="tesamorelin">
+    <summary>
+      Tesamorelin (Egrifta®)
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">2mg/day SubQ (FDA dose)</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Before bed fasted or AM fasted</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">60 days on, 7 off (Jay Campbell protocol)</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value">Rx (Egrifta SV) / <a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a></div></div>
+      </div>
+      <p><strong>The ONLY FDA-approved peptide for visceral fat reduction.</strong> 15–18% VAT reduction at 26 weeks. Stimulates YOUR pituitary (maintains feedback loops, unlike exogenous HGH).</p>
+      <p><strong>Synergies:</strong> CJC/Ipa (different mechanisms), Retatrutide (systemic vs visceral fat), fasted cardio.</p>
+      <p><strong>Side Effects:</strong> Injection site reactions, arthralgia, peripheral edema, glucose elevation (monitor fasting glucose + HbA1c).</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="mk-677">
+    <summary>
+      MK-677 (Ibutamoren) — Already in Stack
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">10–25mg/day oral</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Before bed (sleep GH + manage hunger)</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">8–12 weeks on, 4 off (or 10mg continuous)</div></div>
+      </div>
+      <p><strong>Oral GH secretagogue</strong> — ghrelin mimetic. 24-hour sustained GH/IGF-1 elevation from single dose. Complements injectable peptides for baseline coverage.</p>
+      <p><strong>⚠️ Monitor:</strong> Fasting blood glucose (can impair insulin sensitivity), prolactin, appetite stimulation.</p>
+    </div>
+  </details>
+
+  <details class="compound-card">
+    <summary>
+      Fragment 176-191
+      <span class="tier tier-ex">❌ Excluded</span>
+    </summary>
+    <div class="compound-body">
+      <p>GH fat-burning fragment. <strong>Excluded:</strong> Redundant — Retatrutide + Tesamorelin + CJC/Ipa/MK-677 already cover fat loss and GH axis. Modest effect size vs GLP-1 agonists. Would only add injection burden.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     3. RECOVERY PEPTIDES
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="peptides-recovery">
+  <div class="section-header">
+    <h2>🩹 3. Recovery &amp; Healing Peptides</h2>
+    <p class="section-desc">Complete healing cascade: initiation → remodeling → rejuvenation → immune.</p>
+  </div>
+
+  <details class="compound-card" id="bpc-157">
+    <summary>
+      BPC-157 (Body Protection Compound)
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">250–500mcg, 1–2x/day (GLOW: ~330mcg/day)</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning and/or evening</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">4–8 weeks on, 2–4 off</div></div>
+        <div class="cb-item"><div class="cb-label">Route</div><div class="cb-value">SubQ near injury / oral for gut</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a> (individual or GLOW blend)</div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Upregulates VEGF (angiogenesis), modulates NO system, promotes tendon/ligament/muscle/gut healing, neuroprotective (counteracts dopaminergic neurotoxicity), activates FAK-paxillin pathway.</p>
+      <p><strong>Synergies:</strong> TB-500 (complementary healing pathways), GHK-Cu (collagen remodeling), 9-Me-BC (neuroprotection against phototoxicity).</p>
+      <p><strong>⚠️ Theoretical:</strong> Could promote growth of existing tumors (angiogenesis). Avoid if cancer history.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="tb-500">
+    <summary>
+      TB-500 (Thymosin Beta-4 Fragment)
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">2–2.5mg 2x/week (loading) → 2mg/week (maint.)</div></div>
+        <div class="cb-item"><div class="cb-label">GLOW Blend</div><div class="cb-value">~330mcg/day continuous</div></div>
+        <div class="cb-item"><div class="cb-label">Route</div><div class="cb-value">SubQ (systemic — no need to inject near injury)</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">4–8 weeks loading, then maintenance</div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Upregulates actin → cell migration. Anti-inflammatory (IL-1β, TNF-α). Promotes hair growth, cardioprotection, wound healing.</p>
+      <p><strong>BPC-157 + TB-500 = the dream team.</strong> BPC initiates healing (pro-inflammatory phase), TB-500 supports remodeling (anti-inflammatory).</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="ghk-cu">
+    <summary>
+      GHK-Cu (Copper Peptide)
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">1–2mg/day SubQ (GLOW: ~1.7mg/day)</div></div>
+        <div class="cb-item"><div class="cb-label">Route</div><div class="cb-value">SubQ, topical (skin/hair)</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">4-week cycles with breaks</div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Stimulates collagen/elastin synthesis, activates stem cells, anti-inflammatory, antioxidant (SOD, glutathione), <strong>modulates 4,000+ genes toward youthful phenotype</strong>, DNA repair, wound healing, hair growth.</p>
+      <p><strong>Synergies:</strong> BPC-157 + TB-500 (GLOW trifecta), Epitalon (tissue repair + telomere maintenance), Vitamin C (collagen cofactor).</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="thymosin-alpha-1">
+    <summary>
+      Thymosin Alpha-1 (Tα1) — Immune Gold Standard
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Maintenance</div><div class="cb-value">1.5mg SubQ, 2x/week</div></div>
+        <div class="cb-item"><div class="cb-label">Immune Challenge</div><div class="cb-value">1.5mg SubQ daily, 5–10 days</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">3–6 months on, 1 month off</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a></div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Primes dendritic cells, increases CD4+/CD8+ T-cells, enhances Th1 response, regulates Tregs, restores thymic function. FDA-approved in 30+ countries as Zadaxin®.</p>
+      <p><strong>Evidence:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">BMJ (2025)</a> — Multicenter RCT confirming immune modulation in sepsis. 70+ clinical trials.</p>
+      <p><strong>Synergies:</strong> Epitalon (thymic restoration + telomeres), FOXO4-DRI (senolytic + immune surveillance), fasting/Retatrutide (autophagy + adaptive immunity).</p>
+    </div>
+  </details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     4. COGNITIVE PEPTIDES
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="peptides-cognitive">
+  <div class="section-header">
+    <h2>🧠 4. Cognitive Peptides</h2>
+    <p class="section-desc">BDNF upregulation, synaptogenesis, neurogenesis, and neuroprotection.</p>
+  </div>
+
+  <details class="compound-card" id="semax">
+    <summary>
+      Semax — The OG Nootropic Peptide
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">200–600mcg/day intranasal or 100–300mcg SubQ</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning and/or midday (stimulating)</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">10–14 days on, 10–14 off (Russian protocol: 5d/2d)</div></div>
+      </div>
+      <p><strong>Mechanism:</strong> ACTH(4-10) analog. Doubles BDNF levels. Upregulates NGF, GDNF. Modulates DA/5-HT/ACh. Neuroprotective in stroke/ischemia. No endocrine effects.</p>
+      <p><strong>Study:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Ashmarin et al. (2005)</a> — BDNF upregulation 2x baseline; neuroprotective in stroke patients at 6mg/day intranasal.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="na-semax">
+    <summary>
+      NA-Semax Amidate — Incoming Upgrade
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">200–600mcg/day intranasal (300mcg/spray)</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning + optional midday</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">Alternate with Semax: 2wk on / 2wk off</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a></div></div>
+      </div>
+      <p><strong>Upgraded Semax:</strong> N-acetylation (better stability) + C-terminal amidation (higher receptor affinity). Greater BDNF per dose, longer duration, more potent at lower doses. Reddit consensus: "stronger and longer-lasting."</p>
+      <p><strong>Synergies:</strong> Selank (drive + calm = flow state), Noopept (cholinergic + glutamatergic), Alpha-GPC (ACh substrate).</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="selank">
+    <summary>
+      Selank — The Anxiety Eraser
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">250–750mcg/day intranasal or 100–300mcg SubQ</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning or as-needed for stress</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">14–30 days on, 14 off (or PRN)</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a></div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Tuftsin analog. Modulates GABA-A → anxiolytic equal to diazepam without sedation, tolerance, or dependence. Increases serotonin metabolism, BDNF. Immunomodulatory.</p>
+      <p><strong>Study:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Seredenin et al. (1998)</a> — 300mcg/kg = anxiolytic comparable to benzodiazepines without sedation.</p>
+      <p><strong>Critical role:</strong> Stack is heavily dopaminergic (Bromantane, 9-Me-BC, Dihexa). Selank provides calm focus to prevent overstimulation.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="dihexa">
+    <summary>
+      Dihexa — Nuclear-Grade Synaptogen
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">10–20mg/day oral or 0.5–1mg SubQ</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning (pair with cognitive tasks)</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">2–4 weeks on, 4–8 weeks off. DO NOT run continuously.</div></div>
+      </div>
+      <p><strong>10 million × more potent than BDNF</strong> at HGF/c-Met signaling (<a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Harding et al., 2013</a>). Drives synaptogenesis, dendritic spine growth. Restored cognitive function in aged rats.</p>
+      <p><strong>⚠️ Caveats:</strong> Extremely limited human data. HGF/c-Met pathway involved in tumor invasion/metastasis. "Nuclear option" of nootropics — use with extreme caution and cycling discipline.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="p21">
+    <summary>
+      P21 (P021) — Hippocampal Neurogenesis
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">750mcg–1mg/day intranasal</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">4 weeks on, 4 weeks off</div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Modified CNTF peptide. Drives neurogenesis in dentate gyrus WITHOUT HGF/c-Met cancer concerns. Enhances BDNF, inhibits LIF (neuroinflammation), reduces tau hyperphosphorylation. Safer structural neuroplasticity than Dihexa.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     5. METABOLIC PEPTIDES
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="peptides-metabolic">
+  <div class="section-header">
+    <h2>🔥 5. Metabolic Peptides</h2>
+    <p class="section-desc">Fat loss, exercise mimetics, and mitochondrial optimization.</p>
+  </div>
+
+  <details class="compound-card" id="retatrutide">
+    <summary>
+      Retatrutide — Triple Agonist (GLP-1/GIP/Glucagon)
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Titration</div><div class="cb-value">Wk 1–4: 2mg → Wk 5–8: 4mg → Wk 9–12: 8mg → Wk 13+: 12mg/week</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Once weekly, SubQ (same day each week)</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a>, <a href="https://www.purerawz.co/" class="ext-link">PureRawz</a></div></div>
+      </div>
+      <p><strong>The most potent weight loss compound ever studied.</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Jall et al. (2023) Nature Phase 2</a>: 12mg/week → <strong>24.2% body weight loss at 48 weeks</strong> (vs semaglutide ~15%, tirzepatide ~21%).</p>
+      <p><strong>Triple action:</strong> GLP-1 (appetite suppression) + GIP (nutrient partitioning) + Glucagon (direct fat oxidation, liver fat reduction, thermogenesis).</p>
+      <p><strong>Synergies:</strong> TRT (muscle preservation), Creatine, BPC-157 (GI protection), MOTS-c (metabolic stacking).</p>
+      <p><strong>Side Effects:</strong> Nausea (30–50% during titration), vomiting, diarrhea, constipation. Start low, go slow.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="mots-c">
+    <summary>
+      MOTS-c — Exercise Mimetic
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">5–10mg/day SubQ</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning, before fasted cardio</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">4–8 weeks on, 4 weeks off</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a></div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Mitochondrial-derived peptide. Activates AMPK (exercise mimetic), improves glucose metabolism, reduces myostatin, promotes mitochondrial biogenesis. Plasma levels decline with age.</p>
+      <p><strong>Studies:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Lee et al. (2015) Cell Metabolism</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Nature Communications (2021)</a> — reverses age-dependent physical decline.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="ss-31">
+    <summary>
+      SS-31 (Elamipretide) — Mitochondrial Repair
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">0.1mg/kg/day = ~8mg for 80kg (5 days/week)</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning SubQ</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">8-week cycles, 4 weeks off</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a></div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Binds cardiolipin on inner mitochondrial membrane → stabilizes ETC → more ATP, less ROS, prevents cristae damage. FDA-approved (Sept 2025) for Barth syndrome.</p>
+      <p><strong>The most targeted mito therapy available.</strong> Only repairs dysfunctional mitochondria. <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Szeto et al. (2011)</a>: reversed cardiac aging in old mice after 8 weeks.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="humanin">
+    <summary>
+      Humanin — Cytoprotective Peptide
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">1–5mg/day SubQ</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">4–8 weeks on, 4 off</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a></div></div>
+      </div>
+      <p><strong>Mitochondrial trilogy:</strong> MOTS-c (metabolic conditioning) + SS-31 (structural repair) + Humanin (cellular protection).</p>
+      <p><strong>Mechanism:</strong> Anti-apoptotic, neuroprotective, cardioprotective, insulin-sensitizing. <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Yoon et al. (2018) Nature</a>: increases lifespan in C. elegans via daf-16/FOXO pathway.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     6. LONGEVITY PEPTIDES
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="peptides-longevity">
+  <div class="section-header">
+    <h2>🧬 6. Longevity Peptides</h2>
+    <p class="section-desc">Telomere maintenance and selective senolytic clearance.</p>
+  </div>
+
+  <details class="compound-card" id="epitalon">
+    <summary>
+      Epitalon (Epithalon) — Telomere Guardian
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">5–10mg/day for 10–20 consecutive days</div></div>
+        <div class="cb-item"><div class="cb-label">Standard</div><div class="cb-value">10mg/day × 10 days = 100mg/cycle</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Evening/bedtime (aligns with melatonin synthesis)</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">1 cycle every 3–6 months (2 per year)</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a> ($400/100mg) / <a href="https://www.swisschems.is/" class="ext-link">SwissChems</a> ($256/100mg)</div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Activates telomerase → lengthens telomeres. Restores melatonin synthesis (pineal rejuvenation). Increases IL-2, antioxidant, epigenetic regulation. Hits 5 hallmarks of aging simultaneously.</p>
+      <p><strong>Studies:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Khavinson et al. (2003)</a> — telomerase activation in human cells; lifespan extension in rodents. PMC (2025) — confirmed telomere lengthening.</p>
+      <p><strong>Synergies:</strong> FOXO4-DRI (clear zombie cells + lengthen remaining), GHK-Cu (tissue rejuvenation), Tα1 (thymic restoration), DSIP (both support sleep).</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="foxo4-dri">
+    <summary>
+      FOXO4-DRI — Targeted Senolytic
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">~5mg/kg per injection (~400mg/dose for 80kg)</div></div>
+        <div class="cb-item"><div class="cb-label">Protocol</div><div class="cb-value">3 injections over 3 weeks, every 3–6 months</div></div>
+        <div class="cb-item"><div class="cb-label">Route</div><div class="cb-value">SubQ or IV</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a></div></div>
+      </div>
+      <p><strong>The most targeted senolytic known.</strong> Competes for FOXO4-p53 binding in senescent cells → frees p53 → triggers apoptosis. ONLY works in senescent cells — healthy cells unaffected.</p>
+      <p><strong>Study:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Bury et al. (2017) Cell</a> — restored fitness, fur density, renal function in aged mice. PMC (2020): alleviated age-related testosterone insufficiency.</p>
+      <p><strong>⚠️ Cost:</strong> One of the most expensive peptides. Full cycle: $500–$2,000+. Consider Fisetin as accessible oral alternative.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     7. SEXUAL HEALTH PEPTIDES
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="peptides-sexual">
+  <div class="section-header">
+    <h2>❤️ 7. Sexual Health Peptides</h2>
+    <p class="section-desc">Central desire and arousal enhancement beyond hormones.</p>
+  </div>
+
+  <details class="compound-card" id="pt-141">
+    <summary>
+      PT-141 (Bremelanotide / Vyleesi®)
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">1.75mg SubQ (FDA dose)</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">45–60 min before activity</div></div>
+        <div class="cb-item"><div class="cb-label">Max</div><div class="cb-value">8 doses/month, 24h between doses</div></div>
+      </div>
+      <p><strong>Mechanism:</strong> MC3R/MC4R agonist in hypothalamus → stimulates desire and arousal centrally (not blood flow like Viagra). Works independently of hormonal status.</p>
+      <p><strong>Tip:</strong> Take ondansetron 4mg 30 min before if nausea is problematic (40% incidence). Use PT-141 for on-demand, MT2 for tanning cycles.</p>
+    </div>
+  </details>
+
+  <details class="compound-card">
+    <summary>
+      Kisspeptin-10
+      <span class="tier tier-ex">❌ Excluded</span>
+    </summary>
+    <div class="compound-body">
+      <p><strong>Excluded for Rauli:</strong> Primary mechanism is LH/FSH stimulation → endogenous T production. On TRT, HPG axis is suppressed — Kisspeptin's primary value is irrelevant. Marginal CNS arousal benefits over PT-141/MT2. Better suited for men NOT on TRT.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     8. NOOTROPICS
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="nootropics">
+  <div class="section-header">
+    <h2>💡 8. Nootropics</h2>
+    <p class="section-desc">Dopamine synthesis, wakefulness, hippocampal growth, and cognitive sharpening.</p>
+  </div>
+
+  <details class="compound-card" id="bromantane">
+    <summary>
+      Bromantane — King of Sustainable Dopamine
+      <span class="tier tier-s">⭐ S-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">50–100mg/day oral (with fat)</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning (lasts ~8h, don't take after 2pm)</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">5 on/2 off or 4 weeks on/1 off</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://science.bio/" class="ext-link">Science.bio</a>, <a href="https://www.swisschems.is/" class="ext-link">SwissChems</a></div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Upregulates tyrosine hydroxylase (TH) 2–2.5× (<a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Laakmann et al., 2000</a>) and AADC → increased dopamine SYNTHESIS (not release/reuptake). Also strengthens GABAergic signaling.</p>
+      <p><strong>Why it's king:</strong> No crash, no tolerance (enzyme upregulation ≠ receptor desensitization), no withdrawal, anxiolytic + stimulating simultaneously. 8-hour sustained dopamine elevation.</p>
+      <p><strong>⚠️ Caution with Flmodafinil:</strong> Both raise dopamine. On Flmodafinil days, reduce or skip Bromantane.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="9-me-bc">
+    <summary>
+      9-Me-BC (9-Methyl-β-Carboline) — Neurorestorative
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">15–30mg/day oral (with fat)</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">10–14 days on, 2–4 weeks off. NOT continuous.</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://science.bio/" class="ext-link">Science.bio</a>, <a href="https://www.swisschems.is/" class="ext-link">SwissChems</a></div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Upregulates TH (synergistic with Bromantane), increases dendritic formation, promotes neurogenesis, anti-neuroinflammatory, may reverse dopaminergic damage.</p>
+      <p><strong>🚨 CRITICAL:</strong> <span class="tag tag-danger">PHOTOTOXIC</span> — DNA damage with UV. During cycle: AVOID sun/tanning, wear SPF 50+. <strong>DO NOT combine with MT2 tanning.</strong></p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="noopept">
+    <summary>
+      Noopept — Daily Cognitive Sharpener
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">10–30mg/day (10mg 2–3x or 30mg once)</div></div>
+        <div class="cb-item"><div class="cb-label">Route</div><div class="cb-value">Oral, sublingual, or intranasal</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">1.5–3 months on, 1 month off</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://science.bio/" class="ext-link">Science.bio</a>, <a href="https://cosmicnootropic.com/" class="ext-link">Cosmic Nootropic</a></div></div>
+      </div>
+      <p><strong>Mechanism:</strong> AMPA/NMDA modulation, BDNF/NGF upregulation, enhanced ACh signaling, neuroprotective. 1000× more potent than piracetam. Immediate clarity and verbal fluency.</p>
+      <p><strong>⚠️ ESSENTIAL:</strong> Requires Alpha-GPC — Noopept increases cholinergic demand. Headache = choline deficiency signal.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="flmodafinil">
+    <summary>
+      Flmodafinil (CRL-40,940) — On-Demand Wakefulness
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">50–150mg (100mg sweet spot ≈ modafinil 200mg)</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning ONLY (destroys sleep if taken late)</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">PRN max 2–3 days/week. NOT daily.</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.swisschems.is/" class="ext-link">SwissChems</a>, <a href="https://www.purerawz.co/" class="ext-link">PureRawz</a></div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Bisfluoro modafinil analog. DAT blocker → increases dopamine, norepinephrine, histamine. More bioavailable than modafinil at lower doses.</p>
+      <p><strong>Use cases:</strong> Long work days, deadline pushes, sleep-deprived recovery. Skip caffeine and reduce Bromantane on Flmodafinil days. Add TUDCA for liver.</p>
+    </div>
+  </details>
+
+  <details class="compound-card" id="nsi-189">
+    <summary>
+      NSI-189 — Hippocampal Neurogenesis Agent
+      <span class="tier tier-a">🅰️ A-Tier</span>
+    </summary>
+    <div class="compound-body">
+      <div class="cb-grid">
+        <div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">40mg/day oral (Phase 2 dose)</div></div>
+        <div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning with food</div></div>
+        <div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">8–12 weeks on, 4 weeks off</div></div>
+        <div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://science.bio/" class="ext-link">Science.bio</a>, <a href="https://www.purerawz.co/" class="ext-link">PureRawz</a></div></div>
+      </div>
+      <p><strong>Mechanism:</strong> Physically grows new neurons in hippocampal dentate gyrus (~20% volume increase in vitro). Modulates BDNF, improves glucocorticoid resistance → stress resilience. Phase 2 MDD trials completed.</p>
+    </div>
+  </details>
+
+  <details class="compound-card">
+    <summary>IDRA-21 &amp; Sunifiram <span class="tier tier-ex">❌ Excluded</span></summary>
+    <div class="compound-body"><p>Both are AMPA-PAMs more potent than aniracetam. <strong>Excluded:</strong> Noopept already covers AMPA/NMDA modulation with far better safety data. Adding more excitatory glutamatergic compounds increases seizure/excitotoxicity risk. Near-zero human data.</p></div>
+  </details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     9. SARMs
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="sarms">
+  <div class="section-header">
+    <h2>💪 9. SARMs Evaluation</h2>
+    <p class="section-desc">The verdict: Generally NOT worth it on TRT.</p>
+  </div>
+
+  <details class="compound-card">
+    <summary>SARMs on TRT — Full Analysis <span class="tier tier-ex">❌ All Excluded</span></summary>
+    <div class="compound-body">
+      <p><strong>SARMs are a "second-best" solution for people who can't or won't use testosterone.</strong> On TRT, they're redundant or inferior to real anabolics.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>SARM</th><th>Issue on TRT</th></tr></thead>
+          <tbody>
+            <tr><td><strong>RAD-140</strong> (Testolone)</td><td>Competes with T for androgen receptors. AR competition, not synergy. Hepatotoxic.</td></tr>
+            <tr><td><strong>LGD-4033</strong> (Ligandrol)</td><td>Water retention. Marginal benefit over T with added liver/lipid stress.</td></tr>
+            <tr><td><strong>MK-2866</strong> (Ostarine)</td><td>Mildest. TRT already preserves muscle during cut. Redundant.</td></tr>
+            <tr><td><strong>S-23</strong></td><td>Near-steroid. If you want this strong, use real Anavar under medical supervision.</td></tr>
+            <tr><td><strong>YK-11</strong></td><td>Myostatin inhibitor. Interesting but extremely limited data, hepatotoxic.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Exception:</strong> For a blast phase, pharmaceutical-grade <strong>Anavar (Oxandrolone) 20–50mg/day for 6–8 weeks</strong> is vastly superior — better studied, predictable, prescription-available. Pair with TUDCA + NAC.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     10. SLEEP STACK
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="sleep">
+  <div class="section-header">
+    <h2>😴 10. Sleep Stack</h2>
+    <p class="section-desc">Deep restorative sleep is when the magic happens — GH peaks, muscles repair, memories consolidate.</p>
+  </div>
+
+  <details class="compound-card" id="dsip"><summary>DSIP (Delta Sleep-Inducing Peptide) <span class="tier tier-a">🅰️ A-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">100–300mcg SubQ before bed</div></div><div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">30–60 min before sleep</div></div><div class="cb-item"><div class="cb-label">Cycle</div><div class="cb-value">2–4 weeks on, 1–2 off</div></div></div><p><strong>Only peptide that directly enhances delta wave (Stage 3 NREM) sleep.</strong> Normalizes sleep architecture. Endocrine modulation during sleep. No morning grogginess. Synergizes with MK-677 + GH peptides during deep sleep.</p></div></details>
+
+  <details class="compound-card" id="glycine"><summary>Glycine (10g) <span class="tier tier-s">⭐ S-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">10g oral before bed</div></div></div><p>Lowers core body temp (critical for sleep onset), NMDA modulation, prefrontal serotonin. Multiple clinical trials show improved sleep quality + daytime cognition. Also supports collagen synthesis. <strong>Dirt cheap, evidence-based, multi-benefit.</strong></p></div></details>
+
+  <details class="compound-card" id="mag-glycinate"><summary>Magnesium Glycinate (600mg) <span class="tier tier-s">⭐ S-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">600mg elemental Mg oral</div></div></div><p>Activates parasympathetic NS, binds GABA-B, regulates melatonin. Glycinate form = superior absorption + extra glycine + no GI issues. 70% of Americans are Mg-deficient. <strong>Essential mineral, best form.</strong></p></div></details>
+
+  <details class="compound-card" id="l-theanine"><summary>L-Theanine (200–400mg) <span class="tier tier-s">⭐ S-Tier</span></summary><div class="compound-body"><p>Increases GABA, serotonin, dopamine in specific regions. Promotes alpha waves (relaxed alertness). At 400mg bedtime: calming without sedation. Perfect nighttime anxiolytic. Also excellent as daytime cognitive support with caffeine.</p></div></details>
+
+  <details class="compound-card" id="taurine"><summary>Taurine (3g) <span class="tier tier-s">⭐ S-Tier</span></summary><div class="compound-body"><p>GABAergic + glycinergic calming. Cardiovascular support (critical on TRT). <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Science (2023)</a> — landmark paper linking taurine to increased healthspan and lifespan in multiple species. Longevity AND sleep compound.</p></div></details>
+
+  <details class="compound-card" id="apigenin"><summary>Apigenin (50mg) — NEW <span class="tier tier-a">🅰️ A-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">50mg oral before bed</div></div><div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.nootropicsdepot.com/" class="ext-link">Nootropics Depot</a>, Swanson, NOW Foods</div></div></div><p><strong>Rare triple-threat:</strong> (1) Sleep — GABA-A benzodiazepine site binding (Huberman-recommended), (2) Hormonal — mild aromatase inhibitor, (3) Longevity — CD38 inhibitor → increases NAD+. All from a flavonoid.</p></div></details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     11. FOUNDATIONAL SUPPLEMENTS
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="supplements">
+  <div class="section-header">
+    <h2>🏋️ 11. Foundational Supplements</h2>
+    <p class="section-desc">The nutritional bedrock that makes everything else work.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Supplement</th><th>Dose</th><th>Timing</th><th>Tier</th><th>Key Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Vitamin D3 + K2</strong></td><td>D3: 20–30k IU + K2 MK-7: 200–400mcg</td><td>Morning w/ fat</td><td><span class="tag" style="background:rgba(251,191,36,0.15);color:var(--s-tier)">S</span></td><td>Target 60–80 ng/mL 25(OH)D. K2 ESSENTIAL at this dose — directs Ca to bones.</td></tr>
+        <tr><td><strong>Omega-3</strong></td><td>2g (1g EPA + 1g DHA)</td><td>With food</td><td><span class="tag" style="background:rgba(251,191,36,0.15);color:var(--s-tier)">S</span></td><td>Nordic Naturals, Carlson. Anti-inflammatory, cardio/neuroprotective.</td></tr>
+        <tr><td><strong>Creatine</strong></td><td>5g monohydrate</td><td>Any time</td><td><span class="tag" style="background:rgba(251,191,36,0.15);color:var(--s-tier)">S</span></td><td>Most studied supplement ever. ATP, cognition, neuroprotection. Non-negotiable.</td></tr>
+        <tr><td><strong>NAC</strong></td><td>1200mg/day (600mg × 2)</td><td>AM + PM</td><td><span class="tag" style="background:rgba(251,191,36,0.15);color:var(--s-tier)">S</span></td><td>Glutathione precursor. Liver/organ protection. 1800mg on MK-677/Flmod days.</td></tr>
+        <tr><td><strong>Zinc</strong></td><td>15–30mg</td><td>Evening</td><td><span class="tag" style="background:rgba(251,191,36,0.15);color:var(--s-tier)">S</span></td><td>T metabolism, 300+ enzymes. At 30mg monitor copper — consider 1–2mg Cu.</td></tr>
+        <tr><td><strong>Boron</strong></td><td>9mg</td><td>Evening</td><td><span class="tag" style="background:rgba(52,211,153,0.15);color:var(--a-tier)">A</span></td><td>Reduces SHBG → more free T. Anti-inflammatory, bone health.</td></tr>
+        <tr><td><strong>Alpha-GPC</strong></td><td>600mg (split AM/pre-WO)</td><td>AM + Pre-WO</td><td><span class="tag" style="background:rgba(251,191,36,0.15);color:var(--s-tier)">S</span></td><td>Cholinergic precursor. NON-NEGOTIABLE with nootropic stack. Pre-WO GH boost.</td></tr>
+        <tr><td><strong>CoQ10 (Ubiquinol)</strong></td><td>200–400mg</td><td>With fat</td><td><span class="tag" style="background:rgba(52,211,153,0.15);color:var(--a-tier)">A</span></td><td>Mito ETC co-factor. Heart protection on TRT. 8× better as ubiquinol. Life Extension, Jarrow.</td></tr>
+        <tr><td><strong>PQQ</strong></td><td>20mg</td><td>Morning</td><td><span class="tag" style="background:rgba(52,211,153,0.15);color:var(--a-tier)">A</span></td><td>Only supplement that makes NEW mitochondria (PGC-1α). 5000× more antioxidant than Vit C.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     12. ORGAN SUPPORT
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="organ-support">
+  <div class="section-header">
+    <h2>🛡️ 12. Organ Support</h2>
+    <p class="section-desc">Protecting liver, kidneys, heart, and prostate under protocol load.</p>
+  </div>
+
+  <details class="compound-card" id="tudca"><summary>TUDCA (Tauroursodeoxycholic Acid) <span class="tier tier-s">⭐ S-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">250–500mg/day (500–1000mg during oral compound cycles)</div></div><div class="cb-item"><div class="cb-label">Source</div><div class="cb-value">Nutricost, Double Wood, Thorne</div></div></div><p>Bile acid → reduces ER stress, inhibits hepatocyte apoptosis, promotes bile flow, neuroprotective. <strong>Superior to milk thistle.</strong> Complementary to NAC (different mechanisms). Gold standard liver protection for bodybuilders.</p></div></details>
+
+  <details class="compound-card"><summary>Comprehensive Organ Support Stack <span class="tier tier-a">🅰️ A-Tier</span></summary><div class="compound-body">
+    <p><strong>Kidney:</strong> Min 3L water/day. Astragalus 500mg/day (nephroprotective). Monitor BUN, Creatinine, eGFR, Cystatin C.</p>
+    <p><strong>Cardiovascular:</strong> CoQ10 (covered) + Omega-3 + Taurine + <strong>Citrus Bergamot 500mg/day</strong> (lipid profile, statin alternative) + <strong>Hawthorn Berry 450mg/day</strong> (endothelial function). Monitor lipids (ApoB preferred), hsCRP, CAC score every 2–3 years.</p>
+    <p><strong>Prostate (on TRT):</strong> Saw Palmetto 320mg/day + Lycopene 15mg/day. Monitor PSA every 6–12 months.</p>
+  </div></details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     13. IMMUNE & LONGEVITY
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="immune-longevity">
+  <div class="section-header">
+    <h2>🧪 13. Immune &amp; Longevity Compounds</h2>
+    <p class="section-desc">mTOR modulation, NAD+ restoration, senolytic clearance, and sirtuin activation.</p>
+  </div>
+
+  <details class="compound-card" id="rapamycin"><summary>Rapamycin (Sirolimus) — mTOR Inhibitor <span class="tier tier-a">🅰️ A-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">5–6mg once weekly (start 3mg)</div></div><div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">REST DAY (mTOR needed for muscle growth)</div></div><div class="cb-item"><div class="cb-label">Source</div><div class="cb-value">Prescription only (compounding pharmacies)</div></div></div><p><strong>Most robust lifespan-extending intervention known.</strong> Extends lifespan in every organism tested. <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">PEARL Trial</a>: slowed muscle and bone aging. Low-dose paradoxically enhances immunity and vaccine response.</p><p><strong>⚠️ Critical:</strong> Must cycle around training. mTOR inhibition on training days = impaired hypertrophy. Take on rest/deload days only.</p><p><strong>Side Effects:</strong> Mouth sores (most common), impaired wound healing, lipid/glucose elevation. Avoid grapefruit (CYP3A4).</p></div></details>
+
+  <details class="compound-card" id="nmn"><summary>NMN (Nicotinamide Mononucleotide) <span class="tier tier-s">⭐ S-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">500–1000mg/day oral</div></div><div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">Morning (NAD+ has circadian rhythm)</div></div><div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.prohealthlongevity.com/" class="ext-link">ProHealth Longevity</a>, DoNotAge, Renue By Science</div></div></div><p>Direct NAD+ precursor. Activates sirtuins (SIRT1–7), fuels PARP (DNA repair). NAD+ declines ~50% ages 40–60. David Sinclair (Harvard) uses NMN personally. Pair with Apigenin (CD38 inhibitor) + Resveratrol (sirtuin activator).</p></div></details>
+
+  <details class="compound-card" id="resveratrol"><summary>Resveratrol <span class="tier tier-a">🅰️ A-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">500–1000mg/day oral with fat</div></div><div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.prohealthlongevity.com/" class="ext-link">ProHealth</a> (trans-resveratrol), Thorne ResveraCel</div></div></div><p>SIRT1 activator — but ONLY works with adequate NAD+. The "key" that needs NMN as the "lock." Sinclair protocol pairs them deliberately. Also: anti-inflammatory, cardioprotective, cancer-preventive.</p></div></details>
+
+  <details class="compound-card" id="fisetin"><summary>Fisetin — Best Natural Senolytic <span class="tier tier-s">⭐ S-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Senolytic Dose</div><div class="cb-value">20mg/kg × 2 days monthly = ~1600mg/day × 2 days</div></div><div class="cb-item"><div class="cb-label">Daily Dose</div><div class="cb-value">100–200mg for ongoing anti-inflammatory</div></div><div class="cb-item"><div class="cb-label">Source</div><div class="cb-value"><a href="https://www.lifeextension.com/" class="ext-link">Life Extension Bio-Fisetin</a> (25× bioavailability)</div></div></div><p><strong>Most potent natural senolytic tested</strong> (<a href="https://pubmed.ncbi.nlm.nih.gov/" class="ext-link">Zhu et al., 2018 EBioMedicine</a>). Selectively kills senescent cells, reduces SASP inflammation, neuroprotective. Monthly "hit-and-run" pulse + daily low-dose maintenance.</p></div></details>
+
+  <details class="compound-card" id="quercetin"><summary>Quercetin <span class="tier tier-a">🅰️ A-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">500–1000mg/day + 1000mg during senolytic pulses</div></div><div class="cb-item"><div class="cb-label">Source</div><div class="cb-value">Thorne Quercetin Phytosome, NOW Foods</div></div></div><p>Senolytic (synergistic with fisetin), anti-inflammatory (NF-κB, COX-2), immune support, <strong>zinc ionophore</strong> (helps zinc enter cells — relevant since Rauli takes zinc). Year-round versatile flavonoid.</p></div></details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     14. PERFORMANCE
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="performance">
+  <div class="section-header">
+    <h2>🏃 14. Performance &amp; Pre-Workout</h2>
+    <p class="section-desc">Evidence-based performance boosters for training.</p>
+  </div>
+
+  <details class="compound-card" id="citrulline"><summary>L-Citrulline Malate <span class="tier tier-s">⭐ S-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">6–8g (2:1 malate) = 4–5.3g pure citrulline</div></div><div class="cb-item"><div class="cb-label">Timing</div><div class="cb-value">60 min pre-workout</div></div></div><p>Most effective NO precursor. Citrulline → Arginine → NO → vasodilation. Better than arginine supplementation. Improves endurance, reduces perceived exertion, enhances pump, reduces DOMS. Best evidence-based pre-WO ingredient after caffeine.</p></div></details>
+
+  <details class="compound-card" id="beta-alanine"><summary>Beta-Alanine <span class="tier tier-a">🅰️ A-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">3.2–6.4g/day (chronic loading like creatine)</div></div></div><p>Increases intramuscular carnosine → pH buffering → extends time to fatigue (60–240s efforts). Requires daily dosing for saturation. Paresthesia (tingling) is harmless — split doses reduce it.</p></div></details>
+
+  <details class="compound-card" id="caffeine-theanine"><summary>Caffeine + L-Theanine <span class="tier tier-a">🅰️ A-Tier</span></summary><div class="compound-body"><div class="cb-grid"><div class="cb-item"><div class="cb-label">Dosage</div><div class="cb-value">100–200mg caffeine + 200mg L-Theanine</div></div></div><p>Most studied nootropic combo. L-Theanine smooths caffeine's jitteriness while preserving alertness. <strong>Skip caffeine on Flmodafinil days.</strong> Low-dose (100mg) okay with Bromantane.</p></div></details>
+
+  <details class="compound-card"><summary>Tongkat Ali (Eurycoma longifolia) <span class="tier tier-ex">❌ Excluded</span></summary><div class="compound-body"><p>Primary mechanism is LH/FSH stimulation → endogenous T. On TRT, pathway suppressed. Adaptogenic effects marginal vs existing stack. Include only if coming OFF TRT.</p></div></details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SYNERGY MAP
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="synergy-map">
+  <div class="section-header">
+    <h2>🔄 Synergy Map</h2>
+    <p class="section-desc">What amplifies what — and what to never combine.</p>
+  </div>
+
+  <h3 style="color:var(--success);margin-bottom:16px">✅ Positive Synergies</h3>
+  <div class="synergy-grid mb-24">
+    <div class="synergy-item positive"><div class="synergy-pair">CJC-1295 + Ipamorelin</div><div class="synergy-effect">GHRH + GHRP = amplified GH pulse</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">MK-677 + CJC/Ipa</div><div class="synergy-effect">24h baseline + acute pulses = full GH coverage</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">BPC-157 + TB-500 + GHK-Cu</div><div class="synergy-effect">Initiation + remodeling + rejuvenation = complete healing</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">Semax + Selank</div><div class="synergy-effect">Cognitive drive + calm focus = flow state</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">Bromantane + 9-Me-BC</div><div class="synergy-effect">Dual TH upregulation = dopamine synthesis powerhouse</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">NMN + Resveratrol</div><div class="synergy-effect">NAD+ substrate + sirtuin activation = longevity synergy</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">NMN + Apigenin</div><div class="synergy-effect">NAD+ production + CD38 inhibition = maximal NAD+</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">Fisetin + Quercetin</div><div class="synergy-effect">Complementary senolytic coverage</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">Epitalon + FOXO4-DRI</div><div class="synergy-effect">Telomere extension + senescent cell clearance</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">MOTS-c + SS-31 + Humanin</div><div class="synergy-effect">Metabolic + structural + protective = mito trifecta</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">NAC + TUDCA</div><div class="synergy-effect">Glutathione + bile flow = comprehensive liver defense</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">Alpha-GPC + Noopept</div><div class="synergy-effect">Cholinergic substrate + demand enhancement</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">TRT + HCG</div><div class="synergy-effect">Exogenous T + intratesticular function preservation</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">Retatrutide + TRT</div><div class="synergy-effect">Aggressive fat loss + muscle preservation</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">D3 + K2</div><div class="synergy-effect">Calcium absorption + proper direction to bones</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">Zinc + Quercetin</div><div class="synergy-effect">Zinc + ionophore = better cellular uptake</div></div>
+    <div class="synergy-item positive"><div class="synergy-pair">Caffeine + L-Theanine</div><div class="synergy-effect">Stimulation + calm = focused energy</div></div>
+  </div>
+
+  <h3 style="color:var(--danger);margin-bottom:16px">❌ Negative Interactions</h3>
+  <div class="synergy-grid mb-24">
+    <div class="synergy-item negative"><div class="synergy-pair">Flmodafinil + Full Bromantane</div><div class="synergy-effect">Dopamine overload → overstimulation, anxiety, insomnia</div></div>
+    <div class="synergy-item negative"><div class="synergy-pair">9-Me-BC + UV/Sun</div><div class="synergy-effect">Phototoxicity → DNA damage risk</div></div>
+    <div class="synergy-item negative"><div class="synergy-pair">9-Me-BC + MT2 (tanning)</div><div class="synergy-effect">MT2 encourages sun; 9-Me-BC prohibits it — stagger cycles</div></div>
+    <div class="synergy-item negative"><div class="synergy-pair">MK-677 + High-Carb Meals</div><div class="synergy-effect">Insulin spike blunts GH response</div></div>
+    <div class="synergy-item negative"><div class="synergy-pair">CJC/Ipa + Food (30 min)</div><div class="synergy-effect">Insulin blunts GH pulse</div></div>
+    <div class="synergy-item negative"><div class="synergy-pair">Rapamycin + Training (same day)</div><div class="synergy-effect">mTOR inhibition counters muscle protein synthesis</div></div>
+    <div class="synergy-item negative"><div class="synergy-pair">Crashed E2 + Anything</div><div class="synergy-effect">Nothing works when estrogen is too low</div></div>
+    <div class="synergy-item negative"><div class="synergy-pair">NAC + Nitroglycerin</div><div class="synergy-effect">Dangerous blood pressure drop</div></div>
+  </div>
+
+  <h3 style="color:var(--warning);margin-bottom:16px">⚠️ Timing Separations</h3>
+  <div class="synergy-grid">
+    <div class="synergy-item timing"><div class="synergy-pair">Thyroid Meds ↔ Ca/Fe/Zn</div><div class="synergy-effect">4 hours apart — absorption interference</div></div>
+    <div class="synergy-item timing"><div class="synergy-pair">NAC ↔ Charcoal/Binders</div><div class="synergy-effect">2 hours apart — NAC gets bound</div></div>
+    <div class="synergy-item timing"><div class="synergy-pair">Rapamycin ↔ Grapefruit</div><div class="synergy-effect">AVOID — drastically increases rapamycin levels (CYP3A4)</div></div>
+    <div class="synergy-item timing"><div class="synergy-pair">Fat-Soluble Vitamins ↔ Fiber</div><div class="synergy-effect">2 hours apart — fiber reduces absorption</div></div>
+    <div class="synergy-item timing"><div class="synergy-pair">Any Peptide ↔ Food (carbs)</div><div class="synergy-effect">30–60 min apart — insulin blunts GH peptides</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     BLOODWORK
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="bloodwork">
+  <div class="section-header">
+    <h2>🩸 Bloodwork Guide</h2>
+    <p class="section-desc">Non-negotiable monitoring. Flying blind = flying into a wall.</p>
+  </div>
+
+  <h3 class="mb-16" style="color:var(--text-bright);font-size:18px;font-weight:700">Frequency</h3>
+  <div class="table-wrap mb-24">
+    <table>
+      <thead><tr><th>When</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td>Baseline (before starting)</td><td>Comprehensive panel</td></tr>
+        <tr><td>6 weeks into new compound</td><td>Targeted panel</td></tr>
+        <tr><td>Every 3 months</td><td>Standard monitoring</td></tr>
+        <tr><td>Every 6 months</td><td>Comprehensive panel</td></tr>
+        <tr><td>Annually</td><td>Full comprehensive + imaging</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <details class="compound-card"><summary>Hormonal Markers <span class="tag tag-info">Essential</span></summary><div class="compound-body"><div class="table-wrap"><table><thead><tr><th>Marker</th><th>Target</th><th>Notes</th></tr></thead><tbody>
+    <tr><td>Total Testosterone</td><td>700–1100 ng/dL</td><td>Trough level (day before injection)</td></tr>
+    <tr><td>Free Testosterone</td><td>20–30 pg/mL</td><td>Upper quartile</td></tr>
+    <tr><td>SHBG</td><td>20–40 nmol/L</td><td>Lower = more free T</td></tr>
+    <tr><td>Estradiol (sensitive LC/MS)</td><td>20–35 pg/mL</td><td>MUST be sensitive assay</td></tr>
+    <tr><td>Prolactin</td><td>&lt;15 ng/mL</td><td>MK-677 can elevate</td></tr>
+    <tr><td>DHEA-S</td><td>350–500 mcg/dL</td><td>Supplementation target</td></tr>
+    <tr><td>Pregnenolone</td><td>50–150 ng/dL</td><td>Often low on TRT</td></tr>
+    <tr><td>IGF-1</td><td>200–350 ng/mL</td><td>GH axis — don't exceed 350 chronically</td></tr>
+    <tr><td>Cortisol (AM)</td><td>10–18 mcg/dL</td><td>Stress marker</td></tr>
+    <tr><td>Thyroid (TSH/fT3/fT4)</td><td>TSH 1–2, fT3 3–4, fT4 1.2–1.5</td><td>TRT can mask thyroid issues</td></tr>
+    <tr><td>Fasting Insulin</td><td>&lt;5 μIU/mL</td><td>Insulin sensitivity</td></tr>
+  </tbody></table></div></div></details>
+
+  <details class="compound-card"><summary>Metabolic Markers <span class="tag tag-info">Essential</span></summary><div class="compound-body"><div class="table-wrap"><table><thead><tr><th>Marker</th><th>Target</th><th>Notes</th></tr></thead><tbody>
+    <tr><td>Fasting Glucose</td><td>75–90 mg/dL</td><td>MK-677 + Retatrutide affect this</td></tr>
+    <tr><td>HbA1c</td><td>&lt;5.3%</td><td>3-month glucose average</td></tr>
+    <tr><td>HOMA-IR</td><td>&lt;1.0</td><td>Glucose + insulin calculation</td></tr>
+    <tr><td>ApoB</td><td>&lt;80 mg/dL</td><td>Preferred over LDL-C</td></tr>
+    <tr><td>HDL</td><td>&gt;50 mg/dL</td><td>Higher is better</td></tr>
+    <tr><td>Triglycerides</td><td>&lt;100 mg/dL</td><td>Fasted</td></tr>
+    <tr><td>Lp(a)</td><td>&lt;30 mg/dL</td><td>Genetic — check once</td></tr>
+    <tr><td>hsCRP</td><td>&lt;1.0 mg/L</td><td>Systemic inflammation</td></tr>
+    <tr><td>Homocysteine</td><td>&lt;8 μmol/L</td><td>Methylation status</td></tr>
+  </tbody></table></div></div></details>
+
+  <details class="compound-card"><summary>Organ Function <span class="tag tag-info">Essential</span></summary><div class="compound-body"><div class="table-wrap"><table><thead><tr><th>Marker</th><th>Target</th><th>Notes</th></tr></thead><tbody>
+    <tr><td>AST / ALT</td><td>&lt;30 U/L each</td><td>Liver — MK-677, oral nootropics</td></tr>
+    <tr><td>GGT</td><td>&lt;30 U/L</td><td>Liver/bile duct</td></tr>
+    <tr><td>BUN</td><td>10–20 mg/dL</td><td>Kidney</td></tr>
+    <tr><td>Creatinine</td><td>0.7–1.2 mg/dL</td><td>Creatine elevates slightly</td></tr>
+    <tr><td>eGFR</td><td>&gt;90 mL/min</td><td>Kidney filtration</td></tr>
+    <tr><td>Cystatin C</td><td>&lt;1.0 mg/L</td><td>Better kidney marker on creatine</td></tr>
+    <tr><td>Uric Acid</td><td>3.5–6.5 mg/dL</td><td>Gout/metabolic health</td></tr>
+  </tbody></table></div></div></details>
+
+  <details class="compound-card"><summary>Hematological <span class="tag tag-warn">TRT Critical</span></summary><div class="compound-body"><div class="table-wrap"><table><thead><tr><th>Marker</th><th>Target</th><th>Notes</th></tr></thead><tbody>
+    <tr><td>Hematocrit</td><td>&lt;50% (ideal 44–48%)</td><td>TRT → polycythemia. Donate blood if &gt;52%</td></tr>
+    <tr><td>Hemoglobin</td><td>14–17 g/dL</td><td>Correlates with hematocrit</td></tr>
+    <tr><td>Ferritin</td><td>50–150 ng/mL</td><td>Don't deplete from donations</td></tr>
+    <tr><td>PSA</td><td>&lt;1.5 ng/mL</td><td>Prostate — every 6–12 months on TRT</td></tr>
+  </tbody></table></div></div></details>
+
+  <details class="compound-card"><summary>Advanced / Annual Tests <span class="tag tag-info">Recommended</span></summary><div class="compound-body"><div class="table-wrap"><table><thead><tr><th>Test</th><th>Frequency</th><th>Purpose</th></tr></thead><tbody>
+    <tr><td>Coronary Artery Calcium (CAC)</td><td>Every 2–3 years</td><td>CV risk — gold standard</td></tr>
+    <tr><td>DEXA Scan</td><td>Annually</td><td>Body comp, bone density</td></tr>
+    <tr><td>Telomere Length</td><td>Annually</td><td>Track Epitalon efficacy</td></tr>
+    <tr><td>Vitamin D 25(OH)D</td><td>Every 6 months</td><td>At 20–30k IU/day, monitor toxicity</td></tr>
+    <tr><td>Calcium (serum + ionized)</td><td>Every 6 months</td><td>High D3 → calcium metabolism</td></tr>
+    <tr><td>PTH (Parathyroid Hormone)</td><td>Annually</td><td>D3/calcium balance</td></tr>
+  </tbody></table></div></div></details>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SOURCING
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="sourcing">
+  <div class="section-header">
+    <h2>🏪 Vendor Tier List</h2>
+    <p class="section-desc">Third-party testing (HPLC, mass spec) is essential. These are the vetted sources.</p>
+  </div>
+
+  <h3 class="mb-16" style="color:var(--text-bright);font-size:18px">Peptides</h3>
+  <div class="vendor-grid mb-24">
+    <div class="vendor-card"><div class="vc-name"><a href="https://www.peptidesciences.com/" class="ext-link">Peptide Sciences</a></div><div class="vc-tier" style="color:var(--s-tier)">⭐ S-TIER</div><div class="vc-desc">HPLC/MS tested, US-based, highest purity reputation, widest selection.</div><div class="vc-best">Best for: All peptides — gold standard</div></div>
+    <div class="vendor-card"><div class="vc-name">Limitless Life Nootropics</div><div class="vc-tier" style="color:var(--a-tier)">🅰️ A-TIER</div><div class="vc-desc">Good prices, reliable, strong community reputation.</div><div class="vc-best">Best for: BPC-157, TB-500, Semax, Selank</div></div>
+    <div class="vendor-card"><div class="vc-name"><a href="https://www.swisschems.is/" class="ext-link">SwissChems</a></div><div class="vc-tier" style="color:var(--a-tier)">🅰️ A-TIER</div><div class="vc-desc">Competitive pricing, full refund on failed testing.</div><div class="vc-best">Best for: Budget option, SARMs, nootropics</div></div>
+    <div class="vendor-card"><div class="vc-name"><a href="https://www.purerawz.co/" class="ext-link">PureRawz</a></div><div class="vc-tier" style="color:var(--b-tier)">🅱️ B-TIER</div><div class="vc-desc">Wide selection but inconsistent reports, shipping issues.</div><div class="vc-best">Best for: Backup option</div></div>
+  </div>
+
+  <h3 class="mb-16" style="color:var(--text-bright);font-size:18px">Nootropics &amp; Research Chemicals</h3>
+  <div class="vendor-grid mb-24">
+    <div class="vendor-card"><div class="vc-name"><a href="https://science.bio/" class="ext-link">Science.bio</a></div><div class="vc-tier" style="color:var(--a-tier)">🅰️ A-TIER</div><div class="vc-desc">Still operational. Bromantane, 9-Me-BC, Flmodafinil.</div></div>
+    <div class="vendor-card"><div class="vc-name"><a href="https://cosmicnootropic.com/" class="ext-link">Cosmic Nootropic</a></div><div class="vc-tier" style="color:var(--a-tier)">🅰️ A-TIER</div><div class="vc-desc">Russian nootropics — authentic pharmaceutical grade Noopept, Semax, Selank.</div></div>
+    <div class="vendor-card"><div class="vc-name"><a href="https://www.nootropicsdepot.com/" class="ext-link">Nootropics Depot</a></div><div class="vc-tier" style="color:var(--s-tier)">⭐ S-TIER</div><div class="vc-desc">Best QC for supplements. Adaptogens, Apigenin, foundational.</div></div>
+  </div>
+
+  <h3 class="mb-16" style="color:var(--text-bright);font-size:18px">Foundational Supplements</h3>
+  <div class="vendor-grid">
+    <div class="vendor-card"><div class="vc-name">Thorne</div><div class="vc-tier" style="color:var(--s-tier)">⭐ S-TIER</div><div class="vc-desc">Premium quality, third-party tested, physician-recommended.</div></div>
+    <div class="vendor-card"><div class="vc-name"><a href="https://www.lifeextension.com/" class="ext-link">Life Extension</a></div><div class="vc-tier" style="color:var(--s-tier)">⭐ S-TIER</div><div class="vc-desc">Longevity-focused. Great CoQ10, PQQ, Bio-Fisetin products.</div></div>
+    <div class="vendor-card"><div class="vc-name">Jarrow Formulas</div><div class="vc-tier" style="color:var(--a-tier)">🅰️ A-TIER</div><div class="vc-desc">Good value, reliable. QH-Absorb CoQ10.</div></div>
+    <div class="vendor-card"><div class="vc-name">NOW Foods</div><div class="vc-tier" style="color:var(--a-tier)">🅰️ A-TIER</div><div class="vc-desc">Budget-friendly, solid quality.</div></div>
+    <div class="vendor-card"><div class="vc-name">Nordic Naturals</div><div class="vc-tier" style="color:var(--s-tier)">⭐ S-TIER</div><div class="vc-desc">Best fish oil brand.</div></div>
+    <div class="vendor-card"><div class="vc-name"><a href="https://www.prohealthlongevity.com/" class="ext-link">ProHealth Longevity</a></div><div class="vc-tier" style="color:var(--s-tier)">⭐ S-TIER</div><div class="vc-desc">Best-tested NMN. Sinclair's preferred brand.</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PROTOCOL VARIANTS
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="variants">
+  <div class="section-header">
+    <h2>🔀 Protocol Variants</h2>
+    <p class="section-desc">Five optimized configurations for different goals.</p>
+  </div>
+
+  <div class="variant-grid">
+    <div class="variant-card">
+      <h3>🏋️ Bulking Variant</h3>
+      <ul>
+        <li>TRT upper range (or add Anavar 20mg/day × 6–8 weeks)</li>
+        <li>MK-677 at 25mg (use appetite stimulation)</li>
+        <li>CJC/Ipa 3× daily (max GH pulsing)</li>
+        <li>Creatine 5g (some go to 10g)</li>
+        <li>Reduce/pause Retatrutide (appetite suppression counterproductive)</li>
+        <li>Caloric surplus 300–500 kcal</li>
+      </ul>
+    </div>
+    <div class="variant-card">
+      <h3>✂️ Cutting Variant</h3>
+      <ul>
+        <li>Retatrutide at full 12mg/week (primary driver)</li>
+        <li>Tesamorelin 2mg/day (visceral fat targeting)</li>
+        <li>MOTS-c daily (metabolic boost)</li>
+        <li>Fasted training with CJC/Ipa pre-workout</li>
+        <li>MK-677 reduce to 10mg or pause</li>
+        <li>Flmodafinil on training days (energy in deficit)</li>
+        <li>L-Carnitine 2g/day (fatty acid oxidation)</li>
+      </ul>
+    </div>
+    <div class="variant-card">
+      <h3>💰 Budget Variant (~$130–150/mo)</h3>
+      <ul>
+        <li>TRT + HCG (clinic Rx)</li>
+        <li>Creatine 5g ($15/mo)</li>
+        <li>D3/K2 ($15/mo)</li>
+        <li>Omega-3 ($20/mo)</li>
+        <li>Mag Glycinate ($15/mo)</li>
+        <li>NAC ($10/mo)</li>
+        <li>Caffeine + L-Theanine ($15/mo)</li>
+        <li>BPC-157 oral ($40–60/mo)</li>
+      </ul>
+    </div>
+    <div class="variant-card">
+      <h3>🧠 Cognitive-Focus Variant</h3>
+      <ul>
+        <li>Prioritize: NA-Semax Amidate + Selank daily</li>
+        <li>Add: NSI-189 (hippocampal neurogenesis)</li>
+        <li>Keep: Bromantane + Noopept + Alpha-GPC</li>
+        <li>Cycle: Dihexa (2 wk) ↔ 9-Me-BC (2 wk)</li>
+        <li>Add: Lion's Mane 1g/day (NGF complement)</li>
+        <li>Flmodafinil PRN for peak days</li>
+        <li>Optimize sleep stack (repair during sleep)</li>
+      </ul>
+    </div>
+    <div class="variant-card">
+      <h3>🧬 Longevity-Focus Variant</h3>
+      <ul>
+        <li>Rapamycin 5mg weekly</li>
+        <li>NMN 1000mg + Resveratrol 1000mg daily</li>
+        <li>Epitalon 10-day cycle every 4 months</li>
+        <li>Fisetin + Quercetin monthly senolytic pulse</li>
+        <li>FOXO4-DRI quarterly (if budget allows)</li>
+        <li>SS-31 + MOTS-c + Humanin (mito trilogy)</li>
+        <li>Thymosin Alpha-1 (immune restoration)</li>
+        <li>Reduce anabolic intensity, add caloric restriction</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HIERARCHY OF IMPORTANCE
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-header">
+    <h2>🏆 Hierarchy of Importance</h2>
+    <p class="section-desc">If you could only do 5 things from this entire protocol:</p>
+  </div>
+  <ol class="priority-list">
+    <li><span><strong>Optimize TRT</strong> (+ HCG, bloodwork, E2 management) — the foundation. Everything else is secondary.</span></li>
+    <li><span><strong>Sleep Stack</strong> (Glycine, Mag Glycinate, Taurine, L-Theanine) — recovery is everything.</span></li>
+    <li><span><strong>Foundational Supplements</strong> (D3/K2, Omega-3, Creatine, NAC) — basic nutritional insurance.</span></li>
+    <li><span><strong>One Healing Peptide</strong> (BPC-157) — the universal protector.</span></li>
+    <li><span><strong>One Cognitive Peptide</strong> (Semax/NA-Semax Amidate) — BDNF is king.</span></li>
+  </ol>
+  <p class="mt-16" style="color:var(--text-dim);font-size:14px">Everything else is the 20% that takes you from 80% optimized to 95%+.</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     RECONSTITUTION GUIDE
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-header">
+    <h2>📚 Reconstitution Quick Reference</h2>
+  </div>
+  <div class="table-wrap mb-24">
+    <table>
+      <thead><tr><th>Vial</th><th>BAC Water</th><th>Concentration</th><th>100mcg</th><th>250mcg</th><th>500mcg</th><th>1mg</th></tr></thead>
+      <tbody>
+        <tr><td>5mg</td><td>2mL</td><td>2.5mg/mL</td><td>4 units</td><td>10 units</td><td>20 units</td><td>40 units</td></tr>
+        <tr><td>5mg</td><td>5mL</td><td>1mg/mL</td><td>10 units</td><td>25 units</td><td>50 units</td><td>100 units</td></tr>
+        <tr><td>10mg</td><td>2mL</td><td>5mg/mL</td><td>2 units</td><td>5 units</td><td>10 units</td><td>20 units</td></tr>
+        <tr><td>10mg</td><td>5mL</td><td>2mg/mL</td><td>5 units</td><td>12.5 units</td><td>25 units</td><td>50 units</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="mb-16" style="color:var(--text-bright);font-size:18px">Reconstitution Steps</h3>
+  <div class="recon-steps mb-24">
+    <div class="recon-step"><div class="step-num">1</div><div class="step-text">Wipe vial stopper with alcohol swab</div></div>
+    <div class="recon-step"><div class="step-num">2</div><div class="step-text">Draw BAC water into insulin syringe</div></div>
+    <div class="recon-step"><div class="step-num">3</div><div class="step-text">Inject against GLASS WALL, not directly on powder</div></div>
+    <div class="recon-step"><div class="step-num">4</div><div class="step-text">Gently swirl (NEVER shake) until dissolved</div></div>
+    <div class="recon-step"><div class="step-num">5</div><div class="step-text">Store reconstituted peptide in fridge (2–8°C)</div></div>
+    <div class="recon-step"><div class="step-num">6</div><div class="step-text">Use within 30 days of reconstitution</div></div>
+    <div class="recon-step"><div class="step-num">7</div><div class="step-text">New needle/syringe for each injection</div></div>
+  </div>
+
+  <h3 class="mb-16" style="color:var(--text-bright);font-size:18px">SubQ Injection Technique</h3>
+  <div class="recon-steps">
+    <div class="recon-step"><div class="step-num">1</div><div class="step-text">Clean site with alcohol swab</div></div>
+    <div class="recon-step"><div class="step-num">2</div><div class="step-text">Pinch skin fold (abdomen, love handles, thigh)</div></div>
+    <div class="recon-step"><div class="step-num">3</div><div class="step-text">Insert needle at 45° angle</div></div>
+    <div class="recon-step"><div class="step-num">4</div><div class="step-text">Inject slowly</div></div>
+    <div class="recon-step"><div class="step-num">5</div><div class="step-text">Hold 5 seconds, withdraw, light pressure (don't rub)</div></div>
+    <div class="recon-step"><div class="step-num">6</div><div class="step-text">Rotate sites to prevent lipodystrophy</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     KEY STUDIES
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-header">
+    <h2>🔬 Key Studies Referenced</h2>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Study</th><th>Compound</th><th>Finding</th></tr></thead>
+      <tbody>
+        <tr><td>Teichman et al. (2006) — JCEM</td><td>CJC-1295</td><td>2–10× GH, 1.5–3× IGF-1, sustained 6–14 days</td></tr>
+        <tr><td>Jall et al. (2023) — Nature Phase 2</td><td>Retatrutide</td><td>12mg/wk → 24.2% body weight loss at 48 weeks</td></tr>
+        <tr><td>Khavinson et al. (2003) — PMC</td><td>Epitalon</td><td>Telomerase activation; lifespan extension in rodents</td></tr>
+        <tr><td>Lee et al. (2015) — Cell Metabolism</td><td>MOTS-c</td><td>Exercise mimetic; improves glucose metabolism</td></tr>
+        <tr><td>Bury et al. (2017) — Cell</td><td>FOXO4-DRI</td><td>Restored fitness, fur, renal function in aged mice</td></tr>
+        <tr><td>Yoon et al. (2018) — Nature</td><td>Humanin</td><td>Increases lifespan via FOXO pathway</td></tr>
+        <tr><td>Zhu et al. (2018) — EBioMedicine</td><td>Fisetin</td><td>Most potent senolytic flavonoid; extended lifespan</td></tr>
+        <tr><td>Szeto et al. (2011)</td><td>SS-31</td><td>Mito membrane stabilization; reversed cardiac aging</td></tr>
+        <tr><td>Ashmarin et al. (2005)</td><td>Semax</td><td>BDNF 2× baseline; neuroprotective in stroke</td></tr>
+        <tr><td>Seredenin et al. (1998)</td><td>Selank</td><td>Anxiolytic = diazepam without sedation/dependence</td></tr>
+        <tr><td>Harding et al. (2013) — J Pharmacol</td><td>Dihexa</td><td>10M × more potent than BDNF at c-Met</td></tr>
+        <tr><td>Laakmann et al. (2000)</td><td>Bromantane</td><td>2–2.5× TH expression; 8h sustained DA elevation</td></tr>
+        <tr><td>Science (2023)</td><td>Taurine</td><td>Increased healthspan/lifespan in multiple species</td></tr>
+        <tr><td>PEARL Trial (2025)</td><td>Rapamycin</td><td>First human trial: slowed muscle and bone aging</td></tr>
+        <tr><td>BMJ (2025)</td><td>Thymosin α-1</td><td>Multicenter RCT: immune modulation in sepsis</td></tr>
+        <tr><td>PMC (2025)</td><td>Epitalon</td><td>Confirmed telomere lengthening in human cell lines</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FULL DISCLAIMER
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" id="disclaimer">
+  <div class="section-header">
+    <h2>⚠️ Full Disclaimer &amp; Risk Warnings</h2>
+  </div>
+  <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);border-radius:var(--radius);padding:24px;line-height:1.8;font-size:14px;color:var(--text-dim)">
+    <p><strong style="color:var(--danger)">THIS DOCUMENT IS FOR INFORMATIONAL AND EDUCATIONAL PURPOSES ONLY.</strong></p>
+    <ol style="margin:16px 0 0 20px;">
+      <li><strong>MEDICAL SUPERVISION IS MANDATORY.</strong> Many compounds listed are experimental, prescription-only, or not approved for human use. Work with an endocrinologist, anti-aging physician, or peptide-knowledgeable MD.</li>
+      <li><strong>BLOODWORK IS NON-NEGOTIABLE.</strong> Comprehensive bloodwork before starting, at 6-week intervals during active protocols, and quarterly for maintenance. Skipping = flying blind.</li>
+      <li><strong>LEGAL STATUS VARIES BY JURISDICTION.</strong> Many peptides and research chemicals exist in legal gray areas. Peptides sold "for research purposes only" are not FDA-approved for human consumption. Know your local laws.</li>
+      <li><strong>NO COMPOUND IS WITHOUT RISK.</strong> The more compounds stacked, the greater the chance of unexpected interactions. Start low, go slow, add one at a time.</li>
+      <li><strong>LONG-TERM SAFETY DATA IS LIMITED OR NONEXISTENT</strong> for many peptides. You are an N=1 experiment. Document everything.</li>
+      <li><strong>THIS IS NOT MEDICAL ADVICE.</strong> The author is an AI research agent. Nothing constitutes a prescription, diagnosis, or treatment.</li>
+      <li><strong>ALLERGIC REACTIONS, CONTAMINATION, AND COUNTERFEITS</strong> are real risks. Third-party testing (HPLC, mass spectrometry) is essential.</li>
+      <li><strong>INJECTION RISKS:</strong> Infection, nerve damage, abscess if sterile technique not followed. Use bacteriostatic water, alcohol swabs, insulin syringes, never share needles.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     STATS
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-header"><h2>📊 Document Statistics</h2></div>
+  <div class="cb-grid">
+    <div class="cb-item"><div class="cb-label">Compounds Evaluated</div><div class="cb-value">60+</div></div>
+    <div class="cb-item"><div class="cb-label">Compounds Included</div><div class="cb-value">40+</div></div>
+    <div class="cb-item"><div class="cb-label">Compounds Excluded</div><div class="cb-value">10+ (with justification)</div></div>
+    <div class="cb-item"><div class="cb-label">PubMed Studies</div><div class="cb-value">15+</div></div>
+    <div class="cb-item"><div class="cb-label">Full Protocol Cost</div><div class="cb-value">$800–$2,000/month</div></div>
+    <div class="cb-item"><div class="cb-label">Budget Variant</div><div class="cb-value">$130–$150/month</div></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <p style="font-size:16px;color:var(--accent);margin-bottom:12px">🧬 Every compound fought for its spot. Nothing mediocre survived.</p>
+  <p>Version 3.0 — The GOAT Stack · Last updated: January 30, 2026</p>
+  <p>Compiled by <strong>Asis ⚗️</strong> for <strong>Rauli (@raulurbay)</strong></p>
+  <p style="margin-top:12px"><em>Godspeed, Rauli.</em> ⚗️🧬💪</p>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════════════════ -->
 <script>
-fetch('ultimate-stack-v3.md')
-  .then(r => r.text())
-  .then(md => { document.getElementById('content').innerHTML = marked.parse(md); })
-  .catch(e => { document.getElementById('content').innerHTML = '<p>Error loading protocol: ' + e + '</p>'; });
+// Theme Toggle
+const html = document.documentElement;
+const toggle = document.getElementById('themeToggle');
+const stored = localStorage.getItem('theme');
+if (stored) { html.dataset.theme = stored; }
+function updateToggleIcon() { toggle.textContent = html.dataset.theme === 'dark' ? '🌙' : '☀️'; }
+updateToggleIcon();
+toggle.addEventListener('click', () => {
+  html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('theme', html.dataset.theme);
+  updateToggleIcon();
+});
+
+// Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  hamburger.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => { navLinks.classList.remove('open'); hamburger.textContent = '☰'; });
+});
+
+// Active Nav Highlight
+const sections = document.querySelectorAll('section[id]');
+const navItems = document.querySelectorAll('.nav-links a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navItems.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+
+// Search / Filter
+const searchInput = document.getElementById('searchInput');
+const allCards = document.querySelectorAll('.compound-card');
+searchInput.addEventListener('input', (e) => {
+  const q = e.target.value.toLowerCase().trim();
+  if (!q) {
+    allCards.forEach(c => { c.classList.remove('hidden'); c.removeAttribute('open'); });
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('hidden'));
+    return;
+  }
+  allCards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    const match = text.includes(q);
+    card.classList.toggle('hidden', !match);
+    if (match) card.setAttribute('open', '');
+  });
+  // Show/hide sections based on whether they have visible cards
+  document.querySelectorAll('.section').forEach(sec => {
+    const cards = sec.querySelectorAll('.compound-card');
+    if (cards.length === 0) return; // sections without cards stay visible
+    const anyVisible = [...cards].some(c => !c.classList.contains('hidden'));
+    sec.classList.toggle('hidden', !anyVisible);
+  });
+});
 </script>
 </body>
 </html>

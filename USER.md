@@ -43,6 +43,7 @@
 **Nootropics:** Bromantane, 9-Me-BC, Dihexa, Noopept
 **Incoming:** Flmodafinil, NA-Semax Amidate 30mg, Epitalon 100mg (Science.bio)
 **Sleep:** Glycine 10g, Mag Glycinate 600mg, Taurine 3g, L-Theanine 200-400mg, DSIP, MK-677
+**HRT:** Exogenous testosterone — T boosters (Tongkat, Ashwagandha, Boron) are redundant
 
 ## Boundaries
 - ❌ Will NOT do quizzes/tests (academic integrity)

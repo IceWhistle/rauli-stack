@@ -3,316 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beauty Stack</title>
+<title>Ultimate Human Optimization Protocol v3</title>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background: #0a0a0a;
-  color: #e0e0e0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-.container {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 48px 20px 64px;
-}
-
-header {
-  margin-bottom: 48px;
-}
-
-header h1 {
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  margin-bottom: 16px;
-}
-
-.intro {
-  color: #888;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.section {
-  margin-bottom: 40px;
-}
-
-.section-title {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #555;
-  margin-bottom: 16px;
-  padding-left: 4px;
-}
-
-.product-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  background: #141414;
-  border-radius: 14px;
-  padding: 16px 18px;
-  margin-bottom: 8px;
-  transition: background 0.15s ease;
-}
-
-.product-link:hover {
-  background: #1a1a1a;
-}
-
-.product-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-}
-
-.product-name {
-  font-weight: 500;
-  font-size: 15px;
-  flex: 1;
-  min-width: 0;
-}
-
-.product-price {
-  color: #e88ea0;
-  font-weight: 600;
-  font-size: 15px;
-  white-space: nowrap;
-}
-
-.product-desc {
-  color: #666;
-  font-size: 13px;
-  margin-top: 4px;
-}
-
-.footer {
-  margin-top: 48px;
-  padding-top: 24px;
-  border-top: 1px solid #1a1a1a;
-}
-
-.total-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 8px;
-}
-
-.total-label {
-  color: #888;
-  font-size: 14px;
-}
-
-.total-price {
-  color: #e88ea0;
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.footer-note {
-  color: #444;
-  font-size: 12px;
-  margin-top: 16px;
-  line-height: 1.5;
-}
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #0d1117; color: #c9d1d9; line-height: 1.7; }
+  h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 10px; }
+  h2 { color: #79c0ff; margin-top: 2em; border-bottom: 1px solid #21262d; padding-bottom: 8px; }
+  h3 { color: #d2a8ff; }
+  h4 { color: #7ee787; }
+  a { color: #58a6ff; }
+  code { background: #161b22; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+  pre { background: #161b22; padding: 16px; border-radius: 8px; overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+  th, td { border: 1px solid #30363d; padding: 8px 12px; text-align: left; }
+  th { background: #161b22; color: #58a6ff; }
+  tr:nth-child(even) { background: #0d1117; }
+  tr:nth-child(odd) { background: #161b22; }
+  blockquote { border-left: 4px solid #58a6ff; margin: 1em 0; padding: 0.5em 1em; background: #161b22; border-radius: 0 8px 8px 0; }
+  strong { color: #e6edf3; }
+  hr { border: none; border-top: 1px solid #30363d; margin: 2em 0; }
+  ul, ol { padding-left: 1.5em; }
+  li { margin: 0.3em 0; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0d1117; }
+  ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
 </style>
 </head>
 <body>
-<div class="container">
-
-  <header>
-    <h1>Beauty Stack</h1>
-    <p class="intro">A curated daily routine for glowing skin, strong hair, and overall radiance. Tap any product to view on Amazon.</p>
-  </header>
-
-  <section class="section">
-    <div class="section-title">Morning</div>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B01MSSDEPK" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">CeraVe Hydrating Cleanser</span>
-        <span class="product-price">$16</span>
-      </div>
-      <div class="product-desc">Gentle, ceramide-rich face wash</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B0036BI56G" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">Timeless Vitamin C 20%</span>
-        <span class="product-price">$23</span>
-      </div>
-      <div class="product-desc">Brightening antioxidant serum</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B06VRM8Q1S" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">The Ordinary Niacinamide 10%</span>
-        <span class="product-price">$6</span>
-      </div>
-      <div class="product-desc">Minimizes pores, controls oil</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B002MSN3QQ" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">EltaMD UV Clear SPF 46</span>
-        <span class="product-price">$37</span>
-      </div>
-      <div class="product-desc">Lightweight, non-greasy sunscreen</div>
-    </a>
-  </section>
-
-  <section class="section">
-    <div class="section-title">Night</div>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B07VHDYJL5" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">The Ordinary Squalane Cleanser</span>
-        <span class="product-price">$9</span>
-      </div>
-      <div class="product-desc">Oil cleanser — melts makeup off</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B00949CTQQ" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">Paula's Choice 2% BHA</span>
-        <span class="product-price">$35</span>
-      </div>
-      <div class="product-desc">Exfoliant for clear, smooth skin</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B0789NX2ZV" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">The Ordinary Retinol 0.5%</span>
-        <span class="product-price">$8</span>
-      </div>
-      <div class="product-desc">Anti-aging, boosts cell turnover</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B06X3VDS2V" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">The Ordinary Buffet</span>
-        <span class="product-price">$17</span>
-      </div>
-      <div class="product-desc">Multi-peptide serum for firmness</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B00TTD9BRC" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">CeraVe Moisturizing Cream</span>
-        <span class="product-price">$19</span>
-      </div>
-      <div class="product-desc">Rich barrier-repair moisturizer</div>
-    </a>
-  </section>
-
-  <section class="section">
-    <div class="section-title">Weekly</div>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B071D4D5DT" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">The Ordinary AHA 30% + BHA 2%</span>
-        <span class="product-price">$8</span>
-      </div>
-      <div class="product-desc">10-minute resurfacing peel</div>
-    </a>
-  </section>
-
-  <section class="section">
-    <div class="section-title">Hair</div>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B07N7PK9QK" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">Mielle Rosemary Mint Oil</span>
-        <span class="product-price">$10</span>
-      </div>
-      <div class="product-desc">Scalp oil for growth and thickness</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B00SNM5US4" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">Olaplex No.3</span>
-        <span class="product-price">$30</span>
-      </div>
-      <div class="product-desc">Bond repair treatment</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B000WB1YSE" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">Viviscal</span>
-        <span class="product-price">$40</span>
-      </div>
-      <div class="product-desc">Hair growth supplement, clinically tested</div>
-    </a>
-  </section>
-
-  <section class="section">
-    <div class="section-title">Supplements</div>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B00K6JUG4K" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">Vital Proteins Collagen</span>
-        <span class="product-price">$43</span>
-      </div>
-      <div class="product-desc">Skin elasticity, hair and nail support</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B002CQU564" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">Omega-3 Fish Oil</span>
-        <span class="product-price">$18</span>
-      </div>
-      <div class="product-desc">Anti-inflammatory, skin hydration</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B002Y27LLS" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">Vitamin D3 5000 IU</span>
-        <span class="product-price">$18</span>
-      </div>
-      <div class="product-desc">Essential for skin repair and immunity</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B00Y8MP4G6" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">Probiotics</span>
-        <span class="product-price">$36</span>
-      </div>
-      <div class="product-desc">Gut health — reflects on skin clarity</div>
-    </a>
-
-    <a class="product-link" href="https://www.amazon.com/dp/B006X1DCVO" target="_blank" rel="noopener">
-      <div class="product-row">
-        <span class="product-name">Astaxanthin 12mg</span>
-        <span class="product-price">$29</span>
-      </div>
-      <div class="product-desc">Powerful antioxidant, UV protection from within</div>
-    </a>
-  </section>
-
-  <div class="footer">
-    <div class="total-row">
-      <span class="total-label">Estimated monthly cost</span>
-      <span class="total-price">~$140/mo</span>
-    </div>
-    <div class="total-row">
-      <span class="total-label">First-time full stack</span>
-      <span class="total-price">~$374</span>
-    </div>
-    <p class="footer-note">Most products last 2–3 months. Monthly cost assumes replacements spread over time. Start with Morning + Night basics, add supplements gradually.</p>
-  </div>
-
-</div>
+<div id="content">Loading...</div>
+<script>
+fetch('ultimate-stack-v3.md')
+  .then(r => r.text())
+  .then(md => { document.getElementById('content').innerHTML = marked.parse(md); })
+  .catch(e => { document.getElementById('content').innerHTML = '<p>Error loading protocol: ' + e + '</p>'; });
+</script>
 </body>
 </html>

@@ -62,6 +62,26 @@
 8. **Polite Drafts** — Warm, friendly tone (say good morning, be nice) — NOT clinical
 9. **Don't Spam** — Check today's memory before sending reminders (PC monitor disabled for spam)
 10. **UTC → EST Always** — Rauli is EST, convert times before messaging
+11. **No Kimi for complex tasks** — 8192 token output limit, syntax errors, incomplete files. Use Opus.
+12. **Curate > Kitchen Sink** — Rauli prefers curated essentials over comprehensive lists (especially for girlfriend)
+13. **Telegram caches files by name** — Rename file or host on URL to bust cache
+14. **GitHub Pages for HTML** — Don't send HTML files via Telegram, host on Pages (icewhistle.github.io/rauli-stack/)
+
+## Config (as of 2026-01-30)
+- **Default model:** Opus 4.5 (main + subagents)
+- **Kimi:** Still configured but NOT used for complex tasks
+
+## Beauty Stack (Girlfriend)
+- **Live URL:** https://icewhistle.github.io/rauli-stack/beauty.html
+- **GitHub repo:** IceWhistle/rauli-stack (clean history, no secrets)
+- **Style:** Minimalist Apple-clean, 18 curated products, ~$140/mo
+- **All Amazon links**, verified ASINs
+
+## Security (Hardened 2026-01-30)
+- Gateway port 18789: Tailscale-only (100.64.0.0/10)
+- Nginx: disabled
+- Git repo: nuked + clean history (no secrets)
+- All cred files: 600 permissions
 
 ## Quick Fixes
 - **Node reconnect:** `npx clawdbot@latest node run --host 100.90.148.32 --port 18789 --display-name "Rauli-PC"`

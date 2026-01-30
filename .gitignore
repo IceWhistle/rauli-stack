@@ -22,3 +22,4 @@ node_modules/
 # Electron build artifacts
 deadlock-counter/electron-app/dist/
 deadlock-counter/electron-app/node_modules/
+.kimi-api-key

@@ -1,0 +1,3020 @@
+{
+  "fetchedAt": "2026-01-25T20:16:13.067Z",
+  "items": {
+    "Extended Magazine": {
+      "category": "weapon",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Monster Rounds": {
+      "category": "weapon",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Cultist Sacrifice": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Tesla Bullets": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Capacitor": {
+      "category": "weapon",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Hollow Point": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "health",
+        "bullet_armor_reduction"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Opening Rounds": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage",
+        "spirit_damage",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "High-Velocity Rounds": {
+      "category": "weapon",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Melee Lifesteal": {
+      "category": "vitality",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "health",
+        "lifesteal"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Rebuttal": {
+      "category": "vitality",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Counterspell": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Weighted Shots": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Close Quarters": {
+      "category": "weapon",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Long Range": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Slowing Bullets": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage",
+        "slow"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Inhibitor": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Spirit Shredder Bullets": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Heroic Aura": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Silence Wave": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage",
+        "health",
+        "silence"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Silencer": {
+      "category": "weapon",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "bullet_damage",
+        "silence",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Berserker": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Frenzy": {
+      "category": "weapon",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "bullet_damage",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Siphon Bullets": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Headshot Booster": {
+      "category": "weapon",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "bullet_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Weakening Headshot": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Sharpshooter": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Headhunter": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Spirit Rend": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Crippling Headshot": {
+      "category": "weapon",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "bullet_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Mystic Shot": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Lucky Shot": {
+      "category": "weapon",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Point Blank": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "health",
+        "slow"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Toxic Bullets": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "anti_heal"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Ricochet": {
+      "category": "weapon",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Extra Health": {
+      "category": "vitality",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Bullet Lifesteal": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health",
+        "lifesteal"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Debuff Reducer": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Debuff Remover": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Spirit Resilience": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Bullet Resilience": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Metal Skin": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Healing Booster": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Fortitude": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Leech": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health",
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Sprint Boots": {
+      "category": "vitality",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Trophy Collector": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Enduring Speed": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Stamina Mastery": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Rapid Rounds": {
+      "category": "weapon",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Extra Stamina": {
+      "category": "vitality",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Hunter's Aura": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "health",
+        "bullet_armor_reduction"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Weapon Shielding": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health",
+        "shield"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Spirit Shielding": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health",
+        "shield"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Battle Vest": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Enchanter's Emblem": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health",
+        "spirit_damage",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Extra Spirit": {
+      "category": "spirit",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Mystic Regeneration": {
+      "category": "spirit",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Improved Spirit": {
+      "category": "spirit",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "spirit_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Spiritual Overflow": {
+      "category": "weapon",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Return Fire": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Greater Expansion": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Mystic Expansion": {
+      "category": "spirit",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Extra Charge": {
+      "category": "spirit",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Spirit Lifesteal": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health",
+        "spirit_damage",
+        "lifesteal"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Bullet Resist Shredder": {
+      "category": "spirit",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "spirit_damage",
+        "health",
+        "bullet_armor_reduction",
+        "defense",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Mystic Reverb": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Mystic Burst": {
+      "category": "spirit",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Tankbuster": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Mystic Vulnerability": {
+      "category": "spirit",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "spirit_damage",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Healbane": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health",
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Mystic Slow": {
+      "category": "spirit",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "spirit_damage",
+        "health",
+        "slow"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Escalating Exposure": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Rapid Recharge": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Omnicharge Signet": {
+      "category": "spirit",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Compress Cooldown": {
+      "category": "spirit",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Superior Cooldown": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Transcendent Cooldown": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Slowing Hex": {
+      "category": "spirit",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "spirit_damage",
+        "slow"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Spirit Sap": {
+      "category": "spirit",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "spirit_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Focus Lens": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Rusted Barrel": {
+      "category": "spirit",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "spirit_damage",
+        "health",
+        "bullet_armor_reduction"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Disarming Hex": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage",
+        "health",
+        "bullet_armor_reduction"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Rescue Beam": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Decay": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Scourge": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage",
+        "health",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Knockdown": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage",
+        "health",
+        "stun",
+        "cc"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Phantom Strike": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health",
+        "spirit_damage",
+        "slow"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Warp Stone": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Vortex Web": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage",
+        "slow"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Refresher": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage",
+        "bullet_defense",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Echo Shard": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage",
+        "bullet_defense",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Torment Pulse": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Cheat Death": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Shadow Weave": {
+      "category": "weapon",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Majestic Leap": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health",
+        "slow"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Healing Nova": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Restorative Locket": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Healing Rite": {
+      "category": "vitality",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Shrink Ray": {
+      "category": "spirit",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Infuser": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Guardian Ward": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Divine Barrier": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Alchemical Fire": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "bullet_armor_reduction"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Blood Tribute": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Fleetfoot": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Kinetic Dash": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Arcane Surge": {
+      "category": "spirit",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Unstoppable": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Colossus": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health",
+        "slow"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Cold Front": {
+      "category": "spirit",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "spirit_damage",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Arctic Blast": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage",
+        "slow",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Ethereal Shift": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Curse": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage",
+        "slow"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Duration Extender": {
+      "category": "spirit",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Superior Duration": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Glass Cannon": {
+      "category": "weapon",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "bullet_damage",
+        "slow"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Fury Trance": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Vampiric Burst": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Lifestrike": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health",
+        "slow"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Spirit Strike": {
+      "category": "spirit",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Spirit Snatch": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage",
+        "health",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Melee Charge": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Crushing Fists": {
+      "category": "weapon",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "bullet_damage",
+        "stun",
+        "cc",
+        "bullet_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Diviner's Kevlar": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health",
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Radiant Regeneration": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Boundless Spirit": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Burst Fire": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Extra Regen": {
+      "category": "vitality",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Surge of Power": {
+      "category": "spirit",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Suppressor": {
+      "category": "spirit",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "spirit_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Quicksilver Reload": {
+      "category": "spirit",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Mercurial Magnum": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Intensifying Magazine": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Escalating Resilience": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Swift Striker": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Veil Walker": {
+      "category": "vitality",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Reactive Barrier": {
+      "category": "vitality",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "health",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Restorative Shot": {
+      "category": "weapon",
+      "tier": 1,
+      "cost": 800,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Titanic Magazine": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Split Shot": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Active Reload": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Magic Carpet": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Spirit Burn": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Lightning Scroll": {
+      "category": "spirit",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "spirit_damage",
+        "health",
+        "slow",
+        "stun",
+        "cc"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Witchmail": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health",
+        "spirit_damage",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Healing Tempo": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Armor Piercing Rounds": {
+      "category": "weapon",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Infinite Rounds": {
+      "category": "weapon",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Plated Armor": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Spellbreaker": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health",
+        "spirit_defense"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Juggernaut": {
+      "category": "vitality",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Spellslinger": {
+      "category": "weapon",
+      "tier": 4,
+      "cost": 6400,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Backstabber": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage",
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Express Shot": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Seraphim Wings": {
+      "category": "vitality",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Mystical Piano": {
+      "category": "spirit",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "spirit_damage",
+        "stun",
+        "cc"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Nullification Burst": {
+      "category": "vitality",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Celestial Blessing": {
+      "category": "vitality",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Eternal Gift": {
+      "category": "vitality",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Mystic Conduit": {
+      "category": "spirit",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Haunting Shot": {
+      "category": "weapon",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Cloak of Opportunity": {
+      "category": "vitality",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Runed Gauntlets": {
+      "category": "weapon",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Electric Slippers": {
+      "category": "vitality",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Prism Blast": {
+      "category": "spirit",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Unstable Concoction": {
+      "category": "spirit",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "spirit_damage",
+        "health",
+        "stun",
+        "cc"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Frostbite Charm": {
+      "category": "spirit",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "spirit_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Shadow Strike": {
+      "category": "vitality",
+      "tier": 5,
+      "cost": 9999,
+      "tags": [
+        "health"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Ballistic Enchantment": {
+      "category": "weapon",
+      "tier": 3,
+      "cost": 3200,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    },
+    "Recharging Rush": {
+      "category": "weapon",
+      "tier": 2,
+      "cost": 1600,
+      "tags": [
+        "bullet_damage"
+      ],
+      "counters": [],
+      "countered_by": []
+    }
+  },
+  "byCategory": {
+    "weapon": [
+      {
+        "name": "Extended Magazine",
+        "filename": "extended_magazine",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "weapon/extended_magazine.png"
+      },
+      {
+        "name": "Monster Rounds",
+        "filename": "monster_rounds",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "weapon/monster_rounds.png"
+      },
+      {
+        "name": "Cultist Sacrifice",
+        "filename": "cultist_sacrifice",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/cultist_sacrifice.png"
+      },
+      {
+        "name": "Tesla Bullets",
+        "filename": "tesla_bullets",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/tesla_bullets.png"
+      },
+      {
+        "name": "Capacitor",
+        "filename": "capacitor",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "weapon/capacitor.png"
+      },
+      {
+        "name": "Hollow Point",
+        "filename": "hollow_point",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/hollow_point.png"
+      },
+      {
+        "name": "Opening Rounds",
+        "filename": "opening_rounds",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/opening_rounds.png"
+      },
+      {
+        "name": "High-Velocity Rounds",
+        "filename": "high_velocity_rounds",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "weapon/high_velocity_rounds.png"
+      },
+      {
+        "name": "Weighted Shots",
+        "filename": "weighted_shots",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/weighted_shots.png"
+      },
+      {
+        "name": "Close Quarters",
+        "filename": "close_quarters",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "weapon/close_quarters.png"
+      },
+      {
+        "name": "Long Range",
+        "filename": "long_range",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/long_range.png"
+      },
+      {
+        "name": "Slowing Bullets",
+        "filename": "slowing_bullets",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/slowing_bullets.png"
+      },
+      {
+        "name": "Spirit Shredder Bullets",
+        "filename": "spirit_shredder_bullets",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/spirit_shredder_bullets.png"
+      },
+      {
+        "name": "Heroic Aura",
+        "filename": "heroic_aura",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/heroic_aura.png"
+      },
+      {
+        "name": "Silencer",
+        "filename": "silencer",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "weapon/silencer.png"
+      },
+      {
+        "name": "Berserker",
+        "filename": "berserker",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/berserker.png"
+      },
+      {
+        "name": "Frenzy",
+        "filename": "frenzy",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "weapon/frenzy.png"
+      },
+      {
+        "name": "Headshot Booster",
+        "filename": "headshot_booster",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "weapon/headshot_booster.png"
+      },
+      {
+        "name": "Weakening Headshot",
+        "filename": "weakening_headshot",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/weakening_headshot.png"
+      },
+      {
+        "name": "Sharpshooter",
+        "filename": "sharpshooter",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/sharpshooter.png"
+      },
+      {
+        "name": "Headhunter",
+        "filename": "headhunter",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/headhunter.png"
+      },
+      {
+        "name": "Spirit Rend",
+        "filename": "spirit_rend",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/spirit_rend.png"
+      },
+      {
+        "name": "Crippling Headshot",
+        "filename": "crippling_headshot",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "weapon/crippling_headshot.png"
+      },
+      {
+        "name": "Mystic Shot",
+        "filename": "mystic_shot",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/mystic_shot.png"
+      },
+      {
+        "name": "Lucky Shot",
+        "filename": "lucky_shot",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "weapon/lucky_shot.png"
+      },
+      {
+        "name": "Point Blank",
+        "filename": "point_blank",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/point_blank.png"
+      },
+      {
+        "name": "Toxic Bullets",
+        "filename": "toxic_bullets",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/toxic_bullets.png"
+      },
+      {
+        "name": "Ricochet",
+        "filename": "ricochet",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "weapon/ricochet.png"
+      },
+      {
+        "name": "Rapid Rounds",
+        "filename": "rapid_rounds",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "weapon/rapid_rounds.png"
+      },
+      {
+        "name": "Hunter's Aura",
+        "filename": "hunter_s_aura",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/hunter_s_aura.png"
+      },
+      {
+        "name": "Spiritual Overflow",
+        "filename": "spiritual_overflow",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "weapon/spiritual_overflow.png"
+      },
+      {
+        "name": "Shadow Weave",
+        "filename": "shadow_weave",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "weapon/shadow_weave.png"
+      },
+      {
+        "name": "Alchemical Fire",
+        "filename": "alchemical_fire",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/alchemical_fire.png"
+      },
+      {
+        "name": "Blood Tribute",
+        "filename": "blood_tribute",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/blood_tribute.png"
+      },
+      {
+        "name": "Fleetfoot",
+        "filename": "fleetfoot",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/fleetfoot.png"
+      },
+      {
+        "name": "Kinetic Dash",
+        "filename": "kinetic_dash",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/kinetic_dash.png"
+      },
+      {
+        "name": "Glass Cannon",
+        "filename": "glass_cannon",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "weapon/glass_cannon.png"
+      },
+      {
+        "name": "Melee Charge",
+        "filename": "melee_charge",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/melee_charge.png"
+      },
+      {
+        "name": "Crushing Fists",
+        "filename": "crushing_fists",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "weapon/crushing_fists.png"
+      },
+      {
+        "name": "Burst Fire",
+        "filename": "burst_fire",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/burst_fire.png"
+      },
+      {
+        "name": "Intensifying Magazine",
+        "filename": "intensifying_magazine",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/intensifying_magazine.png"
+      },
+      {
+        "name": "Escalating Resilience",
+        "filename": "escalating_resilience",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/escalating_resilience.png"
+      },
+      {
+        "name": "Swift Striker",
+        "filename": "swift_striker",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/swift_striker.png"
+      },
+      {
+        "name": "Restorative Shot",
+        "filename": "restorative_shot",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "weapon/restorative_shot.png"
+      },
+      {
+        "name": "Titanic Magazine",
+        "filename": "titanic_magazine",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/titanic_magazine.png"
+      },
+      {
+        "name": "Split Shot",
+        "filename": "split_shot",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/split_shot.png"
+      },
+      {
+        "name": "Active Reload",
+        "filename": "active_reload",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/active_reload.png"
+      },
+      {
+        "name": "Armor Piercing Rounds",
+        "filename": "armor_piercing_rounds",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "weapon/armor_piercing_rounds.png"
+      },
+      {
+        "name": "Infinite Rounds",
+        "filename": "infinite_rounds",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "weapon/infinite_rounds.png"
+      },
+      {
+        "name": "Spellslinger",
+        "filename": "spellslinger",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "weapon/spellslinger.png"
+      },
+      {
+        "name": "Backstabber",
+        "filename": "backstabber",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/backstabber.png"
+      },
+      {
+        "name": "Express Shot",
+        "filename": "express_shot",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/express_shot.png"
+      },
+      {
+        "name": "Haunting Shot",
+        "filename": "haunting_shot",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "weapon/haunting_shot.png"
+      },
+      {
+        "name": "Runed Gauntlets",
+        "filename": "runed_gauntlets",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "weapon/runed_gauntlets.png"
+      },
+      {
+        "name": "Ballistic Enchantment",
+        "filename": "ballistic_enchantment",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "weapon/ballistic_enchantment.png"
+      },
+      {
+        "name": "Recharging Rush",
+        "filename": "recharging_rush",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "weapon/recharging_rush.png"
+      }
+    ],
+    "vitality": [
+      {
+        "name": "Melee Lifesteal",
+        "filename": "melee_lifesteal",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "vitality/melee_lifesteal.png"
+      },
+      {
+        "name": "Rebuttal",
+        "filename": "rebuttal",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "vitality/rebuttal.png"
+      },
+      {
+        "name": "Counterspell",
+        "filename": "counterspell",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/counterspell.png"
+      },
+      {
+        "name": "Inhibitor",
+        "filename": "inhibitor",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/inhibitor.png"
+      },
+      {
+        "name": "Siphon Bullets",
+        "filename": "siphon_bullets",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/siphon_bullets.png"
+      },
+      {
+        "name": "Extra Health",
+        "filename": "extra_health",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "vitality/extra_health.png"
+      },
+      {
+        "name": "Bullet Lifesteal",
+        "filename": "bullet_lifesteal",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/bullet_lifesteal.png"
+      },
+      {
+        "name": "Debuff Reducer",
+        "filename": "debuff_reducer",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/debuff_reducer.png"
+      },
+      {
+        "name": "Debuff Remover",
+        "filename": "debuff_remover",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/debuff_remover.png"
+      },
+      {
+        "name": "Spirit Resilience",
+        "filename": "spirit_resilience",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/spirit_resilience.png"
+      },
+      {
+        "name": "Bullet Resilience",
+        "filename": "bullet_resilience",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/bullet_resilience.png"
+      },
+      {
+        "name": "Metal Skin",
+        "filename": "metal_skin",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/metal_skin.png"
+      },
+      {
+        "name": "Healing Booster",
+        "filename": "healing_booster",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/healing_booster.png"
+      },
+      {
+        "name": "Fortitude",
+        "filename": "fortitude",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/fortitude.png"
+      },
+      {
+        "name": "Leech",
+        "filename": "leech",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/leech.png"
+      },
+      {
+        "name": "Sprint Boots",
+        "filename": "sprint_boots",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "vitality/sprint_boots.png"
+      },
+      {
+        "name": "Trophy Collector",
+        "filename": "trophy_collector",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/trophy_collector.png"
+      },
+      {
+        "name": "Enduring Speed",
+        "filename": "enduring_speed",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/enduring_speed.png"
+      },
+      {
+        "name": "Stamina Mastery",
+        "filename": "stamina_mastery",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/stamina_mastery.png"
+      },
+      {
+        "name": "Extra Stamina",
+        "filename": "extra_stamina",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "vitality/extra_stamina.png"
+      },
+      {
+        "name": "Weapon Shielding",
+        "filename": "weapon_shielding",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/weapon_shielding.png"
+      },
+      {
+        "name": "Spirit Shielding",
+        "filename": "spirit_shielding",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/spirit_shielding.png"
+      },
+      {
+        "name": "Battle Vest",
+        "filename": "battle_vest",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/battle_vest.png"
+      },
+      {
+        "name": "Enchanter's Emblem",
+        "filename": "enchanter_s_emblem",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/enchanter_s_emblem.png"
+      },
+      {
+        "name": "Return Fire",
+        "filename": "return_fire",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/return_fire.png"
+      },
+      {
+        "name": "Spirit Lifesteal",
+        "filename": "spirit_lifesteal",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/spirit_lifesteal.png"
+      },
+      {
+        "name": "Healbane",
+        "filename": "healbane",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/healbane.png"
+      },
+      {
+        "name": "Rescue Beam",
+        "filename": "rescue_beam",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/rescue_beam.png"
+      },
+      {
+        "name": "Phantom Strike",
+        "filename": "phantom_strike",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/phantom_strike.png"
+      },
+      {
+        "name": "Warp Stone",
+        "filename": "warp_stone",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/warp_stone.png"
+      },
+      {
+        "name": "Cheat Death",
+        "filename": "cheat_death",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/cheat_death.png"
+      },
+      {
+        "name": "Majestic Leap",
+        "filename": "majestic_leap",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/majestic_leap.png"
+      },
+      {
+        "name": "Healing Nova",
+        "filename": "healing_nova",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/healing_nova.png"
+      },
+      {
+        "name": "Restorative Locket",
+        "filename": "restorative_locket",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/restorative_locket.png"
+      },
+      {
+        "name": "Healing Rite",
+        "filename": "healing_rite",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "vitality/healing_rite.png"
+      },
+      {
+        "name": "Infuser",
+        "filename": "infuser",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/infuser.png"
+      },
+      {
+        "name": "Guardian Ward",
+        "filename": "guardian_ward",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/guardian_ward.png"
+      },
+      {
+        "name": "Divine Barrier",
+        "filename": "divine_barrier",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/divine_barrier.png"
+      },
+      {
+        "name": "Unstoppable",
+        "filename": "unstoppable",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/unstoppable.png"
+      },
+      {
+        "name": "Colossus",
+        "filename": "colossus",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/colossus.png"
+      },
+      {
+        "name": "Fury Trance",
+        "filename": "fury_trance",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/fury_trance.png"
+      },
+      {
+        "name": "Vampiric Burst",
+        "filename": "vampiric_burst",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/vampiric_burst.png"
+      },
+      {
+        "name": "Lifestrike",
+        "filename": "lifestrike",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/lifestrike.png"
+      },
+      {
+        "name": "Diviner's Kevlar",
+        "filename": "diviner_s_kevlar",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/diviner_s_kevlar.png"
+      },
+      {
+        "name": "Extra Regen",
+        "filename": "extra_regen",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "vitality/extra_regen.png"
+      },
+      {
+        "name": "Veil Walker",
+        "filename": "veil_walker",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "vitality/veil_walker.png"
+      },
+      {
+        "name": "Reactive Barrier",
+        "filename": "reactive_barrier",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "vitality/reactive_barrier.png"
+      },
+      {
+        "name": "Witchmail",
+        "filename": "witchmail",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/witchmail.png"
+      },
+      {
+        "name": "Healing Tempo",
+        "filename": "healing_tempo",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/healing_tempo.png"
+      },
+      {
+        "name": "Plated Armor",
+        "filename": "plated_armor",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/plated_armor.png"
+      },
+      {
+        "name": "Spellbreaker",
+        "filename": "spellbreaker",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/spellbreaker.png"
+      },
+      {
+        "name": "Juggernaut",
+        "filename": "juggernaut",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "vitality/juggernaut.png"
+      },
+      {
+        "name": "Seraphim Wings",
+        "filename": "seraphim_wings",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "vitality/seraphim_wings.png"
+      },
+      {
+        "name": "Nullification Burst",
+        "filename": "nullification_burst",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "vitality/nullification_burst.png"
+      },
+      {
+        "name": "Celestial Blessing",
+        "filename": "celestial_blessing",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "vitality/celestial_blessing.png"
+      },
+      {
+        "name": "Eternal Gift",
+        "filename": "eternal_gift",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "vitality/eternal_gift.png"
+      },
+      {
+        "name": "Cloak of Opportunity",
+        "filename": "cloak_of_opportunity",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "vitality/cloak_of_opportunity.png"
+      },
+      {
+        "name": "Electric Slippers",
+        "filename": "electric_slippers",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "vitality/electric_slippers.png"
+      },
+      {
+        "name": "Shadow Strike",
+        "filename": "shadow_strike",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "vitality/shadow_strike.png"
+      }
+    ],
+    "spirit": [
+      {
+        "name": "Silence Wave",
+        "filename": "silence_wave",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/silence_wave.png"
+      },
+      {
+        "name": "Extra Spirit",
+        "filename": "extra_spirit",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "spirit/extra_spirit.png"
+      },
+      {
+        "name": "Mystic Regeneration",
+        "filename": "mystic_regeneration",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "spirit/mystic_regeneration.png"
+      },
+      {
+        "name": "Improved Spirit",
+        "filename": "improved_spirit",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "spirit/improved_spirit.png"
+      },
+      {
+        "name": "Greater Expansion",
+        "filename": "greater_expansion",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/greater_expansion.png"
+      },
+      {
+        "name": "Mystic Expansion",
+        "filename": "mystic_expansion",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "spirit/mystic_expansion.png"
+      },
+      {
+        "name": "Extra Charge",
+        "filename": "extra_charge",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "spirit/extra_charge.png"
+      },
+      {
+        "name": "Bullet Resist Shredder",
+        "filename": "bullet_resist_shredder",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "spirit/bullet_resist_shredder.png"
+      },
+      {
+        "name": "Mystic Reverb",
+        "filename": "mystic_reverb",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/mystic_reverb.png"
+      },
+      {
+        "name": "Mystic Burst",
+        "filename": "mystic_burst",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "spirit/mystic_burst.png"
+      },
+      {
+        "name": "Tankbuster",
+        "filename": "tankbuster",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/tankbuster.png"
+      },
+      {
+        "name": "Mystic Vulnerability",
+        "filename": "mystic_vulnerability",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "spirit/mystic_vulnerability.png"
+      },
+      {
+        "name": "Mystic Slow",
+        "filename": "mystic_slow",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "spirit/mystic_slow.png"
+      },
+      {
+        "name": "Escalating Exposure",
+        "filename": "escalating_exposure",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/escalating_exposure.png"
+      },
+      {
+        "name": "Rapid Recharge",
+        "filename": "rapid_recharge",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/rapid_recharge.png"
+      },
+      {
+        "name": "Omnicharge Signet",
+        "filename": "omnicharge_signet",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "spirit/omnicharge_signet.png"
+      },
+      {
+        "name": "Compress Cooldown",
+        "filename": "compress_cooldown",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "spirit/compress_cooldown.png"
+      },
+      {
+        "name": "Superior Cooldown",
+        "filename": "superior_cooldown",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/superior_cooldown.png"
+      },
+      {
+        "name": "Transcendent Cooldown",
+        "filename": "transcendent_cooldown",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/transcendent_cooldown.png"
+      },
+      {
+        "name": "Slowing Hex",
+        "filename": "slowing_hex",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "spirit/slowing_hex.png"
+      },
+      {
+        "name": "Spirit Sap",
+        "filename": "spirit_sap",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "spirit/spirit_sap.png"
+      },
+      {
+        "name": "Focus Lens",
+        "filename": "focus_lens",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/focus_lens.png"
+      },
+      {
+        "name": "Rusted Barrel",
+        "filename": "rusted_barrel",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "spirit/rusted_barrel.png"
+      },
+      {
+        "name": "Disarming Hex",
+        "filename": "disarming_hex",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/disarming_hex.png"
+      },
+      {
+        "name": "Decay",
+        "filename": "decay",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/decay.png"
+      },
+      {
+        "name": "Scourge",
+        "filename": "scourge",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/scourge.png"
+      },
+      {
+        "name": "Knockdown",
+        "filename": "knockdown",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/knockdown.png"
+      },
+      {
+        "name": "Vortex Web",
+        "filename": "vortex_web",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/vortex_web.png"
+      },
+      {
+        "name": "Refresher",
+        "filename": "refresher",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/refresher.png"
+      },
+      {
+        "name": "Echo Shard",
+        "filename": "echo_shard",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/echo_shard.png"
+      },
+      {
+        "name": "Torment Pulse",
+        "filename": "torment_pulse",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/torment_pulse.png"
+      },
+      {
+        "name": "Shrink Ray",
+        "filename": "shrink_ray",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "spirit/shrink_ray.png"
+      },
+      {
+        "name": "Arcane Surge",
+        "filename": "arcane_surge",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "spirit/arcane_surge.png"
+      },
+      {
+        "name": "Cold Front",
+        "filename": "cold_front",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "spirit/cold_front.png"
+      },
+      {
+        "name": "Arctic Blast",
+        "filename": "arctic_blast",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/arctic_blast.png"
+      },
+      {
+        "name": "Ethereal Shift",
+        "filename": "ethereal_shift",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/ethereal_shift.png"
+      },
+      {
+        "name": "Curse",
+        "filename": "curse",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/curse.png"
+      },
+      {
+        "name": "Duration Extender",
+        "filename": "duration_extender",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "spirit/duration_extender.png"
+      },
+      {
+        "name": "Superior Duration",
+        "filename": "superior_duration",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/superior_duration.png"
+      },
+      {
+        "name": "Spirit Strike",
+        "filename": "spirit_strike",
+        "tier": 1,
+        "cost": 800,
+        "iconPath": "spirit/spirit_strike.png"
+      },
+      {
+        "name": "Spirit Snatch",
+        "filename": "spirit_snatch",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/spirit_snatch.png"
+      },
+      {
+        "name": "Radiant Regeneration",
+        "filename": "radiant_regeneration",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/radiant_regeneration.png"
+      },
+      {
+        "name": "Boundless Spirit",
+        "filename": "boundless_spirit",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/boundless_spirit.png"
+      },
+      {
+        "name": "Surge of Power",
+        "filename": "surge_of_power",
+        "tier": 3,
+        "cost": 3200,
+        "iconPath": "spirit/surge_of_power.png"
+      },
+      {
+        "name": "Suppressor",
+        "filename": "suppressor",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "spirit/suppressor.png"
+      },
+      {
+        "name": "Quicksilver Reload",
+        "filename": "quicksilver_reload",
+        "tier": 2,
+        "cost": 1600,
+        "iconPath": "spirit/quicksilver_reload.png"
+      },
+      {
+        "name": "Mercurial Magnum",
+        "filename": "mercurial_magnum",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/mercurial_magnum.png"
+      },
+      {
+        "name": "Magic Carpet",
+        "filename": "magic_carpet",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/magic_carpet.png"
+      },
+      {
+        "name": "Spirit Burn",
+        "filename": "spirit_burn",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/spirit_burn.png"
+      },
+      {
+        "name": "Lightning Scroll",
+        "filename": "lightning_scroll",
+        "tier": 4,
+        "cost": 6400,
+        "iconPath": "spirit/lightning_scroll.png"
+      },
+      {
+        "name": "Mystical Piano",
+        "filename": "mystical_piano",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "spirit/mystical_piano.png"
+      },
+      {
+        "name": "Mystic Conduit",
+        "filename": "mystic_conduit",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "spirit/mystic_conduit.png"
+      },
+      {
+        "name": "Prism Blast",
+        "filename": "prism_blast",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "spirit/prism_blast.png"
+      },
+      {
+        "name": "Unstable Concoction",
+        "filename": "unstable_concoction",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "spirit/unstable_concoction.png"
+      },
+      {
+        "name": "Frostbite Charm",
+        "filename": "frostbite_charm",
+        "tier": 5,
+        "cost": 9999,
+        "iconPath": "spirit/frostbite_charm.png"
+      }
+    ]
+  }
+}

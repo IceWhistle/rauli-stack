@@ -1,0 +1,76 @@
+================================================================================
+DUI CASE ANALYSIS - RAULI URBAY (25-MM-4068-AM-C-Urbay)
+Analysis Date: January 27, 2026
+Status: FRAMEWORK COMPLETE - Awaiting PC Access
+================================================================================
+
+SITUATION:
+- Windows PC went offline during setup
+- Unable to access 19 PDFs + 18 videos (~19GB) in discovery
+- Built complete analysis framework instead of waiting
+
+DELIVERABLES: 13 files created
+- 4 extraction scripts (PDF, video, metadata)
+- 9 comprehensive documentation files
+- Main analysis report: case-analysis.md (17KB)
+
+CRITICAL DEFENSE ANGLES IDENTIFIED:
+
+1. CONTACT LENS MEDICAL DEFENSE ⚡ STRONGEST
+   - Rauli wears blue contacts → cause eye irritation/redness
+   - Eliminates bloodshot eyes as intoxication indicator
+   - URGENT: Get optometrist records before attorney meeting
+   - Strength: VERY STRONG (medical explanation for key observation)
+
+2. FSE PERFORMANCE DISCREPANCY
+   - Rauli believes he performed well ("walked line perfectly")
+   - Officers likely documented poor performance
+   - Video analysis will verify actual performance
+   - Strength: STRONG if video supports Rauli's perception
+
+3. OPEN CONTAINER OWNERSHIP DISPUTE
+   - 12 empty cans found in vehicle - Rauli says NOT his
+   - Location matters: driver's reach vs. back seat/trunk
+   - Possession requires control, not just presence
+   - Strength: MEDIUM (depends on location from video)
+
+IMMEDIATE ACTIONS:
+1. Get optometrist records (CRITICAL)
+2. Document Rauli's memory (FSE details, container location)
+3. Gather physical contact lens evidence
+4. When PC online: Run extraction scripts
+5. Priority video review: Marino BWC (cans), Gonzalez BWC (FSE), 
+   L. Quick Backseat (statements)
+
+DISCOVERY MATERIALS:
+- Documents: 19 PDFs (Incident Report, DUI Checklist, Aff. of Refusal, etc.)
+- Videos: 18 files from 6 officers (L. Quick, Gonzalez, Rivas, Marino, 
+  Lyda, Corona)
+- Priority videos: L. Quick Backseat (statements/Miranda), Gonzalez/Rivas BWC
+  (FSE), Marino BWC (cans)
+
+TIME ESTIMATES:
+- Full analysis: 3-4 hours (when PC online)
+- Fast track: 2 hours (critical evidence only)
+- Bare minimum: 1 hour (most critical items)
+
+NEXT STEPS:
+1. Rauli: Get optometrist records NOW
+2. PC reconnection: Run run-analysis.ps1
+3. Video analysis: Frame-by-frame FSE review
+4. Document review: Compare officer observations to video
+5. Attorney meeting: Present contact lens defense + video discrepancies
+
+FILES LOCATION: /home/ubuntu/clawd/
+- Main report: case-analysis.md
+- Defense strategy: dui-case/DEFENSE-STRATEGY.md
+- For Rauli: RAULI-START-HERE.md
+- Urgent tasks: dui-case/URGENT-TASKS.md
+
+STATUS: ✅ FRAMEWORK COMPLETE
+        ⏳ AWAITING PC ACCESS FOR EXECUTION
+        ⚡ CONTACT LENS DEFENSE = STRONGEST ANGLE
+
+================================================================================
+Contact Asis for questions or when PC comes online
+================================================================================

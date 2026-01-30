@@ -1,0 +1,46 @@
+{
+  "family_members": {
+    "girlfriend": {
+      "name": "Girlfriend",
+      "relationship": "girlfriend",
+      "last_contact": null,
+      "contact_frequency_days": 1,
+      "birthday": null,
+      "notes": "Beautiful girlfriend - daily contact expected"
+    },
+    "mom": {
+      "name": "Mom",
+      "relationship": "mother",
+      "last_contact": null,
+      "contact_frequency_days": 3,
+      "birthday": null,
+      "notes": ""
+    },
+    "dad": {
+      "name": "Dad",
+      "relationship": "father",
+      "last_contact": null,
+      "contact_frequency_days": 3,
+      "birthday": null,
+      "notes": ""
+    },
+    "grandma": {
+      "name": "Grandma",
+      "relationship": "grandmother",
+      "last_contact": null,
+      "contact_frequency_days": 7,
+      "birthday": null,
+      "notes": ""
+    },
+    "grandpa": {
+      "name": "Grandpa",
+      "relationship": "grandfather",
+      "last_contact": null,
+      "contact_frequency_days": 7,
+      "birthday": null,
+      "notes": ""
+    }
+  },
+  "upcoming_events": [],
+  "gift_ideas": {}
+}

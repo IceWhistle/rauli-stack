@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Deadlock Counter - Overlay</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: rgba(15, 15, 25, 0.95);
+      color: #e0e0e0;
+      min-height: 100vh;
+      padding: 10px;
+    }
+    
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 10px;
+    }
+    
+    .header h1 {
+      font-size: 16px;
+      color: #ffd93d;
+    }
+    
+    .section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 10px 0 8px;
+      letter-spacing: 1px;
+    }
+    
+    .enemy-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 6px;
+      align-items: center;
+    }
+    
+    .enemy-select {
+      flex: 1;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      padding: 5px;
+      color: #fff;
+      font-size: 11px;
+    }
+    
+    .item-slots {
+      display: flex;
+      gap: 2px;
+    }
+    
+    .item-slot {
+      width: 22px;
+      height: 22px;
+      background: rgba(255,255,255,0.05);
+      border: 1px dashed rgba(255,255,255,0.2);
+      border-radius: 3px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      color: #666;
+    }
+    
+    .item-slot:hover { border-color: #ffd93d; background: rgba(255,217,61,0.1); }
+    .item-slot.filled { 
+      border-style: solid;
+      background: rgba(255,100,100,0.2);
+      border-color: #ff6b6b;
+      color: #fff;
+    }
+    
+    .rec-item {
+      background: rgba(107, 203, 119, 0.15);
+      border-left: 3px solid #6bcb77;
+      border-radius: 0 4px 4px 0;
+      padding: 6px 8px;
+      margin-bottom: 4px;
+    }
+    
+    .rec-item.p1 { border-color: #ff6b6b; background: rgba(255,107,107,0.15); }
+    .rec-item.p2 { border-color: #ffd93d; background: rgba(255,217,61,0.15); }
+    
+    .rec-name { font-weight: 600; font-size: 12px; color: #fff; }
+    .rec-meta { font-size: 9px; color: #888; }
+    .rec-reason { font-size: 9px; color: #6bcb77; margin-top: 2px; }
+
+    .no-recs { text-align: center; color: #666; padding: 15px; font-size: 11px; }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 100;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    .modal.active { display: block; }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .modal-header h3 { color: #ffd93d; font-size: 13px; }
+    .modal-close {
+      background: none;
+      border: none;
+      color: #888;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 6px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      color: #fff;
+      margin-bottom: 8px;
+      font-size: 11px;
+    }
+    
+    .item-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3px;
+    }
+    
+    .item-option {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 3px;
+      padding: 4px;
+      cursor: pointer;
+      font-size: 9px;
+      text-align: center;
+    }
+    .item-option:hover { background: rgba(255,217,61,0.2); border-color: #ffd93d; }
+    .item-cost { color: #ffd93d; font-size: 8px; }
+    .cat-header {
+      grid-column: span 2;
+      color: #4d96ff;
+      font-size: 9px;
+      text-transform: uppercase;
+      padding: 4px 0 2px;
+      border-bottom: 1px solid #333;
+    }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>⚡ DEADLOCK COUNTER</h1>
+  </div>
+  
+  <div class="section-title">Enemy Team</div>
+  <div id="enemies"></div>
+  
+  <div class="section-title">Build These</div>
+  <div id="recs"><div class="no-recs">Add enemies to see counters</div></div>
+
+  <div id="modal" class="modal">
+    <div class="modal-header">
+      <h3>Select Item</h3>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <input type="text" class="search-input" id="search" placeholder="Search..." oninput="filterItems()">
+    <div id="itemGrid" class="item-grid"></div>
+  </div>
+
+  <script>
+    let heroes=[], items={}, enemies=[{hero:'',items:[]},{hero:'',items:[]},{hero:'',items:[]},{hero:'',items:[]}], currentSlot=null;
+
+    async function init() {
+      try {
+        heroes = await fetch('/api/heroes').then(r=>r.json());
+        items = await fetch('/api/items').then(r=>r.json());
+        renderEnemies();
+        renderItemGrid();
+      } catch(e) {
+        document.getElementById('recs').innerHTML='<div class="no-recs">⚠️ API error</div>';
+      }
+    }
+
+    function renderEnemies() {
+      document.getElementById('enemies').innerHTML = enemies.map((e,i) => `
+        <div class="enemy-row">
+          <select class="enemy-select" onchange="setHero(${i},this.value)">
+            <option value="">Enemy ${i+1}</option>
+            ${heroes.map(h=>`<option value="${h}" ${e.hero===h?'selected':''}>${h}</option>`).join('')}
+          </select>
+          <div class="item-slots">
+            ${[0,1,2,3].map(j=>{
+              const it=e.items[j];
+              return `<div class="item-slot ${it?'filled':''}" onclick="openModal(${i},${j})" title="${it||'Add'}">${it?it.substring(0,2):'+'}</div>`;
+            }).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function setHero(i,h){enemies[i].hero=h;updateRecs();}
+    
+    function openModal(ei,ii){
+      currentSlot={enemy:ei,item:ii};
+      document.getElementById('modal').classList.add('active');
+      document.getElementById('search').value='';
+      document.getElementById('search').focus();
+      filterItems();
+    }
+    
+    function closeModal(){document.getElementById('modal').classList.remove('active');currentSlot=null;}
+    
+    function selectItem(n){
+      if(currentSlot){enemies[currentSlot.enemy].items[currentSlot.item]=n;closeModal();renderEnemies();updateRecs();}
+    }
+    
+    function filterItems(){
+      const q=document.getElementById('search').value.toLowerCase();
+      document.querySelectorAll('.item-option').forEach(el=>{
+        el.classList.toggle('hidden',q&&!el.dataset.name.toLowerCase().includes(q));
+      });
+    }
+    
+    function renderItemGrid(){
+      const cats={weapon:[],vitality:[],spirit:[]};
+      for(const[n,it]of Object.entries(items))cats[it.category]?.push({name:n,...it});
+      let html='';
+      for(const[c,list]of Object.entries(cats)){
+        html+=`<div class="cat-header">${c}</div>`;
+        list.sort((a,b)=>a.cost-b.cost);
+        for(const it of list)html+=`<div class="item-option" data-name="${it.name}" onclick="selectItem('${it.name}')">${it.name}<br><span class="item-cost">${it.cost}</span></div>`;
+      }
+      document.getElementById('itemGrid').innerHTML=html;
+    }
+    
+    async function updateRecs(){
+      const valid=enemies.filter(e=>e.hero||e.items.some(Boolean));
+      const c=document.getElementById('recs');
+      if(!valid.length){c.innerHTML='<div class="no-recs">Add enemies to see counters</div>';return;}
+      try{
+        const res=await fetch('/api/recommend',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({enemies:valid})});
+        const data=await res.json();
+        if(!data.recommendations.length){c.innerHTML='<div class="no-recs">No specific counters needed</div>';return;}
+        c.innerHTML=data.recommendations.slice(0,6).map((r,i)=>`
+          <div class="rec-item ${i<2?'p1':i<4?'p2':''}">
+            <div class="rec-name">${r.name}</div>
+            <div class="rec-meta">${r.cost} souls • ${r.category}</div>
+            <div class="rec-reason">${r.reasons[0]||''}</div>
+          </div>
+        `).join('');
+      }catch(e){c.innerHTML='<div class="no-recs">⚠️ Error</div>';}
+    }
+    
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+    init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "weapon": {
+    "500": ["Basic Magazine", "Close Quarters", "Headshot Booster", "High-Velocity Mag", "Hollow Point Ward", "Monster Rounds", "Rapid Rounds", "Restorative Shot"],
+    "1250": ["Active Reload", "Berserker", "Kinetic Dash", "Long Range", "Melee Charge", "Mystic Shot", "Slowing Bullets", "Soul Shredder Bullets", "Swift Striker"],
+    "3000": ["Burst Fire", "Escalating Resilience", "Fleetfoot", "Frenzy", "Headhunter", "Heroic Aura", "Hunter's Aura", "Intensifying Magazine", "Point Blank", "Pristine Emblem", "Sharpshooter", "Tesla Bullets", "Titanic Magazine", "Toxic Bullets", "Warp Stone"],
+    "6200": ["Crippling Headshot", "Frenzy", "Glass Cannon", "Lucky Shot", "Ricochet", "Shadow Weave", "Silencer", "Spiritual Overflow", "Vampiric Burst"]
+  },
+  "vitality": {
+    "500": ["Enduring Spirit", "Extra Health", "Extra Regen", "Extra Stamina", "Melee Lifesteal", "Sprint Boots"],
+    "1250": ["Bullet Armor", "Bullet Lifesteal", "Combat Barrier", "Debuff Reducer", "Divine Barrier", "Enchanters Barrier", "Enduring Speed", "Healbane", "Healing Booster", "Reactive Barrier", "Restorative Locket", "Return Fire", "Spirit Armor", "Spirit Lifesteal"],
+    "3000": ["Debuff Remover", "Fortitude", "Improved Bullet Armor", "Improved Spirit Armor", "Lifestrike", "Majestic Leap", "Metal Skin", "Rescue Beam", "Superior Stamina", "Veil Walker"],
+    "6200": ["Colossus", "Inhibitor", "Leech", "Phantom Strike", "Siphon Bullets", "Soul Rebirth", "Unstoppable"]
+  },
+  "spirit": {
+    "500": ["Ammo Scavenger", "Extra Charge", "Extra Spirit", "Infuser", "Mystic Burst", "Mystic Reach", "Spirit Strike"],
+    "1250": ["Bullet Resist Shredder", "Cold Front", "Decay", "Duration Extender", "Improved Burst", "Improved Cooldown", "Improved Reach", "Improved Spirit", "Mystic Vulnerability", "Quicksilver Reload", "Slowing Hex", "Suppressor", "Withering Whip"],
+    "3000": ["Ethereal Shift", "Knockdown", "Rapid Recharge", "Silence Glyph", "Spirit Snatch", "Superior Cooldown", "Superior Duration", "Surge of Power", "Torment Pulse"],
+    "6200": ["Boundless Spirit", "Curse", "Diviner's Kevlar", "Echo Shard", "Escalating Exposure", "Magic Carpet", "Mystic Reverb", "Refresher"]
+  }
+}

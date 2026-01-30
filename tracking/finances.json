@@ -1,0 +1,42 @@
+{
+  "current_month": "2026-01",
+  "categories": {
+    "supplements": {
+      "name": "Supplements & Nootropics",
+      "total": 0,
+      "transactions": []
+    },
+    "food": {
+      "name": "Food & Dining",
+      "total": 0,
+      "transactions": []
+    },
+    "gaming": {
+      "name": "Gaming & Entertainment",
+      "total": 0,
+      "transactions": []
+    },
+    "subscriptions": {
+      "name": "Subscriptions & Services",
+      "total": 0,
+      "transactions": []
+    },
+    "education": {
+      "name": "School & Education",
+      "total": 0,
+      "transactions": []
+    },
+    "health": {
+      "name": "Health & Medical",
+      "total": 0,
+      "transactions": []
+    },
+    "other": {
+      "name": "Other",
+      "total": 0,
+      "transactions": []
+    }
+  },
+  "monthly_totals": {},
+  "notes": "Auto-categorized from email receipts. Monthly summaries provided."
+}

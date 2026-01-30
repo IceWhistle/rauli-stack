@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rauli's Stack</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Inter',system-ui,sans-serif;
+  background:#0a0a0a;color:#999;
+  padding:0 0 80px;max-width:480px;margin:0 auto;
+  -webkit-font-smoothing:antialiased;line-height:1.47;
+}
+#bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:.5}
+
+header{padding:56px 24px 8px;text-align:center}
+header h1{
+  font-size:28px;font-weight:800;letter-spacing:-.5px;color:#fff;
+}
+header p{font-size:12px;color:#555;margin-top:4px}
+
+/* ─── ROUTINE ─── */
+.routine{margin:20px 16px;border-radius:16px;overflow:hidden;background:#111;border:1px solid #1a1a1a}
+.routine-head{padding:16px 16px 0;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#444}
+.r{display:flex;gap:12px;padding:12px 16px;border-top:1px solid #161616}
+.r:first-of-type{border-top:none}
+.r-time{font-size:18px;width:28px;text-align:center;flex-shrink:0;padding-top:1px}
+.r-body{flex:1}
+.r-title{font-size:13px;font-weight:700;color:#e0e0e0}
+.r-list{font-size:11px;color:#888;margin:6px 0 0 0;padding-left:16px;line-height:1.9;list-style:none}
+.r-list li{position:relative;padding-left:0}
+.r-list li::before{content:"›";position:absolute;left:-14px;color:#444;font-weight:700}
+.r-note{font-size:10px;color:#30d158;margin-top:3px}
+
+/* ─── TABS ─── */
+.tabs{
+  display:flex;margin:24px 16px 0;gap:2px;
+  background:#111;border-radius:10px;padding:3px;
+}
+.tab{
+  flex:1;padding:8px;text-align:center;font-size:12px;font-weight:600;
+  color:#555;cursor:pointer;border-radius:8px;transition:all .2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.tab.active{color:#fff;background:#222}
+.panel{display:none}.panel.active{display:block}
+
+/* ─── GROUP ─── */
+.g{margin:10px 16px;border-radius:14px;background:#111;border:1px solid #1a1a1a;overflow:hidden}
+.g-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px;cursor:pointer;-webkit-tap-highlight-color:transparent;
+}
+.g-head:active{background:#181818}
+.g-left{display:flex;align-items:center;gap:8px}
+.g-icon{font-size:15px}
+.g-name{font-size:13px;font-weight:600;color:#ccc}
+.g-right{display:flex;align-items:center;gap:8px}
+.g-num{font-size:10px;color:#444;font-weight:500}
+.g-arr{font-size:8px;color:#333;transition:transform .25s}
+.g.open .g-arr{transform:rotate(180deg)}
+.g-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.g.open .g-body{max-height:2000px}
+
+/* ─── ITEM ─── */
+a.i,div.i{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:9px 14px;text-decoration:none;color:inherit;
+  border-top:1px solid #161616;
+}
+a.i:active{opacity:.5}
+.in{font-size:12px;color:#bbb;font-weight:500}
+.pr{font-size:12px;font-weight:700;color:#30d158;white-space:nowrap}
+.pr-cn{font-size:11px;color:#ffd60a;font-weight:600}
+
+/* ─── DOT TAGS ─── */
+.d{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.d-pw{background:#30d158}
+.d-sg{background:#ffd60a}
+.d-cp{background:#666}
+.d-inj{background:#ff453a}
+.d-nas{background:#ff375f}
+.d-liq{background:#64d2ff}
+.d-lipo{background:#bf5af2}
+
+.note{padding:8px 14px;font-size:10px;color:#444;border-top:1px solid #161616}
+.note b{color:#555}
+
+/* ─── TOTAL ─── */
+.total{
+  text-align:center;padding:24px;margin:20px 16px;
+  background:#111;border-radius:16px;border:1px solid #1a1a1a;
+}
+.total .big{font-size:36px;font-weight:800;color:#30d158;letter-spacing:-1px}
+.total .sub{font-size:11px;color:#444;margin-top:4px}
+.bd{text-align:left;color:#555;margin-top:12px;font-family:'SF Mono',monospace;font-size:10px;line-height:2}
+.bd b{color:#30d158}
+
+footer{text-align:center;padding:32px;color:#333;font-size:10px}
+footer .brand{font-size:12px;font-weight:800;letter-spacing:1.5px;color:#444;margin-bottom:4px}
+</style></head><body>
+<canvas id="bg"></canvas>
+
+<header>
+<h1>⚗️ Rauli's Stack</h1>
+<p>Jan 2026</p>
+</header>
+
+<!-- ═══ DAILY ROUTINE ═══ -->
+<div class="routine">
+<div class="routine-head">Daily Routine</div>
+
+<div class="r">
+<div class="r-time">☀️</div>
+<div class="r-body">
+<div class="r-title">Wake Up</div>
+<ul class="r-list">
+<li>Bromantane 100mg sublingual</li>
+<li>9-Me-BC 15mg sublingual</li>
+<li>Semax 2 sprays each nostril</li>
+<li>NAC 1200mg</li>
+<li>NMN 500mg sublingual</li>
+<li>Glutathione 500mg</li>
+</ul>
+<div class="r-note">Wait 30 min → eat with fats</div>
+</div>
+</div>
+
+<div class="r">
+<div class="r-time">🍳</div>
+<div class="r-body">
+<div class="r-title">Breakfast</div>
+<ul class="r-list">
+<li>IM8 Daily drink</li>
+<li>D3 30,000 IU</li>
+<li>K2 MK-7 400mcg</li>
+<li>Omega-3 2g</li>
+<li>CoQ10 400mg</li>
+<li>Creatine 5g</li>
+<li>Taurine 3g</li>
+<li>Collagen 20g</li>
+<li>TMG 1g</li>
+<li>ALCAR 2g</li>
+<li>Alpha-GPC 600mg</li>
+<li>Noopept 30mg</li>
+<li>NAD+ Complete</li>
+<li>Ashwagandha KSM-66</li>
+<li>Cistanche 500mg</li>
+<li>P5P 100mg</li>
+<li>Curcumin</li>
+<li>Pterostilbene 100mg</li>
+<li>PQQ 40mg</li>
+<li>R-ALA 600mg</li>
+<li>Sulforaphane 20mg</li>
+<li>Eurycomax</li>
+<li>GLOW subQ 💉</li>
+<li>MOTS-c 10mg subQ 💉</li>
+</ul>
+</div>
+</div>
+
+<div class="r">
+<div class="r-time">🍽️</div>
+<div class="r-body">
+<div class="r-title">Dinner</div>
+<ul class="r-list">
+<li>Zinc 50mg</li>
+<li>Copper 3mg</li>
+<li>Ca-AKG 2g</li>
+<li>Spermidine 15mg</li>
+<li>Vitamin E</li>
+<li>Fisetin 200mg</li>
+<li>Phosphatidylserine 300mg</li>
+<li>CDP-Choline + Tyrosine</li>
+</ul>
+</div>
+</div>
+
+<div class="r">
+<div class="r-time">🌙</div>
+<div class="r-body">
+<div class="r-title">Before Bed</div>
+<ul class="r-list">
+<li>Glycine 10g</li>
+<li>Mag Glycinate 600mg</li>
+<li>Taurine 3g</li>
+<li>L-Theanine 400mg</li>
+<li>Apigenin 100mg</li>
+<li>Inositol 2g</li>
+<li>Magnolia Bark</li>
+</ul>
+</div>
+</div>
+
+<div class="r">
+<div class="r-time">🛏️</div>
+<div class="r-body">
+<div class="r-title">Lights Out</div>
+<ul class="r-list">
+<li>DSIP 100-200mcg subQ 💉</li>
+<li>MK-677 25mg (fasted)</li>
+<li>Uridine 300mg</li>
+</ul>
+<div class="r-note">Weekly Sun: Retatrutide · MT2</div>
+</div>
+</div>
+</div>
+
+<!-- ═══ TABS ═══ -->
+<div class="tabs">
+<div class="tab active" onclick="sw(0)">Morning</div>
+<div class="tab" onclick="sw(1)">Night</div>
+<div class="tab" onclick="sw(2)">Extra</div>
+</div>
+
+<!-- ═══ MORNING ═══ -->
+<div class="panel active" id="p0">
+
+<div class="g open">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">🥤</span><span class="g-name">Empty Stomach</span></div>
+<div class="g-right"><span class="g-num">6</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<a class="i" href="https://swisschems.is/product/bromantane-powder-5-grams/"><span class="in"><span class="d d-pw"></span>Bromantane 100mg</span><span class="pr">$59.99</span></a>
+<a class="i" href="https://swisschems.is/product/9-me-bc-powder-500mg/"><span class="in"><span class="d d-pw"></span>9-Me-BC 15mg ⭐</span><span class="pr">$49.99</span></a>
+<div class="i"><span class="in"><span class="d d-nas"></span>Semax nasal</span><span class="pr-cn">🇨🇳</span></div>
+<a class="i" href="https://www.amazon.com/dp/B00F8HGA0E"><span class="in"><span class="d d-pw"></span>NAC 1200mg</span><span class="pr">$18</span></a>
+<a class="i" href="https://www.amazon.com/dp/B08J2N7KK9"><span class="in"><span class="d d-pw"></span>NMN 500mg</span><span class="pr">$17</span></a>
+<a class="i" href="https://www.amazon.com/dp/B00NGY73DY"><span class="in"><span class="d d-liq"></span>Glutathione 500mg</span><span class="pr">$55</span></a>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">🫙</span><span class="g-name">Powders</span></div>
+<div class="g-right"><span class="g-num">8</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<a class="i" href="https://www.amazon.com/dp/B00E9M4XEE"><span class="in"><span class="d d-pw"></span>Creatine 5g</span><span class="pr">$26.97</span></a>
+<a class="i" href="https://www.amazon.com/dp/B00ENSLW7A"><span class="in"><span class="d d-pw"></span>Taurine 3g</span><span class="pr">$21</span></a>
+<a class="i" href="https://www.amazon.com/dp/B015YG2N2C"><span class="in"><span class="d d-pw"></span>Collagen 20g</span><span class="pr">$32.97</span></a>
+<a class="i" href="https://www.amazon.com/dp/B000MGOWN8"><span class="in"><span class="d d-pw"></span>TMG 1g</span><span class="pr">$15</span></a>
+<a class="i" href="https://www.amazon.com/dp/B00GW1TVT2"><span class="in"><span class="d d-pw"></span>Quercetin 500mg</span><span class="pr">$22</span></a>
+<a class="i" href="https://www.amazon.com/dp/B089XNB2GS"><span class="in"><span class="d d-pw"></span>Lion's Mane 2g</span><span class="pr">$15</span></a>
+<a class="i" href="https://www.amazon.com/dp/B00E7H96CK"><span class="in"><span class="d d-pw"></span>ALCAR 2g</span><span class="pr">$15</span></a>
+<a class="i" href="https://swisschems.is/product/alpha-gpc-50-powder-50-grams/"><span class="in"><span class="d d-pw"></span>Alpha-GPC 600mg</span><span class="pr">$20</span></a>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">💊</span><span class="g-name">Softgels</span></div>
+<div class="g-right"><span class="g-num">5</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<a class="i" href="https://im8health.com/products/essentials"><span class="in"><span class="d d-liq"></span>IM8 Daily Ultimate</span><span class="pr">$89/mo</span></a>
+<a class="i" href="https://www.amazon.com/dp/B09319WFSB"><span class="in"><span class="d d-sg"></span>D3 30,000 IU</span><span class="pr">$15</span></a>
+<a class="i" href="https://www.amazon.com/dp/B0D2JL4LGJ"><span class="in"><span class="d d-sg"></span>K2 MK-7 400mcg</span><span class="pr">$19</span></a>
+<a class="i" href="https://www.amazon.com/dp/B002CQU564"><span class="in"><span class="d d-sg"></span>Omega-3 2g</span><span class="pr">$41</span></a>
+<a class="i" href="https://www.amazon.com/dp/B0013OSM34"><span class="in"><span class="d d-sg"></span>CoQ10 400mg</span><span class="pr">$25</span></a>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">💎</span><span class="g-name">Caps</span></div>
+<div class="g-right"><span class="g-num">9</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<a class="i" href="https://swisschems.is/product/noopept-capsules-1800mg-30mg-per-capsule/"><span class="in"><span class="d d-cp"></span>Noopept 30mg</span><span class="pr">$24.99</span></a>
+<a class="i" href="https://www.amazon.com/dp/B0CVXFTMTQ"><span class="in"><span class="d d-lipo"></span>NAD+ Complete</span><span class="pr">$85</span></a>
+<a class="i" href="https://www.amazon.com/dp/B079K32QB6"><span class="in"><span class="d d-sg"></span>Ashwagandha KSM-66</span><span class="pr">$18</span></a>
+<a class="i" href="https://www.amazon.com/dp/B0BWKDHMJZ"><span class="in"><span class="d d-cp"></span>Cistanche 500mg</span><span class="pr">$25</span></a>
+<a class="i" href="https://www.amazon.com/dp/B08ZCLK948"><span class="in"><span class="d d-cp"></span>P5P 100mg</span><span class="pr">$19</span></a>
+<a class="i" href="https://www.amazon.com/dp/B0CBSP48B9"><span class="in"><span class="d d-lipo"></span>Curcumin</span><span class="pr">$40</span></a>
+<a class="i" href="https://www.amazon.com/dp/B076M84NHY"><span class="in"><span class="d d-cp"></span>Pterostilbene</span><span class="pr">$15</span></a>
+<a class="i" href="https://www.amazon.com/dp/B08LF447HK"><span class="in"><span class="d d-cp"></span>PQQ 40mg</span><span class="pr">$22</span></a>
+<a class="i" href="https://www.amazon.com/dp/B07DP8DHBH"><span class="in"><span class="d d-cp"></span>R-ALA 600mg</span><span class="pr">$30</span></a>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">💉</span><span class="g-name">Morning Pins</span></div>
+<div class="g-right"><span class="g-num">2</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<div class="i"><span class="in"><span class="d d-inj"></span>GLOW blend subQ</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-inj"></span>MOTS-c 10mg subQ</span><span class="pr-cn">🇨🇳</span></div>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">🔁</span><span class="g-name">More AM</span></div>
+<div class="g-right"><span class="g-num">2</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<a class="i" href="https://www.amazon.com/dp/B0B7SK97B3"><span class="in"><span class="d d-cp"></span>Sulforaphane 20mg</span><span class="pr">$30</span></a>
+<a class="i" href="https://nootropicsdepot.com/eurycomax-optimized-tongkat-ali/"><span class="in"><span class="d d-lipo"></span>Eurycomax 7-in-1</span><span class="pr">$110</span></a>
+</div></div>
+</div>
+
+<!-- ═══ NIGHT ═══ -->
+<div class="panel" id="p1">
+
+<div class="g open">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">🍽️</span><span class="g-name">Dinner</span></div>
+<div class="g-right"><span class="g-num">8</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<a class="i" href="https://www.amazon.com/dp/B000MGOX78"><span class="in"><span class="d d-cp"></span>Zinc 50mg</span><span class="pr">$13</span></a>
+<a class="i" href="https://www.amazon.com/dp/B0BKGYNCZF"><span class="in"><span class="d d-cp"></span>Copper 3mg</span><span class="pr">$10</span></a>
+<a class="i" href="https://www.amazon.com/dp/B0C6YN6K2X"><span class="in"><span class="d d-cp"></span>Ca-AKG 2g</span><span class="pr">$30</span></a>
+<a class="i" href="https://www.amazon.com/dp/B0BJ347ZRK"><span class="in"><span class="d d-cp"></span>Spermidine 15mg</span><span class="pr">$25</span></a>
+<a class="i" href="https://www.amazon.com/dp/B0001SR8J2"><span class="in"><span class="d d-sg"></span>Vitamin E</span><span class="pr">$16</span></a>
+<a class="i" href="https://www.amazon.com/dp/B09C2KYFVC"><span class="in"><span class="d d-cp"></span>Fisetin 200mg</span><span class="pr">$25</span></a>
+<a class="i" href="https://www.amazon.com/dp/B079YF1K1B"><span class="in"><span class="d d-sg"></span>Phosphatidylserine</span><span class="pr">$30</span></a>
+<a class="i" href="https://www.amazon.com/dp/B0923DM169"><span class="in"><span class="d d-lipo"></span>CDP-Choline+Tyrosine</span><span class="pr">$20</span></a>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">😴</span><span class="g-name">Sleep Stack</span></div>
+<div class="g-right"><span class="g-num">7</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<a class="i" href="https://www.amazon.com/dp/B00EOXU0MM"><span class="in"><span class="d d-pw"></span>Glycine 10g</span><span class="pr">$22</span></a>
+<a class="i" href="https://www.amazon.com/dp/B00F7OZJQE"><span class="in"><span class="d d-pw"></span>Mag Glycinate 600mg</span><span class="pr">$18</span></a>
+<a class="i" href="https://www.amazon.com/dp/B00ENSLW7A"><span class="in"><span class="d d-pw"></span>Taurine 3g</span><span class="pr">—</span></a>
+<a class="i" href="https://www.amazon.com/dp/B00E7GESV0"><span class="in"><span class="d d-pw"></span>L-Theanine 400mg</span><span class="pr">$14</span></a>
+<a class="i" href="https://www.amazon.com/dp/B09LFFGQXM"><span class="in"><span class="d d-cp"></span>Apigenin 100mg</span><span class="pr">$17</span></a>
+<a class="i" href="https://www.amazon.com/dp/B01JZNBP92"><span class="in"><span class="d d-pw"></span>Inositol 2g</span><span class="pr">$19</span></a>
+<a class="i" href="https://www.amazon.com/dp/B004TSEDKM"><span class="in"><span class="d d-cp"></span>Magnolia Bark</span><span class="pr">$10</span></a>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">🛏️</span><span class="g-name">Lights Out</span></div>
+<div class="g-right"><span class="g-num">3</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<div class="i"><span class="in"><span class="d d-inj"></span>DSIP 100-200mcg subQ</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-cp"></span>MK-677 25mg fasted</span><span class="pr-cn">🇨🇳</span></div>
+<a class="i" href="https://www.amazon.com/dp/B07WSGGV7T"><span class="in"><span class="d d-cp"></span>Uridine 300mg</span><span class="pr">$18</span></a>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">📅</span><span class="g-name">Weekly</span></div>
+<div class="g-right"><span class="g-num">2</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<div class="i"><span class="in"><span class="d d-inj"></span>Retatrutide 4mg Sun</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-inj"></span>MT2 0.5mg Sun+Wed</span><span class="pr-cn">🇨🇳</span></div>
+</div></div>
+</div>
+
+<!-- ═══ EXTRA ═══ -->
+<div class="panel" id="p2">
+
+<div class="g open">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">🔄</span><span class="g-name">Cycling</span></div>
+<div class="g-right"><span class="g-num">8</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<div class="i"><span class="in">Bromantane</span><span class="pr" style="color:#777">5/2</span></div>
+<div class="i"><span class="in">9-Me-BC</span><span class="pr" style="color:#777">2wk/2wk</span></div>
+<div class="i"><span class="in">Semax</span><span class="pr" style="color:#777">10/5</span></div>
+<div class="i"><span class="in">Noopept</span><span class="pr" style="color:#777">8wk/2wk</span></div>
+<div class="i"><span class="in">Dihexa</span><span class="pr" style="color:#777">1x / 2wk</span></div>
+<div class="i"><span class="in">Flmodafinil</span><span class="pr" style="color:#777">PRN 3x/wk</span></div>
+<div class="i"><span class="in">Epitalon</span><span class="pr" style="color:#777">10d / 6mo</span></div>
+<div class="i"><span class="in">GLOW</span><span class="pr" style="color:#777">5/2</span></div>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">⚡</span><span class="g-name">As-Needed</span></div>
+<div class="g-right"><span class="g-num">3</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<a class="i" href="https://behemothlabz.com/product/flmodafinil-crl-40940-capsules/"><span class="in"><span class="d d-cp"></span>Flmodafinil</span><span class="pr">$52.73</span></a>
+<a class="i" href="https://swisschems.is/product/methylene-blue/"><span class="in"><span class="d d-liq"></span>Methylene Blue</span><span class="pr">$15.99</span></a>
+<a class="i" href="https://swisschems.is/product/dihexa-capsules-300mg-5mg-per-capsule/"><span class="in"><span class="d d-cp"></span>Dihexa 10mg</span><span class="pr">$69.99</span></a>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">💉</span><span class="g-name">Peptide Arsenal</span></div>
+<div class="g-right"><span class="g-num">12</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<div class="i"><span class="in"><span class="d d-inj"></span>BPC-157</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-inj"></span>TB-500</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-inj"></span>GHK-Cu</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-inj"></span>CJC-1295 no DAC</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-inj"></span>Ipamorelin</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-inj"></span>Thymosin Alpha-1</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-inj"></span>Epithalon</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-nas"></span>Selank</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-nas"></span>NA-Semax Amidate</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-inj"></span>KPV</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-inj"></span>SS-31</span><span class="pr-cn">🇨🇳</span></div>
+<div class="i"><span class="in"><span class="d d-cp"></span>MK-677</span><span class="pr-cn">🇨🇳</span></div>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">🧠</span><span class="g-name">Nootropics</span></div>
+<div class="g-right"><span class="g-num">5</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<a class="i" href="https://swisschems.is/product/nsi-189-phosphate-powder-1-gram/"><span class="in">NSI-189</span><span class="pr">$25</span></a>
+<a class="i" href="https://swisschems.is/product/piracetam-48-grams-60-capsules-800mg-capsule/"><span class="in">Piracetam</span><span class="pr">$19.99</span></a>
+<a class="i" href="https://rupharma.com/nanotropil-novo/"><span class="in">Phenylpiracetam</span><span class="pr">$53</span></a>
+<a class="i" href="https://limitlesslifenootropics.com/product/n-acetyl-semax-amidate-10ml-nasal-spray-30mg/"><span class="in">NA-Semax Amidate</span><span class="pr">$76.99</span></a>
+<a class="i" href="https://swisschems.is/product/mk-677-ibutamoren-380mg-10mg-60-caps/"><span class="in">MK-677 backup</span><span class="pr">$69.95</span></a>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">💊</span><span class="g-name">Rx</span></div>
+<div class="g-right"><span class="g-num">3</span><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<a class="i" href="https://agelessrx.com/rapamycin/"><span class="in">Rapamycin 6mg/wk</span><span class="pr">$149+</span></a>
+<a class="i" href="https://pushhealth.com"><span class="in">Metformin 500mg</span><span class="pr">$4/mo</span></a>
+<a class="i" href="https://defymedical.com"><span class="in">Acarbose 50mg</span><span class="pr">$39+</span></a>
+</div></div>
+
+<div class="g">
+<div class="g-head" onclick="t(this)">
+<div class="g-left"><span class="g-icon">🛒</span><span class="g-name">Restock Order</span></div>
+<div class="g-right"><span class="g-arr">▾</span></div>
+</div><div class="g-body">
+<div class="note">
+<b>1.</b> 🇨🇳 Peptides · <b>2.</b> Amazon bulk · <b>3.</b> SwissChems (crypto -20%)<br>
+<b>4.</b> IM8 $89/mo · <b>5.</b> Noot Depot · <b>6.</b> Behemoth<br>
+<b>7.</b> Rupharma · <b>8.</b> Rx telehealth
+</div>
+</div></div>
+</div>
+
+<!-- ═══ TOTAL ═══ -->
+<div class="total">
+<div class="big">~$650/mo</div>
+<div class="sub">vs ~$2,000/mo retail</div>
+<div class="bd">
+IM8 ........... <b>$89</b>/mo<br>
+Amazon ........ <b>~$950</b> (2-4mo)<br>
+SwissChems .... <b>~$368</b> crypto<br>
+Peptides 🇨🇳 ... <b>~$150</b><br>
+Others ........ <b>~$400</b><br>
+Rx ............ <b>~$200</b>
+</div>
+</div>
+
+<footer>
+<div class="brand">⚗️ ASIS</div>
+Jan 2026
+</footer>
+
+<script>
+function sw(n){
+document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===n));
+document.querySelectorAll('.panel').forEach((p,i)=>p.classList.toggle('active',i===n));
+}
+function t(el){el.parentElement.classList.toggle('open')}
+
+(function(){
+const c=document.getElementById('bg'),x=c.getContext('2d');
+let w,h;function r(){w=c.width=innerWidth;h=c.height=innerHeight}
+r();addEventListener('resize',r);
+const orbs=[
+{x:.2,y:.1,r:350,vx:.00012,vy:.00008,c1:[50,40,120],c2:[100,60,180]},
+{x:.8,y:.3,r:300,vx:-.00015,vy:.0001,c1:[80,40,140],c2:[140,60,200]},
+{x:.5,y:.6,r:380,vx:.0001,vy:-.0001,c1:[20,50,100],c2:[40,80,160]},
+];
+const stars=[];for(let i=0;i<50;i++)stars.push({x:Math.random(),y:Math.random(),s:Math.random()+.3,sp:Math.random()*.002+.0005,o:Math.random()*6.28});
+let f=0;function d(){
+x.clearRect(0,0,w,h);f++;
+orbs.forEach((b,i)=>{
+b.x+=b.vx;b.y+=b.vy;if(b.x<-.2||b.x>1.2)b.vx*=-1;if(b.y<-.2||b.y>1.2)b.vy*=-1;
+const p=f*.003+i,px=b.x*w+Math.sin(p)*60,py=b.y*h+Math.cos(p*.7)*50,ps=b.r+Math.sin(f*.002+i)*30;
+const bl=(Math.sin(f*.001+i)+1)/2;
+const cr=b.c1[0]*(1-bl)+b.c2[0]*bl|0,cg=b.c1[1]*(1-bl)+b.c2[1]*bl|0,cb=b.c1[2]*(1-bl)+b.c2[2]*bl|0;
+const g=x.createRadialGradient(px,py,0,px,py,ps);
+g.addColorStop(0,`rgba(${cr},${cg},${cb},.1)`);g.addColorStop(1,`rgba(${cr},${cg},${cb},0)`);
+x.fillStyle=g;x.beginPath();x.arc(px,py,ps,0,6.28);x.fill();
+});
+stars.forEach(s=>{x.fillStyle=`rgba(180,190,220,${(Math.sin(f*s.sp+s.o)+1)/2*.3+.05})`;x.beginPath();x.arc(s.x*w,s.y*h,s.s,0,6.28);x.fill()});
+requestAnimationFrame(d);}d();
+})();
+</script>
+</body></html>

@@ -1,0 +1,914 @@
+{
+  "Legal": [],
+  "Financial": [
+    {
+      "id": "9701",
+      "subject": "Your receipt from Anthropic, PBC #2566-7622-6768",
+      "sender": "\"Anthropic, PBC\" <invoice+statements@mail.anthropic.com>",
+      "date": "Sun, 25 Jan 2026 15:13:43 +0000",
+      "priority": "HIGH",
+      "action": "track_spending",
+      "preview": "Anthropic, PBC  (https://www.anthropic.com/)\r\n\r\nAnthropic, PBC\r\n\r\nReceipt from Anthropic, PBC $20.00"
+    },
+    {
+      "id": "9708",
+      "subject": "Your receipt from Anthropic, PBC #2260-3932-0619",
+      "sender": "\"Anthropic, PBC\" <invoice+statements@mail.anthropic.com>",
+      "date": "Sun, 25 Jan 2026 17:24:52 +0000",
+      "priority": "HIGH",
+      "action": "track_spending",
+      "preview": "Anthropic, PBC  (https://www.anthropic.com/)\r\n\r\nAnthropic, PBC\r\n\r\nReceipt from Anthropic, PBC $5.00 "
+    },
+    {
+      "id": "9709",
+      "subject": "Your receipt from Anthropic, PBC #2037-1422-3089",
+      "sender": "\"Anthropic, PBC\" <invoice+statements@mail.anthropic.com>",
+      "date": "Sun, 25 Jan 2026 18:02:37 +0000",
+      "priority": "HIGH",
+      "action": "track_spending",
+      "preview": "Anthropic, PBC  (https://www.anthropic.com/)\r\n\r\nAnthropic, PBC\r\n\r\nReceipt from Anthropic, PBC $25.00"
+    },
+    {
+      "id": "9711",
+      "subject": "Your receipt from Anthropic, PBC #2274-6068-0586",
+      "sender": "\"Anthropic, PBC\" <invoice+statements@mail.anthropic.com>",
+      "date": "Sun, 25 Jan 2026 18:46:01 +0000",
+      "priority": "HIGH",
+      "action": "track_spending",
+      "preview": "Anthropic, PBC  (https://www.anthropic.com/)\r\n\r\nAnthropic, PBC\r\n\r\nReceipt from Anthropic, PBC $40.00"
+    },
+    {
+      "id": "9719",
+      "subject": "Your receipt from Anthropic, PBC #2398-2148-6870",
+      "sender": "\"Anthropic, PBC\" <invoice+statements@mail.anthropic.com>",
+      "date": "Sun, 25 Jan 2026 23:06:49 +0000",
+      "priority": "HIGH",
+      "action": "track_spending",
+      "preview": "Anthropic, PBC  (https://www.anthropic.com/)\r\n\r\nAnthropic, PBC\r\n\r\nReceipt from Anthropic, PBC $25.00"
+    },
+    {
+      "id": "9740",
+      "subject": "Your receipt from Anthropic, PBC #2044-2232-6991",
+      "sender": "\"Anthropic, PBC\" <invoice+statements@mail.anthropic.com>",
+      "date": "Mon, 26 Jan 2026 14:47:08 +0000",
+      "priority": "HIGH",
+      "action": "track_spending",
+      "preview": "Anthropic, PBC  (https://www.anthropic.com/)\r\n\r\nAnthropic, PBC\r\n\r\nReceipt from Anthropic, PBC $25.00"
+    },
+    {
+      "id": "9742",
+      "subject": "Your receipt from Anthropic, PBC #2734-2248-6362",
+      "sender": "\"Anthropic, PBC\" <invoice+statements@mail.anthropic.com>",
+      "date": "Mon, 26 Jan 2026 15:15:03 +0000",
+      "priority": "HIGH",
+      "action": "track_spending",
+      "preview": "Anthropic, PBC  (https://www.anthropic.com/)\r\n\r\nAnthropic, PBC\r\n\r\nReceipt from Anthropic, PBC $80.65"
+    },
+    {
+      "id": "9753",
+      "subject": "Your receipt from easysbc.io #2451-2878",
+      "sender": "\"easysbc.io\" <invoice+statements+acct_1KuwbmATqmUvIGSp@stripe.com>",
+      "date": "Mon, 26 Jan 2026 21:12:37 +0000",
+      "priority": "HIGH",
+      "action": "track_spending",
+      "preview": "easysbc.io (http://easysbc.io)\r\n\r\neasysbc.io\r\n\r\nReceipt from easysbc.io $11.99 Paid January 26, 2026"
+    },
+    {
+      "id": "9761",
+      "subject": "\u3010Moonshot AI\u3011Invoice Download",
+      "sender": "noreply@notice.kimi.ai",
+      "date": "Tue, 27 Jan 2026 21:29:46 +0800",
+      "priority": "HIGH",
+      "action": "track_spending",
+      "preview": ""
+    },
+    {
+      "id": "9762",
+      "subject": "\u3010Moonshot AI\u3011Invoice Download",
+      "sender": "noreply@notice.kimi.ai",
+      "date": "Tue, 27 Jan 2026 21:30:06 +0800",
+      "priority": "HIGH",
+      "action": "track_spending",
+      "preview": ""
+    },
+    {
+      "id": "9764",
+      "subject": "\u3010Moonshot AI\u3011Invoice Download",
+      "sender": "noreply@notice.kimi.ai",
+      "date": "Tue, 27 Jan 2026 22:46:53 +0800",
+      "priority": "HIGH",
+      "action": "track_spending",
+      "preview": ""
+    },
+    {
+      "id": "9767",
+      "subject": "Thank you for your Steam purchase!",
+      "sender": "\"Steam Support\" <noreply@steampowered.com>",
+      "date": "Tue, 27 Jan 2026 07:55:13 -0800",
+      "priority": "HIGH",
+      "action": "track_spending",
+      "preview": "\nHello foreverslay_\r\n\nThank you for your recent transaction on Steam.  To view the details, please\r\n"
+    }
+  ],
+  "Supplements": [
+    {
+      "id": "9673",
+      "subject": "Need 20% Off Site Wide?",
+      "sender": "Team Science.bio <support@science.bio>",
+      "date": "Fri, 23 Jan 2026 16:02:25 +0000",
+      "priority": "MEDIUM",
+      "action": "track_delivery",
+      "preview": "Take advantage of our Winter Sale\r\n\r\nThis email was sent to you as HTML-only. To view it, please vis"
+    },
+    {
+      "id": "9706",
+      "subject": "Winter Sale: 20% Off",
+      "sender": "Team Science.bio <support@science.bio>",
+      "date": "Sun, 25 Jan 2026 16:02:27 +0000",
+      "priority": "MEDIUM",
+      "action": "track_delivery",
+      "preview": "Stock up with site wide savings\r\n\r\nThis email was sent to you as HTML-only. To view it, please visit"
+    },
+    {
+      "id": "9733",
+      "subject": "Did something catch your eye?",
+      "sender": "Team Science.bio <support@science.bio>",
+      "date": "Mon, 26 Jan 2026 03:16:39 +0000",
+      "priority": "MEDIUM",
+      "action": "track_delivery",
+      "preview": "<!DOCTYPE html>\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:v=\"urn:schemas-microsoft-com:vml\" "
+    },
+    {
+      "id": "9760",
+      "subject": "Science.bio is permanently closing",
+      "sender": "Team Science.bio <support@science.bio>",
+      "date": "Tue, 27 Jan 2026 13:00:57 +0000",
+      "priority": "MEDIUM",
+      "action": "track_delivery",
+      "preview": "Effective immediately\r\n\r\nThis email was sent to you as HTML-only. To view it, please visit: \r\nhttps:"
+    }
+  ],
+  "Work": [
+    {
+      "id": "9682",
+      "subject": "RBT Credential (RBT-25-418414)\u00a0due by 03/09/26",
+      "sender": "\"RBT NOREPLY\" <rbtnoreply@bacb.com>",
+      "date": "24 Jan 2026 01:36:53 -0700",
+      "priority": "HIGH",
+      "action": "flag_for_attention",
+      "preview": "<span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><spa"
+    },
+    {
+      "id": "9687",
+      "subject": "Raul, add Paula Andrea Velasquez Alvarez - Sales Agent",
+      "sender": "LinkedIn <messages-noreply@linkedin.com>",
+      "date": "Sat, 24 Jan 2026 16:02:07 +0000 (UTC)",
+      "priority": "HIGH",
+      "action": "flag_for_attention",
+      "preview": "Do you know Paula Andrea Velasquez Alvarez?\r\n\r\nYes, connect: https://www.linkedin.com/comm/mynetwork"
+    },
+    {
+      "id": "9717",
+      "subject": "Here\u2019s your link to sign in to your Google Account",
+      "sender": "Google <no-reply@accounts.google.com>",
+      "date": "Sun, 25 Jan 2026 21:50:01 GMT",
+      "priority": "HIGH",
+      "action": "flag_for_attention",
+      "preview": "[image: Google]\r\nUse this link to sign back in\r\nYou can now reset your password and sign back in to "
+    },
+    {
+      "id": "9755",
+      "subject": "SuppCo Is Launching Original Research \ud83d\udcca",
+      "sender": "\"Jordan @ SuppCo\" <hello@mail.supp.co>",
+      "date": "Mon, 26 Jan 2026 22:01:35 +0000",
+      "priority": "HIGH",
+      "action": "flag_for_attention",
+      "preview": "For years, my work has focused on helping people understand supplement \r\nscience...\r\n\r\n\r\n\r\n <https:/"
+    }
+  ],
+  "Personal": [],
+  "Spam": [
+    {
+      "id": "9669",
+      "subject": "Raul, you\u2019ve got deals on groceries, home essentials, and more.",
+      "sender": "\"DoorDash\" <no-reply@messages.doordash.com>",
+      "date": "Fri, 23 Jan 2026 13:49:20 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Limited-time savings you\u2019ll love\u2014shop while they last.     \u034f \u200c\n\u00ad \u034f \u200c \u00ad \u034f \u200c \u00ad \u034f \u200c \u00ad \u034f \u200c \u00ad \u034f \u200c \u00ad \u034f \u200c \u00ad"
+    },
+    {
+      "id": "9671",
+      "subject": "Thank you for contributing to a better world",
+      "sender": "Canva <marketing@engage.canva.com>",
+      "date": "Fri, 23 Jan 2026 15:51:21 +0000 (UTC)",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Discover the impact we\u2019re making together\r\n\r\nCanva  ( https://l.engage.canva.com/ss/c/u001.Note3it1g"
+    },
+    {
+      "id": "9676",
+      "subject": "ZayTashon88 reposted: Us mid two man",
+      "sender": "TikTok <newsletter@service.tiktok.com>",
+      "date": "Fri, 23 Jan 2026 18:38:08 +0000 (UTC)",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "<html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta http-equiv=\"Content-Type\" content=\"text/html;"
+    },
+    {
+      "id": "9677",
+      "subject": "Let\u2019s talk about that wobbly first step",
+      "sender": "\"WriteClick Newsletter\" <news@mail.clickup.com>",
+      "date": "Fri, 23 Jan 2026 20:29:11 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "ClickUp EmailGet the insights you need all in bite-sized form.\u2007\u2007\ufeff\u034f \u2007\ufeff\u034f \u2007\ufeff\u034f \u2007\ufeff\u034f \n\u2007\ufeff\u034f \u2007\ufeff\u034f \u2007\ufeff\u034f \u2007\ufeff\u034f \u2007\ufeff\u034f "
+    },
+    {
+      "id": "9678",
+      "subject": "Hej, there's cash in your closet",
+      "sender": "Klarna <noreply@hello.klarna.com>",
+      "date": "Fri, 23 Jan 2026 21:40:33 +0000 (UTC)",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Resell with Klarna on eBay\r\n\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0"
+    },
+    {
+      "id": "9683",
+      "subject": "New login to your xAI account",
+      "sender": "xAI <noreply@x.ai>",
+      "date": "Sat, 24 Jan 2026 13:47:15 +0000 (UTC)",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "<!doctype html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <title></title>\r\n    <!--[if !mso]><!-- -->\r\n    <m"
+    },
+    {
+      "id": "9685",
+      "subject": "Raul, let\u2019s finish what you started.",
+      "sender": "\"Lexington Law Firm\" <email@mail.lexingtonlaw.com>",
+      "date": "Sat, 24 Jan 2026 07:49:31 -0600",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Lexington Law\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n \r\n \r\nhttps://cloud.mail.lexingtonlaw.com/oneclic"
+    },
+    {
+      "id": "9686",
+      "subject": "Where nights out pay it forward",
+      "sender": "\"DoorDash\" <no-reply@messages.doordash.com>",
+      "date": "Sat, 24 Jan 2026 15:07:12 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": " Reserve through DoorDash and\nearn $10 DoorDash credits after the meal.\n     \u034f \u200c \u00ad \u034f \u200c \u00ad \u034f \u200c \u00ad \u034f\n\u200c \u00ad"
+    },
+    {
+      "id": "9692",
+      "subject": "Thanks for becoming Driffle Plus member! \ud83d\ude80 Good to have you on board!",
+      "sender": "Driffle <noreply@driffle.email>",
+      "date": "Sat, 24 Jan 2026 18:35:14 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "This is a mail regarding Driffle Plus subscription"
+    },
+    {
+      "id": "9693",
+      "subject": "Your order Bfk9BTeX has been confirmed!",
+      "sender": "Driffle <noreply@driffle.email>",
+      "date": "Sat, 24 Jan 2026 18:35:14 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Your order Bfk9BTeX, amounting USD18.52 is confirmed. open the following link to get your keys: http"
+    },
+    {
+      "id": "9694",
+      "subject": "ZayTashon88 posted: Listening to that video triggered me real bad",
+      "sender": "TikTok <newsletter@service.tiktok.com>",
+      "date": "Sat, 24 Jan 2026 18:37:59 +0000 (UTC)",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "<html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta \r\ncontent=\"text/html; charset=utf-8\"http-equi"
+    },
+    {
+      "id": "9696",
+      "subject": "Verify your email address",
+      "sender": "no-reply@signup.aws",
+      "date": "Sun, 25 Jan 2026 14:31:55 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Verify your email address\r\n\r\nGreetings from Amazon Web Services,\r\nThanks for starting the new Amazon"
+    },
+    {
+      "id": "9697",
+      "subject": "Amazon Web Services",
+      "sender": "Amazon Web Services <no-reply@amazonaws.com>",
+      "date": "Sun, 25 Jan 2026 14:33:41 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": ""
+    },
+    {
+      "id": "9698",
+      "subject": "Welcome to AWS - Your account with Free plan is ready",
+      "sender": "Amazon Web Services <no-reply@amazonaws.com>",
+      "date": "Sun, 25 Jan 2026 14:36:14 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": ""
+    },
+    {
+      "id": "9699",
+      "subject": "Your Request For Accessing AWS Resources Has Been Validated",
+      "sender": "Amazon Web Services <no-reply@amazonaws.com>",
+      "date": "Sun, 25 Jan 2026 14:49:13 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": ""
+    },
+    {
+      "id": "9702",
+      "subject": "Welcome to Claude \u2014 let\u2019s get started",
+      "sender": "Claude Team <no-reply@email.claude.com>",
+      "date": "Sun, 25 Jan 2026 15:28:30 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Imagine having a thought partner who helps turn your ideas into reality. That's \r\nClaude. \r\n\r\n\r\n\r\n\r\n"
+    },
+    {
+      "id": "9703",
+      "subject": "Critical security alert",
+      "sender": "Google <no-reply@accounts.google.com>",
+      "date": "Sun, 25 Jan 2026 15:49:59 GMT",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "[image: Google]\r\nDid you request help signing in?\r\n\r\n\r\nrauliurbay@gmail.com\r\n\r\nHi Raul,\r\n\r\nWe receiv"
+    },
+    {
+      "id": "9704",
+      "subject": "Critical security alert",
+      "sender": "Google <no-reply@accounts.google.com>",
+      "date": "Sun, 25 Jan 2026 15:50:20 GMT",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "[image: Google]\r\nDid you request help signing in?\r\n\r\n\r\nrauliurbay@gmail.com\r\n\r\nHi Raul,\r\n\r\nWe receiv"
+    },
+    {
+      "id": "9705",
+      "subject": "Security alert",
+      "sender": "Google <no-reply@accounts.google.com>",
+      "date": "Sun, 25 Jan 2026 15:51:33 GMT",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "[image: Google]\r\nApp password created to sign in to your account\r\n\r\n\r\nrauliurbay@gmail.com\r\nIf you d"
+    },
+    {
+      "id": "9710",
+      "subject": "Your $10 Meat & Seafood discount is waiting!",
+      "sender": "Instacart <no-reply@customers.instacartemail.com>",
+      "date": "Sun, 25 Jan 2026 18:15:46 +0000 (UTC)",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+    },
+    {
+      "id": "9712",
+      "subject": "Raul, keep supporting Celebrating Life After Chemo",
+      "sender": "GoFundMe <hello@marketing.gofundme.com>",
+      "date": "Sun, 25 Jan 2026 19:51:36 +0000 (UTC)",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "\r\n\r\n\r\n\r\n\r\n\r\nGoFundMe ( https://ablink.marketing.gofundme.com/ls/click?upn=u001.WwluZ9rwqCiJsr0ZytPFN"
+    },
+    {
+      "id": "9713",
+      "subject": "[GitHub] Please verify your device",
+      "sender": "GitHub <noreply@github.com>",
+      "date": "Sun, 25 Jan 2026 13:19:37 -0800",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Hey IceWhistle!\r\n\r\nA sign in attempt requires further verification because we did not recognize your"
+    },
+    {
+      "id": "9714",
+      "subject": "[GitHub] A Google identity was just linked to your GitHub account.",
+      "sender": "GitHub <noreply@github.com>",
+      "date": "Sun, 25 Jan 2026 13:19:52 -0800",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "  Hey IceWhistle,\r\n\r\n  A new Google social identity was just linked to your GitHub account from the "
+    },
+    {
+      "id": "9715",
+      "subject": "[GitHub] Please review this sign in",
+      "sender": "GitHub <noreply@github.com>",
+      "date": "Sun, 25 Jan 2026 13:19:52 -0800",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Hey IceWhistle!\r\n\r\nYour GitHub account was successfully signed in to but we did not recognize the lo"
+    },
+    {
+      "id": "9716",
+      "subject": "[GitHub] A personal access token (classic) has been added to your\r\n account",
+      "sender": "GitHub <noreply@github.com>",
+      "date": "Sun, 25 Jan 2026 13:20:37 -0800",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Hey IceWhistle!\r\n\r\nA personal access token (classic) \"Asis\" with admin:enterprise, admin:gpg_key, ad"
+    },
+    {
+      "id": "9727",
+      "subject": "Your API usage limits have increased",
+      "sender": "noreply@tm.openai.com",
+      "date": "Mon, 26 Jan 2026 00:52:14 +0000 (UTC)",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n  \r\n  <meta charset=\"utf-8\">\r\n  <meta http-equiv=\"x-ua-compatible\" "
+    },
+    {
+      "id": "9728",
+      "subject": "Your Google Account was recovered successfully",
+      "sender": "Google <no-reply@accounts.google.com>",
+      "date": "Mon, 26 Jan 2026 00:57:03 GMT",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "[image: Google]\r\nAccount recovered successfully\r\n\r\n\r\nrauliurbay@gmail.com\r\nWelcome back to your acco"
+    },
+    {
+      "id": "9729",
+      "subject": "Security alert",
+      "sender": "Google <no-reply@accounts.google.com>",
+      "date": "Mon, 26 Jan 2026 00:57:03 GMT",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "[image: Google]\r\nNew sign-in to your account\r\n\r\n\r\nrauliurbay@gmail.com\r\nWe noticed a new sign-in to "
+    },
+    {
+      "id": "9731",
+      "subject": "Security alert",
+      "sender": "Google <no-reply@accounts.google.com>",
+      "date": "Mon, 26 Jan 2026 01:22:08 GMT",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "[image: Google]\r\nYou allowed asis access to some of your Google Account data\r\n\r\n\r\nrauliurbay@gmail.c"
+    },
+    {
+      "id": "9737",
+      "subject": "Verify your identity",
+      "sender": "no-reply@verify.signin.aws",
+      "date": "Mon, 26 Jan 2026 13:23:21 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Verify your identity\r\n\r\nHello\r\nWe identified unusual activity in a recent sign in attempt from your "
+    },
+    {
+      "id": "9744",
+      "subject": "The secret to your first \"aha moment\" with Claude (1/5)",
+      "sender": "Claude Team <no-reply@email.claude.com>",
+      "date": "Mon, 26 Jan 2026 15:28:29 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "The moment happens faster when you give Claude context. Here's how. \r\n\r\n\r\n\r\n\r\n <https://claude.ai/> "
+    },
+    {
+      "id": "9745",
+      "subject": "Hi Raul, we noticed a new sign in to your Dropbox account",
+      "sender": "Dropbox <no-reply@dropbox.com>",
+      "date": "Mon, 26 Jan 2026 16:47:25 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Hi Raul,\r\n\r\nA new web browser just signed in to your Dropbox account. To help keep your account secu"
+    },
+    {
+      "id": "9746",
+      "subject": "(1/9) You have pending action items in Dropbox",
+      "sender": "Dropbox <no-reply@txn.dropbox.com>",
+      "date": "Mon, 26 Jan 2026 16:57:28 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "add content, share a file, edit a PDF,..  \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \r\n\u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c \u200c "
+    },
+    {
+      "id": "9747",
+      "subject": "Last Chance To Use Your 10% OFF Payday Discount",
+      "sender": "Loaded <promo@p.cdkeys.com>",
+      "date": "Mon, 26 Jan 2026 17:09:59 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": ""
+    },
+    {
+      "id": "9749",
+      "subject": "gettmeaddihere: i ",
+      "sender": "TikTok <newsletter@service.tiktok.com>",
+      "date": "Mon, 26 Jan 2026 18:35:13 +0000 (UTC)",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "<html xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta \r\ncontent=\"text/html; charset=utf-8\"http-equi"
+    },
+    {
+      "id": "9750",
+      "subject": "Data of 72 million Under Armour customers lands on the dark web",
+      "sender": "\"Malwarebytes\" <noreply@e.malwarebytes.com>",
+      "date": "Mon, 26 Jan 2026 18:37:02 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Plus: Chrome extensions that get you to self-infect, Firefox add-ons that wake \nup angry, and calend"
+    },
+    {
+      "id": "9751",
+      "subject": "[ACTION REQUIRED] Your GitHub account, IceWhistle, will soon require\r\n 2FA",
+      "sender": "GitHub <noreply@github.com>",
+      "date": "Mon, 26 Jan 2026 11:13:34 -0800",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "<p>\r\n  Hey IceWhistle!\r\n</p>\r\n\r\n<p>\r\n\r\n<p>\r\n  We're reaching out to let you know that, as announced "
+    },
+    {
+      "id": "9754",
+      "subject": "Weekly deals on your fave restaurants inside!",
+      "sender": "Instacart <no-reply@customers.instacartemail.com>",
+      "date": "Mon, 26 Jan 2026 21:24:58 +0000 (UTC)",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nInstacart   96\r\nOrder from restaurants through Instacart.\u200c"
+    },
+    {
+      "id": "9758",
+      "subject": "HEADWINDS UPDATE: Against the odds",
+      "sender": "ARC Raiders <noreply@embark.email>",
+      "date": "Tue, 27 Jan 2026 01:48:05 +0000",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtm"
+    },
+    {
+      "id": "9763",
+      "subject": "Raul, we can review your credit report together",
+      "sender": "\"Lexington Law Firm\" <email@mail.lexingtonlaw.com>",
+      "date": "Tue, 27 Jan 2026 07:41:04 -0600",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Lexington Law\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n \r\n \r\nhttps://cloud.mail.lexingtonlaw.com/oneclickunsubscri"
+    },
+    {
+      "id": "9766",
+      "subject": "\ud83d\udc9d Get 20% off Valentine\u2019s",
+      "sender": "Canva <marketing@engage.canva.com>",
+      "date": "Tue, 27 Jan 2026 15:21:58 +0000 (UTC)",
+      "priority": "LOW",
+      "action": "ignore",
+      "preview": "Create meaningful gifts for every kind of love\r\n\r\nCanva  ( https://l.engage.canva.com/ss/c/u001.Note"
+    }
+  ],
+  "Uncategorized": [
+    {
+      "id": "9668",
+      "subject": "JUST A FEW SEATS LEFT - Ride the Bus with your friends to the Miami\r\n Marathon Expo",
+      "sender": "Runner's Depot <rundepot-aol.com@shared1.ccsend.com>",
+      "date": "Fri, 23 Jan 2026 08:25:13 -0500 (EST)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "Email from Runner's Depot Don't stress over traffic and parking EXPO Round-trip Bus Transportation t"
+    },
+    {
+      "id": "9670",
+      "subject": "JUST 2 WEEKS AWAY! 20th Anniversary RUN THROUGH CENTRAL PARK 5K Run\r\n & Fitness Walk",
+      "sender": "Runner's Depot <rundepot-aol.com@shared1.ccsend.com>",
+      "date": "Fri, 23 Jan 2026 10:27:36 -0500 (EST)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "Email from Runner's Depot Presented by Runner's Depot REGISTER NOW FOR THE USATF FLORIDA STATE OPEN "
+    },
+    {
+      "id": "9672",
+      "subject": "Backed by science",
+      "sender": "Eight Sleep <support@eightsleep.com>",
+      "date": "Fri, 23 Jan 2026 16:00:13 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "[The science\u2028 of better sleep](https://www.eightsleep.com/product/pod-cover/#1)\r\n\r\n[Real results, pr"
+    },
+    {
+      "id": "9674",
+      "subject": "\ud83c\udf81",
+      "sender": "\"G2A.COM\" <feedback@g2a.com>",
+      "date": "Fri, 23 Jan 2026 18:13:53 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": ""
+    },
+    {
+      "id": "9675",
+      "subject": "Upcoming changes to Apple Cash",
+      "sender": "Apple Cash <applecash@insideapple.apple.com>",
+      "date": "Fri, 23 Jan 2026 18:19:18 +0000 (GMT)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "Apple\r\n \r\nhttp://www.apple.com\r\n-----------------------------\r\n\r\n\r\nWe\u2019ve made an update to the Apple"
+    },
+    {
+      "id": "9679",
+      "subject": "You have a promo waiting",
+      "sender": "Uber <uber@uber.com>",
+      "date": "Sat, 24 Jan 2026 00:49:30 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": ""
+    },
+    {
+      "id": "9680",
+      "subject": "We made you a mixtape ",
+      "sender": "SoundCloud <alerts@notifications.soundcloud.com>",
+      "date": "Sat, 24 Jan 2026 00:53:09 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "<!DOCTYPE html>\r\n\r\n<html lang=\"en\" xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:v=\"urn:sc"
+    },
+    {
+      "id": "9681",
+      "subject": "We posted a new notice for your account",
+      "sender": "Chase <no.reply.alerts@chase.com>",
+      "date": "Sat, 24 Jan 2026 04:19:11 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtm"
+    },
+    {
+      "id": "9684",
+      "subject": "Up to $15 off your first 2 orders won't last forever",
+      "sender": "\"Uber\" <uber@uber.com>",
+      "date": "Sat, 24 Jan 2026 13:51:56 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "<!doctype html>\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:v=\"urn:schemas-microsoft-com:vml\" "
+    },
+    {
+      "id": "9688",
+      "subject": "\ud83c\udfc6 Better than all the rest.",
+      "sender": "PureRawz <support@purerawz.co>",
+      "date": "Sat, 24 Jan 2026 16:15:40 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "See why these are the BEST of the best!\r\n\r\nThis email was sent to you as HTML-only. To view it, plea"
+    },
+    {
+      "id": "9689",
+      "subject": "Raul, your weekly update and patient spotlight on March",
+      "sender": "\"St. Jude Children's Research Hospital\" <email@campaigns.stjude.org>",
+      "date": "Sat, 24 Jan 2026 10:23:30 -0600",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "\r\n\r\n<a href=\"https://www.stjude.org/\"></a>\r\n \r\nhttps://click.campaigns.stjude.org/?qs=eyJkZWtJZCI6Im"
+    },
+    {
+      "id": "9690",
+      "subject": "Where have you been? We miss you \ud83d\ude14",
+      "sender": "\"Chipotle Mexican Grill\" <chipotle@email.chipotle.com>",
+      "date": "Sat, 24 Jan 2026 10:47:21 -0600",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "\r\n\r\n\r\n\r\n\r\n  Chipotle Mexican Grill\r\n &#8199; &#847; &zwnj;   &#8199; &#847; &zwnj;   &#8199; &#847; "
+    },
+    {
+      "id": "9691",
+      "subject": "Action Needed: Please confirm activity",
+      "sender": "\"Chase Fraud Alert\" <Chase@fraudalert.chase.com>",
+      "date": "Sat, 24 Jan 2026 18:34:18 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtm"
+    },
+    {
+      "id": "9695",
+      "subject": "Still considering Pod financing?*",
+      "sender": "Abby at Eight Sleep <support@eightsleep.com>",
+      "date": "Sun, 25 Jan 2026 02:17:05 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "Soft credit check, fast approval, flexible plans.\r\n\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0\u200c\u00a0"
+    },
+    {
+      "id": "9700",
+      "subject": "Welcome to the Pro plan",
+      "sender": "Anthropic <no-reply-YK1vibf3mSpf3688Xjyk9g@mail.anthropic.com>",
+      "date": "Sun, 25 Jan 2026 15:12:26 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "\r\n\r\n<!doctype html><html lang=\"und\" dir=\"auto\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:v=\"urn:sch"
+    },
+    {
+      "id": "9707",
+      "subject": "\ud83c\udf4e Apples to Apple Comparison \ud83c\udf4f",
+      "sender": "PureRawz <support@purerawz.co>",
+      "date": "Sun, 25 Jan 2026 16:15:50 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "See how these peptides stack up 1 on 1!\r\n\r\nThis email was sent to you as HTML-only. To view it, plea"
+    },
+    {
+      "id": "9718",
+      "subject": "New year, new stack? \ud83d\udc8a",
+      "sender": "The Supp Digest <hello@mail.supp.co>",
+      "date": "Sun, 25 Jan 2026 22:45:14 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "Supp Digest has your latest supplement recs \r\n\r\n\r\n\r\n <https://supp.co/home/community/popular-article"
+    },
+    {
+      "id": "9720",
+      "subject": "Spend Smart, Play More: Payday Deals Inside \ud83d\udcb8",
+      "sender": "Loaded <promo@p.cdkeys.com>",
+      "date": "Mon, 26 Jan 2026 00:10:41 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": ""
+    },
+    {
+      "id": "9721",
+      "subject": "Brave Search API verify your email",
+      "sender": "Brave Search API <search-api@brave.com>",
+      "date": "Mon, 26 Jan 2026 00:40:28 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta content=\"text/html; charset=utf-8\" http-equiv=\""
+    },
+    {
+      "id": "9722",
+      "subject": "Brave Search API new user created",
+      "sender": "Brave Search API <search-api@brave.com>",
+      "date": "Mon, 26 Jan 2026 00:41:39 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta content=\"text/html; charset=utf-8\" http-equiv=\""
+    },
+    {
+      "id": "9723",
+      "subject": "Brave Search API login attempt",
+      "sender": "Brave Search API <search-api@brave.com>",
+      "date": "Mon, 26 Jan 2026 00:42:00 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta content=\"text/html; charset=utf-8\" http-equiv=\""
+    },
+    {
+      "id": "9724",
+      "subject": "New login from iOS (Mobile Safari)",
+      "sender": "Link <notifications@link.com>",
+      "date": "Mon, 26 Jan 2026 00:43:37 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "New login detected\r\n\r\nWe noticed a login to your Link account from a new device. If this was you, no"
+    },
+    {
+      "id": "9725",
+      "subject": "Brave Search API login attempt",
+      "sender": "Brave Search API <search-api@brave.com>",
+      "date": "Mon, 26 Jan 2026 00:44:28 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta content=\"text/html; charset=utf-8\" http-equiv=\""
+    },
+    {
+      "id": "9726",
+      "subject": "Your OpenAI API account has been funded",
+      "sender": "OpenAI <billing@tm1.openai.com>",
+      "date": "Mon, 26 Jan 2026 00:52:12 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n  \r\n  <meta charset=\"utf-8\">\r\n  <meta http-equiv=\"x-ua-compatible\" "
+    },
+    {
+      "id": "9730",
+      "subject": "Welcome to your Google Cloud Free Trial",
+      "sender": "Google Cloud <googlecloud@google.com>",
+      "date": "Sun, 25 Jan 2026 16:58:11 -0800",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "Google Cloud  \r\n<https://c.gle/AHvOEDkmvpzi-7QLwNx_QUMy3HTFGVsS1ROXctSGzWE4xDiwtppXHagThQM8RwO55-g7c"
+    },
+    {
+      "id": "9732",
+      "subject": "Quick question*",
+      "sender": "Abby from Eight Sleep <support@eightsleep.com>",
+      "date": "Mon, 26 Jan 2026 01:35:31 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "Hi there,\r\n\r\nIt's Abby from Eight Sleep.\r\n\r\nI understand life is busy, but I\u2019m just wondering if the"
+    },
+    {
+      "id": "9734",
+      "subject": "Required Documents Notification | RAUL URBAY",
+      "sender": "Steps Therapy Center <support@officepuzzle.com>",
+      "date": "Mon, 26 Jan 2026 10:40:03 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "Hi RAUL,<BR><BR>\r\nThis email serves as a reminder that the following document(s) for your HR file wi"
+    },
+    {
+      "id": "9735",
+      "subject": "Required Documents Notification | KM",
+      "sender": "Natalia Hope <support@officepuzzle.com>",
+      "date": "Mon, 26 Jan 2026 10:59:03 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "Dear Provider,<BR><BR>\r\nThis email serves as a reminder that the following document(s) for your clie"
+    },
+    {
+      "id": "9736",
+      "subject": "Required Documents Notification | Raul E. Urbay",
+      "sender": "Natalia Hope <support@officepuzzle.com>",
+      "date": "Mon, 26 Jan 2026 10:59:25 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "Hi Raul E.,<BR><BR>\r\nThis email serves as a reminder that the following document(s) for your HR file"
+    },
+    {
+      "id": "9738",
+      "subject": "The data is in. Who\u2019s winning 2026?",
+      "sender": "\"Similarweb\" <hello@digital.similarweb.com>",
+      "date": "Mon, 26 Jan 2026 08:06:37 -0600",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "\r\n To view this email as a web page, \r\nhttps://view.digital.similarweb.com/?qs=eyJkZWtJZCI6IjlmNDYxY"
+    },
+    {
+      "id": "9739",
+      "subject": "[action needed] Your Claude API access is turned off",
+      "sender": "Anthropic <no-reply-E-G0bzqbE0eNm8g5YX2skw@mail.anthropic.com>",
+      "date": "Mon, 26 Jan 2026 14:44:00 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "\r\n\r\n<!doctype html><html lang=\"und\" dir=\"auto\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:v=\"urn:sch"
+    },
+    {
+      "id": "9741",
+      "subject": "How do you love it?",
+      "sender": "Eight Sleep <support@eightsleep.com>",
+      "date": "Mon, 26 Jan 2026 15:15:03 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "[Sleep your way](https://www.eightsleep.com/product/pod-cover/)\r\n\r\n[Some love it hot. Some love it c"
+    },
+    {
+      "id": "9743",
+      "subject": "40% off Creative Cloud doesn't happen every day",
+      "sender": "\"Adobe Special Offers\" <mail@mail.adobe.com>",
+      "date": "Mon, 26 Jan 2026 07:23:53 -0800",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "View Web Version:\r\nhttps://t3.mail.adobe.com/r/?id=t80d8955b-09d7-46f3-8af8-ca1fd6c8b8b5,104a39d2,1a"
+    },
+    {
+      "id": "9748",
+      "subject": "",
+      "sender": "Sabrina Dupeiron <sabrinadupeiron@gmail.com>",
+      "date": "Mon, 26 Jan 2026 18:17:53 +0000",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "\r\n"
+    },
+    {
+      "id": "9752",
+      "subject": "Did you take our survey?",
+      "sender": "\"Your American Cancer Society\" <News@message.cancer.org>",
+      "date": "Mon, 26 Jan 2026 15:11:02 -0600",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "\r\n \r\n &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj; &zwnj;  &z"
+    },
+    {
+      "id": "9756",
+      "subject": "Raul, Have you claimed your Free Drink?",
+      "sender": "\"Chipotle Rewards\" <chipotle@email.chipotle.com>",
+      "date": "Mon, 26 Jan 2026 15:45:42 -0600",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "View in browser\r\n---------------------------------------------------------------\r\nhttps://click.emai"
+    },
+    {
+      "id": "9757",
+      "subject": "Ready, set, go ",
+      "sender": "SoundCloud <alerts@notifications.soundcloud.com>",
+      "date": "Tue, 27 Jan 2026 01:11:58 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "<!DOCTYPE html>\r\n\r\n<html lang=\"en\" xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:v=\"urn:sc"
+    },
+    {
+      "id": "9759",
+      "subject": "Evaluation Appointment Reminder for Thursday 01/29/2026 at 02:00 PM",
+      "sender": "The Advocate Program <mariae@advocateprogram.org>",
+      "date": "Tue, 27 Jan 2026 05:30:41 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "<div style=\"font-size: 20px;font-family: 'Times New Roman';\"><span style=\"color: #FF0000; font-weigh"
+    },
+    {
+      "id": "9765",
+      "subject": "Your 1099 Form is Ready",
+      "sender": "Yudenia Ramirez <nataliahopebehaviorservices23@yahoo.com>",
+      "date": "Tue, 27 Jan 2026 14:53:17 +0000 (UTC)",
+      "priority": "MEDIUM",
+      "action": "review",
+      "preview": "Dear Provider:\r\nWe hope this message finds you well. As we approach tax season, we would like to inf"
+    }
+  ]
+}

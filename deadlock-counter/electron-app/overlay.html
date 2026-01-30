@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Deadlock Counter v4.0</title>
+  <style>
+    :root {
+      --bg-primary: rgba(12, 12, 18, 0.97);
+      --bg-secondary: rgba(22, 22, 32, 0.95);
+      --bg-tertiary: rgba(32, 32, 45, 0.9);
+      --accent: #e74c3c;
+      --accent-glow: rgba(231, 76, 60, 0.3);
+      --success: #2ecc71;
+      --warning: #f39c12;
+      --info: #3498db;
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0b0;
+      --text-muted: #606070;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.15);
+      --weapon: #e67e22;
+      --vitality: #2ecc71;
+      --spirit: #9b59b6;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: transparent;
+      color: var(--text-primary);
+      user-select: none;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 5px var(--accent-glow); }
+      50% { box-shadow: 0 0 15px var(--accent-glow), 0 0 25px var(--accent-glow); }
+    }
+    
+    .container {
+      background: var(--bg-primary);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 
+                  0 0 1px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    
+    /* Titlebar */
+    .titlebar {
+      background: linear-gradient(135deg, var(--accent), #c0392b);
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      -webkit-app-region: drag;
+    }
+    
+    .titlebar-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .titlebar h1 { 
+      font-size: 13px; 
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    .version {
+      font-size: 10px;
+      opacity: 0.7;
+      background: rgba(0,0,0,0.2);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    
+    .titlebar-btns {
+      display: flex;
+      gap: 8px;
+      -webkit-app-region: no-drag;
+    }
+    
+    .title-btn {
+      background: rgba(0,0,0,0.2);
+      border: none;
+      color: white;
+      font-size: 11px;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    
+    .title-btn:hover { 
+      background: rgba(0,0,0,0.4); 
+    }
+    
+    /* Tabs */
+    .tabs {
+      display: flex;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .tab {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    
+    .tab:hover {
+      color: var(--text-primary);
+      background: var(--bg-tertiary);
+    }
+    
+    .tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* Content */
+    .content { 
+      padding: 14px; 
+      max-height: calc(100vh - 90px); 
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    
+    .content::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    .content::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    .content::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+    
+    .content::-webkit-scrollbar-thumb:hover {
+      background: var(--border-hover);
+    }
+    
+    /* Sections */
+    .section { 
+      margin-bottom: 16px;
+    }
+    
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .section-title {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+    
+    /* Playing As Hero Selector */
+    .my-hero-section {
+      background: linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+    }
+    
+    .my-hero-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--success);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .hero-select-wrapper {
+      position: relative;
+    }
+    
+    .hero-select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-size: 13px;
+      cursor: pointer;
+      appearance: none;
+      transition: all 0.2s;
+    }
+    
+    .hero-select:hover {
+      border-color: var(--success);
+    }
+    
+    .hero-select:focus {
+      outline: none;
+      border-color: var(--success);
+      box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+    }
+    
+    .hero-select option {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      padding: 8px;
+    }
+    
+    /* Enemy Slots */
+    .enemy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    
+    .enemy-slot {
+      position: relative;
+    }
+    
+    .enemy-select {
+      width: 100%;
+      padding: 10px 6px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      font-size: 11px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+      appearance: none;
+    }
+    
+    .enemy-select:hover {
+      border-color: var(--accent);
+      background: var(--bg-secondary);
+    }
+    
+    .enemy-select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    
+    .enemy-select.selected {
+      border-color: var(--accent);
+      background: rgba(231, 76, 60, 0.1);
+    }
+    
+    .enemy-select option {
+      background: var(--bg-primary);
+      padding: 8px;
+    }
+    
+    /* Action Buttons */
+    .action-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    
+    .btn {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    
+    .btn:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border-color: var(--border-hover);
+    }
+    
+    .btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+    
+    .btn.primary:hover {
+      background: #c0392b;
+    }
+    
+    .btn.success {
+      background: rgba(46, 204, 113, 0.15);
+      border-color: var(--success);
+      color: var(--success);
+    }
+    
+    .btn.success:hover {
+      background: rgba(46, 204, 113, 0.25);
+    }
+    
+    /* Scanning State */
+    .scanning {
+      text-align: center;
+      padding: 20px;
+      color: var(--info);
+      animation: pulse 1.5s infinite;
+    }
+    
+    .scanning-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    
+    /* Synergy Alerts */
+    .synergy-alerts {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    
+    .synergy-alert {
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      animation: slideIn 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .synergy-alert.high {
+      background: rgba(231, 76, 60, 0.15);
+      border-left: 3px solid var(--accent);
+      color: #ff6b6b;
+    }
+    
+    .synergy-alert.medium {
+      background: rgba(243, 156, 18, 0.15);
+      border-left: 3px solid var(--warning);
+      color: var(--warning);
+    }
+    
+    /* Power Spike Warnings */
+    .power-spikes {
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+    
+    .spike-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+    }
+    
+    .spike-item:last-child {
+      border-bottom: none;
+    }
+    
+    .spike-hero {
+      color: var(--warning);
+      font-weight: 600;
+    }
+    
+    .spike-info {
+      color: var(--text-secondary);
+    }
+    
+    .spike-timing {
+      color: var(--accent);
+      font-weight: 500;
+    }
+    
+    /* Build Paths */
+    .build-paths {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .build-path {
+      background: var(--bg-tertiary);
+      border-radius: 10px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .build-path-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .build-path-name {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 12px;
+    }
+    
+    .build-path-reason {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+    
+    .build-phase {
+      margin-bottom: 8px;
+    }
+    
+    .build-phase-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    
+    .build-phase-label.early { color: var(--success); }
+    .build-phase-label.mid { color: var(--warning); }
+    .build-phase-label.late { color: var(--accent); }
+    
+    .build-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    
+    .build-item {
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .build-item.weapon { background: rgba(230, 126, 34, 0.2); color: var(--weapon); }
+    .build-item.vitality { background: rgba(46, 204, 113, 0.2); color: var(--vitality); }
+    .build-item.spirit { background: rgba(155, 89, 182, 0.2); color: var(--spirit); }
+    
+    /* Priority Items */
+    .priority-items {
+      background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(46, 204, 113, 0.05));
+      border: 1px solid rgba(46, 204, 113, 0.3);
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+    
+    .priority-item {
+      font-size: 12px;
+      padding: 4px 0;
+      color: var(--success);
+      font-weight: 500;
+    }
+    
+    /* Analysis Tags */
+    .analysis-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    
+    .analysis-tag {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 10px;
+      font-weight: 600;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .analysis-tag.danger { 
+      background: rgba(231, 76, 60, 0.2); 
+      color: #ff6b6b; 
+    }
+    .analysis-tag.warning { 
+      background: rgba(243, 156, 18, 0.2); 
+      color: var(--warning); 
+    }
+    .analysis-tag.info { 
+      background: rgba(52, 152, 219, 0.2); 
+      color: var(--info); 
+    }
+    
+    /* Recommendations */
+    .recommendations {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .rec-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      border-left: 3px solid var(--text-muted);
+      transition: all 0.2s;
+      animation: slideIn 0.3s ease;
+    }
+    
+    .rec-item:hover {
+      background: var(--bg-secondary);
+      transform: translateX(4px);
+    }
+    
+    .rec-item.weapon { border-left-color: var(--weapon); }
+    .rec-item.vitality { border-left-color: var(--vitality); }
+    .rec-item.spirit { border-left-color: var(--spirit); }
+    
+    .rec-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    
+    .rec-icon.weapon { background: rgba(230, 126, 34, 0.2); }
+    .rec-icon.vitality { background: rgba(46, 204, 113, 0.2); }
+    .rec-icon.spirit { background: rgba(155, 89, 182, 0.2); }
+    
+    .rec-info { 
+      flex: 1; 
+      min-width: 0;
+    }
+    
+    .rec-name { 
+      font-weight: 600; 
+      font-size: 12px;
+      color: var(--text-primary);
+    }
+    
+    .rec-desc { 
+      font-size: 10px; 
+      color: var(--text-secondary); 
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .rec-counters { 
+      font-size: 9px; 
+      color: var(--accent); 
+      margin-top: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .rec-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    
+    .rec-cost {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--warning);
+    }
+    
+    .rec-score {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(231, 76, 60, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: bold;
+      color: var(--accent);
+    }
+    
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-muted);
+    }
+    
+    .empty-state-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+    
+    .empty-state p {
+      margin: 6px 0;
+      font-size: 12px;
+    }
+    
+    /* Hotkey Hint */
+    .hotkey-hint {
+      text-align: center;
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    
+    .hotkey-hint kbd {
+      background: var(--bg-tertiary);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 10px;
+    }
+    
+    /* Match History */
+    .history-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .history-item {
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .history-item:hover {
+      border-color: var(--accent);
+    }
+    
+    .history-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .history-date {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+    
+    .history-delete {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+    
+    .history-delete:hover {
+      color: var(--accent);
+    }
+    
+    .history-heroes {
+      font-size: 11px;
+      color: var(--text-primary);
+    }
+    
+    .history-my-hero {
+      color: var(--success);
+      font-weight: 500;
+    }
+    
+    .history-notes {
+      font-size: 10px;
+      color: var(--text-secondary);
+      margin-top: 6px;
+      font-style: italic;
+    }
+    
+    /* Personalized Section */
+    .personalized {
+      background: linear-gradient(135deg, rgba(46, 204, 113, 0.08), rgba(46, 204, 113, 0.02));
+      border: 1px solid rgba(46, 204, 113, 0.2);
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+    
+    .personalized-header {
+      font-size: 11px;
+      color: var(--success);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .personalized-item {
+      font-size: 11px;
+      padding: 4px 0;
+      color: var(--text-secondary);
+    }
+    
+    .personalized-item strong {
+      color: var(--success);
+    }
+    
+    /* Notes Input */
+    .notes-section {
+      margin-top: 12px;
+    }
+    
+    .notes-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      font-size: 12px;
+      resize: vertical;
+      min-height: 60px;
+      font-family: inherit;
+    }
+    
+    .notes-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    .notes-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* Copy feedback */
+    .copy-feedback {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--success);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      animation: fadeIn 0.3s ease;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="titlebar">
+      <div class="titlebar-left">
+        <h1>⚔️ Deadlock Counter</h1>
+        <span class="version">v4.0</span>
+      </div>
+      <div class="titlebar-btns">
+        <button class="title-btn" onclick="minimizeToTray()" title="Minimize to tray">−</button>
+        <button class="title-btn" onclick="window.close()" title="Close">✕</button>
+      </div>
+    </div>
+    
+    <div class="tabs">
+      <div class="tab active" data-tab="counter">⚔️ Counter</div>
+      <div class="tab" data-tab="builds">📊 Builds</div>
+      <div class="tab" data-tab="history">📜 History</div>
+    </div>
+    
+    <!-- Counter Tab -->
+    <div class="tab-content active" id="counter-tab">
+      <div class="content">
+        <!-- Playing As Section -->
+        <div class="my-hero-section">
+          <div class="my-hero-label">🎮 Playing As</div>
+          <div class="hero-select-wrapper">
+            <select class="hero-select" id="myHeroSelect" onchange="updateMyHero(this.value)">
+              <option value="">Select your hero...</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Enemy Team Section -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-title">👥 Enemy Team</div>
+          </div>
+          <div class="enemy-grid" id="enemySlots"></div>
+          <div class="action-row">
+            <button class="btn" onclick="clearAll()">🗑️ Clear</button>
+            <button class="btn" onclick="captureScreen()">📷 Scan (F1)</button>
+            <button class="btn success" onclick="saveMatch()">💾 Save</button>
+          </div>
+        </div>
+        
+        <!-- Scanning Indicator -->
+        <div id="scanningIndicator" style="display: none;">
+          <div class="scanning">
+            <div class="scanning-icon">🔍</div>
+            <div>Scanning scoreboard...</div>
+          </div>
+        </div>
+        
+        <!-- Synergy Alerts -->
+        <div id="synergyAlerts" class="synergy-alerts" style="display: none;"></div>
+        
+        <!-- Personalized Tips -->
+        <div id="personalizedSection" class="personalized" style="display: none;">
+          <div class="personalized-header">💡 Tips for <span id="personalizedHero"></span></div>
+          <div id="personalizedTips"></div>
+        </div>
+        
+        <!-- Priority Items -->
+        <div class="section" id="prioritySection" style="display: none;">
+          <div class="section-title">🎯 Priority Buys</div>
+          <div class="priority-items" id="priorityItems"></div>
+        </div>
+        
+        <!-- Analysis Tags -->
+        <div id="analysisSection" style="display: none;">
+          <div class="section-title">⚠️ Threat Analysis</div>
+          <div class="analysis-tags" id="analysisTags"></div>
+        </div>
+        
+        <!-- Recommendations -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-title">🛡️ Counter Items</div>
+            <button class="btn" style="flex: 0;" onclick="copyBuild()">📋 Copy</button>
+          </div>
+          <div id="recommendations">
+            <div class="empty-state">
+              <div class="empty-state-icon">🎯</div>
+              <p>Select enemy heroes above</p>
+              <p style="color: var(--text-muted);">or press F1 to scan scoreboard</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Power Spikes -->
+        <div id="powerSpikesSection" style="display: none;">
+          <div class="section-title">⏱️ Power Spike Warnings</div>
+          <div class="power-spikes" id="powerSpikes"></div>
+        </div>
+        
+        <!-- Notes -->
+        <div class="notes-section">
+          <textarea class="notes-input" id="matchNotes" placeholder="Add notes about this match..."></textarea>
+        </div>
+        
+        <div class="hotkey-hint">
+          <kbd>Ctrl+Shift+D</kbd> toggle overlay • <kbd>F1</kbd> scan screen
+        </div>
+      </div>
+    </div>
+    
+    <!-- Builds Tab -->
+    <div class="tab-content" id="builds-tab">
+      <div class="content">
+        <div class="section">
+          <div class="section-title">📊 Recommended Build Paths</div>
+          <div id="buildPaths" class="build-paths">
+            <div class="empty-state">
+              <div class="empty-state-icon">📦</div>
+              <p>Select enemies to see build paths</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- History Tab -->
+    <div class="tab-content" id="history-tab">
+      <div class="content">
+        <div class="section">
+          <div class="section-header">
+            <div class="section-title">📜 Match History</div>
+            <button class="btn" style="flex: 0;" onclick="loadHistory()">🔄</button>
+          </div>
+          <div id="historyList" class="history-list">
+            <div class="empty-state">
+              <div class="empty-state-icon">📜</div>
+              <p>No saved matches yet</p>
+              <p style="color: var(--text-muted);">Save a match to see it here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="copyFeedback" class="copy-feedback" style="display: none;">✓ Build copied to clipboard!</div>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+    
+    let heroes = {};
+    let selectedHeroes = ['', '', '', '', '', ''];
+    let myHero = '';
+    let currentResult = null;
+    let matchHistory = [];
+    
+    async function init() {
+      heroes = await ipcRenderer.invoke('get-heroes');
+      renderSlots();
+      renderMyHeroSelect();
+      await loadHistory();
+      setupTabs();
+    }
+    
+    function setupTabs() {
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.tab + '-tab').classList.add('active');
+        });
+      });
+    }
+    
+    function renderMyHeroSelect() {
+      const select = document.getElementById('myHeroSelect');
+      const heroNames = Object.keys(heroes).sort();
+      
+      select.innerHTML = '<option value="">Select your hero...</option>' +
+        heroNames.map(name => 
+          `<option value="${name}" ${myHero === name ? 'selected' : ''}>${getHeroEmoji(name)} ${name}</option>`
+        ).join('');
+    }
+    
+    function getHeroEmoji(heroName) {
+      const hero = heroes[heroName];
+      if (!hero) return '👤';
+      
+      const roleEmojis = {
+        'tank': '🛡️',
+        'carry': '🔫',
+        'mage': '🔮',
+        'support': '💚',
+        'assassin': '🗡️',
+        'bruiser': '⚔️',
+        'controller': '🎭',
+        'specialist': '🔧'
+      };
+      
+      return roleEmojis[hero.role] || '👤';
+    }
+    
+    function renderSlots() {
+      const container = document.getElementById('enemySlots');
+      const heroNames = Object.keys(heroes).sort();
+      
+      container.innerHTML = selectedHeroes.map((selected, i) => `
+        <div class="enemy-slot">
+          <select class="enemy-select ${selected ? 'selected' : ''}" onchange="selectHero(${i}, this.value)">
+            <option value="">Hero ${i + 1}</option>
+            ${heroNames.map(name => `
+              <option value="${name}" ${selected === name ? 'selected' : ''}>${getHeroEmoji(name)} ${name}</option>
+            `).join('')}
+          </select>
+        </div>
+      `).join('');
+    }
+    
+    async function updateMyHero(hero) {
+      myHero = hero;
+      await updateRecommendations();
+    }
+    
+    async function selectHero(index, hero) {
+      selectedHeroes[index] = hero;
+      renderSlots();
+      await updateRecommendations();
+    }
+    
+    function clearAll() {
+      selectedHeroes = ['', '', '', '', '', ''];
+      myHero = '';
+      document.getElementById('myHeroSelect').value = '';
+      document.getElementById('matchNotes').value = '';
+      renderSlots();
+      currentResult = null;
+      
+      // Reset all sections
+      document.getElementById('recommendations').innerHTML = `
+        <div class="empty-state">
+          <div class="empty-state-icon">🎯</div>
+          <p>Select enemy heroes above</p>
+          <p style="color: var(--text-muted);">or press F1 to scan scoreboard</p>
+        </div>
+      `;
+      document.getElementById('analysisSection').style.display = 'none';
+      document.getElementById('prioritySection').style.display = 'none';
+      document.getElementById('synergyAlerts').style.display = 'none';
+      document.getElementById('powerSpikesSection').style.display = 'none';
+      document.getElementById('personalizedSection').style.display = 'none';
+      document.getElementById('buildPaths').innerHTML = `
+        <div class="empty-state">
+          <div class="empty-state-icon">📦</div>
+          <p>Select enemies to see build paths</p>
+        </div>
+      `;
+    }
+    
+    async function captureScreen() {
+      document.getElementById('scanningIndicator').style.display = 'block';
+      // The main process will capture and send back
+      // For now, show feedback
+      setTimeout(() => {
+        document.getElementById('scanningIndicator').style.display = 'none';
+      }, 2000);
+    }
+    
+    // Listen for screenshot results
+    ipcRenderer.on('screenshot-captured', async (event, dataUrl) => {
+      document.getElementById('scanningIndicator').style.display = 'none';
+      // In a full implementation, we'd use OCR here
+      // For now, just show feedback
+      console.log('Screenshot captured, would parse for heroes');
+    });
+    
+    ipcRenderer.on('screenshot-error', (event, error) => {
+      document.getElementById('scanningIndicator').style.display = 'none';
+      console.error('Screenshot error:', error);
+    });
+    
+    async function updateRecommendations() {
+      const selected = selectedHeroes.filter(h => h);
+      if (selected.length === 0) {
+        clearAll();
+        return;
+      }
+      
+      const result = await ipcRenderer.invoke('get-recommendations', selected, myHero);
+      currentResult = result;
+      
+      // Synergy Alerts
+      const alertsDiv = document.getElementById('synergyAlerts');
+      if (result.synergyAlerts && result.synergyAlerts.length > 0) {
+        alertsDiv.style.display = 'flex';
+        alertsDiv.innerHTML = result.synergyAlerts.map(alert => 
+          `<div class="synergy-alert ${alert.priority}">${alert.alert}</div>`
+        ).join('');
+      } else {
+        alertsDiv.style.display = 'none';
+      }
+      
+      // Personalized Tips
+      const personalizedSection = document.getElementById('personalizedSection');
+      if (result.personalized && result.personalized.bonuses && result.personalized.bonuses.length > 0) {
+        personalizedSection.style.display = 'block';
+        document.getElementById('personalizedHero').textContent = myHero;
+        document.getElementById('personalizedTips').innerHTML = result.personalized.bonuses.map(bonus => 
+          `<div class="personalized-item">• <strong>${bonus.item}</strong>: ${bonus.reason}</div>`
+        ).join('');
+      } else {
+        personalizedSection.style.display = 'none';
+      }
+      
+      // Priority Items
+      const priorityDiv = document.getElementById('priorityItems');
+      const prioritySection = document.getElementById('prioritySection');
+      
+      if (result.priorityItems && result.priorityItems.length > 0) {
+        prioritySection.style.display = 'block';
+        priorityDiv.innerHTML = result.priorityItems.map(item => 
+          `<div class="priority-item">${item}</div>`
+        ).join('');
+      } else {
+        prioritySection.style.display = 'none';
+      }
+      
+      // Analysis Tags
+      const analysisDiv = document.getElementById('analysisTags');
+      const analysisTags = [];
+      
+      if (result.analysis.weaponHeavy) analysisTags.push({ text: '🔫 Heavy Weapon', class: 'danger' });
+      if (result.analysis.spiritHeavy) analysisTags.push({ text: '🔮 Heavy Spirit', class: 'danger' });
+      if (result.analysis.healHeavy) analysisTags.push({ text: '💚 High Sustain', class: 'warning' });
+      if (result.analysis.ccHeavy) analysisTags.push({ text: '⛓️ CC Heavy', class: 'warning' });
+      if (result.analysis.tankHeavy) analysisTags.push({ text: '🛡️ Tanky', class: 'info' });
+      if (result.analysis.assassinThreat) analysisTags.push({ text: '🗡️ Assassin', class: 'danger' });
+      if (result.analysis.channelUlts) analysisTags.push({ text: '⏱️ Channel Ults', class: 'warning' });
+      if (result.analysis.meleeThreat) analysisTags.push({ text: '⚔️ Melee Heavy', class: 'warning' });
+      if (result.analysis.dotHeavy) analysisTags.push({ text: '🔥 DOT', class: 'warning' });
+      if (result.analysis.executeThreat) analysisTags.push({ text: '💀 Execute', class: 'danger' });
+      
+      if (analysisTags.length > 0) {
+        document.getElementById('analysisSection').style.display = 'block';
+        analysisDiv.innerHTML = analysisTags.map(t => 
+          `<span class="analysis-tag ${t.class}">${t.text}</span>`
+        ).join('');
+      } else {
+        document.getElementById('analysisSection').style.display = 'none';
+      }
+      
+      // Power Spikes
+      const spikesSection = document.getElementById('powerSpikesSection');
+      const spikesDiv = document.getElementById('powerSpikes');
+      
+      if (result.powerSpikes && result.powerSpikes.length > 0) {
+        spikesSection.style.display = 'block';
+        spikesDiv.innerHTML = result.powerSpikes.slice(0, 5).map(spike => `
+          <div class="spike-item">
+            <span class="spike-hero">${spike.hero}</span>
+            <span class="spike-info">${spike.item} (${spike.cost}💰)</span>
+            <span class="spike-timing">${spike.timing}</span>
+          </div>
+        `).join('');
+      } else {
+        spikesSection.style.display = 'none';
+      }
+      
+      // Recommendations
+      const recDiv = document.getElementById('recommendations');
+      
+      if (result.recommendations.length === 0) {
+        recDiv.innerHTML = '<div class="empty-state"><p>No specific counters needed</p></div>';
+        return;
+      }
+      
+      const icons = { weapon: '⚔️', vitality: '💚', spirit: '🔮' };
+      
+      recDiv.innerHTML = result.recommendations.slice(0, 10).map(item => `
+        <div class="rec-item ${item.category}">
+          <div class="rec-icon ${item.category}">${icons[item.category] || '📦'}</div>
+          <div class="rec-info">
+            <div class="rec-name">${item.name}</div>
+            <div class="rec-desc">${item.desc}</div>
+            <div class="rec-counters">↳ ${item.counters.slice(0, 3).join(', ')}</div>
+          </div>
+          <div class="rec-meta">
+            <div class="rec-cost">${item.cost}💰</div>
+            <div class="rec-score">${Math.round(item.score)}</div>
+          </div>
+        </div>
+      `).join('');
+      
+      // Build Paths
+      renderBuildPaths(result.buildPaths);
+    }
+    
+    function renderBuildPaths(paths) {
+      const container = document.getElementById('buildPaths');
+      
+      if (!paths || paths.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">📦</div>
+            <p>No specific build paths recommended</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = paths.map(path => `
+        <div class="build-path">
+          <div class="build-path-header">
+            <div class="build-path-name">${path.name}</div>
+          </div>
+          ${path.early.length > 0 ? `
+            <div class="build-phase">
+              <div class="build-phase-label early">Early Game</div>
+              <div class="build-items">
+                ${path.early.map(item => `<span class="build-item vitality">${item.name} (${item.cost}💰)</span>`).join('')}
+              </div>
+            </div>
+          ` : ''}
+          ${path.mid.length > 0 ? `
+            <div class="build-phase">
+              <div class="build-phase-label mid">Mid Game</div>
+              <div class="build-items">
+                ${path.mid.map(item => `<span class="build-item weapon">${item.name} (${item.cost}💰)</span>`).join('')}
+              </div>
+            </div>
+          ` : ''}
+          ${path.late.length > 0 ? `
+            <div class="build-phase">
+              <div class="build-phase-label late">Late Game</div>
+              <div class="build-items">
+                ${path.late.map(item => `<span class="build-item spirit">${item.name} (${item.cost}💰)</span>`).join('')}
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+    }
+    
+    async function copyBuild() {
+      if (!currentResult || currentResult.recommendations.length === 0) return;
+      
+      const selected = selectedHeroes.filter(h => h);
+      const result = await ipcRenderer.invoke('copy-build', 
+        currentResult.recommendations, 
+        currentResult.buildPaths || [], 
+        selected
+      );
+      
+      if (result.success) {
+        const feedback = document.getElementById('copyFeedback');
+        feedback.style.display = 'block';
+        setTimeout(() => {
+          feedback.style.display = 'none';
+        }, 2000);
+      }
+    }
+    
+    async function saveMatch() {
+      const selected = selectedHeroes.filter(h => h);
+      if (selected.length === 0) return;
+      
+      const matchData = {
+        enemyHeroes: selected,
+        myHero: myHero,
+        notes: document.getElementById('matchNotes').value,
+        recommendations: currentResult ? currentResult.recommendations.slice(0, 5).map(r => r.name) : []
+      };
+      
+      const result = await ipcRenderer.invoke('save-match', matchData);
+      if (result.success) {
+        const feedback = document.getElementById('copyFeedback');
+        feedback.textContent = '✓ Match saved!';
+        feedback.style.display = 'block';
+        setTimeout(() => {
+          feedback.textContent = '✓ Build copied to clipboard!';
+          feedback.style.display = 'none';
+        }, 2000);
+        await loadHistory();
+      }
+    }
+    
+    async function loadHistory() {
+      matchHistory = await ipcRenderer.invoke('load-history');
+      renderHistory();
+    }
+    
+    function renderHistory() {
+      const container = document.getElementById('historyList');
+      
+      if (matchHistory.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">📜</div>
+            <p>No saved matches yet</p>
+            <p style="color: var(--text-muted);">Save a match to see it here</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = matchHistory.map(match => `
+        <div class="history-item" onclick="loadMatch(${match.id})">
+          <div class="history-header">
+            <span class="history-date">${new Date(match.timestamp).toLocaleDateString()} ${new Date(match.timestamp).toLocaleTimeString()}</span>
+            <button class="history-delete" onclick="event.stopPropagation(); deleteMatch(${match.id})">✕</button>
+          </div>
+          ${match.myHero ? `<div class="history-my-hero">Playing as: ${match.myHero}</div>` : ''}
+          <div class="history-heroes">vs: ${match.enemyHeroes.join(', ')}</div>
+          ${match.notes ? `<div class="history-notes">"${match.notes}"</div>` : ''}
+        </div>
+      `).join('');
+    }
+    
+    async function loadMatch(matchId) {
+      const match = matchHistory.find(m => m.id === matchId);
+      if (!match) return;
+      
+      // Load the match data
+      selectedHeroes = [...match.enemyHeroes];
+      while (selectedHeroes.length < 6) selectedHeroes.push('');
+      
+      myHero = match.myHero || '';
+      document.getElementById('myHeroSelect').value = myHero;
+      document.getElementById('matchNotes').value = match.notes || '';
+      
+      renderSlots();
+      await updateRecommendations();
+      
+      // Switch to counter tab
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.querySelector('.tab[data-tab="counter"]').classList.add('active');
+      document.getElementById('counter-tab').classList.add('active');
+    }
+    
+    async function deleteMatch(matchId) {
+      await ipcRenderer.invoke('delete-match', matchId);
+      await loadHistory();
+    }
+    
+    async function minimizeToTray() {
+      await ipcRenderer.invoke('minimize-to-tray');
+    }
+    
+    init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Deadlock Counter</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: rgba(15, 15, 25, 0.92);
+      color: #e0e0e0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .titlebar {
+      background: rgba(0,0,0,0.5);
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      -webkit-app-region: drag;
+      cursor: move;
+    }
+    
+    .titlebar h1 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffd93d;
+    }
+    
+    .titlebar-btns {
+      display: flex;
+      gap: 8px;
+      -webkit-app-region: no-drag;
+    }
+    
+    .titlebar-btn {
+      width: 20px;
+      height: 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .btn-minimize { background: #ffd93d; color: #000; }
+    .btn-close { background: #ff6b6b; color: #fff; }
+    
+    .content {
+      padding: 12px;
+      max-height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+    
+    .section {
+      margin-bottom: 12px;
+    }
+    
+    .section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    
+    .enemy-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 8px;
+      align-items: center;
+    }
+    
+    .enemy-select {
+      flex: 1;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      padding: 6px 8px;
+      color: #fff;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    
+    .item-slots {
+      display: flex;
+      gap: 3px;
+    }
+    
+    .item-slot {
+      width: 24px;
+      height: 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px dashed rgba(255,255,255,0.2);
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      color: #666;
+    }
+    
+    .item-slot:hover { border-color: #ffd93d; }
+    .item-slot.filled { 
+      border-style: solid;
+      background: rgba(255,100,100,0.2);
+      border-color: #ff6b6b;
+      color: #fff;
+    }
+    
+    .recommendations {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    
+    .rec-item {
+      background: rgba(107, 203, 119, 0.15);
+      border-left: 3px solid #6bcb77;
+      border-radius: 0 6px 6px 0;
+      padding: 8px 10px;
+    }
+    
+    .rec-item.priority-1 { border-color: #ff6b6b; background: rgba(255,107,107,0.15); }
+    .rec-item.priority-2 { border-color: #ffd93d; background: rgba(255,217,61,0.15); }
+    
+    .rec-name {
+      font-weight: 600;
+      font-size: 13px;
+      color: #fff;
+    }
+    
+    .rec-meta {
+      font-size: 10px;
+      color: #888;
+      margin-top: 2px;
+    }
+    
+    .rec-reason {
+      font-size: 10px;
+      color: #6bcb77;
+      margin-top: 4px;
+    }
+    
+    .hotkey-hint {
+      text-align: center;
+      font-size: 10px;
+      color: #555;
+      padding: 8px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .hotkey-hint kbd {
+      background: rgba(255,255,255,0.1);
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+    
+    /* Item picker modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 100;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    
+    .modal.active { display: block; }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .modal-header h3 { color: #ffd93d; font-size: 14px; }
+    
+    .modal-close {
+      background: none;
+      border: none;
+      color: #888;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      color: #fff;
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+    
+    .item-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
+    }
+    
+    .item-option {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 6px;
+      cursor: pointer;
+      font-size: 10px;
+      text-align: center;
+    }
+    
+    .item-option:hover {
+      background: rgba(255,217,61,0.2);
+      border-color: #ffd93d;
+    }
+    
+    .item-cost { color: #ffd93d; font-size: 9px; }
+    
+    .cat-header {
+      grid-column: span 2;
+      color: #4d96ff;
+      font-size: 10px;
+      text-transform: uppercase;
+      padding: 6px 0 2px;
+      border-bottom: 1px solid #333;
+    }
+
+    .no-recs {
+      text-align: center;
+      color: #666;
+      padding: 20px;
+      font-size: 12px;
+    }
+
+    .opacity-slider {
+      width: 100%;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="titlebar">
+    <h1>⚡ DEADLOCK COUNTER</h1>
+    <div class="titlebar-btns">
+      <button class="titlebar-btn btn-minimize" onclick="minimize()">−</button>
+      <button class="titlebar-btn btn-close" onclick="closeApp()">×</button>
+    </div>
+  </div>
+  
+  <div class="content">
+    <div class="section">
+      <div class="section-title">Enemy Team</div>
+      <div id="enemies"></div>
+    </div>
+    
+    <div class="section">
+      <div class="section-title">Build These</div>
+      <div id="recommendations" class="recommendations">
+        <div class="no-recs">Add enemies to see counters</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="hotkey-hint">
+    <kbd>Ctrl+Shift+D</kbd> toggle • <kbd>Ctrl+Shift+M</kbd> minimize
+  </div>
+  
+  <!-- Item picker modal -->
+  <div id="modal" class="modal">
+    <div class="modal-header">
+      <h3>Select Item</h3>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <input type="text" class="search-input" id="search" placeholder="Search..." oninput="filterItems()">
+    <div id="itemGrid" class="item-grid"></div>
+  </div>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+    
+    // API endpoint - change this to localhost when running locally
+    const API = 'http://localhost:3456';
+    
+    let heroes = [];
+    let items = {};
+    let enemies = [
+      { hero: '', items: [] },
+      { hero: '', items: [] },
+      { hero: '', items: [] },
+      { hero: '', items: [] }
+    ];
+    let currentSlot = null;
+
+    async function init() {
+      try {
+        heroes = await fetch(`${API}/api/heroes`).then(r => r.json());
+        items = await fetch(`${API}/api/items`).then(r => r.json());
+        renderEnemies();
+        renderItemGrid();
+      } catch (e) {
+        console.error('Failed to connect to API:', e);
+        document.getElementById('recommendations').innerHTML = 
+          '<div class="no-recs">⚠️ Start the server first!<br>npm start in deadlock-counter folder</div>';
+      }
+    }
+
+    function renderEnemies() {
+      const container = document.getElementById('enemies');
+      container.innerHTML = enemies.map((enemy, i) => `
+        <div class="enemy-row">
+          <select class="enemy-select" onchange="setHero(${i}, this.value)">
+            <option value="">Enemy ${i+1}</option>
+            ${heroes.map(h => `<option value="${h}" ${enemy.hero === h ? 'selected' : ''}>${h}</option>`).join('')}
+          </select>
+          <div class="item-slots">
+            ${[0,1,2,3].map(j => {
+              const item = enemy.items[j];
+              return `<div class="item-slot ${item ? 'filled' : ''}" 
+                onclick="openModal(${i}, ${j})" 
+                title="${item || 'Add item'}">${item ? item.substring(0,2) : '+'}</div>`;
+            }).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function setHero(idx, hero) {
+      enemies[idx].hero = hero;
+      updateRecommendations();
+    }
+
+    function openModal(enemyIdx, itemIdx) {
+      currentSlot = { enemy: enemyIdx, item: itemIdx };
+      document.getElementById('modal').classList.add('active');
+      document.getElementById('search').value = '';
+      document.getElementById('search').focus();
+      filterItems();
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+      currentSlot = null;
+    }
+
+    function selectItem(name) {
+      if (currentSlot) {
+        enemies[currentSlot.enemy].items[currentSlot.item] = name;
+        closeModal();
+        renderEnemies();
+        updateRecommendations();
+      }
+    }
+
+    function filterItems() {
+      const q = document.getElementById('search').value.toLowerCase();
+      document.querySelectorAll('.item-option').forEach(el => {
+        el.style.display = el.dataset.name.toLowerCase().includes(q) ? '' : 'none';
+      });
+    }
+
+    function renderItemGrid() {
+      const grid = document.getElementById('itemGrid');
+      const cats = { weapon: [], vitality: [], spirit: [] };
+      
+      for (const [name, item] of Object.entries(items)) {
+        cats[item.category]?.push({ name, ...item });
+      }
+      
+      let html = '';
+      for (const [cat, list] of Object.entries(cats)) {
+        html += `<div class="cat-header">${cat}</div>`;
+        list.sort((a, b) => a.cost - b.cost);
+        for (const item of list) {
+          html += `<div class="item-option" data-name="${item.name}" onclick="selectItem('${item.name}')">
+            ${item.name}<br><span class="item-cost">${item.cost}</span>
+          </div>`;
+        }
+      }
+      grid.innerHTML = html;
+    }
+
+    async function updateRecommendations() {
+      const valid = enemies.filter(e => e.hero || e.items.some(Boolean));
+      const container = document.getElementById('recommendations');
+      
+      if (!valid.length) {
+        container.innerHTML = '<div class="no-recs">Add enemies to see counters</div>';
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API}/api/recommend`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ enemies: valid })
+        });
+        const data = await res.json();
+        
+        if (data.recommendations.length === 0) {
+          container.innerHTML = '<div class="no-recs">No specific counters needed</div>';
+          return;
+        }
+
+        container.innerHTML = data.recommendations.slice(0, 6).map((rec, i) => `
+          <div class="rec-item priority-${i < 2 ? '1' : i < 4 ? '2' : '3'}">
+            <div class="rec-name">${rec.name}</div>
+            <div class="rec-meta">${rec.cost} souls • ${rec.category}</div>
+            <div class="rec-reason">${rec.reasons[0] || ''}</div>
+          </div>
+        `).join('');
+      } catch (e) {
+        container.innerHTML = '<div class="no-recs">⚠️ API error</div>';
+      }
+    }
+
+    function closeApp() {
+      ipcRenderer.send('close-app');
+    }
+
+    function minimize() {
+      ipcRenderer.send('minimize-app');
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    init();
+  </script>
+</body>
+</html>

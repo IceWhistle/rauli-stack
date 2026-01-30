@@ -1,0 +1,40 @@
+{
+  "habits": {
+    "workout": {
+      "name": "Workout/Exercise",
+      "streak": 0,
+      "total_completions": 0,
+      "last_completed": null,
+      "monthly_log": {}
+    },
+    "prayer": {
+      "name": "Lord's Prayer",
+      "streak": 0,
+      "total_completions": 0,
+      "last_completed": null,
+      "monthly_log": {}
+    },
+    "supplements": {
+      "name": "Full Supplement Stack",
+      "streak": 0,
+      "total_completions": 0,
+      "last_completed": null,
+      "monthly_log": {}
+    },
+    "morning_sunlight": {
+      "name": "Morning Sunlight Exposure",
+      "streak": 0,
+      "total_completions": 0,
+      "last_completed": null,
+      "monthly_log": {}
+    },
+    "sleep_stack": {
+      "name": "Evening Sleep Stack (DSIP etc)",
+      "streak": 0,
+      "total_completions": 0,
+      "last_completed": null,
+      "monthly_log": {}
+    }
+  },
+  "notes": "Track daily habits. Update via quick messages. Monthly stats shown in reviews."
+}

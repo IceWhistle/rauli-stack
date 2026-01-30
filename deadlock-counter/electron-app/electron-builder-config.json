@@ -1,0 +1,13 @@
+{
+  "appId": "com.deadlock.counter",
+  "productName": "DeadlockCounter",
+  "win": {
+    "target": "dir"
+  },
+  "files": [
+    "main.js",
+    "engine.js", 
+    "overlay.html",
+    "data/**/*"
+  ]
+}

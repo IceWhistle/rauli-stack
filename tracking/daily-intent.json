@@ -1,0 +1,15 @@
+{
+  "current_month": "2026-01",
+  "completion_rate": 0,
+  "total_days": 1,
+  "completed_days": 0,
+  "entries": {
+    "2026-01-27": {
+      "priority": "Go to the gym and prepare for the meeting with lawyer",
+      "set_at": "2026-01-27 01:10 UTC (night before)",
+      "completed": null,
+      "notes": "Lawyer meeting is at 1:00 PM tomorrow"
+    }
+  },
+  "notes": "Daily intent setting and tracking. Morning: set priority. Evening: review completion."
+}

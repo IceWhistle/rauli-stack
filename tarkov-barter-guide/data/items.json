@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "updated": "2026-01-25",
+    "source": "tarkov.dev API",
+    "version": "current_wipe"
+  },
+  "categories": {
+    "energy_elements": [
+      {"id": "5672cb124bdc2d1a0f8b4568", "name": "AA Battery", "short": "AA batt.", "flea": 10599},
+      {"id": "5672cb304bdc2dc2088b456a", "name": "D Size battery", "short": "D batt.", "flea": 15277},
+      {"id": "590a358486f77429692b2790", "name": "Rechargeable battery", "short": "RBattery", "flea": 11029},
+      {"id": "5733279d245977289b77ec24", "name": "Car battery", "short": "Car battery", "flea": 50021},
+      {"id": "5e2aedd986f7746d404f3aa4", "name": "GreenBat lithium battery", "short": "GreenBat"},
+      {"id": "5d03794386f77420415576f5", "name": "6-STEN-140-M military battery", "short": "Tank battery"}
+    ],
+    "building_materials": [
+      {"id": "57347c5b245977448d35f6e1", "name": "Bolts", "short": "Bolts", "flea": 22600},
+      {"id": "57347c77245977448d35f6e2", "name": "Screw nuts", "short": "Nuts", "flea": 15147},
+      {"id": "59e35ef086f7741777737012", "name": "Pack of screws", "short": "Screws", "flea": 12312},
+      {"id": "590c31c586f774245e3141b2", "name": "Pack of nails", "short": "Nails", "flea": 14475},
+      {"id": "57347c1124597737fb1379e3", "name": "Duct tape", "short": "Duct tape", "flea": 18194},
+      {"id": "5e2af29386f7746d4159f077", "name": "KEKTAPE duct tape", "short": "KEK"},
+      {"id": "5734795124597738002c6176", "name": "Insulating tape", "short": "Tape", "flea": 18853},
+      {"id": "59e35cbb86f7741778269d83", "name": "Corrugated hose", "short": "Hose", "flea": 33588},
+      {"id": "619cbf476b8a1b37a54eebf8", "name": "Military corrugated tube", "short": "MTube"},
+      {"id": "590c346786f77423e50ed342", "name": "Xenomorph sealing foam", "short": "Xeno", "flea": 39450},
+      {"id": "590c35a486f774273531c822", "name": "Shustrilo sealing foam", "short": "Shus", "flea": 55015},
+      {"id": "5e2af22086f7746d3f3c33fa", "name": "Tube of Poxeram cold welding", "short": "Poxeram"},
+      {"id": "59e366c186f7741778269d85", "name": "Piece of plexiglass", "short": "Plexiglass", "flea": 19757},
+      {"id": "61bf7b6302b3924be92fa8c3", "name": "Metal spare parts", "short": "M.parts"},
+      {"id": "5d1b327086f7742525194449", "name": "Pressure gauge", "short": "PGauge"}
+    ],
+    "electronics": [
+      {"id": "57347ca924597744596b4e71", "name": "Graphics card", "short": "GPU", "flea": 422065, "priority": "HIGH"},
+      {"id": "573477e124597737dd42e191", "name": "PC CPU", "short": "CPU", "flea": 14593},
+      {"id": "5734779624597737e04bf329", "name": "CPU fan", "short": "CPU fan", "flea": 19838},
+      {"id": "57347baf24597738002c6178", "name": "RAM stick", "short": "RAM", "flea": 109193},
+      {"id": "57347c2e24597744902c94a1", "name": "Power supply unit", "short": "PSU", "flea": 43473},
+      {"id": "590a3b0486f7743954552bdb", "name": "Printed circuit board", "short": "PCB", "flea": 14002},
+      {"id": "590a386e86f77429692b27ab", "name": "Damaged hard drive", "short": "HDD", "flea": 22939},
+      {"id": "590a3c0a86f774385a33c450", "name": "Spark plug", "short": "SPlug", "flea": 16202},
+      {"id": "590a3efd86f77437d351a25b", "name": "Gas analyzer", "short": "GasAn", "flea": 24871},
+      {"id": "5734781f24597737e04bf32a", "name": "DVD drive", "short": "DVD", "flea": 15102},
+      {"id": "56742c324bdc2d150f8b456d", "name": "Broken GPhone smartphone", "short": "GPhone", "flea": 12090},
+      {"id": "57347cd0245977445a2d6ff1", "name": "T-Shaped plug", "short": "T-Plug", "flea": 19891},
+      {"id": "5909e99886f7740c983b9984", "name": "USB Adapter", "short": "USB-A", "flea": 9545},
+      {"id": "5672cb724bdc2dc2088b456b", "name": "Geiger-Muller counter", "short": "GMcount", "flea": 36040},
+      {"id": "590a391c86f774385a33c404", "name": "Magnet", "short": "Magnet", "flea": 19679},
+      {"id": "5c06782b86f77426df5407d2", "name": "Capacitors", "short": "Caps"},
+      {"id": "5c06779c86f77426e00dd782", "name": "Bundle of wires", "short": "Wires"},
+      {"id": "590a3cd386f77436f20848cb", "name": "Energy-saving lamp", "short": "ES Lamp", "flea": 22970},
+      {"id": "590a3d9c86f774385926e510", "name": "Ultraviolet lamp", "short": "UV Lamp", "flea": 10632},
+      {"id": "59e36c6f86f774176c10a2a7", "name": "Power cord", "short": "Cord", "flea": 28511},
+      {"id": "5d1b2fa286f77425227d1674", "name": "Electric motor", "short": "Motor"},
+      {"id": "5d1b313086f77425227d1678", "name": "Phase control relay", "short": "Relay"},
+      {"id": "5d1b304286f774253763a528", "name": "Working LCD", "short": "LCD"},
+      {"id": "5d1b309586f77425227d1676", "name": "Broken LCD", "short": "BrokenLCD"},
+      {"id": "5d1b392c86f77425243e98fe", "name": "Light bulb", "short": "Bulb"},
+      {"id": "5d1c774f86f7746d6620f8db", "name": "Radiator helix", "short": "Helix"},
+      {"id": "5d1b2ffd86f77425243e8d17", "name": "NIXXOR lens", "short": "NIXXOR"},
+      {"id": "6389c70ca33d8c4cdf4932c6", "name": "Electronic components", "short": "EC"},
+      {"id": "6389c7750ef44505c87f5996", "name": "Microcontroller board", "short": "MB"}
+    ],
+    "high_tier_electronics": [
+      {"id": "5c05308086f7746b2101e90b", "name": "Virtex programmable processor", "short": "Virtex"},
+      {"id": "5c05300686f7746dce784e5d", "name": "VPX Flash Storage Module", "short": "VPX"},
+      {"id": "5c12620d86f7743f8b198b72", "name": "Tetriz portable game console", "short": "Tetriz"},
+      {"id": "5c0530ee86f774697952d952", "name": "LEDX Skin Transilluminator", "short": "LEDX", "priority": "HIGH"},
+      {"id": "5d03775b86f774203e7e0c4b", "name": "Phased array element", "short": "AESA"},
+      {"id": "5d0375ff86f774186372f685", "name": "Military cable", "short": "MCable"},
+      {"id": "5d0378d486f77420421a5ff4", "name": "Military power filter", "short": "PFilter"},
+      {"id": "5d03784a86f774203e7e0c4d", "name": "Military gyrotachometer", "short": "MGT"},
+      {"id": "5d0376a486f7747d8b49de8b", "name": "Military circuit board", "short": "MCB"},
+      {"id": "5c052f6886f7746b1e3db148", "name": "Military COFDM Wireless Signal Transmitter", "short": "SG-C10"},
+      {"id": "5c052fb986f7746b2101e909", "name": "UHF RFID Reader", "short": "RFIDR"},
+      {"id": "6389c7f115805221fb410466", "name": "Far-forward GPS Signal Amplifier Unit", "short": "GPSA"}
+    ],
+    "flammable": [
+      {"id": "57347b8b24597737dd42e192", "name": "Classic matches", "short": "Matches", "flea": 22316},
+      {"id": "5e2af2bc86f7746d3f3c33fc", "name": "Hunting matches", "short": "HMatches"},
+      {"id": "56742c284bdc2d98058b456d", "name": "Crickent lighter", "short": "Crickent", "flea": 20031},
+      {"id": "56742c2e4bdc2d95058b456d", "name": "Zibbo lighter", "short": "Zibbo", "flea": 23387},
+      {"id": "590a373286f774287540368b", "name": "Dry fuel", "short": "DFuel", "flea": 28178},
+      {"id": "590c5bbd86f774785762df04", "name": "WD-40 (100ml)", "short": "WD-40", "flea": 6226},
+      {"id": "590c5c9f86f77477c91c36e7", "name": "WD-40 (400ml)", "short": "WD-40", "flea": 12846},
+      {"id": "5bc9b355d4351e6d1509862a", "name": "#FireKlean gun lube", "short": "FireKlean"},
+      {"id": "5b43575a86f77424f443fe62", "name": "Fuel conditioner", "short": "FCond"},
+      {"id": "59fafb5d86f774067a6f2084", "name": "Propane tank (5L)", "short": "Propane"},
+      {"id": "5d1b36a186f7742523398433", "name": "Metal fuel tank", "short": "Fuel"},
+      {"id": "5d1b371186f774253763a656", "name": "Expeditionary fuel tank", "short": "Fuel"},
+      {"id": "590c5a7286f7747884343aea", "name": "Gunpowder Kite", "short": "Kite", "flea": 12192},
+      {"id": "5d6fc78386f77449d825f9dc", "name": "Gunpowder Eagle", "short": "Eagle"},
+      {"id": "5d6fc87386f77449db3db94e", "name": "Gunpowder Hawk", "short": "Hawk"},
+      {"id": "60391b0fb847c71012789415", "name": "TP-200 TNT brick", "short": "TP-200"},
+      {"id": "60391a8b3364dc22b04d0ce5", "name": "Can of thermite", "short": "Thermite"}
+    ],
+    "tools": [
+      {"id": "590c2b4386f77425357b6123", "name": "Pliers", "short": "Pliers", "flea": 16820},
+      {"id": "590c2d8786f774245b1f03f3", "name": "Screwdriver", "short": "Scdr.", "flea": 24778},
+      {"id": "590c311186f77424d1667482", "name": "Wrench", "short": "Wrench", "flea": 13190},
+      {"id": "590c2e1186f77425357b6124", "name": "Toolset", "short": "Toolset", "flea": 31060},
+      {"id": "590c2c9c86f774245b1f03f2", "name": "Construction measuring tape", "short": "MTape", "flea": 9737},
+      {"id": "5af04b6486f774195a3ebb49", "name": "Pliers Elite", "short": "Elite"},
+      {"id": "5d40425986f7743185265461", "name": "Nippers", "short": "Nippers"},
+      {"id": "5d1b31ce86f7742523398394", "name": "Round pliers", "short": "RPliers"},
+      {"id": "59e35de086f7741778269d84", "name": "Electric drill", "short": "Drill", "flea": 20941},
+      {"id": "5d1b317c86f7742523398392", "name": "Hand drill", "short": "Hand drill"},
+      {"id": "60391afc25aff57af81f7085", "name": "Ratchet wrench", "short": "Ratchet"},
+      {"id": "619cbfeb6b8a1b37a54eebfa", "name": "Bulbex cable cutter", "short": "Bulbex"},
+      {"id": "62a0a0bb621468534a797ad5", "name": "Set of files Master", "short": "Master"},
+      {"id": "62a0a098de7ac8199358053b", "name": "Awl", "short": "Awl"},
+      {"id": "61bf83814088ec1a363d7097", "name": "Sewing kit", "short": "Krasavch."},
+      {"id": "544fb5454bdc2df8738b456a", "name": "Leatherman Multitool", "short": "MultiTool", "flea": 16918}
+    ],
+    "valuables": [
+      {"id": "573474f924597738002c6174", "name": "Chainlet", "short": "Chainlet", "flea": 7446},
+      {"id": "5734758f24597738025ee253", "name": "Golden neck chain", "short": "GoldChain", "flea": 30323},
+      {"id": "5d235a5986f77443f6329bc6", "name": "Gold skull ring", "short": "Skull"},
+      {"id": "59faf7ca86f7740dbe19f6c2", "name": "Roler Submariner gold wrist watch", "short": "Roler"},
+      {"id": "59faff1d86f7746c51718c9c", "name": "Physical Bitcoin", "short": "0.2BTC", "priority": "HIGH"},
+      {"id": "59e3639286f7741777737013", "name": "Bronze lion figurine", "short": "Lion", "flea": 107557},
+      {"id": "5bc9bc53d4351e00367fbcee", "name": "Golden rooster figurine", "short": "Rooster"},
+      {"id": "59e3658a86f7741776641ac4", "name": "Cat figurine", "short": "Cat", "flea": 39284},
+      {"id": "573478bc24597738002c6175", "name": "Horse figurine", "short": "Horse", "flea": 8340},
+      {"id": "59e3647686f774176a362507", "name": "Wooden clock", "short": "Clock", "flea": 61244},
+      {"id": "590de71386f774347051a052", "name": "Antique teapot", "short": "Teapot", "flea": 33715},
+      {"id": "590de7e986f7741b096e5f32", "name": "Antique vase", "short": "Vase", "flea": 42999}
+    ],
+    "medical": [
+      {"id": "5d1b3a5d86f774252167ba22", "name": "Pile of meds", "short": "Meds"},
+      {"id": "5d1b3f2d86f774253763b735", "name": "Disposable syringe", "short": "Syringe"},
+      {"id": "5b4335ba86f7744d2837a264", "name": "Medical bloodset", "short": "Bloodset"},
+      {"id": "59e3606886f77417674759a5", "name": "Bottle of saline solution", "short": "NaCl", "flea": 38565},
+      {"id": "59e361e886f774176c10a2a5", "name": "Bottle of hydrogen peroxide", "short": "H2O2", "flea": 11240},
+      {"id": "62a0a043cf4a99369e2624a5", "name": "Bottle of OLOLO Multivitamins", "short": "Vitamins"},
+      {"id": "619cc01e0a7c3a1a2731940c", "name": "Medical tools", "short": "MedTools"},
+      {"id": "5af0534a86f7743b6f354284", "name": "Ophthalmoscope", "short": "OScope"}
+    ],
+    "info_items": [
+      {"id": "590c621186f774138d11ea29", "name": "Secure Flash drive", "short": "Flash drive", "flea": 19683},
+      {"id": "62a0a16d0b9d3c46de5b6e97", "name": "Military flash drive", "short": "MFD"},
+      {"id": "590c645c86f77412b01304d9", "name": "Diary", "short": "Diary", "flea": 30554},
+      {"id": "590c651286f7741e566b6461", "name": "Slim diary", "short": "SDiary", "flea": 44038},
+      {"id": "590c639286f774151567fa95", "name": "Tech manual", "short": "Manual", "flea": 24691},
+      {"id": "590c37d286f77443be3d7827", "name": "SAS drive", "short": "SAS", "flea": 64279},
+      {"id": "590c392f86f77444754deb29", "name": "SSD drive", "short": "SSD", "flea": 60570},
+      {"id": "5c12613b86f7743bbe2c3f76", "name": "Intelligence folder", "short": "Intelligence"},
+      {"id": "61bf7c024770ee6f9c6b8b53", "name": "Secure magnetic tape cassette", "short": "SMT"},
+      {"id": "62a0a124de7ac81993580542", "name": "Topographic survey maps", "short": "Maps"},
+      {"id": "62a09e73af34e73a266d932a", "name": "BakeEzy cook book", "short": "BakeEzy"},
+      {"id": "6389c8fb46b54c634724d847", "name": "Silicon Optoelectronic Integrated Circuits textbook", "short": "SOIC"}
+    ],
+    "household": [
+      {"id": "5c13cef886f774072e618e82", "name": "Toilet paper", "short": "TP"},
+      {"id": "57347c93245977448d35f6e3", "name": "Toothpaste", "short": "Toothpaste", "flea": 12695},
+      {"id": "5d4041f086f7743cac3f22a7", "name": "Ortodontox toothpaste", "short": "Ortodontox"},
+      {"id": "5c13cd2486f774072c757944", "name": "Soap", "short": "Soap"},
+      {"id": "577e1c9d2459773cd707c525", "name": "Printer paper", "short": "Paper", "flea": 51116},
+      {"id": "59e3556c86f7741776641ac2", "name": "Ox bleach", "short": "Bleach", "flea": 15780},
+      {"id": "59e358a886f7741776641ac3", "name": "Clin window cleaner", "short": "Clin", "flea": 20686},
+      {"id": "59e3596386f774176c10a2a2", "name": "PAID AntiRoach spray", "short": "PAID", "flea": 23471},
+      {"id": "59e35abd86f7741778269d82", "name": "Pack of sodium bicarbonate", "short": "Sodium", "flea": 19661},
+      {"id": "59faf98186f774067b6be103", "name": "Alkaline cleaner for heat exchangers", "short": "Alkali"},
+      {"id": "5e2af00086f7746d3f3c33f7", "name": "Smoked Chimney drain cleaner", "short": "DCleaner"},
+      {"id": "62a09ee4cf4a99369e262453", "name": "Can of white salt", "short": "Salt"}
+    ],
+    "cigarettes": [
+      {"id": "573475fb24597737fb1379e1", "name": "Apollo Soyuz cigarettes", "short": "Apollo", "flea": 14965},
+      {"id": "573476d324597737da2adc13", "name": "Malboro Cigarettes", "short": "Malboro", "flea": 13428},
+      {"id": "573476f124597737e04bf328", "name": "Wilston cigarettes", "short": "Wilston", "flea": 7694},
+      {"id": "5734770f24597738025ee254", "name": "Strike Cigarettes", "short": "Strike", "flea": 5544}
+    ],
+    "fabrics": [
+      {"id": "5e2af37686f774755a234b65", "name": "Ripstop fabric", "short": "Ripstop"},
+      {"id": "5e2af4d286f7746d4159f07a", "name": "Aramid fiber fabric", "short": "Aramid"},
+      {"id": "5e2af47786f7746d404f3aaa", "name": "Fleece fabric", "short": "Fleece"},
+      {"id": "5e2af4a786f7746d3f3c3400", "name": "Cordura polyamide fabric", "short": "Cordura"}
+    ],
+    "other": [
+      {"id": "590c595c86f7747884343ad7", "name": "Gas mask air filter", "short": "Filter", "flea": 42260},
+      {"id": "5c12688486f77426843c7d32", "name": "Paracord", "short": "Paracord"},
+      {"id": "5d1c819a86f774771b0acd6c", "name": "Weapon parts", "short": "WParts"},
+      {"id": "5e2aee0a86f774755a234b62", "name": "UZRGM grenade fuze", "short": "UZRGM"},
+      {"id": "5d0379a886f77420407aa271", "name": "OFZ 30x165mm shell", "short": "OFZ"},
+      {"id": "6389c6463485cf0eeb260715", "name": "Pack of Arseniy buckwheat", "short": "Buckwheat"},
+      {"id": "5d235b4d86f7742e017bc88a", "name": "GP coin", "short": "GP"}
+    ]
+  },
+  "key_barters": {
+    "gpu_acquisition": [
+      {"input": "7x Car Battery", "output": "1 GPU", "trader": "Mechanic LL3"},
+      {"input": "4x RAM stick", "output": "1 GPU", "trader": "Mechanic LL3"},
+      {"input": "124 GP coins", "output": "1 GPU", "trader": "Ref LL4"}
+    ],
+    "fuel_barters": [
+      {"input": "8 Matches + 5 Hunting Matches", "output": "Metal Fuel", "trader": "Jaeger LL1"},
+      {"input": "2 Propane + 2 Fuel Conditioner", "output": "Metal Fuel", "trader": "Prapor LL2"},
+      {"input": "6 Pevko Beer", "output": "Metal Fuel", "trader": "Skier LL3"},
+      {"input": "4 Buckwheat", "output": "Expeditionary Fuel", "trader": "Therapist LL2"}
+    ],
+    "tool_barters": [
+      {"input": "Pliers + Screwdriver + Wrench + Tape + MTape", "output": "Toolset", "trader": "Mechanic LL1"},
+      {"input": "Pliers + Nippers + Round Pliers", "output": "Pliers Elite", "trader": "Mechanic LL1"},
+      {"input": "1 CPU Fan", "output": "Gas Analyzer", "trader": "Mechanic LL1"},
+      {"input": "2 Broken LCD", "output": "Working LCD", "trader": "Mechanic LL2"}
+    ],
+    "high_value": [
+      {"input": "2 Tetriz + 2 GreenBat", "output": "Physical Bitcoin", "trader": "Mechanic LL2"},
+      {"input": "20 USEC dogtags (lvl 140+)", "output": "LEDX", "trader": "Therapist LL3"}
+    ]
+  },
+  "hideout_priorities": {
+    "early_game": ["Matches", "TP", "Toothpaste", "Soap", "Awl", "Bolts", "Nuts", "Screws", "Nails", "Spark plug", "Duct tape", "Leatherman"],
+    "mid_game": ["Corrugated hose", "CPU fans", "Car batteries", "Toolsets", "Electric drills", "Wires", "PCBs", "Relays"],
+    "late_game": ["GPUs", "LEDXs", "Military electronics", "VPX", "Virtex", "AESA", "Tank batteries"]
+  },
+  "image_urls": {
+    "base_512": "https://assets.tarkov.dev/{id}-512.webp",
+    "icon": "https://assets.tarkov.dev/{id}-icon.webp",
+    "grid": "https://assets.tarkov.dev/{id}-grid-image.webp"
+  }
+}

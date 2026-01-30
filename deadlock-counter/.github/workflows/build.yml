@@ -1,0 +1,36 @@
+name: Build Windows
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install server dependencies
+        run: npm install
+        
+      - name: Install overlay dependencies
+        run: |
+          cd overlay
+          npm install
+          
+      - name: Build Windows exe
+        run: |
+          cd overlay
+          npx electron-builder --win portable
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DeadlockCounter-Windows
+          path: overlay/dist/*.exe

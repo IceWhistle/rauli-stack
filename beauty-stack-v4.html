@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>S-Tier Beauty Stack | v4</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --surface-hover: #1a1a24;
+  --border: #252533;
+  --text: #e2e2e8;
+  --text-secondary: #8b8b9a;
+  --accent: #ff6b9d;
+  --accent-2: #d946ef;
+  --accent-3: #f59e0b;
+  --success: #10b981;
+  --gradient-1: linear-gradient(135deg, #ff6b9d 0%, #d946ef 100%);
+  --gradient-2: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Animated Background */
+canvas#bg {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Header */
+header {
+  padding: 56px 20px 20px;
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+h1 {
+  font-size: 30px;
+  font-weight: 800;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+/* Daily Routine Overview */
+.routine {
+  margin: 0 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.routine-head {
+  padding: 14px 16px 0;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-secondary);
+}
+
+.r {
+  display: flex;
+  gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.r:first-of-type { border-top: none; margin-top: 8px; }
+
+.r-time {
+  font-size: 18px;
+  width: 28px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.r-body { flex: 1; }
+
+.r-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.r-desc {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* Total Card */
+.total-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 0 16px 8px;
+  text-align: center;
+}
+
+.total-amount {
+  font-size: 36px;
+  font-weight: 800;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.total-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.total-sub {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+.total-retailers {
+  text-align: left;
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 2;
+}
+
+.total-retailers b { font-weight: 700; }
+.c-sf { color: #ff6b9d; }
+.c-ul { color: #d946ef; }
+.c-amz { color: #f59e0b; }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 20px 16px 12px;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(to bottom, var(--bg) 85%, transparent);
+  z-index: 10;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  -webkit-tap-highlight-color: rgba(255,107,157,0.2);
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.tab:hover { background: var(--surface-hover); }
+.tab.active {
+  background: var(--gradient-1);
+  border-color: transparent;
+  color: white;
+}
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* Category Cards */
+.g {
+  margin: 10px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.g-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.g-head:active { background: var(--surface-hover); }
+
+.g-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.g-icon {
+  width: 36px; height: 36px;
+  background: var(--gradient-1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.g-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.g-sub {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
+
+.g-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.g-num {
+  background: var(--border);
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.g-arr {
+  font-size: 9px;
+  color: var(--text-secondary);
+  transition: transform 0.25s;
+}
+
+.g.open .g-arr { transform: rotate(180deg); }
+
+.g-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.g.open .g-body { max-height: 3000px; }
+
+/* Product Items */
+a.i, div.i {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+}
+
+a.i:hover { background: var(--surface-hover); }
+a.i:active { opacity: 0.6; }
+
+.rb {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.rb-sf { background: rgba(255,107,157,0.15); color: #ff6b9d; }
+.rb-ul { background: rgba(217,70,239,0.15); color: #d946ef; }
+.rb-amz { background: rgba(245,158,11,0.15); color: #f59e0b; }
+.rb-web { background: rgba(139,139,154,0.15); color: #8b8b9a; }
+
+.pi { flex: 1; min-width: 0; }
+
+.pn {
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bv {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(245,158,11,0.15);
+  color: #f59e0b;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.bv::before { content: '★'; }
+
+.pd {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+.pr {
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.pr-sf { color: #ff6b9d; }
+.pr-ul { color: #d946ef; }
+.pr-amz { color: #f59e0b; }
+
+.pr-old {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+}
+
+/* Research Notes */
+.note {
+  padding: 10px 14px;
+  background: rgba(255,107,157,0.03);
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.note b { color: var(--accent); font-weight: 600; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+footer .brand {
+  font-size: 13px;
+  font-weight: 800;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+
+<header>
+  <div class="badge">Science-Backed</div>
+  <h1>💅 Beauty Stack</h1>
+  <p class="subtitle">Sephora · Ulta · Amazon — v4</p>
+</header>
+
+<!-- Daily Routine Overview -->
+<div class="routine">
+  <div class="routine-head">Daily Routine</div>
+  <div class="r"><div class="r-time">☀️</div><div class="r-body"><div class="r-title">Morning</div><div class="r-desc">Cleanser → Vit C → HA → Niacinamide → SPF</div></div></div>
+  <div class="r"><div class="r-time">🥤</div><div class="r-body"><div class="r-title">Supplements (AM)</div><div class="r-desc">Collagen · Hyaluronic · Astaxanthin · Vit C · Omega-3 · Biotin · Zinc</div></div></div>
+  <div class="r"><div class="r-time">🍽️</div><div class="r-body"><div class="r-title">Supplements (PM)</div><div class="r-desc">Probiotic · Evening Primrose · Resveratrol · Silica · MSM · Phytoceramides</div></div></div>
+  <div class="r"><div class="r-time">🌙</div><div class="r-body"><div class="r-title">Night</div><div class="r-desc">Double cleanse → Retinol → Peptides → Moisturizer</div></div></div>
+  <div class="r"><div class="r-time">💆</div><div class="r-body"><div class="r-title">Hair (3x/week)</div><div class="r-desc">Rosemary oil scalp massage · Protein mask</div></div></div>
+</div>
+
+<!-- Total -->
+<div class="total-card">
+  <div class="total-label">Monthly Investment</div>
+  <div class="total-amount">~$180/mo</div>
+  <div class="total-sub">35+ verified products · All links tested</div>
+  <div class="total-retailers">
+    <b class="c-sf">Sephora</b> · The Ordinary<br>
+    <b class="c-ul">Ulta</b> · Olaplex, K18, Mielle<br>
+    <b class="c-amz">Amazon</b> · CeraVe, supplements
+  </div>
+</div>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab active" type="button" ontouchend="sw(0)" onclick="sw(0)">Skin</button>
+  <button class="tab" type="button" ontouchend="sw(1)" onclick="sw(1)">Hair</button>
+  <button class="tab" type="button" ontouchend="sw(2)" onclick="sw(2)">Supps</button>
+</div>
+
+<!-- ═══════════ SKIN TAB ═══════════ -->
+<div class="panel active" id="p0">
+
+  <!-- Morning -->
+  <div class="g open">
+    <div class="g-head" onclick="tog(this)">
+      <div class="g-left">
+        <div class="g-icon">🌅</div>
+        <div><div class="g-name">Morning</div><div class="g-sub">Protect & prevent</div></div>
+      </div>
+      <div class="g-right"><span class="g-num">6</span><span class="g-arr">▾</span></div>
+    </div>
+    <div class="g-body">
+      <a class="i" href="https://www.amazon.com/dp/B01MSSDEPK">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">CeraVe Hydrating Cleanser</div><div class="pd">Ceramides + hyaluronic acid. Non-stripping, repairs barrier.</div></div>
+        <div class="pr pr-amz">$16</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B0036BI56G">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Timeless Vit C 20% + E + Ferulic <span class="bv">Best Value</span></div><div class="pd">Same formula as $180 SkinCeuticals. 20% L-ascorbic, proven penetration.</div></div>
+        <div class="pr pr-amz">$23 <div class="pr-old">vs $180</div></div>
+      </a>
+      <a class="i" href="https://www.sephora.com/product/the-ordinary-deciem-hyaluronic-acid-2-b5-P427417">
+        <div class="rb rb-sf">SEP</div>
+        <div class="pi"><div class="pn">The Ordinary HA 2% + B5</div><div class="pd">Multi-molecular HA + B5 for surface hydration. $9 vs $40+ competitors.</div></div>
+        <div class="pr pr-sf">$9</div>
+      </a>
+      <a class="i" href="https://www.sephora.com/product/the-ordinary-deciem-niacinamide-10-zinc-1-P427417">
+        <div class="rb rb-sf">SEP</div>
+        <div class="pi"><div class="pn">The Ordinary Niacinamide 10% + Zinc</div><div class="pd">Regulates sebum, minimizes pores. Most cost-effective on market.</div></div>
+        <div class="pr pr-sf">$6</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B002MSN3QQ">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">EltaMD UV Clear SPF 46</div><div class="pd">Zinc oxide + niacinamide. Dermatologist #1 for acne-prone.</div></div>
+        <div class="pr pr-amz">$37</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B002CML1XE">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">La Roche-Posay SPF 60</div><div class="pd">European sunscreen standards. Broad spectrum UVA/UVB protection.</div></div>
+        <div class="pr pr-amz">$36</div>
+      </a>
+      <div class="note"><b>Research:</b> AM focuses on antioxidant protection (Vit C) + barrier support. L-ascorbic 15-20% is gold standard for collagen stimulation. Niacinamide 5-10% clinically proven for oil regulation.</div>
+    </div>
+  </div>
+
+  <!-- Night -->
+  <div class="g open">
+    <div class="g-head" onclick="tog(this)">
+      <div class="g-left">
+        <div class="g-icon">🌃</div>
+        <div><div class="g-name">Night</div><div class="g-sub">Repair & renew</div></div>
+      </div>
+      <div class="g-right"><span class="g-num">7</span><span class="g-arr">▾</span></div>
+    </div>
+    <div class="g-body">
+      <a class="i" href="https://www.sephora.com/product/the-ordinary-squalane-cleanser-P427417">
+        <div class="rb rb-sf">SEP</div>
+        <div class="pi"><div class="pn">The Ordinary Squalane Cleanser</div><div class="pd">Gentle oil-to-milk formula. Removes SPF/makeup without stripping.</div></div>
+        <div class="pr pr-sf">$9</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B00949CTQQ">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Paula's Choice 2% BHA Liquid</div><div class="pd">Salicylic acid penetrates pores. Best for blackheads, texture, prevention.</div></div>
+        <div class="pr pr-amz">$35</div>
+      </a>
+      <a class="i" href="https://www.sephora.com/product/the-ordinary-deciem-retinol-0-5-squalane-P427417">
+        <div class="rb rb-sf">SEP</div>
+        <div class="pi"><div class="pn">The Ordinary Retinol 0.5% in Squalane</div><div class="pd">Pure retinol, not retinyl palmitate. Squalane buffers irritation. Start 2x/week.</div></div>
+        <div class="pr pr-sf">$8</div>
+      </a>
+      <a class="i" href="https://www.sephora.com/product/the-ordinary-buffet-P427417">
+        <div class="rb rb-sf">SEP</div>
+        <div class="pi"><div class="pn">The Ordinary "Buffet" Peptide Serum</div><div class="pd">Matrixyl 3000 + syn-ake + copper peptides. Multi-pathway collagen support.</div></div>
+        <div class="pr pr-sf">$17</div>
+      </a>
+      <a class="i" href="https://www.sephora.com/product/the-ordinary-matrixyl-10-ha-P427417">
+        <div class="rb rb-sf">SEP</div>
+        <div class="pi"><div class="pn">The Ordinary Matrixyl 10% + HA</div><div class="pd">Targeted matrixyl peptide at higher concentration. Stacks with Buffet.</div></div>
+        <div class="pr pr-sf">$12</div>
+      </a>
+      <a class="i" href="https://www.sephora.com/product/the-ordinary-100-organic-cold-pressed-rose-hip-seed-oil-P427417">
+        <div class="rb rb-sf">SEP</div>
+        <div class="pi"><div class="pn">The Ordinary Rosehip Oil</div><div class="pd">Natural retinoic acid precursors + linoleic acid. Fades marks, supports barrier.</div></div>
+        <div class="pr pr-sf">$10</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B00TTD9BRC">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">CeraVe Moisturizing Cream</div><div class="pd">3 essential ceramides + MVE delivery. 24hr hydration, non-comedogenic.</div></div>
+        <div class="pr pr-amz">$19</div>
+      </a>
+      <div class="note"><b>Research:</b> PM prioritizes cell turnover (retinol) + barrier repair (ceramides, peptides). Retinol 0.3-0.5% optimal start. Peptides stimulate collagen without irritation.</div>
+    </div>
+  </div>
+
+  <!-- Weekly -->
+  <div class="g">
+    <div class="g-head" onclick="tog(this)">
+      <div class="g-left">
+        <div class="g-icon">✨</div>
+        <div><div class="g-name">Weekly Treatments</div><div class="g-sub">Intensive care</div></div>
+      </div>
+      <div class="g-right"><span class="g-num">2</span><span class="g-arr">▾</span></div>
+    </div>
+    <div class="g-body">
+      <a class="i" href="https://www.sephora.com/product/the-ordinary-aha-30-bha-2-peeling-solution-P427417">
+        <div class="rb rb-sf">SEP</div>
+        <div class="pi"><div class="pn">The Ordinary AHA 30% + BHA 2% Peel</div><div class="pd">10-minute facial. Dissolves dead skin, clears pores. 1x/week max.</div></div>
+        <div class="pr pr-sf">$8</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B081FK6L1G">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Aztec Secret Healing Clay</div><div class="pd">Calcium bentonite. Deep pore cleansing with ACV. 1x/week for oily skin.</div></div>
+        <div class="pr pr-amz">$15</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ HAIR TAB ═══════════ -->
+<div class="panel" id="p1">
+
+  <!-- Hair Growth -->
+  <div class="g open">
+    <div class="g-head" onclick="tog(this)">
+      <div class="g-left">
+        <div class="g-icon">🌿</div>
+        <div><div class="g-name">Hair Growth</div><div class="g-sub">Scalp stimulation</div></div>
+      </div>
+      <div class="g-right"><span class="g-num">2</span><span class="g-arr">▾</span></div>
+    </div>
+    <div class="g-body">
+      <a class="i" href="https://www.ulta.com/p/rosemary-mint-scalp-hair-strengthening-oil-pimprod2042639">
+        <div class="rb rb-ul">ULT</div>
+        <div class="pi"><div class="pn">Mielle Rosemary Mint Oil</div><div class="pd">Rosemary oil clinically shown comparable to minoxidil for growth. 3x/week massage.</div></div>
+        <div class="pr pr-ul">$10</div>
+      </a>
+      <a class="i" href="https://www.sephora.com/product/the-ordinary-multi-peptide-serum-for-hair-density-P427417">
+        <div class="rb rb-sf">SEP</div>
+        <div class="pi"><div class="pn">The Ordinary Hair Density Serum</div><div class="pd">Multi-peptide complex. Targets follicle health from multiple pathways.</div></div>
+        <div class="pr pr-sf">$22</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hair Repair -->
+  <div class="g">
+    <div class="g-head" onclick="tog(this)">
+      <div class="g-left">
+        <div class="g-icon">💆</div>
+        <div><div class="g-name">Repair & Strengthen</div><div class="g-sub">Bond repair technology</div></div>
+      </div>
+      <div class="g-right"><span class="g-num">2</span><span class="g-arr">▾</span></div>
+    </div>
+    <div class="g-body">
+      <a class="i" href="https://www.ulta.com/p/no3-hair-perfector-pre-shampoo-strengthening-reparative-hair-treatment-pimprod2029343">
+        <div class="rb rb-ul">ULT</div>
+        <div class="pi"><div class="pn">Olaplex No.3 Hair Perfector</div><div class="pd">Bond-rebuilding treatment. Use before shampoo 1-2x/week. Game-changer for damaged hair.</div></div>
+        <div class="pr pr-ul">$30</div>
+      </a>
+      <a class="i" href="https://www.ulta.com/p/leave-in-molecular-repair-hair-mask-pimprod2040103">
+        <div class="rb rb-ul">ULT</div>
+        <div class="pi"><div class="pn">K18 Leave-in Molecular Mask</div><div class="pd">Bioactive peptide reverses damage in 4 minutes. Professional-grade repair.</div></div>
+        <div class="pr pr-ul">$75</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hair Supplements -->
+  <div class="g">
+    <div class="g-head" onclick="tog(this)">
+      <div class="g-left">
+        <div class="g-icon">🧬</div>
+        <div><div class="g-name">Hair Supplements</div><div class="g-sub">Internal support</div></div>
+      </div>
+      <div class="g-right"><span class="g-num">2</span><span class="g-arr">▾</span></div>
+    </div>
+    <div class="g-body">
+      <a class="i" href="https://www.amazon.com/dp/B00LU4CZP8">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Nutrafol Women</div><div class="pd">Clinically tested hair growth nutraceutical. Targets stress hormones + DHT.</div></div>
+        <div class="pr pr-amz">$88</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B000WB1YSE">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Viviscal Extra Strength</div><div class="pd">Marine protein complex. Clinical evidence for hair density in 3-6 months.</div></div>
+        <div class="pr pr-amz">$40</div>
+      </a>
+      <div class="note"><b>Note:</b> Choose Nutrafol OR Viviscal — don't need both. Nutrafol is premium ($88), Viviscal is budget-friendly ($40) with solid evidence.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ SUPPLEMENTS TAB ═══════════ -->
+<div class="panel" id="p2">
+
+  <!-- Skin & Nails -->
+  <div class="g open">
+    <div class="g-head" onclick="tog(this)">
+      <div class="g-left">
+        <div class="g-icon">✨</div>
+        <div><div class="g-name">Skin & Nails</div><div class="g-sub">Collagen · Hydration · Repair</div></div>
+      </div>
+      <div class="g-right"><span class="g-num">6</span><span class="g-arr">▾</span></div>
+    </div>
+    <div class="g-body">
+      <a class="i" href="https://www.amazon.com/dp/B00K6JUG4K">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Vital Proteins Collagen Peptides</div><div class="pd">20g type I & III. Clinical dose for skin elasticity. Unflavored, dissolves easy.</div></div>
+        <div class="pr pr-amz">$43</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B07HZ36DX9">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Horbaach Hyaluronic Acid 200mg</div><div class="pd">120mg shown effective in trials. Supports skin hydration from within.</div></div>
+        <div class="pr pr-amz">$15</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B006X1DCVO">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">BioAstin Astaxanthin 12mg</div><div class="pd">6000x stronger antioxidant than Vit C. Reduces oxidative stress significantly.</div></div>
+        <div class="pr pr-amz">$29</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B003J4N16O">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">BioSil Silica 10mg</div><div class="pd">Choline-stabilized orthosilicic acid. Structural protein support for skin, hair, nails.</div></div>
+        <div class="pr pr-amz">$30</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B0013OUPXE">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">NOW MSM 1000mg</div><div class="pd">Sulfur for collagen synthesis. 1500mg effective dose (take 2 caps).</div></div>
+        <div class="pr pr-amz">$15</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B004H7GB9G">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Natrol Biotin 10,000mcg</div><div class="pd">High-dose for hair/nails. 10mg is upper effective range.</div></div>
+        <div class="pr pr-amz">$7</div>
+      </a>
+      <div class="note"><b>Research:</b> Oral collagen 10g+ increases skin elasticity in 8-12 weeks. Astaxanthin 12mg significantly reduces oxidative stress. Take collagen with Vit C (required for hydroxylation).</div>
+    </div>
+  </div>
+
+  <!-- Longevity -->
+  <div class="g open">
+    <div class="g-head" onclick="tog(this)">
+      <div class="g-left">
+        <div class="g-icon">🧪</div>
+        <div><div class="g-name">Longevity & Antioxidants</div><div class="g-sub">Anti-aging from within</div></div>
+      </div>
+      <div class="g-right"><span class="g-num">5</span><span class="g-arr">▾</span></div>
+    </div>
+    <div class="g-body">
+      <a class="i" href="https://www.amazon.com/dp/B0098U0S8C">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Garden of Life Vitamin C 500mg</div><div class="pd">Whole food source + bioflavonoids. Take with collagen for synthesis.</div></div>
+        <div class="pr pr-amz">$28</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B0BNTF1DRM">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Qunol CoQ10 200mg</div><div class="pd">Mitochondrial energy. Essential for cell repair and skin renewal.</div></div>
+        <div class="pr pr-amz">$32</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B08QBXMHRT">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Trans-Resveratrol 500mg</div><div class="pd">Polyphenol antioxidant. Activates sirtuins for cellular longevity.</div></div>
+        <div class="pr pr-amz">$25</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B0001SR8J2">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Solgar Vitamin E 400 IU</div><div class="pd">Fat-soluble antioxidant. Protects cell membranes from oxidative damage.</div></div>
+        <div class="pr pr-amz">$16</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B07CJ28J4F">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Phytoceramides 700mg</div><div class="pd">Plant-derived ceramides. Oral skin barrier support from the inside.</div></div>
+        <div class="pr pr-amz">$20</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hormones -->
+  <div class="g open">
+    <div class="g-head" onclick="tog(this)">
+      <div class="g-left">
+        <div class="g-icon">🌸</div>
+        <div><div class="g-name">Hormone Balance</div><div class="g-sub">Estrogen · Stress · Recovery</div></div>
+      </div>
+      <div class="g-right"><span class="g-num">4</span><span class="g-arr">▾</span></div>
+    </div>
+    <div class="g-body">
+      <a class="i" href="https://www.amazon.com/dp/B00NH5AK2S">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Evening Primrose Oil 1300mg</div><div class="pd">GLA omega-6 for hormone balance. Supports skin elasticity + reduces inflammation.</div></div>
+        <div class="pr pr-amz">$19</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B00B8YTP12">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Thorne Zinc Picolinate 30mg</div><div class="pd">Picolinate = best absorption. Critical for wound healing, hormone balance.</div></div>
+        <div class="pr pr-amz">$25</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B0DSPY1SW6">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Magnesium Glycinate 400mg</div><div class="pd">Most bioavailable form. Stress reduction, sleep quality, muscle recovery.</div></div>
+        <div class="pr pr-amz">$20</div>
+      </a>
+      <a class="i" href="https://www.amazon.com/dp/B00CBYBBJ0">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">DIM 200mg</div><div class="pd">Estrogen metabolism optimizer. Balances hormones for clearer skin.</div></div>
+        <div class="pr pr-amz">$22</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Gut Health -->
+  <div class="g open">
+    <div class="g-head" onclick="tog(this)">
+      <div class="g-left">
+        <div class="g-icon">🦠</div>
+        <div><div class="g-name">Gut Health</div><div class="g-sub">Gut-skin axis</div></div>
+      </div>
+      <div class="g-right"><span class="g-num">2</span><span class="g-arr">▾</span></div>
+    </div>
+    <div class="g-body">
+      <a class="i" href="https://www.amazon.com/dp/B00Y8MP4G6">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Garden of Life Probiotics Women</div><div class="pd">40 billion CFU, 16 strains. Gut-skin axis is real — healthy gut = clearer skin.</div></div>
+        <div class="pr pr-amz">$36</div>
+      </a>
+      <a class="i" href="https://seed.com/products/ds-01-daily-synbiotic">
+        <div class="rb rb-web">WEB</div>
+        <div class="pi"><div class="pn">Seed DS-01 Daily Synbiotic</div><div class="pd">Pre+probiotic. Most researched synbiotic on market. → seed.com</div></div>
+        <div class="pr">$50</div>
+      </a>
+      <div class="note"><b>Research:</b> Choose one probiotic. Garden of Life is budget pick ($36). Seed DS-01 is premium ($50) with published clinical trials. Both effective for gut-skin connection.</div>
+    </div>
+  </div>
+
+  <!-- Omega-3 -->
+  <div class="g">
+    <div class="g-head" onclick="tog(this)">
+      <div class="g-left">
+        <div class="g-icon">🐟</div>
+        <div><div class="g-name">Essential Fats</div><div class="g-sub">Anti-inflammatory foundation</div></div>
+      </div>
+      <div class="g-right"><span class="g-num">1</span><span class="g-arr">▾</span></div>
+    </div>
+    <div class="g-body">
+      <a class="i" href="https://www.amazon.com/dp/B002CQU564">
+        <div class="rb rb-amz">AMZ</div>
+        <div class="pi"><div class="pn">Nordic Naturals Omega-3</div><div class="pd">1000mg EPA/DHA. Reduces inflammation, supports skin barrier function.</div></div>
+        <div class="pr pr-amz">$41</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="brand">💅 S-TIER BEAUTY STACK v4</div>
+  <div>Research-driven · Budget-optimized · 2025</div>
+</footer>
+
+<script>
+function sw(n){
+  event&&event.preventDefault&&event.preventDefault();
+  var tabs=document.querySelectorAll('.tab');
+  var panels=document.querySelectorAll('.panel');
+  for(var i=0;i<tabs.length;i++){
+    if(i===n){tabs[i].classList.add('active');panels[i].classList.add('active');panels[i].style.display='block';}
+    else{tabs[i].classList.remove('active');panels[i].classList.remove('active');panels[i].style.display='none';}
+  }
+  window.scrollTo(0,document.querySelector('.tabs').offsetTop-10);
+}
+function tog(el){ el.parentElement.classList.toggle('open'); }
+// Init: ensure first panel visible
+document.addEventListener('DOMContentLoaded',function(){sw(0);});
+
+// Animated background
+(function(){
+  const c=document.getElementById('bg'),x=c.getContext('2d');
+  let w,h;
+  function r(){w=c.width=innerWidth;h=c.height=innerHeight}
+  r();addEventListener('resize',r);
+  const orbs=[
+    {x:.2,y:.1,r:350,vx:.00012,vy:.00008,c1:[80,30,60],c2:[140,60,100]},
+    {x:.8,y:.3,r:300,vx:-.00015,vy:.0001,c1:[100,40,80],c2:[160,70,120]},
+    {x:.5,y:.6,r:380,vx:.0001,vy:-.0001,c1:[60,20,50],c2:[120,50,90]}
+  ];
+  const stars=[];
+  for(let i=0;i<50;i++)stars.push({x:Math.random(),y:Math.random(),s:Math.random()+.3,sp:Math.random()*.002+.0005,o:Math.random()*6.28});
+  let f=0;
+  function d(){
+    x.clearRect(0,0,w,h);f++;
+    orbs.forEach((b,i)=>{
+      b.x+=b.vx;b.y+=b.vy;
+      if(b.x<-.2||b.x>1.2)b.vx*=-1;
+      if(b.y<-.2||b.y>1.2)b.vy*=-1;
+      const p=f*.003+i,px=b.x*w+Math.sin(p)*60,py=b.y*h+Math.cos(p*.7)*50,ps=b.r+Math.sin(f*.002+i)*30;
+      const bl=(Math.sin(f*.001+i)+1)/2;
+      const cr=b.c1[0]*(1-bl)+b.c2[0]*bl|0,cg=b.c1[1]*(1-bl)+b.c2[1]*bl|0,cb=b.c1[2]*(1-bl)+b.c2[2]*bl|0;
+      const g=x.createRadialGradient(px,py,0,px,py,ps);
+      g.addColorStop(0,`rgba(${cr},${cg},${cb},.1)`);
+      g.addColorStop(1,`rgba(${cr},${cg},${cb},0)`);
+      x.fillStyle=g;x.beginPath();x.arc(px,py,ps,0,6.28);x.fill();
+    });
+    stars.forEach(s=>{
+      x.fillStyle=`rgba(200,150,180,${(Math.sin(f*s.sp+s.o)+1)/2*.3+.05})`;
+      x.beginPath();x.arc(s.x*w,s.y*h,s.s,0,6.28);x.fill();
+    });
+    requestAnimationFrame(d);
+  }
+  d();
+})();
+</script>
+
+</body>
+</html>

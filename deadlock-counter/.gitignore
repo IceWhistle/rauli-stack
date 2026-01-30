@@ -1,0 +1,7 @@
+node_modules/
+electron-app/dist/
+electron-app/node_modules/
+*.tar.gz
+public/*.tar.gz
+dist-min/
+standalone/

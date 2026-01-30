@@ -1,0 +1,15 @@
+{
+  "name": "deadlock-counter",
+  "version": "0.1.0",
+  "description": "Deadlock counter-item recommendation overlay",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node src/engine.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "jimp": "^1.6.0",
+    "ws": "^8.14.2"
+  }
+}

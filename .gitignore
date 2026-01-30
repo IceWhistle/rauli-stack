@@ -1,0 +1,24 @@
+# Credentials
+.gmail-creds.json
+.gcal-credentials.json
+.gcal-token.json
+*.key
+*.pem
+
+# Backups with secrets
+backups/
+
+# Python
+venv/
+whisper_env/
+*.pyc
+__pycache__/
+
+# System
+*.log
+.DS_Store
+node_modules/
+
+# Electron build artifacts
+deadlock-counter/electron-app/dist/
+deadlock-counter/electron-app/node_modules/

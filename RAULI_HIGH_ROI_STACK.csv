@@ -1,0 +1,20 @@
+Timing,Compound,Dose,Frequency,ROI Reason,Mechanism of Action,Benefits,Status,Cost
+MORNING - Sublingual,9-Me-BC,15-20mg,Daily (cycle 2-4 weeks on/4 off),Regenerates dopamine neurons,Upregulates tyrosine hydroxylase; promotes dopaminergic neurogenesis,Dopamine neuron repair; motivation; reverses stimulant damage,HAVE,$0
+MORNING - Inject,BPC-157,500mcg,2x daily,Healing + dopamine + gut,Upregulates VEGF; promotes angiogenesis; modulates dopamine system,Tissue healing; gut repair; dopaminergic protection; neuroprotection,HAVE,$0
+MORNING - Inject,NA-Semax Amidate,600mcg,Daily intranasal,BDNF + cognition,ACTH(4-7) analog - increases BDNF/NGF,Enhanced focus; memory; neuroprotection; mood elevation,ORDER,$70
+MORNING - Inject,MOTS-c,10mg,3x/week (Mon/Wed/Fri),Mitochondrial exercise mimetic,Mitochondrial-derived peptide - activates AMPK,Exercise mimetic; fat oxidation; insulin sensitivity; metabolic optimization,HAVE,$0
+MORNING - Drink,Creatine,10g,Daily,Brain + muscle ATP - dirt cheap,Increases phosphocreatine stores; ATP regeneration,Brain energy; muscle strength; cognitive reserve; $0.02/dose,ADD,$22
+MORNING - Drink,Omega-3 (EPA/DHA),6g,Daily (split AM/PM),Brain structure + anti-inflammatory,Incorporates into cell membranes; precursor to resolvins,Brain structure; inflammation control; mood; cardiovascular,ADD,$45
+MORNING - Pills,NMN,1000mg,Daily,NAD+ restoration - THE longevity molecule,Direct NAD+ precursor - converts to NAD+ via NMNAT,Cellular energy; DNA repair; sirtuin activation; anti-aging,ADD,$45
+MORNING - Pills,Resveratrol,500mg,Daily with fats,1.6x synergy with NMN,SIRT1 activator; works synergistically with NMN,Sirtuin activation; longevity genes; cardiovascular protection,ADD,$25
+MORNING - Pills,Uridine,300mg,Daily with fats,D2 receptor upregulation,RNA nucleoside - increases phosphatidylcholine; upregulates D2 receptors,Dopamine receptor density increase; reverses stimulant downregulation,ADD,$15
+MORNING - Pills,CDP-Choline,300mg,Daily,Dopamine receptor synthesis,Choline donor + cytidine; enhances dopamine receptor synthesis,Dopamine receptor density; acetylcholine; neuroprotection,ADD,$20
+MORNING - Pills,Bromantane,50-100mg,Daily (cycle 4-8 weeks),Dopamine synthesis upregulation,Upregulates TH and AADC gene expression,Makes MORE dopamine without depletion; energy; reduced anxiety,HAVE,$0
+NIGHT - Drink,Glycine,15-20g,Nightly,Deep sleep - $0.02/dose,NMDA co-agonist; lowers core body temperature,Deep sleep; next-day cognition; collagen synthesis,HAVE (increase dose),$20
+NIGHT - Drink,Magnesium,600-800mg,Nightly,Sleep + 300 enzymes,GABA-A agonist; NMDA antagonist; enzyme cofactor,Deep sleep; muscle relaxation; calm; cardiovascular,HAVE (increase dose),$0
+NIGHT - Drink,Taurine,3g,Nightly,Lifespan extension (10-12% in mice),Osmoregulation; GABAergic; mitochondrial support,Longevity; cardiovascular; calm; sleep quality,ADD,$20
+NIGHT - Pills,Apigenin,100mg,Nightly,Protects your NAD+ investment,CD38 inhibitor - prevents NAD+ degradation,Preserves NAD+ levels; improves sleep; anxiolytic,ADD,$15
+NIGHT - Inject,DSIP,150-200mcg,Nightly,Delta sleep induction,Delta sleep-inducing peptide - modulates sleep architecture,Deep sleep; stress reduction; recovery optimization,HAVE,$0
+NIGHT - Inject,MK-677,25mg,Nightly (oral),GH + sleep + recovery,Oral ghrelin mimetic - stimulates GH; increases IGF-1,GH boost; deep sleep; body composition; anti-aging,HAVE,$0
+MONTHLY - Senolytic,Fisetin,1500mg,2 consecutive days per month,Clears zombie cells - cheap,Senolytic - selectively kills senescent cells,Clears senescent cells; reduces inflammation; longevity,ADD,$25
+,,,,,,,TOTAL ADD:,$297

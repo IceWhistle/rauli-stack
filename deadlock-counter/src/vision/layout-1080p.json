@@ -1,0 +1,52 @@
+{
+  "resolution": "1920x1080",
+  "calibrated_from": "sandbox_screenshot_2026-01-25",
+  "scoreboard": {
+    "visible_when": "TAB held",
+    "center_x": 960,
+    "teams": {
+      "left": {
+        "x_start": 475,
+        "x_end": 720,
+        "player_count": 6
+      },
+      "right": {
+        "x_start": 820,
+        "x_end": 1065,
+        "player_count": 6
+      }
+    }
+  },
+  "player_card": {
+    "width": 120,
+    "height": 280,
+    "spacing": 0,
+    "elements": {
+      "hero_portrait": { "y_offset": 0, "height": 80 },
+      "souls_badge": { "y_offset": 75, "height": 25 },
+      "name": { "y_offset": 100, "height": 20 },
+      "kda": { "y_offset": 120, "height": 20 },
+      "items_grid": { "y_offset": 150, "height": 100 }
+    }
+  },
+  "item_slot": {
+    "width": 24,
+    "height": 24,
+    "gap": 2,
+    "grid": {
+      "columns": 4,
+      "rows": 4
+    },
+    "colors": {
+      "weapon": { "hue_range": [20, 45], "name": "orange" },
+      "vitality": { "hue_range": [80, 150], "name": "green" },
+      "spirit": { "hue_range": [260, 320], "name": "purple" }
+    }
+  },
+  "notes": [
+    "Item icons are small colored squares ~24x24px",
+    "Empty slots show as hollow circles",
+    "Filled slots show item icon with category color border",
+    "Grid layout 4 columns, up to 4 rows (16 items max)"
+  ]
+}

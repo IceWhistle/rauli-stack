@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deadlock Counter</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #e0e0e0;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    
+    h1 {
+      grid-column: span 2;
+      text-align: center;
+      font-size: 2.5em;
+      background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    
+    .subtitle {
+      grid-column: span 2;
+      text-align: center;
+      color: #888;
+      margin-bottom: 20px;
+    }
+    
+    .panel {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .panel h2 {
+      color: #ffd93d;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .screenshot-zone {
+      grid-column: span 2;
+      border: 2px dashed #4d96ff;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: rgba(77, 150, 255, 0.05);
+    }
+    
+    .screenshot-zone:hover {
+      border-color: #ffd93d;
+      background: rgba(255, 217, 61, 0.1);
+    }
+    
+    .screenshot-zone.dragover {
+      border-color: #6bcb77;
+      background: rgba(107, 203, 119, 0.2);
+    }
+    
+    .screenshot-zone h3 {
+      color: #4d96ff;
+      margin-bottom: 10px;
+    }
+    
+    .screenshot-zone p {
+      color: #888;
+      font-size: 0.9em;
+    }
+    
+    .screenshot-preview {
+      max-width: 100%;
+      max-height: 300px;
+      border-radius: 8px;
+      margin-top: 15px;
+      display: none;
+    }
+    
+    .hotkey-hint {
+      background: rgba(255,255,255,0.1);
+      padding: 8px 16px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 0.85em;
+    }
+    
+    .hotkey-hint kbd {
+      background: #333;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    
+    .enemy-slot {
+      background: rgba(255,0,0,0.1);
+      border: 1px solid rgba(255,100,100,0.3);
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 12px;
+    }
+    
+    .enemy-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .enemy-header select {
+      background: #2a2a4a;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    
+    .item-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    
+    .item-slot {
+      width: 40px;
+      height: 40px;
+      background: #1a1a2e;
+      border: 2px dashed #444;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #666;
+      transition: all 0.2s;
+    }
+    
+    .item-slot:hover {
+      border-color: #ffd93d;
+      background: #2a2a4a;
+    }
+    
+    .item-slot.filled {
+      background: #4a2a4a;
+      border-style: solid;
+      border-color: #ff6b6b;
+      color: #fff;
+      font-size: 8px;
+      text-align: center;
+      padding: 2px;
+      overflow: hidden;
+    }
+    
+    .recommendations {
+      max-height: 600px;
+      overflow-y: auto;
+    }
+    
+    .rec-item {
+      background: rgba(0,255,0,0.1);
+      border: 1px solid rgba(100,255,100,0.3);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+    
+    .rec-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .rec-name {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #6bcb77;
+    }
+    
+    .rec-cost {
+      color: #ffd93d;
+      font-weight: bold;
+    }
+    
+    .rec-reasons {
+      margin-top: 8px;
+      font-size: 0.85em;
+      color: #aaa;
+    }
+    
+    .rec-reason {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin: 2px;
+    }
+    
+    .rec-category {
+      font-size: 0.8em;
+      color: #888;
+      text-transform: uppercase;
+    }
+    
+    .threats-panel {
+      grid-column: span 2;
+    }
+    
+    .threat-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .threat-tag {
+      background: rgba(255,100,100,0.2);
+      color: #ff6b6b;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85em;
+    }
+    
+    .score-badge {
+      background: #4d96ff;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.8em;
+      margin-left: 8px;
+    }
+    
+    .priority-high { border-left: 4px solid #ff6b6b; }
+    .priority-med { border-left: 4px solid #ffd93d; }
+    .priority-low { border-left: 4px solid #6bcb77; }
+    
+    /* Item picker modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal.active { display: flex; }
+    
+    .modal-content {
+      background: #1a1a2e;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      max-height: 80vh;
+      overflow-y: auto;
+      border: 1px solid #444;
+    }
+    
+    .modal h3 {
+      margin-bottom: 15px;
+      color: #ffd93d;
+    }
+    
+    .search-box {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background: #2a2a4a;
+      border: 1px solid #444;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 14px;
+    }
+    
+    .item-picker-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    
+    .picker-item {
+      background: #2a2a4a;
+      border: 1px solid #444;
+      border-radius: 6px;
+      padding: 10px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 11px;
+      transition: all 0.2s;
+    }
+    
+    .picker-item:hover {
+      background: #3a3a5a;
+      border-color: #ffd93d;
+    }
+    
+    .picker-item.hidden { display: none; }
+    
+    .picker-cost {
+      color: #ffd93d;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    
+    .close-btn {
+      float: right;
+      background: none;
+      border: none;
+      color: #888;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .close-btn:hover { color: #fff; }
+    
+    .category-header {
+      grid-column: span 4;
+      color: #4d96ff;
+      margin-top: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #333;
+    }
+    
+    .clear-btn {
+      background: #ff6b6b;
+      color: #fff;
+      border: none;
+      padding: 4px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    
+    .clear-btn:hover { background: #ff4444; }
+    
+    .status-bar {
+      grid-column: span 2;
+      background: rgba(0,0,0,0.3);
+      padding: 10px 20px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85em;
+    }
+    
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #6bcb77;
+    }
+    
+    .beta-tag {
+      background: #ffd93d;
+      color: #000;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.8em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>⚡ DEADLOCK COUNTER</h1>
+    <p class="subtitle">Track enemy builds → Get counter recommendations</p>
+    
+    <div class="status-bar">
+      <div class="status-indicator">
+        <span class="status-dot"></span>
+        <span>Ready</span>
+      </div>
+      <span><span class="beta-tag">BETA</span> Screenshot detection coming soon</span>
+    </div>
+    
+    <!-- Screenshot Drop Zone -->
+    <div class="screenshot-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+      <h3>📸 Drop Screenshot or Click to Upload</h3>
+      <p>Take a screenshot while holding TAB in Deadlock</p>
+      <div class="hotkey-hint">
+        <kbd>Ctrl</kbd> + <kbd>V</kbd> to paste from clipboard
+      </div>
+      <img id="screenshotPreview" class="screenshot-preview" />
+      <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="handleFileSelect(event)" />
+    </div>
+    
+    <div class="panel">
+      <h2>🎯 Enemy Team <button class="clear-btn" onclick="clearAll()">Clear All</button></h2>
+      <div id="enemies"></div>
+    </div>
+    
+    <div class="panel">
+      <h2>🛡️ Recommended Counters</h2>
+      <div id="recommendations" class="recommendations">
+        <p style="color:#666; text-align:center; padding:40px;">
+          Add enemy heroes and items to see counter recommendations
+        </p>
+      </div>
+    </div>
+    
+    <div class="panel threats-panel">
+      <h2>⚠️ Detected Threats</h2>
+      <div id="threats" class="threat-tags">
+        <span style="color:#666;">No threats detected yet</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Item Picker Modal -->
+  <div id="itemModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <h3>Select Item</h3>
+      <input type="text" class="search-box" id="itemSearch" placeholder="Search items..." oninput="filterItems(this.value)" />
+      <div id="itemPicker" class="item-picker-grid"></div>
+    </div>
+  </div>
+
+  <script>
+    let heroes = [];
+    let items = {};
+    let enemies = [
+      { hero: '', items: [] },
+      { hero: '', items: [] },
+      { hero: '', items: [] },
+      { hero: '', items: [] },
+      { hero: '', items: [] },
+      { hero: '', items: [] }
+    ];
+    let currentSlot = null;
+
+    async function init() {
+      // Load data
+      heroes = await fetch('/api/heroes').then(r => r.json());
+      items = await fetch('/api/items').then(r => r.json());
+      
+      renderEnemies();
+      renderItemPicker();
+      setupDragDrop();
+      setupPaste();
+    }
+
+    function setupDragDrop() {
+      const dropZone = document.getElementById('dropZone');
+      
+      ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, e => {
+          e.preventDefault();
+          e.stopPropagation();
+        });
+      });
+      
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropZone.addEventListener(eventName, () => dropZone.classList.add('dragover'));
+      });
+      
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, () => dropZone.classList.remove('dragover'));
+      });
+      
+      dropZone.addEventListener('drop', e => {
+        const files = e.dataTransfer.files;
+        if (files.length) handleFile(files[0]);
+      });
+    }
+
+    function setupPaste() {
+      document.addEventListener('paste', e => {
+        const items = e.clipboardData.items;
+        for (let item of items) {
+          if (item.type.startsWith('image/')) {
+            const file = item.getAsFile();
+            handleFile(file);
+            break;
+          }
+        }
+      });
+    }
+
+    function handleFileSelect(e) {
+      if (e.target.files.length) handleFile(e.target.files[0]);
+    }
+
+    function handleFile(file) {
+      const reader = new FileReader();
+      reader.onload = e => {
+        const preview = document.getElementById('screenshotPreview');
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+        
+        // TODO: Send to server for processing
+        console.log('Screenshot loaded, ready for processing');
+        
+        // For now, show a message
+        document.querySelector('.screenshot-zone h3').textContent = '✅ Screenshot loaded! (Auto-detection coming soon)';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function clearAll() {
+      enemies = enemies.map(() => ({ hero: '', items: [] }));
+      renderEnemies();
+      updateRecommendations();
+    }
+
+    function renderEnemies() {
+      const container = document.getElementById('enemies');
+      container.innerHTML = enemies.map((enemy, i) => `
+        <div class="enemy-slot">
+          <div class="enemy-header">
+            <select onchange="setHero(${i}, this.value)">
+              <option value="">-- Select Hero --</option>
+              ${heroes.map(h => `<option value="${h}" ${enemy.hero === h ? 'selected' : ''}>${h}</option>`).join('')}
+            </select>
+            <span style="color:#666;">Enemy ${i + 1}</span>
+          </div>
+          <div class="item-grid">
+            ${[0,1,2,3,4,5,6,7].map(j => {
+              const item = enemy.items[j];
+              return `<div class="item-slot ${item ? 'filled' : ''}" 
+                          onclick="openItemPicker(${i}, ${j})"
+                          title="${item || 'Click to add item'}">
+                ${item ? item.split(' ').map(w => w[0]).join('') : '+'}
+              </div>`;
+            }).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function setHero(enemyIndex, hero) {
+      enemies[enemyIndex].hero = hero;
+      updateRecommendations();
+    }
+
+    function openItemPicker(enemyIndex, itemIndex) {
+      currentSlot = { enemy: enemyIndex, item: itemIndex };
+      document.getElementById('itemModal').classList.add('active');
+      document.getElementById('itemSearch').value = '';
+      document.getElementById('itemSearch').focus();
+      filterItems('');
+    }
+
+    function closeModal() {
+      document.getElementById('itemModal').classList.remove('active');
+      currentSlot = null;
+    }
+
+    function selectItem(itemName) {
+      if (currentSlot) {
+        const enemy = enemies[currentSlot.enemy];
+        if (!enemy.items) enemy.items = [];
+        enemy.items[currentSlot.item] = itemName;
+        closeModal();
+        renderEnemies();
+        updateRecommendations();
+      }
+    }
+
+    function filterItems(query) {
+      const q = query.toLowerCase();
+      document.querySelectorAll('.picker-item').forEach(el => {
+        const name = el.dataset.name.toLowerCase();
+        el.classList.toggle('hidden', q && !name.includes(q));
+      });
+    }
+
+    function renderItemPicker() {
+      const container = document.getElementById('itemPicker');
+      const categories = { weapon: [], vitality: [], spirit: [] };
+      
+      for (const [name, item] of Object.entries(items)) {
+        categories[item.category]?.push({ name, ...item });
+      }
+      
+      let html = '';
+      for (const [cat, catItems] of Object.entries(categories)) {
+        html += `<div class="category-header">${cat.toUpperCase()}</div>`;
+        catItems.sort((a, b) => a.cost - b.cost);
+        for (const item of catItems) {
+          html += `<div class="picker-item" data-name="${item.name}" onclick="selectItem('${item.name}')">
+            ${item.name}
+            <div class="picker-cost">${item.cost}</div>
+          </div>`;
+        }
+      }
+      container.innerHTML = html;
+    }
+
+    async function updateRecommendations() {
+      const validEnemies = enemies.filter(e => e.hero || e.items?.some(Boolean));
+      
+      if (validEnemies.length === 0) {
+        document.getElementById('recommendations').innerHTML = 
+          '<p style="color:#666; text-align:center; padding:40px;">Add enemy heroes and items to see counter recommendations</p>';
+        document.getElementById('threats').innerHTML = 
+          '<span style="color:#666;">No threats detected yet</span>';
+        return;
+      }
+
+      const response = await fetch('/api/recommend', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ enemies: validEnemies })
+      });
+      
+      const data = await response.json();
+      
+      // Render threats
+      document.getElementById('threats').innerHTML = data.threats.tags.length > 0
+        ? data.threats.tags.map(t => `<span class="threat-tag">${t}</span>`).join('')
+        : '<span style="color:#666;">No specific threats detected</span>';
+      
+      // Render recommendations with priority
+      document.getElementById('recommendations').innerHTML = data.recommendations.length > 0
+        ? data.recommendations.map((rec, i) => {
+          const priority = i < 3 ? 'high' : i < 6 ? 'med' : 'low';
+          return `
+          <div class="rec-item priority-${priority}">
+            <div class="rec-header">
+              <span>
+                <span class="rec-name">${rec.name}</span>
+                <span class="score-badge">+${rec.score}</span>
+              </span>
+              <span class="rec-cost">${rec.cost} souls</span>
+            </div>
+            <div class="rec-category">${rec.category} • Tier ${rec.tier}</div>
+            <div class="rec-reasons">
+              ${rec.reasons.map(r => `<span class="rec-reason">${r}</span>`).join('')}
+            </div>
+          </div>
+        `}).join('')
+        : '<p style="color:#666; text-align:center; padding:40px;">No specific counters needed</p>';
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Start
+    init();
+  </script>
+</body>
+</html>

@@ -72,13 +72,31 @@ header h1 {
   background: linear-gradient(90deg, #4a9eff33, transparent);
 }
 
-.item-card {
+a.item-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   background: linear-gradient(135deg, #0f1018, #12141f);
   border: 1px solid #4a9eff18;
   border-radius: 16px;
   padding: 16px 18px;
   margin-bottom: 8px;
   transition: all 0.2s ease;
+}
+
+a.item-card:hover {
+  background: linear-gradient(135deg, #141828, #181c2a);
+  border-color: #4a9eff33;
+  transform: translateY(-1px);
+}
+
+.item-card-nolink {
+  display: block;
+  background: linear-gradient(135deg, #0f1018, #12141f);
+  border: 1px solid #4a9eff18;
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 8px;
 }
 
 .item-row {
@@ -108,12 +126,30 @@ header h1 {
   margin-top: 4px;
 }
 
-.item-timing {
-  color: #4a9eff88;
-  font-size: 12px;
-  margin-top: 4px;
-  font-style: italic;
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
 }
+
+.pill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pill-oral { background: #4a9eff18; color: #60d4f0; }
+.pill-subq { background: #ff6b4a18; color: #ff8a70; }
+.pill-nasal { background: #a06bff18; color: #b88aff; }
+.pill-sublingual { background: #ffb84a18; color: #ffc870; }
+.pill-cycle { background: #4aff6b18; color: #70ff8a; }
+.pill-powder { background: #60d4f018; color: #60d4f0; }
+.pill-source { background: #ff4a6b18; color: #ff708a; }
 
 /* Schedule cards */
 .schedule-card {
@@ -176,23 +212,6 @@ header h1 {
   margin: 12px 0;
 }
 
-.pill {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 20px;
-  margin-right: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.pill-oral { background: #4a9eff18; color: #60d4f0; }
-.pill-subq { background: #ff6b4a18; color: #ff8a70; }
-.pill-nasal { background: #a06bff18; color: #b88aff; }
-.pill-sublingual { background: #ffb84a18; color: #ffc870; }
-.pill-cycle { background: #4aff6b18; color: #70ff8a; }
-
 .tip-box {
   background: #4a9eff0d;
   border-left: 3px solid #4a9eff44;
@@ -216,22 +235,48 @@ header h1 {
   margin-bottom: 4px;
 }
 
-.week-grid {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 6px 14px;
-  font-size: 13px;
+.warn-box {
+  background: #ff6b4a0d;
+  border-left: 3px solid #ff6b4a44;
+  border-radius: 0 12px 12px 0;
+  padding: 14px 16px;
+  margin-top: 12px;
 }
 
-.week-day {
-  color: #60d4f0;
+.warn-box p {
+  font-size: 13px;
+  color: #a06858;
+  line-height: 1.6;
+}
+
+.warn-label {
+  color: #ff8a70;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
 }
 
-.week-routine {
-  color: #6880a0;
-  font-size: 13px;
+.cut-card {
+  background: linear-gradient(135deg, #0f1018, #12141f);
+  border: 1px solid #ff6b4a15;
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 8px;
+}
+
+.cut-name {
+  color: #506078;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: line-through;
+}
+
+.cut-reason {
+  color: #605060;
+  font-size: 12px;
+  margin-top: 2px;
 }
 
 .sup-timing {
@@ -258,11 +303,22 @@ header h1 {
   font-weight: 500;
 }
 
-.tag-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 6px;
+.week-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 14px;
+  font-size: 13px;
+}
+
+.week-day {
+  color: #60d4f0;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.week-routine {
+  color: #6880a0;
+  font-size: 13px;
 }
 
 .footer {
@@ -287,319 +343,490 @@ header h1 {
 
   <header>
     <h1>The Stack ⚗️</h1>
-    <p class="intro">Full biohacking protocol — supplements, peptides, nootropics, and sleep optimization. Everything timed for maximum absorption.</p>
+    <p class="intro">Every compound fought for its life. No filler, no redundancy, no cope. Tap any supplement to view on Amazon. Peptides sourced separately.</p>
   </header>
 
-  <!-- ═══════ MORNING SUPPLEMENTS ═══════ -->
+  <!-- ═══════════════════════════════════ -->
+  <!-- MORNING FASTED                      -->
+  <!-- ═══════════════════════════════════ -->
   <section class="section">
-    <div class="section-title">☀️ Morning — With Breakfast</div>
+    <div class="section-title">☀️ Morning — Fasted</div>
 
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B0CX8XKZH3" target="_blank" rel="noopener">
       <div class="item-row">
-        <span class="item-name">IM8 Daily Ultimate Multi</span>
-        <span class="item-dose">1 serving</span>
+        <span class="item-name">NMN (sublingual)</span>
+        <span class="item-dose">500 mg</span>
       </div>
-      <div class="item-desc">Foundation — covers baseline vitamins & minerals</div>
-      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+      <div class="item-desc">NAD+ restoration — hold under tongue 90 sec for direct absorption</div>
+      <div class="tag-row"><span class="pill pill-sublingual">sublingual</span></div>
+    </a>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B08KBW3BL3" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">Methylene Blue</span>
+        <span class="item-dose">15 mg</span>
+      </div>
+      <div class="item-desc">Mitochondrial electron carrier — cognitive rocket fuel. Stains mouth blue.</div>
+      <div class="tag-row"><span class="pill pill-sublingual">sublingual</span></div>
+    </a>
+
+    <div class="item-card-nolink">
+      <div class="item-row">
+        <span class="item-name">9-Me-BC</span>
+        <span class="item-dose">15 mg</span>
+      </div>
+      <div class="item-desc">Dopamine neuron regeneration — rebuilds what stimulants damaged</div>
+      <div class="tag-row"><span class="pill pill-sublingual">sublingual</span><span class="pill pill-cycle">2 wk on / 2 wk off</span><span class="pill pill-source">research chem</span></div>
     </div>
 
-    <div class="item-card">
+    <div class="item-card-nolink">
+      <div class="item-row">
+        <span class="item-name">Bromantane</span>
+        <span class="item-dose">50 mg</span>
+      </div>
+      <div class="item-desc">Dopamine upregulation via TH expression — no depletion, no crash</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span><span class="pill pill-source">research chem</span></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- MORNING PROTOCOL                    -->
+  <!-- ═══════════════════════════════════ -->
+  <section class="section">
+    <div class="schedule-card">
+      <div class="schedule-title">☀️ Morning Protocol</div>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Wake</strong> — sunlight in eyes within 30 min<br><span class="step-note">Sets circadian clock, cortisol awakening response</span></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Fasted compounds</strong> — NMN + Methylene Blue + 9-Me-BC sublingual, Bromantane oral<br><span class="step-note">Empty stomach = faster absorption for sublinguals</span></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Peptides</strong> — NA-Semax (nasal), BPC-157 + MOTS-c (SubQ)<br><span class="step-note">Fasted or 30+ min before eating</span></div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>Breakfast</strong> — high protein + healthy fat (eggs, avocado)</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text"><strong>Supplements</strong> — all morning caps + powders with food<br><span class="step-note">Fat-soluble compounds need dietary fat</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- MORNING WITH BREAKFAST              -->
+  <!-- ═══════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">🍳 Morning — With Breakfast</div>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B0CX8XKZH3" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">NMN (capsule)</span>
+        <span class="item-dose">500 mg</span>
+      </div>
+      <div class="item-desc">Second dose — 1g/day total for full NAD+ optimization</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+    </a>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B08QBXMHRT" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">Resveratrol (trans-)</span>
+        <span class="item-dose">500 mg</span>
+      </div>
+      <div class="item-desc">Sirtuin activator — 1.6x NAD+ synergy with NMN</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+    </a>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B002CQU564" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">Omega-3 Fish Oil</span>
+        <span class="item-dose">4g EPA/DHA</span>
+      </div>
+      <div class="item-desc">Brain structure, inflammation, cardiovascular — double standard dose</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+    </a>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B002Y27LLS" target="_blank" rel="noopener">
       <div class="item-row">
         <span class="item-name">Vitamin D3</span>
         <span class="item-dose">20–30k IU</span>
       </div>
-      <div class="item-desc">Immune function, testosterone support, mood</div>
-      <div class="item-timing">Take with fat — eggs, avocado, or butter</div>
+      <div class="item-desc">Hormone optimization, immune, mood — supraphysiologic dose</div>
       <div class="tag-row"><span class="pill pill-oral">oral</span></div>
-    </div>
+    </a>
 
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B00GF4B1O4" target="_blank" rel="noopener">
       <div class="item-row">
         <span class="item-name">Vitamin K2 (MK-7)</span>
         <span class="item-dose">200–400 mcg</span>
       </div>
-      <div class="item-desc">Directs calcium to bones, not arteries — essential with high-dose D3</div>
-      <div class="item-timing">Always pair with D3. Non-negotiable.</div>
+      <div class="item-desc">Directs calcium to bones not arteries — MANDATORY with high D3</div>
       <div class="tag-row"><span class="pill pill-oral">oral</span></div>
-    </div>
+    </a>
 
-    <div class="item-card">
-      <div class="item-row">
-        <span class="item-name">Omega-3 Fish Oil</span>
-        <span class="item-dose">2g EPA/DHA</span>
-      </div>
-      <div class="item-desc">Anti-inflammatory, brain health, cardiovascular</div>
-      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
-    </div>
-
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B0013OXD38" target="_blank" rel="noopener">
       <div class="item-row">
         <span class="item-name">Creatine Monohydrate</span>
         <span class="item-dose">5g</span>
       </div>
-      <div class="item-desc">Strength, cognitive boost, cellular energy</div>
-      <div class="item-timing">Mix in water or shake — timing doesn't matter much, just daily</div>
-      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
-    </div>
+      <div class="item-desc">Cellular ATP, strength, cognitive boost — foundational</div>
+      <div class="tag-row"><span class="pill pill-powder">powder</span></div>
+    </a>
 
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B00OA6NLG0" target="_blank" rel="noopener">
       <div class="item-row">
         <span class="item-name">Zinc</span>
-        <span class="item-dose">15–30 mg</span>
+        <span class="item-dose">30 mg</span>
       </div>
-      <div class="item-desc">Testosterone, immune, skin — on top of multi</div>
-      <div class="item-timing">Take with food to avoid nausea</div>
+      <div class="item-desc">Testosterone, immune, skin — always with food</div>
       <div class="tag-row"><span class="pill pill-oral">oral</span></div>
-    </div>
+    </a>
 
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B07BGRL2WN" target="_blank" rel="noopener">
       <div class="item-row">
         <span class="item-name">Boron</span>
         <span class="item-dose">9 mg</span>
       </div>
       <div class="item-desc">Free testosterone, joint health, D3 metabolism</div>
       <div class="tag-row"><span class="pill pill-oral">oral</span></div>
-    </div>
-  </section>
+    </a>
 
-  <!-- ═══════ MORNING ROUTINE ═══════ -->
-  <section class="section">
-    <div class="schedule-card">
-      <div class="schedule-title">☀️ Morning Protocol</div>
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text"><strong>Wake up</strong> — sunlight in eyes within 30 min<br><span class="step-note">Sets circadian rhythm, boosts cortisol awakening response</span></div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text"><strong>Nootropics</strong> — Bromantane + Semax (sublingual/nasal)<br><span class="step-note">On empty stomach for faster absorption</span></div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text"><strong>Breakfast</strong> — high protein + healthy fat</div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-text"><strong>Supplements</strong> — D3, K2, Omega-3, Zinc, Boron, Creatine<br><span class="step-note">All with food. Fat-soluble = needs fat for absorption.</span></div>
-      </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <div class="step-text"><strong>Peptides</strong> — GLOW + MOTS-C (if scheduled)<br><span class="step-note">SubQ injection, empty stomach or 30+ min after eating</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ NOOTROPICS ═══════ -->
-  <section class="section">
-    <div class="section-title">🧠 Nootropics</div>
-
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B073VK5TP4" target="_blank" rel="noopener">
       <div class="item-row">
-        <span class="item-name">Bromantane</span>
-        <span class="item-dose">50–100 mg</span>
+        <span class="item-name">CoQ10 (Ubiquinol)</span>
+        <span class="item-dose">200 mg</span>
       </div>
-      <div class="item-desc">Dopamine upregulation, motivation, clean stimulation</div>
-      <div class="item-timing">Morning, sublingual. Don't take after 2 PM.</div>
-      <div class="tag-row"><span class="pill pill-sublingual">sublingual</span></div>
-    </div>
+      <div class="item-desc">Mitochondrial energy production — ubiquinol > ubiquinone</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+    </a>
 
-    <div class="item-card">
-      <div class="item-row">
-        <span class="item-name">Semax</span>
-        <span class="item-dose">200–600 mcg</span>
-      </div>
-      <div class="item-desc">BDNF boost, focus, neuroprotection</div>
-      <div class="item-timing">Morning, intranasal. 1-2 sprays per nostril.</div>
-      <div class="tag-row"><span class="pill pill-nasal">intranasal</span></div>
-    </div>
-
-    <div class="item-card">
-      <div class="item-row">
-        <span class="item-name">Noopept</span>
-        <span class="item-dose">10–30 mg</span>
-      </div>
-      <div class="item-desc">Memory, learning, mild anxiolytic</div>
-      <div class="item-timing">Morning or early afternoon. Sublingual hits faster.</div>
-      <div class="tag-row"><span class="pill pill-sublingual">sublingual</span><span class="pill pill-oral">oral ok</span></div>
-    </div>
-
-    <div class="item-card">
-      <div class="item-row">
-        <span class="item-name">9-Me-BC</span>
-        <span class="item-dose">10–20 mg</span>
-      </div>
-      <div class="item-desc">Dopamine neuron regeneration, neuroplasticity</div>
-      <div class="item-timing">Morning only. AVOID SUN — photosensitive compound.</div>
-      <div class="tag-row"><span class="pill pill-sublingual">sublingual</span><span class="pill pill-cycle">cycle: 2 wk on / 2 wk off</span></div>
-    </div>
-
-    <div class="item-card">
-      <div class="item-row">
-        <span class="item-name">Dihexa</span>
-        <span class="item-dose">5–20 mg</span>
-      </div>
-      <div class="item-desc">10 million x more potent than BDNF at synapse formation</div>
-      <div class="item-timing">Morning, sublingual or intranasal.</div>
-      <div class="tag-row"><span class="pill pill-sublingual">sublingual</span><span class="pill pill-cycle">cycle: 4 wk on / 4 wk off</span></div>
-    </div>
-
-    <div class="tip-box">
-      <div class="tip-label">⚠️ 9-Me-BC + Sun</div>
-      <p>9-Me-BC is phototoxic — it can damage DNA when exposed to UV light. Wear sunscreen and limit direct sun exposure during your cycle. Do NOT combine with tanning or MT2 sessions.</p>
-    </div>
-  </section>
-
-  <!-- ═══════ AFTERNOON ═══════ -->
-  <section class="section">
-    <div class="section-title">🌤️ Afternoon — Optional</div>
-
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B01GV4IC4Y" target="_blank" rel="noopener">
       <div class="item-row">
         <span class="item-name">Alpha-GPC</span>
         <span class="item-dose">600 mg</span>
       </div>
-      <div class="item-desc">Choline source — focus, memory, pairs with nootropics</div>
-      <div class="item-timing">Early afternoon. Supports acetylcholine for nootropic stack.</div>
+      <div class="item-desc">Acetylcholine — memory, focus, pairs with nootropics</div>
       <div class="tag-row"><span class="pill pill-oral">oral</span></div>
-    </div>
+    </a>
 
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B078SZX3ML" target="_blank" rel="noopener">
       <div class="item-row">
-        <span class="item-name">NAC</span>
-        <span class="item-dose">600–1200 mg</span>
+        <span class="item-name">Lion's Mane</span>
+        <span class="item-dose">2g</span>
       </div>
-      <div class="item-desc">Glutathione precursor, liver support, antioxidant</div>
-      <div class="item-timing">Away from food (30 min before or 2 hr after) for best absorption.</div>
+      <div class="item-desc">NGF, neurogenesis — repairs microglial damage from stimulants</div>
       <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+    </a>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B079K32QB6" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">Ashwagandha KSM-66</span>
+        <span class="item-dose">600 mg</span>
+      </div>
+      <div class="item-desc">Cortisol -30%, testosterone boost, stress resilience</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span><span class="pill pill-cycle">8 wk on / 2 wk off</span></div>
+    </a>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B0BQT8N2Z5" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">Tongkat Ali</span>
+        <span class="item-dose">400 mg</span>
+      </div>
+      <div class="item-desc">LH boost, free testosterone — different pathway than Ashwagandha</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span><span class="pill pill-cycle">5 days on / 2 off</span></div>
+    </a>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B07WSGGV7T" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">Uridine</span>
+        <span class="item-dose">300 mg</span>
+      </div>
+      <div class="item-desc">D2 receptor upregulation — Mr. Happy Stack (+ Alpha-GPC + Omega-3)</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+    </a>
+  </section>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- NOOTROPICS NOTE                     -->
+  <!-- ═══════════════════════════════════ -->
+  <section class="section">
+    <div class="schedule-card">
+      <div class="schedule-title">🧠 Nootropic Synergies</div>
+      <div class="sup-timing">
+        <span class="sup-icon">⚡</span>
+        <div class="sup-detail">
+          <strong>Dopamine Recovery Stack:</strong><br>
+          9-Me-BC + Bromantane + Uridine + Alpha-GPC + Lion's Mane + BPC-157<br>
+          <em>Rebuilds dopamine neurons, upregulates receptors, repairs microglial damage</em>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="sup-timing">
+        <span class="sup-icon">🎯</span>
+        <div class="sup-detail">
+          <strong>Mr. Happy Stack:</strong><br>
+          Uridine 300mg + Alpha-GPC 600mg + Omega-3 (DHA 2g+)<br>
+          <em>D2 receptor density, mood, motivation</em>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="sup-timing">
+        <span class="sup-icon">🔋</span>
+        <div class="sup-detail">
+          <strong>NAD+ Maximizer:</strong><br>
+          NMN 1g + Resveratrol 500mg + Apigenin 100mg (night)<br>
+          <em>1.6x NAD+ boost + CD38 inhibition to protect it</em>
+        </div>
+      </div>
+      <div class="warn-box">
+        <div class="warn-label">⚠️ 9-Me-BC + Sun</div>
+        <p>9-Me-BC is phototoxic — avoid direct sun and don't combine with MT2 tanning sessions during your 2-week cycle.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ═══════ PEPTIDES ═══════ -->
+  <!-- ═══════════════════════════════════ -->
+  <!-- PEPTIDES (no links)                 -->
+  <!-- ═══════════════════════════════════ -->
   <section class="section">
-    <div class="section-title">💉 Peptides</div>
+    <div class="section-title">💉 Peptides — Morning</div>
 
-    <div class="item-card">
+    <div class="item-card-nolink">
+      <div class="item-row">
+        <span class="item-name">NA-Semax Amidate</span>
+        <span class="item-dose">600 mcg</span>
+      </div>
+      <div class="item-desc">Enhanced BDNF boost — 1-2 sprays per nostril, fasted</div>
+      <div class="tag-row"><span class="pill pill-nasal">intranasal</span></div>
+    </div>
+
+    <div class="item-card-nolink">
+      <div class="item-row">
+        <span class="item-name">BPC-157</span>
+        <span class="item-dose">250 mcg 2x/day</span>
+      </div>
+      <div class="item-desc">Tissue repair, dopaminergic protection, gut-brain axis</div>
+      <div class="tag-row"><span class="pill pill-subq">subq AM + PM</span></div>
+    </div>
+
+    <div class="item-card-nolink">
+      <div class="item-row">
+        <span class="item-name">MOTS-c</span>
+        <span class="item-dose">5 mg 3x/week</span>
+      </div>
+      <div class="item-desc">Mitochondrial peptide — exercise mimetic, metabolic optimizer</div>
+      <div class="tag-row"><span class="pill pill-subq">subq</span></div>
+    </div>
+
+    <div class="item-card-nolink">
+      <div class="item-row">
+        <span class="item-name">GLOW (BPC + TB-500 + GHK-Cu)</span>
+        <span class="item-dose">daily</span>
+      </div>
+      <div class="item-desc">Wolverine stack — healing, anti-aging, skin rejuvenation</div>
+      <div class="tag-row"><span class="pill pill-subq">subq</span></div>
+    </div>
+
+    <div class="item-card-nolink">
       <div class="item-row">
         <span class="item-name">Retatrutide</span>
         <span class="item-dose">weekly</span>
       </div>
-      <div class="item-desc">Triple agonist (GLP-1/GIP/Glucagon) — body comp, appetite, metabolic health</div>
-      <div class="item-timing">SubQ injection 1x/week, same day each week. Titrate dose up slowly.</div>
-      <div class="tag-row"><span class="pill pill-subq">subq</span></div>
+      <div class="item-desc">Triple agonist (GLP-1/GIP/Glucagon) — body comp, metabolic health</div>
+      <div class="tag-row"><span class="pill pill-subq">subq 1x/week</span></div>
     </div>
 
-    <div class="item-card">
+    <div class="item-card-nolink">
       <div class="item-row">
-        <span class="item-name">Melanotan II (MT2)</span>
+        <span class="item-name">MT2</span>
         <span class="item-dose">250–500 mcg</span>
       </div>
-      <div class="item-desc">Melanogenesis — deep tan, libido boost</div>
-      <div class="item-timing">SubQ before UV exposure. Start low (250mcg), build up. Nausea is normal early on.</div>
+      <div class="item-desc">Melanogenesis + libido — before UV exposure</div>
       <div class="tag-row"><span class="pill pill-subq">subq</span><span class="pill pill-cycle">as needed</span></div>
-    </div>
-
-    <div class="item-card">
-      <div class="item-row">
-        <span class="item-name">GLOW (BPC-157 + TB-500 + GHK-Cu)</span>
-        <span class="item-dose">daily/EOD</span>
-      </div>
-      <div class="item-desc">Tissue repair, healing, anti-aging, skin rejuvenation</div>
-      <div class="item-timing">SubQ, morning. Rotate injection sites. Can inject near injury site for targeted repair.</div>
-      <div class="tag-row"><span class="pill pill-subq">subq</span></div>
-    </div>
-
-    <div class="item-card">
-      <div class="item-row">
-        <span class="item-name">MOTS-C</span>
-        <span class="item-dose">5–10 mg/week</span>
-      </div>
-      <div class="item-desc">Mitochondrial peptide — exercise mimetic, metabolic optimization</div>
-      <div class="item-timing">SubQ 2-3x/week. Ideally on training days, before or after workout.</div>
-      <div class="tag-row"><span class="pill pill-subq">subq</span></div>
-    </div>
-
-    <div class="tip-box">
-      <div class="tip-label">💡 Peptide Storage</div>
-      <p>Reconstituted peptides → refrigerate (2-8°C). Use bacteriostatic water. Most stable for 4-6 weeks once mixed. Never freeze reconstituted vials.</p>
     </div>
   </section>
 
-  <!-- ═══════ SLEEP STACK ═══════ -->
+  <!-- ═══════════════════════════════════ -->
+  <!-- AFTERNOON                           -->
+  <!-- ═══════════════════════════════════ -->
   <section class="section">
-    <div class="section-title">🌙 Sleep Stack — 30 Min Before Bed</div>
+    <div class="section-title">🌤️ Afternoon — Between Meals</div>
 
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B00OA6NLG0" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">NAC</span>
+        <span class="item-dose">1200 mg</span>
+      </div>
+      <div class="item-desc">Glutathione precursor, liver detox, antioxidant</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+    </a>
+
+    <div class="tip-box">
+      <div class="tip-label">💡 NAC Timing</div>
+      <p>Take 30 min before or 2 hours after food. Competes with amino acids for absorption. Away from other supplements.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- DINNER                              -->
+  <!-- ═══════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">🍽️ Night — With Dinner</div>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B09CLLQ7XJ" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">Ca-AKG</span>
+        <span class="item-dose">1g</span>
+      </div>
+      <div class="item-desc">Epigenetic age reversal — 8 year biological age reduction in human study</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+    </a>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B00OA6NLG0" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">Zinc</span>
+        <span class="item-dose">30 mg</span>
+      </div>
+      <div class="item-desc">Testosterone, immune — already counted in morning dose above</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+    </a>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B07H2W1GGR" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">Copper</span>
+        <span class="item-dose">2 mg</span>
+      </div>
+      <div class="item-desc">Prevents zinc-induced copper deficiency — non-negotiable</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+    </a>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B00K6JUG4K" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">Collagen Peptides</span>
+        <span class="item-dose">15g</span>
+      </div>
+      <div class="item-desc">Gut lining repair, joints, skin — important with this many oral compounds</div>
+      <div class="tag-row"><span class="pill pill-powder">powder</span></div>
+    </a>
+  </section>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- SLEEP STACK                         -->
+  <!-- ═══════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">🌙 Sleep — 30 Min Before Bed</div>
+
+    <a class="item-card" href="https://www.amazon.com/dp/B000QDEK1A" target="_blank" rel="noopener">
       <div class="item-row">
         <span class="item-name">Glycine</span>
         <span class="item-dose">10g</span>
       </div>
-      <div class="item-desc">Lowers core body temp, improves deep sleep quality</div>
-      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
-    </div>
+      <div class="item-desc">Lowers core body temp, deep sleep quality, GH release</div>
+      <div class="tag-row"><span class="pill pill-powder">powder</span></div>
+    </a>
 
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B0DSPY1SW6" target="_blank" rel="noopener">
       <div class="item-row">
         <span class="item-name">Magnesium Glycinate</span>
         <span class="item-dose">600 mg</span>
       </div>
-      <div class="item-desc">Muscle relaxation, GABA support, calming</div>
+      <div class="item-desc">GABA support, muscle relaxation, sleep quality</div>
       <div class="tag-row"><span class="pill pill-oral">oral</span></div>
-    </div>
+    </a>
 
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B0013OUPXE" target="_blank" rel="noopener">
       <div class="item-row">
         <span class="item-name">Taurine</span>
         <span class="item-dose">3g</span>
       </div>
-      <div class="item-desc">GABA agonist, reduces cortisol, cellular hydration</div>
-      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
-    </div>
+      <div class="item-desc">GABAergic, reduces cortisol, lifespan extension data</div>
+      <div class="tag-row"><span class="pill pill-powder">powder</span></div>
+    </a>
 
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B00E7GIPI0" target="_blank" rel="noopener">
       <div class="item-row">
         <span class="item-name">L-Theanine</span>
-        <span class="item-dose">200–400 mg</span>
+        <span class="item-dose">400 mg</span>
       </div>
-      <div class="item-desc">Alpha brain waves, relaxation without sedation</div>
+      <div class="item-desc">Alpha brain waves — calm without sedation</div>
       <div class="tag-row"><span class="pill pill-oral">oral</span></div>
-    </div>
+    </a>
 
-    <div class="item-card">
+    <a class="item-card" href="https://www.amazon.com/dp/B0BM1TLVC7" target="_blank" rel="noopener">
+      <div class="item-row">
+        <span class="item-name">Apigenin</span>
+        <span class="item-dose">100 mg</span>
+      </div>
+      <div class="item-desc">CD38 inhibitor — protects your NAD+ while you sleep</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+    </a>
+  </section>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- SLEEP PEPTIDES (no links)           -->
+  <!-- ═══════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">🌙 Sleep Peptides</div>
+
+    <div class="item-card-nolink">
       <div class="item-row">
         <span class="item-name">DSIP</span>
-        <span class="item-dose">100–300 mcg</span>
+        <span class="item-dose">150 mcg</span>
       </div>
       <div class="item-desc">Delta Sleep Inducing Peptide — deep sleep architecture</div>
-      <div class="item-timing">SubQ or intranasal, 30 min before bed.</div>
-      <div class="tag-row"><span class="pill pill-subq">subq</span><span class="pill pill-nasal">intranasal</span></div>
+      <div class="tag-row"><span class="pill pill-subq">subq</span></div>
     </div>
 
-    <div class="item-card">
+    <div class="item-card-nolink">
       <div class="item-row">
         <span class="item-name">MK-677 (Ibutamoren)</span>
-        <span class="item-dose">10–25 mg</span>
+        <span class="item-dose">15–25 mg</span>
       </div>
-      <div class="item-desc">GH secretagogue — deep sleep, recovery, muscle growth</div>
-      <div class="item-timing">Oral, right before bed. Take on empty stomach for max GH pulse.</div>
-      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+      <div class="item-desc">GH secretagogue — take on EMPTY stomach for max GH pulse</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span><span class="pill pill-cycle">8-12 wk on / 4 wk off</span></div>
+    </div>
+
+    <div class="item-card-nolink">
+      <div class="item-row">
+        <span class="item-name">CJC-1295 (no DAC) + Ipamorelin</span>
+        <span class="item-dose">100 mcg each</span>
+      </div>
+      <div class="item-desc">Sustained GH pulse combo — clean release, no cortisol spike</div>
+      <div class="tag-row"><span class="pill pill-subq">subq</span><span class="pill pill-cycle">5 on / 2 off</span></div>
+    </div>
+
+    <div class="item-card-nolink">
+      <div class="item-row">
+        <span class="item-name">BPC-157</span>
+        <span class="item-dose">250 mcg</span>
+      </div>
+      <div class="item-desc">Second dose — continued tissue repair during sleep</div>
+      <div class="tag-row"><span class="pill pill-subq">subq</span></div>
     </div>
   </section>
 
-  <!-- ═══════ SLEEP PROTOCOL ═══════ -->
+  <!-- ═══════════════════════════════════ -->
+  <!-- SLEEP PROTOCOL                      -->
+  <!-- ═══════════════════════════════════ -->
   <section class="section">
     <div class="schedule-card">
       <div class="schedule-title">🌙 Sleep Protocol</div>
       <div class="step">
         <div class="step-num">1</div>
-        <div class="step-text"><strong>T-60 min</strong> — Blue light blockers on. Dim lights.<br><span class="step-note">Signal melatonin production</span></div>
+        <div class="step-text"><strong>T-60 min</strong> — Blue light blockers on, dim lights<br><span class="step-note">Signals melatonin production</span></div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <div class="step-text"><strong>T-30 min</strong> — Take sleep stack: Glycine, Mag, Taurine, Theanine</div>
+        <div class="step-text"><strong>T-30 min</strong> — Sleep supps: Glycine, Mag, Taurine, Theanine, Apigenin</div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <div class="step-text"><strong>T-30 min</strong> — DSIP injection (SubQ or nasal)</div>
+        <div class="step-text"><strong>T-30 min</strong> — DSIP + CJC/Ipa + BPC injections</div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
@@ -607,128 +834,174 @@ header h1 {
       </div>
       <div class="step">
         <div class="step-num">5</div>
-        <div class="step-text"><strong>Lights out</strong> — Room cold (65-68°F), pitch dark</div>
+        <div class="step-text"><strong>Lights out</strong> — room cold (65-68°F), pitch dark</div>
       </div>
       <div class="tip-box">
         <div class="tip-label">💡 Stack Synergy</div>
-        <p>Glycine lowers core temp + MK-677 triggers GH pulse + DSIP deepens delta sleep = maximized recovery. This is where gains actually happen.</p>
+        <p>Glycine lowers core temp + MK-677 triggers GH pulse + CJC/Ipa extends it + DSIP deepens delta sleep = maximum recovery. This is where gains happen.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ INCOMING ═══════ -->
+  <!-- ═══════════════════════════════════ -->
+  <!-- MONTHLY SENOLYTIC                   -->
+  <!-- ═══════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">📆 Monthly — Senolytic Pulse</div>
+
+    <div class="schedule-card">
+      <div class="schedule-title">Days 1–2 Each Month (Fasted)</div>
+      <a class="item-card" href="https://www.amazon.com/dp/B0C2QLNTPS" target="_blank" rel="noopener" style="margin: 8px 0;">
+        <div class="item-row">
+          <span class="item-name">Fisetin</span>
+          <span class="item-dose">1500 mg</span>
+        </div>
+        <div class="item-desc">Senolytic — clears zombie cells</div>
+      </a>
+      <a class="item-card" href="https://www.amazon.com/dp/B0015C3PGO" target="_blank" rel="noopener" style="margin: 8px 0;">
+        <div class="item-row">
+          <span class="item-name">Quercetin</span>
+          <span class="item-dose">1000 mg</span>
+        </div>
+        <div class="item-desc">Amplifies fisetin's senolytic effect</div>
+      </a>
+      <div class="tip-box">
+        <div class="tip-label">💡 Senolytic Protocol</div>
+        <p>2 days on, then nothing for 4 weeks. Fasted morning both days. This is a pulse — not daily. Clears senescent cells that accumulate with age.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- INCOMING                            -->
+  <!-- ═══════════════════════════════════ -->
   <section class="section">
     <div class="section-title">📦 Incoming</div>
 
-    <div class="item-card" style="border-color: #ffb84a22;">
+    <div class="item-card-nolink" style="border-color: #ffb84a22;">
       <div class="item-row">
         <span class="item-name">Flmodafinil</span>
         <span class="item-dose">50–100 mg</span>
       </div>
-      <div class="item-desc">Wakefulness agent — cleaner than modafinil, less anxiety</div>
-      <div class="item-timing">Morning only. Do NOT take after noon — will wreck sleep.</div>
-      <div class="tag-row"><span class="pill pill-oral">oral</span></div>
+      <div class="item-desc">Wakefulness agent — cleaner than modafinil. Morning only, never after noon.</div>
+      <div class="tag-row"><span class="pill pill-oral">oral</span><span class="pill pill-source">research chem</span></div>
     </div>
 
-    <div class="item-card" style="border-color: #ffb84a22;">
-      <div class="item-row">
-        <span class="item-name">NA-Semax Amidate</span>
-        <span class="item-dose">30 mg vial</span>
-      </div>
-      <div class="item-desc">Enhanced Semax — longer half-life, stronger BDNF</div>
-      <div class="item-timing">Intranasal, morning. Replaces regular Semax once available.</div>
-      <div class="tag-row"><span class="pill pill-nasal">intranasal</span></div>
-    </div>
-
-    <div class="item-card" style="border-color: #ffb84a22;">
+    <div class="item-card-nolink" style="border-color: #ffb84a22;">
       <div class="item-row">
         <span class="item-name">Epitalon</span>
-        <span class="item-dose">100 mg vial</span>
+        <span class="item-dose">5–10 mg/day</span>
       </div>
-      <div class="item-desc">Telomerase activator — longevity peptide, circadian rhythm repair</div>
-      <div class="item-timing">SubQ 5-10mg/day for 10-20 day cycle, 2x/year.</div>
-      <div class="tag-row"><span class="pill pill-subq">subq</span><span class="pill pill-cycle">cycle: 10-20 days, 2x/yr</span></div>
+      <div class="item-desc">Telomerase activator — longevity peptide, circadian repair</div>
+      <div class="tag-row"><span class="pill pill-subq">subq</span><span class="pill pill-cycle">10-20 day cycle, 2x/year</span></div>
     </div>
   </section>
 
-  <!-- ═══════ WEEKLY SCHEDULE ═══════ -->
-  <section class="section">
-    <div class="section-title">📅 Weekly Overview</div>
-    <div class="schedule-card">
-      <div class="schedule-title">Peptide Schedule</div>
-      <div class="week-grid">
-        <span class="week-day">MON</span>
-        <span class="week-routine">GLOW · MOTS-C · Nootropics</span>
-        <span class="week-day">TUE</span>
-        <span class="week-routine">GLOW · Nootropics</span>
-        <span class="week-day">WED</span>
-        <span class="week-routine">GLOW · MOTS-C · Nootropics</span>
-        <span class="week-day">THU</span>
-        <span class="week-routine">GLOW · Retatrutide · Nootropics</span>
-        <span class="week-day">FRI</span>
-        <span class="week-routine">GLOW · MOTS-C · Nootropics</span>
-        <span class="week-day">SAT</span>
-        <span class="week-routine">GLOW · MT2 (if tanning)</span>
-        <span class="week-day">SUN</span>
-        <span class="week-routine">GLOW · Rest day</span>
-      </div>
-      <div class="divider"></div>
-      <div class="sup-detail" style="font-size: 12px; color: #506078;">
-        <strong style="color: #6880a0;">Daily constants:</strong> All morning supps + sleep stack every day<br>
-        <strong style="color: #6880a0;">DSIP:</strong> Every night before bed<br>
-        <strong style="color: #6880a0;">MK-677:</strong> Every night before bed
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ CYCLING NOTES ═══════ -->
+  <!-- ═══════════════════════════════════ -->
+  <!-- CYCLING GUIDE                       -->
+  <!-- ═══════════════════════════════════ -->
   <section class="section">
     <div class="section-title">🔄 Cycling Guide</div>
     <div class="schedule-card">
       <div class="sup-timing">
         <span class="sup-icon">🧠</span>
-        <div class="sup-detail">
-          <strong>9-Me-BC:</strong> 2 weeks on / 2 weeks off<br>
-          Avoid sun during cycle. Don't combine with MT2.
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="sup-timing">
-        <span class="sup-icon">🧬</span>
-        <div class="sup-detail">
-          <strong>Dihexa:</strong> 4 weeks on / 4 weeks off<br>
-          Extremely potent. Less is more.
-        </div>
-      </div>
-      <div class="divider"></div>
-      <div class="sup-timing">
-        <span class="sup-icon">⏳</span>
-        <div class="sup-detail">
-          <strong>Epitalon:</strong> 10-20 day cycle, twice per year<br>
-          Longevity protocol. Space cycles 6 months apart.
-        </div>
+        <div class="sup-detail"><strong>9-Me-BC:</strong> 2 weeks on / 2 weeks off — avoid sun during cycle</div>
       </div>
       <div class="divider"></div>
       <div class="sup-timing">
         <span class="sup-icon">💪</span>
-        <div class="sup-detail">
-          <strong>MK-677:</strong> 8-12 weeks on / 4 weeks off<br>
-          Monitor blood sugar — can increase insulin resistance long-term.
-        </div>
+        <div class="sup-detail"><strong>Ashwagandha:</strong> 8 weeks on / 2 weeks off — downregulates if continuous</div>
+      </div>
+      <div class="divider"></div>
+      <div class="sup-timing">
+        <span class="sup-icon">🔥</span>
+        <div class="sup-detail"><strong>Tongkat Ali:</strong> 5 days on / 2 days off</div>
+      </div>
+      <div class="divider"></div>
+      <div class="sup-timing">
+        <span class="sup-icon">📈</span>
+        <div class="sup-detail"><strong>MK-677:</strong> 8-12 weeks on / 4 weeks off — monitor blood sugar</div>
+      </div>
+      <div class="divider"></div>
+      <div class="sup-timing">
+        <span class="sup-icon">💉</span>
+        <div class="sup-detail"><strong>CJC/Ipamorelin:</strong> 5 days on / 2 days off</div>
+      </div>
+      <div class="divider"></div>
+      <div class="sup-timing">
+        <span class="sup-icon">⏳</span>
+        <div class="sup-detail"><strong>Epitalon:</strong> 10-20 day cycle, twice per year</div>
+      </div>
+      <div class="divider"></div>
+      <div class="sup-timing">
+        <span class="sup-icon">🧟</span>
+        <div class="sup-detail"><strong>Senolytics:</strong> 2 days/month — pulse only</div>
       </div>
       <div class="divider"></div>
       <div class="sup-timing">
         <span class="sup-icon">✅</span>
-        <div class="sup-detail">
-          <strong>No cycling needed:</strong> Supplements, GLOW, Semax, Bromantane, Noopept, DSIP, Retatrutide
-        </div>
+        <div class="sup-detail"><strong>No cycling needed:</strong> NMN, Resveratrol, Omega-3, D3/K2, Creatine, Zinc, Boron, CoQ10, Alpha-GPC, Lion's Mane, Uridine, NAC, Ca-AKG, Collagen, Apigenin, all sleep supps, BPC-157, MOTS-c, Semax, GLOW, DSIP, Retatrutide</div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ FOOTER ═══════ -->
+  <!-- ═══════════════════════════════════ -->
+  <!-- WHAT GOT CUT                        -->
+  <!-- ═══════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">🪓 What Got Cut</div>
+
+    <div class="cut-card">
+      <div class="cut-name">PQQ (20mg)</div>
+      <div class="cut-reason">Thin evidence. Studies are tiny. CoQ10 covers mitochondria better.</div>
+    </div>
+
+    <div class="cut-card">
+      <div class="cut-name">CDP-Choline (300mg)</div>
+      <div class="cut-reason">Redundant — Alpha-GPC already covers choline needs.</div>
+    </div>
+
+    <div class="cut-card">
+      <div class="cut-name">Liposomal Curcumin (500mg)</div>
+      <div class="cut-reason">Anti-inflammatory is redundant with Omega-3 at 4g. Bioavailability still questionable.</div>
+    </div>
+
+    <div class="cut-card">
+      <div class="cut-name">Spermidine (10mg)</div>
+      <div class="cut-reason">Autophagy data mostly from food sources. Supplement evidence too thin for the price.</div>
+    </div>
+
+    <div class="cut-card">
+      <div class="cut-name">Fisetin (daily 200mg)</div>
+      <div class="cut-reason">Senolytics work as pulse, not daily. Moved to monthly protocol where it belongs.</div>
+    </div>
+
+    <div class="cut-card">
+      <div class="cut-name">Noopept, Dihexa</div>
+      <div class="cut-reason">9-Me-BC + Bromantane + Semax already cover cognitive/dopamine. Dihexa is too experimental at scale. Noopept is redundant with this stack.</div>
+    </div>
+
+    <div class="cut-card">
+      <div class="cut-name">SS-31, Humanin, NSI-189, P21, ISRIB, 5-amino-1MQ</div>
+      <div class="cut-reason">Cutting edge ≠ ready. Insufficient human data. Revisit in 2027.</div>
+    </div>
+
+    <div class="cut-card">
+      <div class="cut-name">Taurine (morning dose)</div>
+      <div class="cut-reason">GABAergic = nighttime compound. Moved entirely to sleep stack.</div>
+    </div>
+
+    <div class="cut-card">
+      <div class="cut-name">IM8 Daily Ultimate Multi</div>
+      <div class="cut-reason">Every vitamin/mineral in it is covered by individual compounds at better doses. Multis are a tax on people who don't optimize.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- FOOTER                              -->
+  <!-- ═══════════════════════════════════ -->
   <div class="footer">
-    <p class="footer-note">Built by Asis ⚗️ — optimized for maximum absorption, minimum interference. Every item fought for its life to be here.</p>
+    <p class="footer-note">Every compound fought for its life. 9 got cut. 0 filler remaining.<br><br>Built by Asis ⚗️</p>
   </div>
 
 </div>

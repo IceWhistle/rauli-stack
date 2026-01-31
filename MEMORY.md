@@ -83,10 +83,27 @@
 - Git repo: nuked + clean history (no secrets)
 - All cred files: 600 permissions
 
+## Amazon Verification
+- HTTP status codes are UNRELIABLE for Amazon links — bot detection serves different content to AWS IPs vs real users
+- Some ASINs return 200 but show "dog page" to real users
+- Only trust: real browser testing or user confirmation
+- **The Ordinary ASINs (verified):** HA+B5 B01MYEZPC8, Niacinamide B06VRM8Q1S, Squalane Cleanser B07VHDYJL5, Retinol 0.5% B0789NX2ZV, Buffet B06X3VDS2V, Matrixyl B071J1PBQ6, Rosehip Oil B06XXJ35NL, AHA/BHA Peel B071D4D5DT, Hair Density B0B2WDLQRB
+
+## Habit Tracking Status
+- habits.json: 5 habits tracked, zero completions as of Jan 30
+- daily-intent.json: Only 1 entry (Jan 27)
+- Rauli hasn't actively started logging yet — needs gentle activation
+
+## Disk Management
+- At 76% (4.5GB free) as of Jan 30
+- Schedule cleanup when hits 85%
+- Backups: 138M (acceptable)
+
 ## Quick Fixes
 - **Node reconnect:** `npx clawdbot@latest node run --host 100.90.148.32 --port 18789 --display-name "Rauli-PC"`
+- **Rauli-PC Tailscale IP:** 100.112.71.105 (offline since Jan 29+)
 - **Kimi endpoint:** api.moonshot.ai (NOT .cn)
 - **MyDockFinder:** Best macOS dock for Windows ($5 Steam)
 
 ---
-*Last updated: 2026-01-30*
+*Last updated: 2026-01-31*

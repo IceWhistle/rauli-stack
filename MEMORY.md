@@ -17,9 +17,13 @@
 
 ## Stack (Jan 2026)
 **Base:** IM8 Daily Ultimate ($89/mo subscription, im8health.com)
-**Peptides:** Retatrutide, MT2, GLOW, Semax, DSIP, MOTS-C (Chinese grey market, 70-90% savings vs US)
-**Nootropics:** Bromantane, 9-Me-BC ⚠️, Dihexa, Noopept
+**HRT:** TRT 240mg/week x 3 years. NO HCG — neurosteroid deficient (pregnenolone, DHEA, progesterone all likely bottomed out)
+**New additions (Jan 31):** HCG, Pregnenolone, DHEA, P5P, TUDCA, Citrus Bergamot, Ubiquinol CoQ10, Progesterone cream
+**Peptides:** Retatrutide, MT2, GLOW, Semax, DSIP, MOTS-C, Epitalon (incoming), PT-141 (incoming)
+**Nootropics:** Bromantane, 9-Me-BC ⚠️, Dihexa, Noopept, Methylene Blue (incoming), NSI-189 (incoming)
 **Sleep:** Glycine 10-20g, Mag Glycinate, L-Theanine, MK-677
+**BP:** 111/62, pulse 62 BPM. Genetic low BP family. Retatrutide lowering further. Skip telmisartan at full dose.
+**Skin type:** NORMAL (not oily/acne-prone)
 
 ## S-TIER PROTOCOL v2 (2026-01-28)
 - Comprehensive 45-compound stack (RAULI_S_TIER_PROTOCOL_v2.xlsx)
@@ -71,6 +75,22 @@
 - **Default model:** Opus 4.5 (main + subagents)
 - **Kimi:** Still configured but NOT used for complex tasks
 
+## Girlfriend
+- **Name:** Sabrina
+- **Email:** sabrinadupeiron@gmail.com
+- Emailed her Vitamin Shoppe list (Jan 30): Pregnenolone, DHEA, P5P, Citrus Bergamot, Ubiquinol, Progesterone cream
+
+## SwissChems
+- **Legit domain:** swisschems.is (knockoffs exist)
+- **Coupon codes (from Rauli's email):** WINBACK10 (stacks to 20%), CC10 (10%)
+- **Gmail creds key:** 'appPassword' (not 'password' or 'app_password')
+- Order confirmed Jan 31 ~2:52 AM UTC
+- They carry: peptides, nootropics, supplements, Demoxytocin (oral oxytocin), Telmisartan, NAD+, PQQ, 7,8-DHF, KPV, C60
+
+## Deployed Sites
+- **Main stack:** https://icewhistle.github.io/rauli-stack/ (premium dashboard, 40+ compounds)
+- **Shower protocol:** https://icewhistle.github.io/rauli-stack/shower.html
+
 ## Beauty Stack (Girlfriend)
 - **Live URL:** https://icewhistle.github.io/rauli-stack/beauty.html
 - **GitHub repo:** IceWhistle/rauli-stack (clean history, no secrets)
@@ -106,4 +126,10 @@
 - **MyDockFinder:** Best macOS dock for Windows ($5 Steam)
 
 ---
+## Games
+- Plays Deadlock (Valve) — summarized major balance patch Jan 31
+- Interested in Outward 2 (Summer 2026 release)
+- Interested in me building cheat engine tables when PC connected
+- Outward 1 trainers: FLiNG (23 options), FearLess Revolution (CE tables)
+
 *Last updated: 2026-01-31*

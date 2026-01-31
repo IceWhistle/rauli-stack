@@ -70,6 +70,7 @@
 12. **Curate > Kitchen Sink** — Rauli prefers curated essentials over comprehensive lists (especially for girlfriend)
 13. **Telegram caches files by name** — Rename file or host on URL to bust cache
 14. **GitHub Pages for HTML** — Don't send HTML files via Telegram, host on Pages (icewhistle.github.io/rauli-stack/)
+15. **Ask Before Assuming** — When Rauli asks me to do something, ask relevant questions about him/his situation FIRST if I don't already know the answers. Never assume — gather context, then execute.
 
 ## Config (as of 2026-01-30)
 - **Default model:** Opus 4.5 (main + subagents)

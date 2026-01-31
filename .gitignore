@@ -23,3 +23,4 @@ node_modules/
 deadlock-counter/electron-app/dist/
 deadlock-counter/electron-app/node_modules/
 .kimi-api-key
+assets/

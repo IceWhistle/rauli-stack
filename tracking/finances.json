@@ -3,40 +3,158 @@
   "categories": {
     "supplements": {
       "name": "Supplements & Nootropics",
-      "total": 0,
-      "transactions": []
+      "total": 299.56,
+      "transactions": [
+        {
+          "date": "2026-01-14",
+          "vendor": "Science.bio",
+          "amount": 299.56,
+          "note": "Order SB2962764 (Zelle)",
+          "items": "NA-Semax Amidate, Epitalon, etc."
+        }
+      ]
     },
-    "food": {
-      "name": "Food & Dining",
-      "total": 0,
-      "transactions": []
+    "health": {
+      "name": "Health & Fitness",
+      "total": 248.36,
+      "transactions": [
+        {
+          "date": "2026-01-22",
+          "vendor": "Eight Sleep",
+          "amount": 229.0,
+          "note": "Sleep tech order"
+        },
+        {
+          "date": "2026-01-21",
+          "vendor": "Crunch Cutler Bay",
+          "amount": 19.36,
+          "note": "Gym membership (payment failed - may retry)"
+        }
+      ]
+    },
+    "ai_services": {
+      "name": "AI & Tech Services",
+      "total": 230.64,
+      "transactions": [
+        {
+          "date": "2026-01-25",
+          "vendor": "Anthropic",
+          "amount": 20.0,
+          "note": "API credits"
+        },
+        {
+          "date": "2026-01-25",
+          "vendor": "Anthropic",
+          "amount": 5.0,
+          "note": "API credits"
+        },
+        {
+          "date": "2026-01-25",
+          "vendor": "Anthropic",
+          "amount": 25.0,
+          "note": "API credits"
+        },
+        {
+          "date": "2026-01-25",
+          "vendor": "Anthropic",
+          "amount": 40.0,
+          "note": "API credits"
+        },
+        {
+          "date": "2026-01-25",
+          "vendor": "Anthropic",
+          "amount": 25.0,
+          "note": "API credits"
+        },
+        {
+          "date": "2026-01-26",
+          "vendor": "Anthropic",
+          "amount": 25.0,
+          "note": "API credits"
+        },
+        {
+          "date": "2026-01-26",
+          "vendor": "Anthropic",
+          "amount": 80.65,
+          "note": "API credits (larger top-up)"
+        },
+        {
+          "date": "2026-01-18",
+          "vendor": "GPTinf",
+          "amount": 9.99,
+          "note": "Subscription"
+        }
+      ]
     },
     "gaming": {
       "name": "Gaming & Entertainment",
-      "total": 0,
-      "transactions": []
+      "total": 141.01,
+      "transactions": [
+        {
+          "date": "2026-01-12",
+          "vendor": "Hypixel Studios",
+          "amount": 69.99,
+          "note": "Game purchase (Tebex)"
+        },
+        {
+          "date": "2026-01-27",
+          "vendor": "Steam",
+          "amount": 23.99,
+          "note": "Game purchase"
+        },
+        {
+          "date": "2026-01-13",
+          "vendor": "DatHost",
+          "amount": 14.06,
+          "note": "Game server subscription (~EUR 12.90)"
+        },
+        {
+          "date": "2026-01-21",
+          "vendor": "Wynncraft",
+          "amount": 11.99,
+          "note": "Subscription renewal"
+        },
+        {
+          "date": "2026-01-26",
+          "vendor": "easysbc.io",
+          "amount": 11.99,
+          "note": "Subscription"
+        },
+        {
+          "date": "2026-01-22",
+          "vendor": "Nexus Mods",
+          "amount": 8.99,
+          "note": "Subscription"
+        }
+      ]
     },
     "subscriptions": {
-      "name": "Subscriptions & Services",
-      "total": 0,
-      "transactions": []
+      "name": "Other Subscriptions",
+      "total": 0.19,
+      "transactions": [
+        {
+          "date": "2026-01-24",
+          "vendor": "Driffle",
+          "amount": 0.19,
+          "note": "Game key (EUR 0.19)"
+        }
+      ]
     },
-    "education": {
-      "name": "School & Education",
-      "total": 0,
-      "transactions": []
-    },
-    "health": {
-      "name": "Health & Medical",
-      "total": 0,
-      "transactions": []
-    },
-    "other": {
-      "name": "Other",
-      "total": 0,
-      "transactions": []
+    "legal": {
+      "name": "Legal & Education",
+      "total": 53.33,
+      "transactions": [
+        {
+          "date": "2026-01-01",
+          "vendor": "DUI Advocate Program",
+          "amount": 53.33,
+          "note": "Monthly payment (AKIL31E)"
+        }
+      ]
     }
   },
-  "monthly_totals": {},
-  "notes": "Auto-categorized from email receipts. Monthly summaries provided."
+  "monthly_totals": {
+    "2026-01": 973.09
+  },
+  "notes": "Auto-categorized from email receipts Jan 2026. Crunch gym payment may have failed. NeuroLabs cart was abandoned. Chase declined one purchase. Some amounts approximate (EUR conversions)."
 }

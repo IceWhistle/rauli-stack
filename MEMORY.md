@@ -86,11 +86,18 @@
 - **Coupon codes (from Rauli's email):** WINBACK10 (stacks to 20%), CC10 (10%)
 - **Gmail creds key:** 'appPassword' (not 'password' or 'app_password')
 - Order confirmed Jan 31 ~2:52 AM UTC
-- They carry: peptides, nootropics, supplements, Demoxytocin (oral oxytocin), Telmisartan, NAD+, PQQ, 7,8-DHF, KPV, C60
+- They carry: peptides, nootropics, supplements, Demoxytocin (oral oxytocin), Telmisartan, NAD+, PQQ, 7,8-DHF, KPV, C60, Tesofensine, Enclomiphene, L-Carnitine injectable
+
+## Oxytocin/Demoxytocin
+- Oxytocin: 20-24 IU intranasal, 15-30 min before quality time, 2-3x/week max
+- 2mg vial + 10ml bac water = 100 IU/ml ≈ 10 IU/spray → 1 spray/nostril = 20 IU
+- Demoxytocin: oral capsule, longer half-life, more potent — easier than reconstituting vials
+- ⚠️ Girlfriend must NOT use oxytocin if any chance of pregnancy (induces contractions)
 
 ## Deployed Sites
 - **Main stack:** https://icewhistle.github.io/rauli-stack/ (premium dashboard, 40+ compounds)
 - **Shower protocol:** https://icewhistle.github.io/rauli-stack/shower.html
+- **GitHub Pages source:** /docs on main branch — always deploy to docs/, .nojekyll file required
 
 ## Beauty Stack (Girlfriend)
 - **Live URL:** https://icewhistle.github.io/rauli-stack/beauty.html
@@ -133,4 +140,4 @@
 - Interested in me building cheat engine tables when PC connected
 - Outward 1 trainers: FLiNG (23 options), FearLess Revolution (CE tables)
 
-*Last updated: 2026-01-31*
+*Last updated: 2026-02-01*

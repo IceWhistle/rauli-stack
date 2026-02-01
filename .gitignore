@@ -2,6 +2,8 @@
 .gmail-creds.json
 .gcal-credentials.json
 .gcal-token.json
+.credentials/
+.luna-bot-token
 *.key
 *.pem
 

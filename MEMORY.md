@@ -80,6 +80,7 @@
 - **Name:** Sabrina
 - **Email:** sabrinadupeiron@gmail.com
 - Emailed her Vitamin Shoppe list (Jan 30): Pregnenolone, DHEA, P5P, Citrus Bergamot, Ubiquinol, Progesterone cream
+- **Luna Bot:** @LunaSabisBot (Telegram bot for Sabrina), token at `.luna-bot-token`, personality: nice/friendly/feminine. Pending: full Clawdbot instance vs lightweight setup
 
 ## SwissChems
 - **Legit domain:** swisschems.is (knockoffs exist)
@@ -140,4 +141,4 @@
 - Interested in me building cheat engine tables when PC connected
 - Outward 1 trainers: FLiNG (23 options), FearLess Revolution (CE tables)
 
-*Last updated: 2026-02-01*
+*Last updated: 2026-02-02*

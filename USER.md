@@ -21,10 +21,11 @@
 ## Family & Life
 - Has a beautiful girlfriend (Sabrina - sabrinadupeiron@gmail.com)
 - Has a dog
-- Has a kid with Gladis
+- **Son: Kevin** — with Gladis. Rauli is also Kevin's RBT at school.
+- **Gladis:** Kevin's mom / co-parent. Not Rauli's boss. He worries about her complaining when he misses time.
 - Close with parents (mom & dad)
 - Close with grandparents (grandpa & grandma)
-- **Grandpa:** May be going to hospice (Feb 2026)
+- **Grandpa:** Going to hospice (Feb 2026). Rauli visiting to discuss care with doctors.
 - Lives with roof over head, car, stable job
 
 ## Passions
@@ -51,7 +52,15 @@
 **Sleep:** Glycine 10g, Mag Glycinate 600mg, Taurine 3g, L-Theanine 200-400mg, DSIP, MK-677
 **HRT:** Exogenous testosterone — T boosters (Tongkat, Ashwagandha, Boron) are redundant
 
-**Note:** Bromantane should be 50mg max, not 100mg. High dose interfering with sleep.
+**Note:** Bromantane should be 25-40mg max, not 100mg. Was taking 100mg — caused severe sleep disruption. Now taking 40mg morning only.
+**Note:** Dehydration also contributing to poor sleep. Needs 1 gallon water/day minimum.
+
+## Peptide Sourcing (Feb 2026)
+- **Ordered:** Retatrutide 20mg from ERP US Warehouse ($169 + $20 shipping, USPS Ground Advantage)
+- **Top vendors:** ERP US Warehouse (crypto), Nexaph (credit cards), Skye Peptides (premium)
+- **Got scammed $250** by MIX Discord impersonator — never trust Discord DMs for vendor orders
+- **GLP1 Forum account:** OptimizedRauli (email confirmation pending)
+- **Accounts created:** Nexaph, Skye Peptides, GLP1 Forum
 
 ## Boundaries
 - ❌ Will NOT do quizzes/tests (academic integrity)
@@ -90,7 +99,13 @@
 - **Strategy:** Miranda suppression motion planned
 
 ## Security Incidents
-- **Feb 2026:** Got scammed $250 by MIX Discord impersonator
+- **Feb 2026:** Got scammed $250 by MIX Discord impersonator (bot sends usernames to fake reps who collect payment)
+- Official MIX Discord: https://discord.gg/e4baCjqRtf — ONLY trust forum-verified reps
+
+## Gaming (Feb 2026)
+- Playing: No Rest for the Wicked (wants CE table), Deadlock
+- Likes: Time sink games, competitive games
+- Rig: 9800X3D + 9070 XT (beast)
 
 ---
 *Last updated: 2026-01-26*

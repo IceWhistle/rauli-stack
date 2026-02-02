@@ -2,9 +2,11 @@
 
 ## Rauli
 - **Telegram:** @raulurbay (ID: 7687573370)
-- **Timezone:** EST | **Email:** rauliurbay@gmail.com
+- **Timezone:** EST | **Email:** rauliurbay@gmail.com | **Alt:** raulioptimized@gmail.com
+- **Phone:** 305-315-5009 | **Address:** 21121 SW 130th Court, Miami, FL 33177
 - **Work:** RBT | **Student:** Canvas LMS
 - **Faith:** Devoted Christian
+- **GLP1 Forum:** OptimizedRauli
 
 ## Boundaries
 - ❌ Quizzes/tests | ❌ Autonomous purchases
@@ -19,8 +21,8 @@
 **Base:** IM8 Daily Ultimate ($89/mo subscription, im8health.com)
 **HRT:** TRT 240mg/week x 3 years. NO HCG — neurosteroid deficient (pregnenolone, DHEA, progesterone all likely bottomed out)
 **New additions (Jan 31):** HCG, Pregnenolone, DHEA, P5P, TUDCA, Citrus Bergamot, Ubiquinol CoQ10, Progesterone cream
-**Peptides:** Retatrutide, MT2, GLOW, Semax, DSIP, MOTS-C, Epitalon (incoming), PT-141 (incoming)
-**Nootropics:** Bromantane, 9-Me-BC ⚠️, Dihexa, Noopept, Methylene Blue (incoming), NSI-189 (incoming)
+**Peptides:** Retatrutide (ordered from ERP US warehouse), MT2, GLOW, Semax, DSIP, MOTS-C, Epitalon (incoming), PT-141 (incoming)
+**Nootropics:** Bromantane (50mg recommended, was taking 100mg causing sleep issues), 9-Me-BC ⚠️, Dihexa, Noopept, Methylene Blue (incoming), NSI-189 (incoming)
 **Sleep:** Glycine 10-20g, Mag Glycinate, L-Theanine, MK-677
 **BP:** 111/62, pulse 62 BPM. Genetic low BP family. Retatrutide lowering further. Skip telmisartan at full dose.
 **Skin type:** NORMAL (not oily/acne-prone)
@@ -43,11 +45,14 @@
 
 ## DUI Case
 - Case: 25-MM-4068-AM-C-Urbay
+- **License:** Business Purpose Only (due to DUI)
 - Status: Discovery phase, Miranda motion planned
 - **Advocate Program:** DUI School Case #AKIL31E, $53.33/mo payment plan
 
 ## Family
-- **Grandpa:** Hospitalized (Jan 2026), family coordinating overnight care
+- **Girlfriend:** Sabrina (sabrinadupeiron@gmail.com)
+- **Kid:** With Gladis
+- **Grandpa:** Hospitalized (Jan 2026), may be going to hospice (Feb 2026)
 - **HHA billing:** Cannot bill hours while patient hospitalized (homebound only)
 - **Gladis:** Family contact for HHA coordination
 
@@ -75,6 +80,11 @@
 ## Config (as of 2026-01-30)
 - **Default model:** Opus 4.5 (main + subagents)
 - **Kimi:** Still configured but NOT used for complex tasks
+
+## Security
+- **Feb 2026:** Rauli got scammed $250 by MIX Discord impersonator
+- **Lesson:** Always verify Discord DMs, scammers impersonate official accounts
+- **Action:** More cautious with crypto/Discord transactions
 
 ## Girlfriend
 - **Name:** Sabrina

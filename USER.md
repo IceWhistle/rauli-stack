@@ -5,7 +5,11 @@
 - **Telegram:** @raulurbay (ID: 7687573370)
 - **Timezone:** EST (Eastern Standard Time)
 - **Location:** Miami, Florida
+- **Address:** 21121 SW 130th Court, Miami, FL 33177
+- **Phone:** 305-315-5009
 - **Email:** rauliurbay@gmail.com
+- **Alt Gmail:** raulioptimized@gmail.com (created Feb 2026)
+- **GLP1 Forum:** OptimizedRauli
 
 ## Identity
 - **Faith:** Devoted Christian — loves Jesus Christ deeply. Prays the Lord's Prayer daily.
@@ -15,10 +19,12 @@
 - **Gamer:** Plays Valve's Deadlock
 
 ## Family & Life
-- Has a beautiful girlfriend
+- Has a beautiful girlfriend (Sabrina - sabrinadupeiron@gmail.com)
 - Has a dog
+- Has a kid with Gladis
 - Close with parents (mom & dad)
 - Close with grandparents (grandpa & grandma)
+- **Grandpa:** May be going to hospice (Feb 2026)
 - Lives with roof over head, car, stable job
 
 ## Passions
@@ -39,11 +45,13 @@
 **Base:** IM8 Daily Ultimate multi
 **Morning:** D3 20,000-30,000 IU + K2 (MK-7) 200-400mcg, Omega-3 2g EPA/DHA, Creatine 5g, Zinc 15-30mg extra, Boron 9mg
 **Afternoon (optional):** Alpha-GPC 600mg, NAC 600-1200mg
-**Peptides:** Retatrutide, MT2, GLOW (BPC+TB500+GHK-Cu), Semax, DSIP, MOTS-C
-**Nootropics:** Bromantane, 9-Me-BC, Dihexa, Noopept
+**Peptides:** Retatrutide (ordered from ERP US warehouse), MT2, GLOW (BPC+TB500+GHK-Cu), Semax, DSIP, MOTS-C
+**Nootropics:** Bromantane (100mg - TOO HIGH, causing sleep issues), 9-Me-BC, Dihexa, Noopept
 **Incoming:** Flmodafinil, NA-Semax Amidate 30mg, Epitalon 100mg (Science.bio)
 **Sleep:** Glycine 10g, Mag Glycinate 600mg, Taurine 3g, L-Theanine 200-400mg, DSIP, MK-677
 **HRT:** Exogenous testosterone — T boosters (Tongkat, Ashwagandha, Boron) are redundant
+
+**Note:** Bromantane should be 50mg max, not 100mg. High dose interfering with sleep.
 
 ## Boundaries
 - ❌ Will NOT do quizzes/tests (academic integrity)
@@ -69,6 +77,7 @@
 
 ## Current Legal Situation
 - **DUI Case:** 25-MM-4068-AM-C-Urbay
+- **Driver's License:** Business Purpose Only (due to DUI case)
 - **Advocate Program:** DUI School, Case #AKIL31E
   - Enrolled Dec 2025
   - Payment plan: $53.33/mo, balance $290
@@ -79,6 +88,9 @@
 - **Status:** Discovery phase, attorney consultation
 - **Evidence Analyzed:** 2+ hours video, all audio extracted
 - **Strategy:** Miranda suppression motion planned
+
+## Security Incidents
+- **Feb 2026:** Got scammed $250 by MIX Discord impersonator
 
 ---
 *Last updated: 2026-01-26*

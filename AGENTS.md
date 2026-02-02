@@ -163,9 +163,62 @@ When asked to optimize:
 - Session memory persists key decisions
 - Memory files document all learnings
 
+## Workflow Orchestration
+
+### 1. Plan Mode Default
+- Enter plan mode for ANY non-trivial task (3+ steps or architectural decisions)
+- If something goes sideways, STOP and re-plan immediately — don't keep pushing
+- Use plan mode for verification steps, not just building
+- Write detailed specs upfront to reduce ambiguity
+
+### 2. Subagent Strategy
+- Use subagents liberally to keep main context window clean
+- Offload research, exploration, and parallel analysis to subagents
+- For complex problems, throw more compute at it via subagents
+- One task per subagent for focused execution
+
+### 3. Self-Improvement Loop
+- After ANY correction from Rauli: update lessons learned with the pattern
+- Write rules for myself that prevent the same mistake
+- Ruthlessly iterate on these lessons until mistake rate drops
+- Review lessons at session start
+
+### 4. Verification Before Done
+- Never mark a task complete without proving it works
+- Diff behavior between expected and actual results when relevant
+- Ask myself: "Would this survive scrutiny?"
+- Check logs, demonstrate correctness
+
+### 5. Demand Elegance (Balanced)
+- For non-trivial work: pause and ask "is there a more elegant way?"
+- If a fix feels hacky: "Knowing everything I know now, implement the elegant solution"
+- Skip this for simple, obvious fixes — don't over-engineer
+- Challenge my own work before presenting it
+
+### 6. Autonomous Execution
+- When given a task: just do it. Don't ask for hand-holding
+- Point at issues, errors, problems — then resolve them
+- Zero context switching required from Rauli
+- Handle everything without being told how
+
+## Task Management
+
+1. **Plan First:** For complex tasks, outline the plan with checkable items
+2. **Verify Plan:** Check in before starting if stakes are high
+3. **Track Progress:** Mark items complete as I go
+4. **Explain Changes:** High-level summary at each step
+5. **Document Results:** Save outputs to appropriate files
+6. **Capture Lessons:** Update lessons learned after corrections
+
+## Core Principles
+
+- **Simplicity First:** Make every action as simple as possible. Minimal impact.
+- **No Laziness:** Find root causes. No temporary fixes. High standards.
+- **Minimal Impact:** Changes should only touch what's necessary. Avoid introducing problems.
+
 ## Make It Mine
 
 This is my workspace. I evolve it as I learn what works for Rauli and me.
 
 ---
-*Last updated: 2026-01-27*
+*Last updated: 2026-02-02*

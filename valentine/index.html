@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 A Special Message</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #1a0a2e;
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1b69 50%, #1a0a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Georgia', serif;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+        .hearts-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .heart-float {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp linear infinite;
+            opacity: 0.3;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 20px;
+            max-width: 400px;
+        }
+        .minion-img {
+            width: 200px;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 30px rgba(255, 100, 150, 0.3);
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(255, 100, 150, 0.5);
+            line-height: 1.4;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
+            position: relative;
+        }
+        .btn-yes {
+            background: linear-gradient(135deg, #ff4b8a, #ff6b9d);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            box-shadow: 0 4px 20px rgba(255, 75, 138, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-yes:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(255, 75, 138, 0.6);
+        }
+        .btn-no {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 15px 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            position: absolute;
+            transition: none;
+        }
+        .signature {
+            margin-top: 30px;
+            font-style: italic;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        /* Yes screen */
+        .yes-screen {
+            display: none;
+            text-align: center;
+            z-index: 10;
+            padding: 20px;
+        }
+        .yes-screen h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ff6b9d;
+        }
+        .yes-screen p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        .yes-screen .big-heart {
+            font-size: 80px;
+            animation: pulse 1s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .confetti {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            animation: confettiFall linear forwards;
+        }
+        @keyframes confettiFall {
+            0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <div class="container" id="askScreen">
+        <img src="https://pngimg.com/d/minions_PNG79.png" alt="Minion with heart" class="minion-img" id="minionImg" onerror="this.src='https://www.pngmart.com/files/1/Minions-PNG-HD.png'">
+        <h1>Will you be my Valentine? 💕</h1>
+        <div class="buttons">
+            <button class="btn-yes" onclick="sayYes()">Yes 💖</button>
+            <button class="btn-no" id="noBtn" onmouseover="runAway()" ontouchstart="runAway()">No</button>
+        </div>
+        <div class="signature">- Love, Rauli ❤️</div>
+    </div>
+
+    <div class="yes-screen" id="yesScreen">
+        <div class="big-heart">❤️</div>
+        <h1>I knew you'd say yes! 🥰</h1>
+        <p>You just made me the happiest guy ever 💕</p>
+        <div class="signature">- Love, Rauli ❤️</div>
+    </div>
+
+    <div class="confetti" id="confetti"></div>
+
+    <script>
+        // Floating hearts background
+        const heartsBg = document.getElementById('heartsBg');
+        const heartEmojis = ['❤️', '💕', '💖', '💗', '💓', '🌹'];
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart-float';
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (5 + Math.random() * 10) + 's';
+            heart.style.animationDelay = Math.random() * 10 + 's';
+            heart.style.fontSize = (15 + Math.random() * 20) + 'px';
+            heartsBg.appendChild(heart);
+        }
+
+        // No button escape
+        const noBtn = document.getElementById('noBtn');
+        const noTexts = ["No", "Are you sure?", "Really sure?", "Think again!", "Pls? 🥺", "Don't do this 😢", "I'll cry 😭", "You're breaking my heart 💔", "Last chance!", "Pretty please? 🙏"];
+        let noCount = 0;
+
+        function runAway() {
+            noCount++;
+            if (noCount < noTexts.length) {
+                noBtn.textContent = noTexts[noCount];
+            }
+            
+            const container = document.querySelector('.container');
+            const rect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+            
+            let newX, newY;
+            const maxAttempts = 50;
+            let attempts = 0;
+            
+            do {
+                newX = Math.random() * (window.innerWidth - btnRect.width - 40) + 20;
+                newY = Math.random() * (window.innerHeight - btnRect.height - 40) + 20;
+                attempts++;
+            } while (attempts < maxAttempts);
+
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = newX + 'px';
+            noBtn.style.top = newY + 'px';
+            noBtn.style.zIndex = '100';
+        }
+
+        function sayYes() {
+            document.getElementById('askScreen').style.display = 'none';
+            document.getElementById('yesScreen').style.display = 'block';
+            launchConfetti();
+        }
+
+        function launchConfetti() {
+            const confetti = document.getElementById('confetti');
+            const colors = ['#ff4b8a', '#ff6b9d', '#ffb6c1', '#ff69b4', '#ff1493', '#ffd700', '#ff6347'];
+            
+            for (let i = 0; i < 100; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                piece.style.left = Math.random() * 100 + '%';
+                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.animationDuration = (2 + Math.random() * 3) + 's';
+                piece.style.animationDelay = Math.random() * 2 + 's';
+                piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                piece.style.width = (5 + Math.random() * 10) + 'px';
+                piece.style.height = (5 + Math.random() * 10) + 'px';
+                confetti.appendChild(piece);
+            }
+        }
+    </script>
+</body>
+</html>

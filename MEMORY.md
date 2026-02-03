@@ -23,7 +23,7 @@
 **New additions (Jan 31):** HCG, Pregnenolone, DHEA, P5P, TUDCA, Citrus Bergamot, Ubiquinol CoQ10, Progesterone cream
 **Peptides:** Retatrutide (ordered from ERP US warehouse), MT2, GLOW, Semax, DSIP, MOTS-C, Epitalon (incoming), PT-141 (incoming)
 **Nootropics:** Bromantane (50mg recommended, was taking 100mg causing sleep issues), 9-Me-BC ⚠️, Dihexa, Noopept, Methylene Blue (incoming), NSI-189 (incoming)
-**Sleep:** Glycine 10-20g, Mag Glycinate, L-Theanine, MK-677
+**Sleep:** Glycine 10g, Mag Glycinate, Taurine 3g (GABA agonist), L-Theanine, MK-677 + hydration (1 gal/day min)
 **BP:** 111/62, pulse 62 BPM. Genetic low BP family. Retatrutide lowering further. Skip telmisartan at full dose.
 **Skin type:** NORMAL (not oily/acne-prone)
 
@@ -46,19 +46,20 @@
 ## DUI Case
 - Case: 25-MM-4068-AM-C-Urbay
 - **License:** Business Purpose Only (due to DUI)
+- BPO license DOES cover driving to hospital/medical (FL Statute 322.271)
 - Status: Discovery phase, Miranda motion planned
 - **Advocate Program:** DUI School Case #AKIL31E, $53.33/mo payment plan
 
 ## Family
 - **Girlfriend:** Sabrina (sabrinadupeiron@gmail.com)
-- **Kid:** With Gladis
+- **Son:** Kevin — with Gladis (co-parent, not boss/supervisor)
 - **Grandpa:** Hospitalized (Jan 2026), may be going to hospice (Feb 2026)
 - **HHA billing:** Cannot bill hours while patient hospitalized (homebound only)
-- **Gladis:** Family contact for HHA coordination
+- **Gladis:** Kevin's mom, family contact for HHA coordination. Rauli worries about her complaining when he misses time.
 
 ## Work
 - **RBT:** 9 AM - 2 PM weekdays
-- **Kevin:** One of his clients (special needs)
+- **Kevin:** Rauli's son AND his RBT client at school (dual role)
 
 ## Hard-Learned Rules
 1. **UI-First** — If app has settings UI, use it before scripting
@@ -151,4 +152,4 @@
 - Interested in me building cheat engine tables when PC connected
 - Outward 1 trainers: FLiNG (23 options), FearLess Revolution (CE tables)
 
-*Last updated: 2026-02-02*
+*Last updated: 2026-02-03*

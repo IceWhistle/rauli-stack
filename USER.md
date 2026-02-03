@@ -22,7 +22,7 @@
 - Has a beautiful girlfriend (Sabrina - sabrinadupeiron@gmail.com)
 - Has a dog
 - **Son: Kevin** — with Gladis. Rauli is also Kevin's RBT at school.
-- **Gladis:** Kevin's mom / co-parent. Not Rauli's boss. He worries about her complaining when he misses time.
+- **Gladis:** Kevin's mom — Rauli is Kevin's RBT (she's his client's parent, NOT Rauli's co-parent). He worries about her complaining when he misses time.
 - Close with parents (mom & dad)
 - Close with grandparents (grandpa & grandma)
 - **Grandpa:** Going to hospice (Feb 2026). Rauli visiting to discuss care with doctors.
@@ -81,7 +81,7 @@
 
 ## Family
 - **Grandpa:** Hospitalized (Jan 2026) — family arranging overnight care
-- **Gladis:** Family contact re: grandpa's HHA situation
+- **Gladis:** Kevin's mom (client's parent) — NOT family, NOT co-parent
 - **Mom:** Looking into overnight hospital sitters for grandpa
 
 ## Current Legal Situation

@@ -45,11 +45,10 @@
             max-width: 400px;
         }
         .minion-img {
-            width: 200px;
+            width: 180px;
             height: auto;
             border-radius: 15px;
             margin-bottom: 20px;
-            box-shadow: 0 0 30px rgba(255, 100, 150, 0.3);
         }
         h1 {
             font-size: 28px;
@@ -57,12 +56,13 @@
             text-shadow: 0 0 20px rgba(255, 100, 150, 0.5);
             line-height: 1.4;
         }
-        .buttons {
+        .btn-row {
             display: flex;
-            gap: 30px;
+            flex-direction: row;
+            gap: 20px;
             justify-content: center;
             align-items: center;
-            min-height: 80px;
+            margin-top: 10px;
         }
         .btn-yes {
             background: linear-gradient(135deg, #ff4b8a, #ff6b9d);
@@ -89,7 +89,6 @@
             border-radius: 50px;
             cursor: pointer;
             font-family: 'Georgia', serif;
-            transition: none;
         }
         .signature {
             margin-top: 30px;
@@ -97,7 +96,6 @@
             font-size: 16px;
             opacity: 0.8;
         }
-        /* Yes screen */
         .yes-screen {
             display: none;
             text-align: center;
@@ -121,18 +119,13 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.2); }
         }
-        .confetti {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 5;
-        }
         .confetti-piece {
-            position: absolute;
+            position: fixed;
             width: 10px;
             height: 10px;
             top: -10px;
+            pointer-events: none;
+            z-index: 50;
             animation: confettiFall linear forwards;
         }
         @keyframes confettiFall {
@@ -145,11 +138,11 @@
     <div class="hearts-bg" id="heartsBg"></div>
 
     <div class="container" id="askScreen">
-        <img src="https://pngimg.com/d/minions_PNG79.png" alt="Minion with heart" class="minion-img" id="minionImg" onerror="this.src='https://www.pngmart.com/files/1/Minions-PNG-HD.png'">
+        <img src="https://media.tenor.com/LUriLLOca78AAAAd/minion-heart.gif" alt="Minion with heart" class="minion-img">
         <h1>Will you be my Valentine? 💕</h1>
-        <div class="buttons">
+        <div class="btn-row">
             <button class="btn-yes" onclick="sayYes()">Yes 💖</button>
-            <button class="btn-no" id="noBtn" onmouseover="runAway()" ontouchstart="runAway()">No</button>
+            <button class="btn-no" id="noBtn">No</button>
         </div>
         <div class="signature">- Love, Rauli ❤️</div>
     </div>
@@ -161,10 +154,8 @@
         <div class="signature">- Love, Rauli ❤️</div>
     </div>
 
-    <div class="confetti" id="confetti"></div>
-
     <script>
-        // Floating hearts background
+        // Floating hearts
         const heartsBg = document.getElementById('heartsBg');
         const heartEmojis = ['❤️', '💕', '💖', '💗', '💓', '🌹'];
         for (let i = 0; i < 20; i++) {
@@ -178,47 +169,36 @@
             heartsBg.appendChild(heart);
         }
 
-        // No button escape
+        // No button
         const noBtn = document.getElementById('noBtn');
         const noTexts = ["No", "Are you sure?", "Really sure?", "Think again!", "Pls? 🥺", "Don't do this 😢", "I'll cry 😭", "You're breaking my heart 💔", "Last chance!", "Pretty please? 🙏"];
         let noCount = 0;
 
-        function runAway() {
+        function moveNoBtn() {
             noCount++;
             if (noCount < noTexts.length) {
                 noBtn.textContent = noTexts[noCount];
             }
-            
-            const container = document.querySelector('.container');
-            const rect = container.getBoundingClientRect();
-            const btnRect = noBtn.getBoundingClientRect();
-            
-            let newX, newY;
-            const maxAttempts = 50;
-            let attempts = 0;
-            
-            do {
-                newX = Math.random() * (window.innerWidth - btnRect.width - 40) + 20;
-                newY = Math.random() * (window.innerHeight - btnRect.height - 40) + 20;
-                attempts++;
-            } while (attempts < maxAttempts);
-
+            const x = Math.random() * (window.innerWidth - 150);
+            const y = Math.random() * (window.innerHeight - 60);
             noBtn.style.position = 'fixed';
-            noBtn.style.left = newX + 'px';
-            noBtn.style.top = newY + 'px';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
             noBtn.style.zIndex = '100';
         }
+
+        noBtn.addEventListener('click', moveNoBtn);
+        noBtn.addEventListener('mouseover', moveNoBtn);
+        noBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            moveNoBtn();
+        });
 
         function sayYes() {
             document.getElementById('askScreen').style.display = 'none';
             document.getElementById('yesScreen').style.display = 'block';
-            launchConfetti();
-        }
-
-        function launchConfetti() {
-            const confetti = document.getElementById('confetti');
+            // Confetti
             const colors = ['#ff4b8a', '#ff6b9d', '#ffb6c1', '#ff69b4', '#ff1493', '#ffd700', '#ff6347'];
-            
             for (let i = 0; i < 100; i++) {
                 const piece = document.createElement('div');
                 piece.className = 'confetti-piece';
@@ -229,7 +209,7 @@
                 piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
                 piece.style.width = (5 + Math.random() * 10) + 'px';
                 piece.style.height = (5 + Math.random() * 10) + 'px';
-                confetti.appendChild(piece);
+                document.body.appendChild(piece);
             }
         }
     </script>

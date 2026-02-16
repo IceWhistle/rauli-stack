@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Beauty Stack ✨</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #1a0a10;
+  color: #f0e0e8;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 48px 20px 64px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #f8a4c8, #e8779a, #f8a4c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+
+.intro {
+  color: #b08898;
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.section {
+  margin-bottom: 36px;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #e8779a;
+  margin-bottom: 14px;
+  padding-left: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, #e8779a33, transparent);
+}
+
+.product-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: linear-gradient(135deg, #1f0f18, #241220);
+  border: 1px solid #e8779a18;
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+}
+
+.product-link:hover {
+  background: linear-gradient(135deg, #2a1420, #301828);
+  border-color: #e8779a33;
+  transform: translateY(-1px);
+}
+
+.product-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.product-name {
+  font-weight: 500;
+  font-size: 15px;
+  flex: 1;
+  min-width: 0;
+}
+
+.product-price {
+  color: #f8a4c8;
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.product-desc {
+  color: #907080;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* Schedule section */
+.schedule-card {
+  background: linear-gradient(135deg, #1f0f18, #241220);
+  border: 1px solid #e8779a18;
+  border-radius: 16px;
+  padding: 20px 18px;
+  margin-bottom: 8px;
+}
+
+.schedule-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #f8a4c8;
+  margin-bottom: 14px;
+}
+
+.step {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.step-num {
+  background: #e8779a22;
+  color: #f8a4c8;
+  font-weight: 600;
+  font-size: 11px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.step-text {
+  font-size: 14px;
+  color: #d0b8c4;
+  line-height: 1.5;
+}
+
+.step-text strong {
+  color: #f0e0e8;
+  font-weight: 500;
+}
+
+.step-note {
+  font-size: 12px;
+  color: #806070;
+  font-style: italic;
+}
+
+.divider {
+  height: 1px;
+  background: #e8779a15;
+  margin: 12px 0;
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 14px;
+  font-size: 13px;
+}
+
+.week-day {
+  color: #f8a4c8;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.week-routine {
+  color: #b08898;
+  font-size: 13px;
+}
+
+.pill {
+  display: inline-block;
+  background: #e8779a18;
+  color: #f8a4c8;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-right: 4px;
+}
+
+.sup-timing {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.sup-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.sup-detail {
+  font-size: 13px;
+  color: #b08898;
+  line-height: 1.6;
+}
+
+.sup-detail strong {
+  color: #d0b8c4;
+  font-weight: 500;
+}
+
+.tip-box {
+  background: #e8779a0d;
+  border-left: 3px solid #e8779a44;
+  border-radius: 0 12px 12px 0;
+  padding: 14px 16px;
+  margin-top: 12px;
+}
+
+.tip-box p {
+  font-size: 13px;
+  color: #b08898;
+  line-height: 1.6;
+}
+
+.tip-label {
+  color: #f8a4c8;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid #e8779a18;
+  text-align: center;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.total-label {
+  color: #907080;
+  font-size: 14px;
+}
+
+.total-price {
+  color: #f8a4c8;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.footer-note {
+  color: #604050;
+  font-size: 12px;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+.heart {
+  color: #e8779a;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>Your Beauty Stack ✨</h1>
+    <p class="intro">A complete daily routine for glowing skin, strong hair, and radiance from the inside out. Tap any product to view on Amazon.</p>
+  </header>
+
+  <!-- ═══════ MORNING PRODUCTS ═══════ -->
+  <section class="section">
+    <div class="section-title">☀️ Morning</div>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B01MSSDEPK" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">CeraVe Hydrating Cleanser</span>
+        <span class="product-price">$16</span>
+      </div>
+      <div class="product-desc">Gentle, ceramide-rich face wash</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B0036BI56G" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">Timeless Vitamin C 20%</span>
+        <span class="product-price">$23</span>
+      </div>
+      <div class="product-desc">Brightening antioxidant serum — apply first on bare skin</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B06VRM8Q1S" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">The Ordinary Niacinamide 10%</span>
+        <span class="product-price">$6</span>
+      </div>
+      <div class="product-desc">Minimizes pores, controls oil — wait 1 min after Vit C</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B002MSN3QQ" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">EltaMD UV Clear SPF 46</span>
+        <span class="product-price">$37</span>
+      </div>
+      <div class="product-desc">Lightweight sunscreen — always last step</div>
+    </a>
+  </section>
+
+  <!-- ═══════ MORNING ROUTINE ═══════ -->
+  <section class="section">
+    <div class="schedule-card">
+      <div class="schedule-title">☀️ Morning Routine</div>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Cleanse</strong> — CeraVe Hydrating Cleanser</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Vitamin C</strong> — Timeless serum on bare skin<br><span class="step-note">Low pH — needs to go on first for absorption</span></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Niacinamide</strong> — wait ~1 minute after Vit C<br><span class="step-note">Some tingling is normal</span></div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>Sunscreen</strong> — EltaMD SPF 46, every single morning<br><span class="step-note">Even on cloudy days. This is the #1 anti-aging step.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ NIGHT PRODUCTS ═══════ -->
+  <section class="section">
+    <div class="section-title">🌙 Night</div>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B07VHDYJL5" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">The Ordinary Squalane Cleanser</span>
+        <span class="product-price">$9</span>
+      </div>
+      <div class="product-desc">Oil cleanser — melts off sunscreen & makeup</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B00949CTQQ" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">Paula's Choice 2% BHA</span>
+        <span class="product-price">$35</span>
+      </div>
+      <div class="product-desc">Chemical exfoliant — use on BHA nights only</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B0789NX2ZV" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">The Ordinary Retinol 0.5%</span>
+        <span class="product-price">$8</span>
+      </div>
+      <div class="product-desc">Anti-aging gold standard — use on Retinol nights only</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B06X3VDS2V" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">The Ordinary Buffet</span>
+        <span class="product-price">$17</span>
+      </div>
+      <div class="product-desc">Multi-peptide serum — pairs with Retinol, never with acids</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B00TTD9BRC" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">CeraVe Moisturizing Cream</span>
+        <span class="product-price">$19</span>
+      </div>
+      <div class="product-desc">Rich barrier-repair moisturizer — every night</div>
+    </a>
+  </section>
+
+  <!-- ═══════ NIGHT ROUTINES ═══════ -->
+  <section class="section">
+    <div class="schedule-card">
+      <div class="schedule-title">🌙 Night A — BHA Night</div>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Double Cleanse</strong> — Squalane Cleanser → CeraVe Cleanser</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>BHA</strong> — Paula's Choice on dry skin<br><span class="step-note">Wait 2–3 minutes to let it work</span></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Moisturize</strong> — CeraVe Cream to seal it in</div>
+      </div>
+      <div class="tip-box">
+        <div class="tip-label">⚠️ Don't mix</div>
+        <p>Never use BHA + Retinol on the same night. It strips the moisture barrier and causes irritation.</p>
+      </div>
+    </div>
+
+    <div class="schedule-card" style="margin-top: 8px;">
+      <div class="schedule-title">🌙 Night B — Retinol Night</div>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Double Cleanse</strong> — Squalane Cleanser → CeraVe Cleanser</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Retinol</strong> — The Ordinary 0.5% on dry skin<br><span class="step-note">Pea-sized amount. Start 2x/week if new to retinol.</span></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Buffet</strong> — layer on after retinol absorbs (~1 min)</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>Moisturize</strong> — CeraVe Cream to seal it in</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ WEEKLY SCHEDULE ═══════ -->
+  <section class="section">
+    <div class="section-title">📅 Weekly Schedule</div>
+    <div class="schedule-card">
+      <div class="week-grid">
+        <span class="week-day">MON</span>
+        <span class="week-routine"><span class="pill">BHA</span> Night A</span>
+        <span class="week-day">TUE</span>
+        <span class="week-routine"><span class="pill">RETINOL</span> Night B</span>
+        <span class="week-day">WED</span>
+        <span class="week-routine"><span class="pill">BHA</span> Night A</span>
+        <span class="week-day">THU</span>
+        <span class="week-routine"><span class="pill">RETINOL</span> Night B</span>
+        <span class="week-day">FRI</span>
+        <span class="week-routine"><span class="pill">PEEL</span> AHA/BHA 10 min → rinse → moisturize</span>
+        <span class="week-day">SAT</span>
+        <span class="week-routine"><span class="pill">RETINOL</span> Night B</span>
+        <span class="week-day">SUN</span>
+        <span class="week-routine"><span class="pill">REST</span> Just cleanse + moisturize</span>
+      </div>
+      <div class="tip-box">
+        <div class="tip-label">💡 Beginner tip</div>
+        <p>If new to actives, start with BHA 2x/week and Retinol 2x/week. Build up over 3–4 weeks as skin adjusts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ WEEKLY PRODUCT ═══════ -->
+  <section class="section">
+    <div class="section-title">✨ Weekly Treatment</div>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B071D4D5DT" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">The Ordinary AHA 30% + BHA 2%</span>
+        <span class="product-price">$8</span>
+      </div>
+      <div class="product-desc">10-minute resurfacing peel — Friday nights only</div>
+    </a>
+  </section>
+
+  <!-- ═══════ HAIR ═══════ -->
+  <section class="section">
+    <div class="section-title">💇‍♀️ Hair</div>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B07N7PK9QK" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">Mielle Rosemary Mint Oil</span>
+        <span class="product-price">$10</span>
+      </div>
+      <div class="product-desc">Massage into scalp 2–3x/week for growth</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B00SNM5US4" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">Olaplex No.3</span>
+        <span class="product-price">$30</span>
+      </div>
+      <div class="product-desc">Bond repair — apply 1x/week before shampoo, 10+ min</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B000WB1YSE" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">Viviscal</span>
+        <span class="product-price">$40</span>
+      </div>
+      <div class="product-desc">Hair growth supplement — 1 tablet 2x/day with food</div>
+    </a>
+  </section>
+
+  <!-- ═══════ SUPPLEMENTS ═══════ -->
+  <section class="section">
+    <div class="section-title">💊 Supplements</div>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B00K6JUG4K" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">Vital Proteins Collagen</span>
+        <span class="product-price">$43</span>
+      </div>
+      <div class="product-desc">1 scoop in coffee or smoothie — skin elasticity & glow</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B002CQU564" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">Omega-3 Fish Oil</span>
+        <span class="product-price">$18</span>
+      </div>
+      <div class="product-desc">Anti-inflammatory — skin hydration from within</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B002Y27LLS" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">Vitamin D3 5000 IU</span>
+        <span class="product-price">$18</span>
+      </div>
+      <div class="product-desc">Essential for skin repair and immunity</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B00Y8MP4G6" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">Probiotics</span>
+        <span class="product-price">$36</span>
+      </div>
+      <div class="product-desc">Gut-skin axis — clear skin starts from inside</div>
+    </a>
+
+    <a class="product-link" href="https://www.amazon.com/dp/B006X1DCVO" target="_blank" rel="noopener">
+      <div class="product-row">
+        <span class="product-name">Astaxanthin 12mg</span>
+        <span class="product-price">$29</span>
+      </div>
+      <div class="product-desc">Internal UV shield — 6000x stronger than Vit C</div>
+    </a>
+  </section>
+
+  <!-- ═══════ SUPPLEMENT TIMING ═══════ -->
+  <section class="section">
+    <div class="schedule-card">
+      <div class="schedule-title">💊 When To Take Supplements</div>
+      <div class="sup-timing">
+        <span class="sup-icon">🌅</span>
+        <div class="sup-detail">
+          <strong>With breakfast (with fat):</strong><br>
+          D3 · Omega-3 · Astaxanthin · Collagen (in coffee or smoothie)
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="sup-timing">
+        <span class="sup-icon">🕐</span>
+        <div class="sup-detail">
+          <strong>30 min before any meal:</strong><br>
+          Probiotics — empty stomach is ideal for absorption
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="sup-timing">
+        <span class="sup-icon">🌙</span>
+        <div class="sup-detail">
+          <strong>With dinner:</strong><br>
+          Viviscal — 1 tablet with lunch, 1 with dinner
+        </div>
+      </div>
+      <div class="tip-box">
+        <div class="tip-label">💡 Why with fat?</div>
+        <p>D3, Omega-3, and Astaxanthin are fat-soluble — they absorb up to 3x better when taken with a meal containing healthy fats (eggs, avocado, nuts).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <div class="footer">
+    <div class="total-row">
+      <span class="total-label">Estimated monthly cost</span>
+      <span class="total-price">~$140/mo</span>
+    </div>
+    <div class="total-row">
+      <span class="total-label">First-time full stack</span>
+      <span class="total-price">~$374</span>
+    </div>
+    <p class="footer-note">Most products last 2–3 months. Start with Morning + Night basics, then add supplements one at a time over a few weeks. <span class="heart">♥</span></p>
+  </div>
+
+</div>
+</body>
+</html>
